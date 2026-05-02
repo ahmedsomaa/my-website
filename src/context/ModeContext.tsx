@@ -1,11 +1,15 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
 export type UIMode = "polished" | "raw";
+export type Theme = "light" | "dark";
 
 interface ModeCtx {
   mode: UIMode;
   toggle: () => void;
   setMode: (m: UIMode) => void;
+  theme: Theme;
+  toggleTheme: () => void;
+  setTheme: (t: Theme) => void;
 }
 
 const Ctx = createContext<ModeCtx | undefined>(undefined);
@@ -16,6 +20,13 @@ export function ModeProvider({ children }: { children: ReactNode }) {
     return (localStorage.getItem("ui-mode") as UIMode) || "polished";
   });
 
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "light";
+    const stored = localStorage.getItem("ui-theme") as Theme | null;
+    if (stored) return stored;
+    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
   useEffect(() => {
     localStorage.setItem("ui-mode", mode);
     const root = document.documentElement;
@@ -23,8 +34,22 @@ export function ModeProvider({ children }: { children: ReactNode }) {
     root.classList.toggle("polished", mode === "polished");
   }, [mode]);
 
+  useEffect(() => {
+    localStorage.setItem("ui-theme", theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
+
   return (
-    <Ctx.Provider value={{ mode, toggle: () => setMode(mode === "polished" ? "raw" : "polished"), setMode }}>
+    <Ctx.Provider
+      value={{
+        mode,
+        toggle: () => setMode(mode === "polished" ? "raw" : "polished"),
+        setMode,
+        theme,
+        toggleTheme: () => setTheme(theme === "light" ? "dark" : "light"),
+        setTheme,
+      }}
+    >
       {children}
     </Ctx.Provider>
   );

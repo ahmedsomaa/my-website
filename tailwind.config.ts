@@ -25,6 +25,15 @@ export default {
         foreground: "hsl(var(--foreground))",
         "ts-blue": "hsl(var(--ts-blue))",
         "ts-blue-soft": "hsl(var(--ts-blue-soft))",
+        "accent-page": "hsl(var(--accent-page))",
+        brand: {
+          react: "hsl(var(--brand-react))",
+          node: "hsl(var(--brand-node))",
+          ts: "hsl(var(--brand-ts))",
+          css: "hsl(var(--brand-css))",
+          js: "hsl(var(--brand-js))",
+          tailwind: "hsl(var(--brand-tailwind))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

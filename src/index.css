@@ -97,6 +97,15 @@ All colors MUST be HSL.
 
     --ts-blue: 211 70% 60%;
     --ts-blue-soft: 213 30% 14%;
+
+    --accent-page: 211 70% 60%;
+
+    --brand-react: 193 95% 60%;
+    --brand-node: 120 35% 55%;
+    --brand-ts: 211 70% 60%;
+    --brand-css: 215 78% 62%;
+    --brand-js: 53 93% 60%;
+    --brand-tailwind: 189 94% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -121,7 +130,9 @@ All colors MUST be HSL.
 
   h1, h2, h3, .font-display {
     font-family: 'Major Mono Display', ui-monospace, monospace !important;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
+    font-weight: 400;
+    text-transform: lowercase !important;
   }
 }
 
@@ -145,6 +156,34 @@ All colors MUST be HSL.
       linear-gradient(to right, hsl(var(--grid-line) / 0.5) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--grid-line) / 0.5) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  /* Vercel/Next-style radial-fade grid */
+  .grid-vercel {
+    background-image:
+      linear-gradient(to right, hsl(var(--grid-line) / 0.9) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--grid-line) / 0.9) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+  }
+  .grid-vercel-dense {
+    background-image:
+      linear-gradient(to right, hsl(var(--grid-line) / 0.8) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--grid-line) / 0.8) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 30%, transparent 100%);
+            mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 30%, transparent 100%);
+  }
+  .grid-dot {
+    background-image: radial-gradient(hsl(var(--grid-line) / 0.9) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
+  }
+
+  .accent-glow {
+    background: radial-gradient(ellipse 50% 40% at 50% 0%, hsl(var(--accent-page) / 0.18), transparent 70%);
   }
 
   .raw-mode .raw-only { display: block; }
