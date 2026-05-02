@@ -8,13 +8,13 @@ export default function Intro() {
       <div className="grid md:grid-cols-12 gap-10">
         <div className="md:col-span-7 space-y-6 text-sm md:text-base font-mono-pair leading-relaxed">
           <p>
-            I’m a software engineer with <span className="text-foreground">7+ years</span> of experience
+            I’m a software engineer with <span className="text-ts-blue">7+ years</span> of experience
             shipping products across startups and enterprises. I care about typography, taxonomy, and the
             quiet decisions that make interfaces feel inevitable.
           </p>
           <p className="text-muted-foreground">
-            My work sits at the intersection of <span className="text-foreground">design</span> and{" "}
-            <span className="text-foreground">engineering</span>. I write TypeScript that reads like prose,
+            My work sits at the intersection of <span className="text-ts-blue">design</span> and{" "}
+            <span className="text-ts-blue">engineering</span>. I write TypeScript that reads like prose,
             sketch interfaces in code, and treat documentation as a first-class artifact.
           </p>
           <p className="text-muted-foreground">
@@ -25,9 +25,9 @@ export default function Intro() {
           <p className="uppercase tracking-[0.25em] text-muted-foreground mb-4">// signal</p>
           <ul className="space-y-3">
             <li className="flex justify-between gap-4"><span className="text-muted-foreground">role</span><span>Software / Design Engineer</span></li>
-            <li className="flex justify-between gap-4"><span className="text-muted-foreground">stack</span><span>TS · React · Node · Rust</span></li>
+            <li className="flex justify-between gap-4"><span className="text-muted-foreground">stack</span><span><span className="text-ts-blue">TS</span> · React · Node · Rust</span></li>
             <li className="flex justify-between gap-4"><span className="text-muted-foreground">focus</span><span>Product · DX · Systems</span></li>
-            <li className="flex justify-between gap-4"><span className="text-muted-foreground">status</span><span className="text-foreground">open to selective work</span></li>
+            <li className="flex justify-between gap-4"><span className="text-muted-foreground">status</span><span className="text-ts-blue">open to selective work</span></li>
           </ul>
         </aside>
       </div>

@@ -65,14 +65,15 @@ export default function Projects() {
 }
 
 function StatusPill({ status }: { status: "shipped" | "wip" | "archived" }) {
-  const map: Record<typeof status, string> = {
-    shipped: "● shipped",
-    wip: "◐ wip",
-    archived: "○ archived",
+  const map: Record<typeof status, { label: string; className: string }> = {
+    shipped: { label: "● shipped", className: "text-ts-blue" },
+    wip: { label: "◐ wip", className: "text-foreground" },
+    archived: { label: "○ archived", className: "text-muted-foreground" },
   };
+  const { label, className } = map[status];
   return (
-    <span className="inline-block font-mono-pair text-[10px] uppercase tracking-[0.2em]">
-      {map[status]}
+    <span className={`inline-block font-mono-pair text-[10px] uppercase tracking-[0.2em] ${className}`}>
+      {label}
     </span>
   );
 }
