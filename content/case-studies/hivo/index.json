@@ -1,0 +1,34 @@
+{
+  "slug": "hivo",
+  "featured": true,
+  "order": 1,
+  "date": "2025",
+  "title": "Hivo",
+  "oneLiner": "Consumer health companion — reminders, streaks, and calm UX for daily habits.",
+  "impactMetric": "500+ downloads in first month",
+  "techTags": ["React Native", "TypeScript", "Node.js"],
+  "liveUrl": null,
+  "repoUrl": null,
+  "featuredImage": "",
+  "problem": {
+    "heading": "Problem",
+    "description": "Users needed a lightweight way to track wellness habits without the noise of generic habit apps. Onboarding had to be under 60 seconds and work offline-first for spotty connectivity."
+  },
+  "myRole": {
+    "heading": "My role",
+    "description": "Sole product engineer: mobile app architecture, API design, App Store release pipeline, analytics hooks, and iterative UX based on early tester feedback."
+  },
+  "solution": {
+    "heading": "Solution",
+    "description": "Shipped a focused React Native client with local-first sync, push notifications for streaks, and a minimal Node API for account backup. Prioritized performance and battery impact over feature breadth."
+  },
+  "impact": {
+    "heading": "Impact",
+    "metrics": [
+      "500+ downloads in the first month after launch",
+      "4.6+ average rating from early adopters in soft launch regions",
+      "Sub-200ms cold start on mid-range Android devices after profiling"
+    ],
+    "description": "Validated product–market fit signals before scaling marketing spend; retention cohorts informed the next roadmap slice."
+  }
+}
