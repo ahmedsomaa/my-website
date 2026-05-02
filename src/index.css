@@ -97,6 +97,15 @@ All colors MUST be HSL.
 
     --ts-blue: 211 70% 60%;
     --ts-blue-soft: 213 30% 14%;
+
+    --accent-page: 211 70% 60%;
+
+    --brand-react: 193 95% 60%;
+    --brand-node: 120 35% 55%;
+    --brand-ts: 211 70% 60%;
+    --brand-css: 215 78% 62%;
+    --brand-js: 53 93% 60%;
+    --brand-tailwind: 189 94% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
