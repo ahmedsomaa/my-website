@@ -132,7 +132,7 @@ All colors MUST be HSL.
     font-family: 'Major Mono Display', ui-monospace, monospace !important;
     letter-spacing: 0;
     font-weight: 400;
-    text-transform: lowercase;
+    text-transform: lowercase !important;
   }
 }
 
