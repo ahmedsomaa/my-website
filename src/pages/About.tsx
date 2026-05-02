@@ -1,19 +1,23 @@
 import SectionHeader from "@/components/sections/SectionHeader";
 import { TIMELINE, INTERESTS } from "@/data/portfolio";
 import { GraduationCap, Briefcase } from "lucide-react";
+import { usePageAccent, PAGE_ACCENTS } from "@/hooks/usePageAccent";
 
 export default function About() {
+  usePageAccent(PAGE_ACCENTS.about);
   const experience = TIMELINE.filter((t) => t.kind === "experience");
   const education = TIMELINE.filter((t) => t.kind === "education");
 
   return (
-    <div className="mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
-      <header className="mb-16 md:mb-24">
+    <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
+      <div className="absolute inset-x-0 top-0 h-[420px] grid-vercel-dense pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
+      <header className="relative mb-16 md:mb-24">
         <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
           01 / about — cd ~/about
         </p>
-        <h1 className="font-display uppercase text-4xl md:text-6xl leading-[0.95] max-w-4xl">
-          A software engineer who designs, and a designer who ships.
+        <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
+          a <span className="text-accent-page">software engineer</span> who designs, and a designer who ships.
         </h1>
       </header>
 

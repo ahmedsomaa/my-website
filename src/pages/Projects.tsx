@@ -1,15 +1,19 @@
 import { PROJECTS } from "@/data/portfolio";
 import { ArrowUpRight } from "lucide-react";
+import { usePageAccent, PAGE_ACCENTS } from "@/hooks/usePageAccent";
 
 export default function Projects() {
+  usePageAccent(PAGE_ACCENTS.projects);
   return (
-    <div className="mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
-      <header className="mb-16 md:mb-20">
+    <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
+      <div className="absolute inset-x-0 top-0 h-[420px] grid-dot pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
+      <header className="relative mb-16 md:mb-20">
         <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
           02 / projects — ls -la ~/work
         </p>
-        <h1 className="font-display uppercase text-4xl md:text-6xl leading-[0.95] max-w-4xl">
-          A directory of small, considered things.
+        <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
+          a <span className="text-accent-page">directory</span> of small, considered things.
         </h1>
       </header>
 
