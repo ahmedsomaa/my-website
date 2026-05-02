@@ -12,7 +12,7 @@ export default function BlogPreview() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader index="02" label="writing" title="Notes from the field" />
+      <SectionHeader index="04" label="writing" title="Notes from the field" />
 
       <div className="border-t hairline">
         {posts === null && (
