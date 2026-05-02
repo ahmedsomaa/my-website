@@ -66,13 +66,13 @@ export default function Hero() {
 
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border hairline">
           {[
-            ["07+", "yrs experience"],
-            ["TANTA", "Egypt · GMT+2"],
-            ["som3aware", "@ everywhere"],
-            ["2026", "current cycle"],
-          ].map(([k, v]) => (
+            { k: "07+", v: "yrs experience", c: "text-brand-react" },
+            { k: "tanta", v: "Egypt · GMT+2", c: "text-brand-node" },
+            { k: "som3aware", v: "@ everywhere", c: "text-brand-ts" },
+            { k: "2026", v: "current cycle", c: "text-brand-tailwind" },
+          ].map(({ k, v, c }) => (
             <div key={k} className="bg-background p-5 md:p-6">
-              <p className="font-display text-lg md:text-2xl uppercase">{k}</p>
+              <p className={`font-display text-lg md:text-2xl ${c}`}>{k}</p>
               <p className="mt-2 text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono-pair">{v}</p>
             </div>
           ))}
