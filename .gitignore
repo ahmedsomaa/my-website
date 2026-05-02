@@ -6,19 +6,43 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+bun-debug.log*
 
+# Dependencies
 node_modules
+
+# Build
 dist
 dist-ssr
+build
+*.tsbuildinfo
+
+# Vite
 *.local
+
+# Vitest
+coverage
+
+# Environment (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+# Optional: npm lockfile when using Bun only
+package-lock.json
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
+.cursor
+.cursor-tutor
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# OS
+.DS_Store
+Thumbs.db

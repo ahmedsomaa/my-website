@@ -17,19 +17,33 @@ export default function About() {
           01 / about — cd ~/about
         </p>
         <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
-          a <span className="text-accent-page">software engineer</span> who designs, and a designer who ships.
+          a <span className="text-accent-page">software engineer</span> who
+          designs, and a designer who ships.
         </h1>
       </header>
 
-      <Timeline title="Experience" icon={<Briefcase className="h-4 w-4" strokeWidth={1.25} />} items={experience} />
-      <Timeline title="Education" icon={<GraduationCap className="h-4 w-4" strokeWidth={1.25} />} items={education} />
+      <Timeline
+        title="Experience"
+        icon={<Briefcase className="h-4 w-4" strokeWidth={1.25} />}
+        items={experience}
+      />
+      <Timeline
+        title="Education"
+        icon={<GraduationCap className="h-4 w-4" strokeWidth={1.25} />}
+        items={education}
+      />
 
       <section className="mt-24">
         <SectionHeader index="04" label="interests" title="Off-screen" />
         <ul className="grid md:grid-cols-2 gap-px bg-border border hairline">
           {INTERESTS.map((i, idx) => (
-            <li key={i} className="bg-background p-5 md:p-6 font-mono-pair text-sm flex gap-4">
-              <span className="text-muted-foreground">{String(idx + 1).padStart(2, "0")}</span>
+            <li
+              key={i}
+              className="bg-background p-5 md:p-6 font-mono-pair text-sm flex gap-4"
+            >
+              <span className="text-muted-foreground">
+                {String(idx + 1).padStart(2, "0")}
+              </span>
               <span>{i}</span>
             </li>
           ))}

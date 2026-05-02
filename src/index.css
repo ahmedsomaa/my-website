@@ -1,14 +1,132 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-ts-blue: hsl(var(--ts-blue));
+  --color-ts-blue-soft: hsl(var(--ts-blue-soft));
+  --color-accent-page: hsl(var(--accent-page));
+
+  --color-brand-react: hsl(var(--brand-react));
+  --color-brand-node: hsl(var(--brand-node));
+  --color-brand-ts: hsl(var(--brand-ts));
+  --color-brand-css: hsl(var(--brand-css));
+  --color-brand-js: hsl(var(--brand-js));
+  --color-brand-tailwind: hsl(var(--brand-tailwind));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --color-ring-offset-background: hsl(var(--background));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --font-sans: "Inconsolata", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: "Major Mono Display", ui-monospace, monospace;
+  --font-display: "Major Mono Display", ui-monospace, monospace;
+  --font-mono: "Inconsolata", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-ntype: "NType82", ui-sans-serif, system-ui, sans-serif;
+  --font-ntype-mono: "NType82 Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-scan: scan 6s linear infinite;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@font-face {
+  font-family: "NType82";
+  src: url("./assets/fonts/NType82-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NType82 Mono";
+  src: url("./assets/fonts/NType82Mono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Design tokens (HSL space-separated components for hsl(var(--token))) */
 
 @layer base {
   :root {
-    /* Monochromatic blueprint palette */
     --background: 210 25% 98%;
     --foreground: 213 30% 12%;
 
@@ -40,26 +158,33 @@ All colors MUST be HSL.
     --grid-line: 211 25% 88%;
     --hairline: 211 20% 78%;
 
-    /* Brand: TypeScript blue */
     --ts-blue: 211 60% 43%;
     --ts-blue-soft: 211 60% 96%;
 
+    --accent-page: 211 60% 43%;
+
+    --brand-react: 193 95% 60%;
+    --brand-node: 120 35% 55%;
+    --brand-ts: 211 70% 60%;
+    --brand-css: 215 78% 62%;
+    --brand-js: 53 93% 60%;
+    --brand-tailwind: 189 94% 55%;
+
     --radius: 0;
 
+    --chart-1: 211 60% 43%;
+    --chart-2: 193 80% 45%;
+    --chart-3: 215 70% 50%;
+    --chart-4: 43 90% 50%;
+    --chart-5: 280 50% 50%;
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -106,6 +231,13 @@ All colors MUST be HSL.
     --brand-css: 215 78% 62%;
     --brand-js: 53 93% 60%;
     --brand-tailwind: 189 94% 55%;
+
+    --chart-1: 211 70% 60%;
+    --chart-2: 193 80% 55%;
+    --chart-3: 215 70% 58%;
+    --chart-4: 43 93% 58%;
+    --chart-5: 280 45% 60%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -115,21 +247,21 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    @apply border-border outline-ring/50;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inconsolata', ui-monospace, SFMono-Regular, Menlo, monospace;
+    @apply bg-background text-foreground antialiased font-sans;
     font-feature-settings: "ss01", "cv11";
   }
 
-  h1, h2, h3, .font-display {
-    font-family: 'Major Mono Display', ui-monospace, monospace !important;
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: "Major Mono Display", ui-monospace, monospace !important;
     letter-spacing: 0;
     font-weight: 400;
     text-transform: lowercase !important;
@@ -138,11 +270,11 @@ All colors MUST be HSL.
 
 @layer utilities {
   .font-display {
-    font-family: 'Major Mono Display', ui-monospace, monospace;
+    font-family: "Major Mono Display", ui-monospace, monospace;
     letter-spacing: -0.01em;
   }
   .font-mono-pair {
-    font-family: 'Inconsolata', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-family: "Inconsolata", ui-monospace, SFMono-Regular, Menlo, monospace;
   }
 
   .grid-bg {
@@ -158,14 +290,13 @@ All colors MUST be HSL.
     background-size: 24px 24px;
   }
 
-  /* Vercel/Next-style radial-fade grid */
   .grid-vercel {
     background-image:
       linear-gradient(to right, hsl(var(--grid-line) / 0.9) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--grid-line) / 0.9) 1px, transparent 1px);
     background-size: 48px 48px;
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
-            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
   }
   .grid-vercel-dense {
     background-image:
@@ -173,33 +304,39 @@ All colors MUST be HSL.
       linear-gradient(to bottom, hsl(var(--grid-line) / 0.8) 1px, transparent 1px);
     background-size: 24px 24px;
     -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 30%, transparent 100%);
-            mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 30%, transparent 100%);
   }
   .grid-dot {
     background-image: radial-gradient(hsl(var(--grid-line) / 0.9) 1px, transparent 1px);
     background-size: 22px 22px;
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
-            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
   }
 
   .accent-glow {
     background: radial-gradient(ellipse 50% 40% at 50% 0%, hsl(var(--accent-page) / 0.18), transparent 70%);
   }
 
-  .raw-mode .raw-only { display: block; }
-  .polished .raw-only { display: none; }
+  .raw-mode .raw-only {
+    display: block;
+  }
+  .polished .raw-only {
+    display: none;
+  }
 
   .hairline {
     border-color: hsl(var(--hairline));
   }
 
   .blink-caret::after {
-    content: '_';
+    content: "_";
     margin-left: 2px;
     animation: caret-blink 1.05s steps(1) infinite;
   }
 }
 
 @keyframes caret-blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
