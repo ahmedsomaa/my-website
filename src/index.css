@@ -21,6 +21,7 @@
   --color-brand-css: hsl(var(--brand-css));
   --color-brand-js: hsl(var(--brand-js));
   --color-brand-tailwind: hsl(var(--brand-tailwind));
+  --color-brand-html: hsl(var(--brand-html));
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
@@ -169,6 +170,7 @@
     --brand-css: 215 78% 62%;
     --brand-js: 53 93% 60%;
     --brand-tailwind: 189 94% 55%;
+    --brand-html: 14 88% 56%;
 
     --radius: 0;
 
@@ -231,6 +233,7 @@
     --brand-css: 215 78% 62%;
     --brand-js: 53 93% 60%;
     --brand-tailwind: 189 94% 55%;
+    --brand-html: 14 82% 58%;
 
     --chart-1: 211 70% 60%;
     --chart-2: 193 80% 55%;
