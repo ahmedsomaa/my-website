@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import SiteHeader from "./SiteHeader";
-import SiteFooter from "./SiteFooter";
-import { useMode } from "@/context/ModeContext";
+import SiteHeader from "./site-header";
+import SiteFooter from "./site-footer";
+import { useMode } from "@/context/mode-context";
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
   const location = useLocation();

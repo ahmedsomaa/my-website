@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchLatestPosts, HashnodePost } from "@/lib/hashnode";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "./section-header";
 import { ArrowUpRight } from "lucide-react";
 
 export default function BlogPreview() {

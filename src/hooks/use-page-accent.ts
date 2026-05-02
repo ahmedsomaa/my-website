@@ -21,6 +21,6 @@ export const PAGE_ACCENTS = {
   home: "193 95% 50%",
   // Node green
   about: "120 41% 38%",
-  // Tailwind cyan
-  projects: "189 94% 43%",
+  work: "211 70% 50%",
+  contact: "270 42% 52%",
 } as const;

@@ -1,8 +1,8 @@
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import Typewriter from "@/components/Typewriter";
+import Typewriter from "@/components/typewriter";
 import { motion } from "framer-motion";
-import { useMode } from "@/context/ModeContext";
+import { useMode } from "@/context/mode-context";
 
 export default function Hero() {
   const { mode } = useMode();
@@ -21,7 +21,7 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="font-display uppercase leading-[0.95] text-[2.4rem] sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl">
+        <h1 className="font-display font-bold uppercase leading-[0.95] tracking-[-0.4px] text-[clamp(2rem,4vw+0.75rem,2.5rem)] md:text-[clamp(2.25rem,2.75vw+1.25rem,3.75rem)] max-w-none">
           <Typewriter text="Crafting" speed={70} />
           <br />
           <span className="text-ts-blue">
@@ -34,10 +34,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.4, duration: 0.6 }}
-          className="mt-10 max-w-xl text-sm md:text-base text-muted-foreground font-ntype leading-relaxed"
+          className="mt-10 max-w-3xl text-base md:text-lg lg:text-xl text-muted-foreground font-ntype leading-relaxed"
         >
-          I turn complex ideas into seamless digital experiences by blending
-          design and functionality with a keen eye on the small things.
+          I turn complex ideas into seamless digital experiences that feel
+          effortless to use—crafted to captivate, delight, and make a lasting
+          impact.
         </motion.p>
 
         <motion.div
@@ -46,42 +47,43 @@ export default function Hero() {
           transition={{ delay: 2.7, duration: 0.5 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <a
-            href="mailto:hello@som3aware.dev"
+          <Link
+            to="/work"
             className="group inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
           >
-            Hire me
+            View My Work
             <ArrowUpRight
               className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={1.25}
             />
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
           >
-            Get my resume
-            <Download className="h-4 w-4" strokeWidth={1.25} />
-          </a>
-          <Link
-            to="/projects"
-            className="inline-flex items-center gap-2 px-2 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair text-muted-foreground hover:text-foreground transition-colors"
-          >
-            → 02 / projects
+            Get In Touch
+            <ArrowUpRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              strokeWidth={1.25}
+            />
           </Link>
         </motion.div>
 
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border hairline">
           {[
-            { k: "07+", v: "yrs experience", c: "text-brand-react" },
-            { k: "tanta", v: "Egypt · GMT+2", c: "text-brand-node" },
-            { k: "som3aware", v: "@ everywhere", c: "text-brand-ts" },
-            { k: "2026", v: "current cycle", c: "text-brand-tailwind" },
-          ].map(({ k, v, c }) => (
+            { k: "7+", lines: ["Years experience"], c: "text-brand-react" },
+            { k: "10+", lines: ["Products shipped"], c: "text-brand-node" },
+            { k: "4+", lines: ["Organizationss"], c: "text-brand-ts" },
+            {
+              k: "2",
+              lines: ["Degrees · BSc & MSE"],
+              c: "text-brand-tailwind",
+            },
+          ].map(({ k, lines, c }) => (
             <div key={k} className="bg-background p-5 md:p-6">
               <p className={`font-display text-lg md:text-2xl ${c}`}>{k}</p>
-              <p className="mt-2 text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono-pair">
-                {v}
+              <p className="mt-2 text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono-pair leading-snug md:whitespace-nowrap">
+                {lines[0]}
               </p>
             </div>
           ))}

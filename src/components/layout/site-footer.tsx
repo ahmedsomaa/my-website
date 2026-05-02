@@ -1,4 +1,4 @@
-import { useMode } from "@/context/ModeContext";
+import { useMode } from "@/context/mode-context";
 
 export default function SiteFooter() {
   const { mode } = useMode();

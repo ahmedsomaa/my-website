@@ -1,11 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
-import { useMode } from "@/context/ModeContext";
+import { useMode } from "@/context/mode-context";
 import { Code2, Sparkles, Sun, Moon } from "lucide-react";
 
 const links = [
   { to: "/", label: "00 / index" },
   { to: "/about", label: "01 / about" },
-  { to: "/projects", label: "02 / projects" },
+  { to: "/work", label: "02 / work" },
+  { to: "/contact", label: "03 / contact" },
 ];
 
 export default function SiteHeader() {
