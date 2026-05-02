@@ -1,0 +1,21 @@
+---
+description: Use kebab-case for all new file and folder names
+alwaysApply: true
+---
+
+# File naming: kebab-case
+
+- **Use kebab-case** for file and directory names: lowercase words separated by hyphens.
+- **Do not** use PascalCase, camelCase, or snake_case for new files unless a tool or ecosystem strictly requires it (for example, keep `README.md`, `LICENSE`, or generated lockfiles as-is).
+
+## Examples
+
+| Prefer | Avoid |
+|--------|--------|
+| `hero-section.tsx` | `HeroSection.tsx`, `heroSection.tsx` |
+| `use-page-accent.ts` | `usePageAccent.ts` |
+| `case-study-card.tsx` | `CaseStudyCard.tsx` |
+| `site-header.tsx` | `SiteHeader.tsx` |
+| `work-index.tsx` | `WorkIndex.tsx` |
+
+When adding imports, match the actual path on disk. If an older file still uses PascalCase, do not rename it in unrelated work; apply kebab-case to **new** files and when renaming as part of a focused change.
