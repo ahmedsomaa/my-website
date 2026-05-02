@@ -1,0 +1,33 @@
+{
+  "slug": "sharp-studio",
+  "featured": false,
+  "order": 5,
+  "date": "2023",
+  "title": "Sharp Studio",
+  "oneLiner": "Browser-based image lab—filters and transforms you can tweak, fork, and extend in the UI.",
+  "impactMetric": "Canvas-first pipeline · zero install",
+  "techTags": ["React", "Canvas"],
+  "liveUrl": "https://sharpstudio.netlify.app/",
+  "repoUrl": null,
+  "problem": {
+    "heading": "Problem",
+    "description": "Most lightweight image tools are either opaque presets or heavyweight editors. Developers and designers wanted a middle ground: immediate feedback on filters and geometry, readable code paths, and room to experiment without leaving the tab."
+  },
+  "myRole": {
+    "heading": "My role",
+    "description": "Built the React surface and Canvas rendering loop: input handling, filter graph composition, and state so adjustments stayed responsive on mid-range laptops. Focused on keeping the draw path predictable for future plug-in style extensions."
+  },
+  "solution": {
+    "heading": "Solution",
+    "description": "Shipped Sharp Studio as a single-page app that treats the canvas as the source of truth for pixels, with React orchestrating controls and history. Exposed parameters as first-class UI so \"hackable\" meant users could see cause and effect, not buried sliders."
+  },
+  "impact": {
+    "heading": "Impact",
+    "metrics": [
+      "⚛️ React + Canvas split: smooth UI without jank on mid-range hardware",
+      "🖼️ Entirely client-side—no upload dependency for core workflows",
+      "🔧 Extension-friendly filter hooks without rewriting the renderer"
+    ],
+    "description": "A portfolio-grade playground that shows how I reason about performance-sensitive UI, not just forms and dashboards."
+  }
+}

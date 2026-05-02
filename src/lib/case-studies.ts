@@ -1,6 +1,6 @@
 import type { CaseStudy } from "@/types/case-study";
 
-const modules = import.meta.glob("../../content/case-studies/**/index.json", {
+const modules = import.meta.glob("../data/case-studies/**/index.json", {
   eager: true,
   import: "default",
 }) as Record<string, CaseStudy>;

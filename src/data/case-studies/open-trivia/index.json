@@ -1,0 +1,33 @@
+{
+  "slug": "open-trivia",
+  "featured": false,
+  "order": 6,
+  "date": "2022",
+  "title": "Open Trivia",
+  "oneLiner": "Multi-round trivia against the Open Trivia DB—scorekeeping, categories, and a clean game loop in the browser.",
+  "impactMetric": "Public API · session-based play",
+  "techTags": ["React", "REST API"],
+  "liveUrl": "https://open-trivia-demo.netlify.app/",
+  "repoUrl": null,
+  "problem": {
+    "heading": "Problem",
+    "description": "Quiz demos often fetch one random batch and call it done. I wanted rounds, difficulty cues, and resilient handling when the public API throttles or returns edge-case payloads—without a custom backend."
+  },
+  "myRole": {
+    "heading": "My role",
+    "description": "Solo front-end build: game state machine for rounds and scoring, debounced fetches, loading and error UX, and layout that stayed readable on phones during timed questions."
+  },
+  "solution": {
+    "heading": "Solution",
+    "description": "React app that composes Open Trivia API responses into a structured match flow—category pick, staggered reveals, running totals, and restart paths. Cached minimal client metadata so repeat plays did not hammer the API."
+  },
+  "impact": {
+    "heading": "Impact",
+    "metrics": [
+      "🎮 Full game loop in the browser—no custom backend",
+      "🛟 Graceful handling when categories or API payloads came back empty",
+      "📖 Fork-friendly structure for demos and teaching"
+    ],
+    "description": "A small product story: external API as the brain, disciplined UI as the differentiator."
+  }
+}

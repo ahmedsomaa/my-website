@@ -1,7 +1,7 @@
 {
   "slug": "outlined-ai",
-  "featured": true,
-  "order": 3,
+  "featured": false,
+  "order": 4,
   "date": "2025",
   "title": "Outlined AI",
   "oneLiner": "Fast, accurate outlines from long-form audio — built for researchers and editors.",
@@ -9,7 +9,6 @@
   "techTags": ["Python", "Whisper", "React", "GPU jobs"],
   "liveUrl": null,
   "repoUrl": null,
-  "featuredImage": "",
   "problem": {
     "heading": "Problem",
     "description": "Teams had hour-long interviews and lectures but needed structured outlines fast. Generic transcription tools dumped walls of text with no hierarchy suitable for editorial workflows."
@@ -25,9 +24,9 @@
   "impact": {
     "heading": "Impact",
     "metrics": [
-      "1 hour of clean speech transcribed and outlined in under 3 minutes on reference hardware",
-      "Editorial review cycles shortened by removing manual outline pass for ~70% of pilot files",
-      "Predictable per-job cost envelope for batch workloads"
+      "⏱️ ~1 hr speech → outline in under 3 min on reference hardware",
+      "✂️ ~70% of pilot files skipped a manual outline pass in review",
+      "💰 Predictable per-job cost envelope for batch workloads"
     ],
     "description": "Positioned the stack for batch editorial use rather than realtime streaming — clearer SLA and simpler ops."
   }

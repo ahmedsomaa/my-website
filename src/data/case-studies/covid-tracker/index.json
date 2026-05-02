@@ -1,0 +1,33 @@
+{
+  "slug": "covid-tracker",
+  "featured": false,
+  "order": 8,
+  "date": "2020",
+  "title": "Covid Tracker",
+  "oneLiner": "Full-stack tracker for patient and facility data—React UI, Node services, and Auth0-gated access during the pandemic spike.",
+  "impactMetric": "Auth0 · role-aware dashboards",
+  "techTags": ["React", "Node.js", "Auth0"],
+  "liveUrl": "https://github.com/ahmedsomaa/covid-tracker/",
+  "repoUrl": null,
+  "problem": {
+    "heading": "Problem",
+    "description": "Early COVID tooling needed fast iteration: trusted identities for staff, simple data entry under stress, and views that leadership could read without SQL. Spreadsheets were not audit-friendly enough for shared hospital or clinic use."
+  },
+  "myRole": {
+    "heading": "My role",
+    "description": "Owned authentication flows with Auth0, built React dashboards for intake and status rollups, and wired Node endpoints for persistence with basic validation and access checks aligned to roles."
+  },
+  "solution": {
+    "heading": "Solution",
+    "description": "Covid Tracker paired a guarded SPA with APIs that enforced tenant-style separation where possible, prioritized forms that minimized clicks, and logged critical mutations so coordinators could trace changes."
+  },
+  "impact": {
+    "heading": "Impact",
+    "metrics": [
+      "🔐 Auth0-backed roles instead of home-grown password risk",
+      "⏱️ End-to-end delivery under urgent pandemic timelines",
+      "📂 GitHub repo as the living architecture reference"
+    ],
+    "description": "A time-capsule project that still shows how I integrate identity providers and ship under pressure."
+  }
+}

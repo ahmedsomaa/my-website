@@ -19,7 +19,6 @@ export interface CaseStudy {
   techTags: string[];
   liveUrl: string | null;
   repoUrl: string | null;
-  featuredImage: string;
   problem: CaseStudySection;
   myRole: CaseStudySection;
   solution: CaseStudySection;

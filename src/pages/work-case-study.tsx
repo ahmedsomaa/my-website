@@ -48,12 +48,6 @@ export default function WorkCaseStudy() {
         )}
       </header>
 
-      {study.featuredImage ? (
-        <div className="relative mb-16 aspect-[21/9] overflow-hidden border hairline bg-muted/30">
-          <img src={study.featuredImage} alt="" className="h-full w-full object-cover" />
-        </div>
-      ) : null}
-
       <section className="relative mb-14">
         <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">{study.problem.heading}</h2>
         <p className="font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">{study.problem.description}</p>

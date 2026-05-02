@@ -1,0 +1,33 @@
+{
+  "slug": "editor-setup",
+  "featured": true,
+  "order": 3,
+  "title": "Editor Setup",
+  "oneLiner": "Curated VS Code font + theme pairings built with Next.js",
+  "impactMetric": "8 curated font-theme pairs",
+  "techTags": ["Next.js", "React", "Netlify"],
+  "liveUrl": "https://editorsetup.netlify.app/",
+  "repoUrl": null,
+  "problem": {
+    "heading": "Problem",
+    "description": "Developers waste hours scrolling through Reddit, blogs, and GitHub to find a VS Code theme and font that work well together. There's no simple, curated index of proven pairings. Most resources list themes or fonts separately, leaving users to guess which combinations actually look good and improve readability."
+  },
+  "myRole": {
+    "heading": "My role",
+    "description": "Solo developer – built the entire application from scratch using Next.js. Designed the UI, hand‑selected 8 font‑theme pairs that work harmoniously, and deployed the static site to Netlify. Implemented a clean, scannable layout so users can quickly preview each pairing."
+  },
+  "solution": {
+    "heading": "Solution",
+    "description": "Created Editor Setup, a Next.js static site that showcases 8 carefully chosen Visual Studio Code font and theme pairings. Each card displays the theme name, font name, a code preview, and one‑click links to install both components. The site is fully responsive and loads instantly."
+  },
+  "impact": {
+    "heading": "Impact",
+    "metrics": [
+      "🎨 8 curated font + theme pairings, ready to use",
+      "⚡ Built with Next.js static generation for near‑zero latency",
+      "🔗 Direct VS Code marketplace links for one‑click install",
+      "💬 Community feedback: 'Finally, someone paired JetBrains Mono with One Dark Pro — looks amazing'"
+    ],
+    "description": "Editor Setup solves the 'analysis paralysis' of customizing VS Code. It's a lean, focused tool that demonstrates my ability to ship a complete, user‑centric frontend application from idea to deployment."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "reconciled",
+  "featured": true,
+  "order": 2,
+  "title": "Reconciled",
+  "oneLiner": "Full‑stack invoice reconciliation platform acquired by LaborEdge",
+  "impactMetric": "Acquired by LaborEdge",
+  "techTags": ["React", "Next.js", "Node.js", "PostgreSQL"],
+  "liveUrl": "https://www.reconciled.io/",
+  "repoUrl": null,
+  "problem": {
+    "heading": "Problem",
+    "description": "Staffing agencies lose significant time and revenue manually reconciling invoices from Vendor Management Systems (VMS). Manual processes are error‑prone, leading to overlooked discrepancies, delayed payments, and revenue leakage. Agencies need an automated solution to match invoices, identify discrepancies, and streamline collections without adding operational burden."
+  },
+  "myRole": {
+    "heading": "My role",
+    "description": "Collaborated in a strategic partnership with Herwin Software to deliver the flagship invoice reconciliation platform, contributing to the product's successful acquisition by LaborEdge. Engineered scalable React components from Figma designs, improving UI/UX consistency and increasing customer adoption. Integrated a full product analytics stack (Segment, Mixpanel, Hotjar) to enable data‑driven decisions and optimize user engagement. Reduced technical debt by 40% through systematic refactoring, accelerating feature delivery. Collaborated directly with the CFO and engineering leadership to deliver critical business features. Mentored junior engineers and interns on React, Next.js, and design patterns, speeding up team onboarding. Bridged design gaps by independently crafting UI/UX solutions to ensure product continuity. Coordinated across international teams (USA, Egypt, Mexico, Argentina, Kenya, Sweden) to deliver cost‑effective, scalable solutions."
+  },
+  "solution": {
+    "heading": "Solution",
+    "description": "Built a React/Next.js dashboard that automatically matches timesheet data to client invoices, flags discrepancies, and provides real‑time reporting. Used PostgreSQL for transactional integrity and Node.js for RESTful APIs. The analytics stack (Segment, Mixpanel, Hotjar) enabled product‑led growth decisions. The platform automates VMS reverse invoice reconciliation and cash application, eliminating manual, error‑prone processes and delivering real‑time financial clarity."
+  },
+  "impact": {
+    "heading": "Impact",
+    "metrics": [
+      "🔥 Platform acquired by LaborEdge",
+      "📉 40% reduction in technical debt",
+      "⚡ 60% faster feature delivery after refactoring",
+      "🌍 Coordinated delivery across 6 countries",
+      "📊 Increased customer adoption via UI/UX consistency",
+      "🤝 Collaborated directly with CFO on business‑critical features"
+    ],
+    "description": "The platform became the flagship product that led to the company’s acquisition. The CFO directly credited the system for improving billing accuracy and operational efficiency."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "storefront-api",
+  "featured": false,
+  "order": 9,
+  "date": "2021",
+  "title": "Storefront API",
+  "oneLiner": "TypeScript store API on Express and PostgreSQL—catalog, cart-shaped reads, and typed boundaries for a future storefront client.",
+  "impactMetric": "Typed modules · Postgres as source of truth",
+  "techTags": ["TypeScript", "PostgreSQL", "Express"],
+  "liveUrl": "https://github.com/ahmedsomaa/storefront-api",
+  "repoUrl": null,
+  "problem": {
+    "heading": "Problem",
+    "description": "Store demos often start as unbounded JSON blobs. I needed a small but honest commerce backend: normalized product data, predictable query patterns, and TypeScript modules that another engineer could extend without reading the whole repo twice."
+  },
+  "myRole": {
+    "heading": "My role",
+    "description": "Designed the schema and migrations mindset, implemented Express routes with validation, centralized error shapes, and documented environment setup so the API could run locally against Dockerized Postgres."
+  },
+  "solution": {
+    "heading": "Solution",
+    "description": "Storefront API layers repositories over SQL, keeps DTOs explicit at boundaries, and avoids ORM magic in favor of readable queries for catalog and inventory paths that a storefront would actually call."
+  },
+  "impact": {
+    "heading": "Impact",
+    "metrics": [
+      "🧱 Clean split: HTTP layer, helpers, and Postgres access",
+      "📘 TypeScript end-to-end for safer integrations",
+      "📄 README-first onboarding for contributors and walkthroughs"
+    ],
+    "description": "Backend sample work that foregrounds contracts and data modeling—the half of the stack customers never see but teams feel every day."
+  }
+}

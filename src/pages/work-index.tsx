@@ -1,8 +1,51 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
-import { getAllCaseStudiesSorted } from "@/lib/case-studies";
+import type { CaseStudy } from "@/types/case-study";
+import { PORTFOLIO_PROJECTS } from "@/data/portfolio";
 import { getAllShowcaseProjects } from "@/data/showcase-projects";
+import { getAllCaseStudiesSorted } from "@/lib/case-studies";
+
+function hostWithoutWww(host: string): string {
+  const h = host.toLowerCase();
+  return h.startsWith("www.") ? h.slice(4) : h;
+}
+
+function normalizeComparableUrl(url: string): string {
+  try {
+    const u = new URL(url.trim());
+    u.hash = "";
+    const path = u.pathname.replace(/\/+$/, "") || "";
+    const host = hostWithoutWww(u.hostname);
+    return `${u.protocol}//${host}${path}${u.search}`.toLowerCase();
+  } catch {
+    return url.trim().toLowerCase().replace(/\/+$/, "");
+  }
+}
+
+function portfolioDescriptionForCaseStudy(study: CaseStudy): string {
+  for (const p of PORTFOLIO_PROJECTS) {
+    const projectUrl = normalizeComparableUrl(p.url);
+    if (study.liveUrl && normalizeComparableUrl(study.liveUrl) === projectUrl) {
+      return p.description;
+    }
+    if (study.repoUrl && normalizeComparableUrl(study.repoUrl) === projectUrl) {
+      return p.description;
+    }
+  }
+  return study.oneLiner;
+}
+
+function showcaseUrlsCoveredByCaseStudies(
+  studies: ReturnType<typeof getAllCaseStudiesSorted>,
+): Set<string> {
+  const urls = new Set<string>();
+  for (const s of studies) {
+    if (s.liveUrl) urls.add(normalizeComparableUrl(s.liveUrl));
+    if (s.repoUrl) urls.add(normalizeComparableUrl(s.repoUrl));
+  }
+  return urls;
+}
 
 type WorkRow =
   | {
@@ -30,14 +73,17 @@ type WorkRow =
 
 function buildWorkRows(): WorkRow[] {
   const studies = getAllCaseStudiesSorted();
-  const showcase = getAllShowcaseProjects();
+  const coveredShowcaseUrls = showcaseUrlsCoveredByCaseStudies(studies);
+  const showcase = getAllShowcaseProjects().filter(
+    (p) => !coveredShowcaseUrls.has(normalizeComparableUrl(p.url)),
+  );
 
   const studyRows: WorkRow[] = studies.map((s) => ({
     kind: "case-study",
     key: `cs-${s.slug}`,
     idLabel: String(s.order).padStart(2, "0"),
     title: s.title,
-    description: s.oneLiner,
+    description: portfolioDescriptionForCaseStudy(s),
     date: s.date,
     stack: s.techTags,
     href: `/work/${s.slug}`,
@@ -73,16 +119,16 @@ export default function WorkIndex() {
           02 / work — ls -la ~/work
         </p>
         <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
-          a <span className="text-accent-page">directory</span> of small, considered things.
+          a <span className="text-accent-page">directory</span> of small,
+          considered things.
         </h1>
       </header>
 
       <div className="border-t hairline grid grid-cols-12 font-mono-pair text-[10px] uppercase tracking-[0.25em] text-muted-foreground py-3">
         <div className="col-span-1">id</div>
-        <div className="col-span-4 md:col-span-3">project</div>
-        <div className="col-span-3 md:col-span-4">description</div>
-        <div className="col-span-2 md:col-span-2">stack</div>
-        <div className="col-span-2 md:col-span-2 text-right">date</div>
+        <div className="col-span-5 md:col-span-6">project</div>
+        <div className="col-span-3 md:col-span-3">stack</div>
+        <div className="col-span-3 md:col-span-2 text-right">date</div>
       </div>
 
       <ul className="border-t hairline">
@@ -138,21 +184,25 @@ function StackTags({ tags }: { tags: string[] }) {
 function RowCells({ row }: { row: WorkRow }) {
   return (
     <>
-      <div className="col-span-1 font-mono-pair text-xs text-muted-foreground">{row.idLabel}</div>
-      <div className="col-span-4 md:col-span-3">
-        <h3 className="font-display uppercase text-xl md:text-2xl flex items-center gap-2">
-          {row.title}
+      <div className="col-span-1 font-mono-pair text-xs text-muted-foreground">
+        {row.idLabel}
+      </div>
+      <div className="col-span-5 md:col-span-6 min-w-0">
+        <div className="flex items-center gap-2">
+          <h3 className="font-display uppercase text-xl md:text-2xl leading-tight">{row.title}</h3>
           <ArrowUpRight
-            className="h-4 w-4 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+            className="h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
             strokeWidth={1.25}
           />
-        </h3>
+        </div>
+        <p className="mt-2 font-ntype text-sm text-muted-foreground leading-relaxed max-w-xl">
+          {row.description}
+        </p>
       </div>
-      <div className="col-span-3 md:col-span-4 font-mono-pair text-sm text-muted-foreground leading-relaxed">{row.description}</div>
-      <div className="col-span-2 md:col-span-2">
+      <div className="col-span-3 md:col-span-3">
         <StackTags tags={row.stack} />
       </div>
-      <div className="col-span-2 md:col-span-2 text-right font-mono-pair text-xs text-muted-foreground pt-0.5 md:pt-1 tabular-nums">
+      <div className="col-span-3 md:col-span-2 text-right font-mono-pair text-xs text-muted-foreground pt-0.5 md:pt-1 tabular-nums">
         {row.date}
       </div>
     </>
