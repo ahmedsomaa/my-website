@@ -1,0 +1,13 @@
+---
+description: Follow the project design system documented in design.md
+alwaysApply: true
+---
+
+# Design system: `design.md`
+
+- **Read `design.md` at the repository root** before adding or changing layout, typography, color tokens, page shells, or marketing-style copy. Treat it as the source of truth alongside `src/index.css` (tokens and utilities).
+- **Typography:** Major Mono Display for headlines (`font-display`), Inconsolata for subtitles and UI chrome (`font-mono-pair`), NType82 for long body and editorial copy (`font-ntype`).
+- **Colors:** Primary UI blue is `ts-blue`. Stack-derived accents use `--brand-*` tokens (React, Node, TypeScript, CSS, JavaScript, Tailwind, HTML). When adding a **new page**, pick **one** highlight color at random from that brand set and use it consistently for that page’s hero (see `design.md` for the hero pattern: grid or dots + one accent).
+- **Keep docs and code aligned:** if you change tokens or patterns in CSS, update `design.md` in the same change when the contract there is affected.
+
+Do not contradict `design.md` without an explicit project decision to revise the design system.
