@@ -13,7 +13,8 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b hairline bg-background/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-6 md:px-10 h-14 flex items-center justify-between">
-        <Link to="/" className="font-display text-sm md:text-base tracking-wider lowercase">
+        <Link to="/" className="font-display text-sm md:text-base tracking-wider lowercase inline-flex items-center gap-2">
+          <span className="h-1.5 w-1.5 bg-ts-blue" />
           som3aware
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] font-mono-pair">

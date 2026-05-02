@@ -11,16 +11,16 @@ export default function Hero() {
       <div className={`absolute inset-0 ${mode === "raw" ? "grid-bg opacity-100" : "grid-bg opacity-30"}`} />
       <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 md:pt-32 pb-24 md:pb-40">
         <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-8">
-          <span className="h-1.5 w-1.5 bg-foreground" />
+          <span className="h-1.5 w-1.5 bg-ts-blue animate-pulse" />
           <span>00 / hero</span>
           <span className="h-px w-12 bg-foreground/30" />
-          <span>~/som3aware/index</span>
+          <span>~/som3aware/index<span className="text-ts-blue">.tsx</span></span>
         </div>
 
         <h1 className="font-display uppercase leading-[0.95] text-[2.4rem] sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl">
           <Typewriter text="Crafting" speed={70} />
           <br />
-          <span className="text-foreground/60">
+          <span className="text-ts-blue">
             <Typewriter text="elegant" speed={55} delay={700} />
           </span>{" "}
           <Typewriter text="products." speed={55} delay={1500} caret={false} />
