@@ -1,33 +1,39 @@
 {
   "slug": "outlined-ai",
-  "featured": false,
-  "order": 4,
-  "date": "2025",
+  "featured": true,
+  "order": 3,
+  "date": "2023",
   "title": "Outlined AI",
-  "oneLiner": "Fast, accurate outlines from long-form audio — built for researchers and editors.",
-  "impactMetric": "Transcribes 1hr audio in <3 minutes",
-  "techTags": ["Python", "Whisper", "React", "GPU jobs"],
+  "oneLiner": "AI-powered mobile app for extracting and summarizing audio/video content",
+  "impactMetric": "AI transcription + summaries in one flow",
+  "techTags": ["React Native", "Node.js", "OpenAI", "Whisper", "FFmpeg"],
+
   "liveUrl": null,
   "repoUrl": null,
+
   "problem": {
     "heading": "Problem",
-    "description": "Teams had hour-long interviews and lectures but needed structured outlines fast. Generic transcription tools dumped walls of text with no hierarchy suitable for editorial workflows."
+    "description": "Extracting insights from audio and video content is time-consuming, with no simple way to get summaries, notes, or key questions."
   },
+
   "myRole": {
-    "heading": "My role",
-    "description": "Owned inference pipeline design, chunking strategy for long audio, API for job status, and a thin React console for uploads and outline review."
+    "heading": "Role",
+    "description": "Led end-to-end development of the mobile app, building core features and integrating AI workflows for transcription and summarization."
   },
+
   "solution": {
     "heading": "Solution",
-    "description": "Built a batched Whisper pipeline with GPU queueing, post-processing for headings and bullets, and deterministic prompts for outline structure. Optimized for cost per minute vs. raw WER alone."
+    "description": "Built a mobile app that converts audio/video into transcripts, summaries, notes, and key questions using AI-powered processing pipelines."
   },
+
   "impact": {
     "heading": "Impact",
+    "description": "Enabled users to quickly turn raw media into structured insights, combining multiple AI capabilities into a seamless experience.",
     "metrics": [
-      "⏱️ ~1 hr speech → outline in under 3 min on reference hardware",
-      "✂️ ~70% of pilot files skipped a manual outline pass in review",
-      "💰 Predictable per-job cost envelope for batch workloads"
-    ],
-    "description": "Positioned the stack for batch editorial use rather than realtime streaming — clearer SLA and simpler ops."
+      "🤖 AI-powered transcription & summaries",
+      "📱 End-to-end mobile experience",
+      "⚡ Faster content understanding",
+      "🧠 Multi-output insights (notes, questions)"
+    ]
   }
 }

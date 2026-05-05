@@ -2,12 +2,13 @@
   "slug": "editor-setup",
   "featured": true,
   "order": 3,
+  "date": "2025",
   "title": "Editor Setup",
   "oneLiner": "Curated VS Code font + theme pairings built with Next.js",
   "impactMetric": "8 curated font-theme pairs",
   "techTags": ["Next.js", "React", "Netlify"],
   "liveUrl": "https://editorsetup.netlify.app/",
-  "repoUrl": null,
+  "repoUrl": "https://github.com/ahmedsomaa/editor-setup",
   "problem": {
     "heading": "Problem",
     "description": "Developers waste hours scrolling through Reddit, blogs, and GitHub to find a VS Code theme and font that work well together. There's no simple, curated index of proven pairings. Most resources list themes or fonts separately, leaving users to guess which combinations actually look good and improve readability."

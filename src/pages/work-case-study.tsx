@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
 import { getCaseStudyBySlug, getNextCaseStudySlug } from "@/lib/case-studies";
+import { isGithubUrl } from "@/lib/url-helpers";
 import NotFound from "./not-found";
 
 export default function WorkCaseStudy() {
@@ -14,6 +15,8 @@ export default function WorkCaseStudy() {
   }
 
   const nextSlug = getNextCaseStudySlug(study.slug);
+  const repoHref = study.repoUrl ?? (isGithubUrl(study.liveUrl) ? study.liveUrl : null);
+  const liveHref = study.liveUrl && !isGithubUrl(study.liveUrl) ? study.liveUrl : null;
 
   return (
     <article className="relative mx-auto max-w-3xl px-6 md:px-10 pt-16 pb-20">
@@ -24,7 +27,12 @@ export default function WorkCaseStudy() {
           work / {study.slug}
         </p>
         <h1 className="font-display text-3xl md:text-5xl uppercase leading-tight">{study.title}</h1>
-        <p className="mt-6 font-ntype text-base md:text-lg text-muted-foreground leading-relaxed">{study.oneLiner}</p>
+        <p className="mt-3 font-mono-pair text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground tabular-nums">
+          {study.date}
+        </p>
+        <p className="mt-6 font-ntype text-base md:text-lg text-muted-foreground leading-relaxed">
+          {study.oneLiner}
+        </p>
         <div className="mt-6 flex flex-wrap gap-2">
           {study.techTags.map((tag) => (
             <span
@@ -35,45 +43,76 @@ export default function WorkCaseStudy() {
             </span>
           ))}
         </div>
-        {study.liveUrl && (
-          <a
-            href={study.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
-          >
-            View live
-            <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
-          </a>
-        )}
+        <div className="mt-6 flex flex-wrap gap-3">
+          {liveHref ? (
+            <a
+              href={liveHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
+            >
+              View live
+              <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
+            </a>
+          ) : null}
+          {repoHref && repoHref !== liveHref ? (
+            <a
+              href={repoHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
+            >
+              Repository
+              <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
+            </a>
+          ) : null}
+        </div>
       </header>
 
       <section className="relative mb-14">
-        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">{study.problem.heading}</h2>
-        <p className="font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">{study.problem.description}</p>
+        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">
+          {study.problem.heading}
+        </h2>
+        <p className="font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">
+          {study.problem.description}
+        </p>
       </section>
 
       <section className="relative mb-14">
-        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">{study.myRole.heading}</h2>
-        <p className="font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">{study.myRole.description}</p>
+        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">
+          {study.myRole.heading}
+        </h2>
+        <p className="font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">
+          {study.myRole.description}
+        </p>
       </section>
 
       <section className="relative mb-14">
-        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">{study.solution.heading}</h2>
-        <p className="font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">{study.solution.description}</p>
+        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">
+          {study.solution.heading}
+        </h2>
+        <p className="font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">
+          {study.solution.description}
+        </p>
       </section>
 
       <section className="relative mb-16">
-        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">{study.impact.heading}</h2>
+        <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">
+          {study.impact.heading}
+        </h2>
         <ul className="mt-4 space-y-3 font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">
           {study.impact.metrics.map((m) => (
             <li key={m} className="flex gap-3">
-              <span className="text-ts-blue font-mono-pair text-xs shrink-0 mt-0.5">▸</span>
+              <span className="text-ts-blue font-mono-pair text-xs shrink-0 mt-0.5">
+                ▸
+              </span>
               <span>{m}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-6 font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">{study.impact.description}</p>
+        <p className="mt-6 font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">
+          {study.impact.description}
+        </p>
       </section>
 
       <nav className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pt-10 border-t hairline">

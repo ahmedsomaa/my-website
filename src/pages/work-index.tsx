@@ -189,7 +189,9 @@ function RowCells({ row }: { row: WorkRow }) {
       </div>
       <div className="col-span-5 md:col-span-6 min-w-0">
         <div className="flex items-center gap-2">
-          <h3 className="font-display uppercase text-xl md:text-2xl leading-tight">{row.title}</h3>
+          <h3 className="font-display uppercase text-xl md:text-2xl leading-tight">
+            {row.title}
+          </h3>
           <ArrowUpRight
             className="h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
             strokeWidth={1.25}

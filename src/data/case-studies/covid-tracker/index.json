@@ -1,33 +1,40 @@
 {
   "slug": "covid-tracker",
   "featured": false,
-  "order": 8,
-  "date": "2020",
+  "order": 6,
+  "date": "2023",
   "title": "Covid Tracker",
-  "oneLiner": "Full-stack tracker for patient and facility data—React UI, Node services, and Auth0-gated access during the pandemic spike.",
-  "impactMetric": "Auth0 · role-aware dashboards",
+  "oneLiner": "Web app for tracking COVID-19 cases with authentication",
+  "impactMetric": "Secure tracking with authenticated access",
+
   "techTags": ["React", "Node.js", "Auth0"],
+
   "liveUrl": "https://github.com/ahmedsomaa/covid-tracker/",
-  "repoUrl": null,
+  "repoUrl": "https://github.com/ahmedsomaa/covid-tracker",
+
   "problem": {
     "heading": "Problem",
-    "description": "Early COVID tooling needed fast iteration: trusted identities for staff, simple data entry under stress, and views that leadership could read without SQL. Spreadsheets were not audit-friendly enough for shared hospital or clinic use."
+    "description": "Tracking COVID-19 data securely required controlled access and structured data management."
   },
+
   "myRole": {
-    "heading": "My role",
-    "description": "Owned authentication flows with Auth0, built React dashboards for intake and status rollups, and wired Node endpoints for persistence with basic validation and access checks aligned to roles."
+    "heading": "Role",
+    "description": "Built the application end-to-end, implementing authentication and managing frontend-backend integration."
   },
+
   "solution": {
     "heading": "Solution",
-    "description": "Covid Tracker paired a guarded SPA with APIs that enforced tenant-style separation where possible, prioritized forms that minimized clicks, and logged critical mutations so coordinators could trace changes."
+    "description": "Developed a web app with authenticated access, enabling users to track and manage COVID-19 case data securely."
   },
+
   "impact": {
     "heading": "Impact",
+    "description": "Provided a simple and secure interface for tracking case data with protected access and structured workflows.",
     "metrics": [
-      "🔐 Auth0-backed roles instead of home-grown password risk",
-      "⏱️ End-to-end delivery under urgent pandemic timelines",
-      "📂 GitHub repo as the living architecture reference"
-    ],
-    "description": "A time-capsule project that still shows how I integrate identity providers and ship under pressure."
+      "🔐 Authentication with Auth0",
+      "📊 Structured data tracking",
+      "🌐 Full-stack implementation",
+      "⚙️ Secure access control"
+    ]
   }
 }

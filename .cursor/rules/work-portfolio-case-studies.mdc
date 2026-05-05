@@ -1,0 +1,90 @@
+---
+description: Senior portfolio guidelines for work / featured case study copy and proof
+globs: src/data/case-studies/**/*.json,src/components/sections/featured-work.tsx,src/pages/work-case-study.tsx,src/pages/work-index.tsx
+alwaysApply: false
+---
+
+# Work section — senior portfolio guidelines
+
+Apply when editing **case study data** (`src/data/case-studies/**/index.json`), **featured work** (`featured-work.tsx`), or **work** pages. Follow `design.md` for typography and layout.
+
+## 1. Structure (reading order)
+
+**Work cards & case study body:** **Problem → Role → Solution → Impact**
+
+| Block    | JSON / UI |
+|----------|-----------|
+| Problem  | `problem.description`; on cards the **problem line** is carried by `oneLiner` (why it mattered). |
+| Role     | `myRole.description` (ownership). |
+| Solution | `solution.description` (what was built, high level). |
+| Impact   | `impactMetric` (hook, ≤100 chars), `impact.metrics`, `impact.description` (what changed—**last** so it lands). |
+
+**Featured card stack (home index):** **title → `date` → `oneLiner` (problem) → `techTags` → `impactMetric` (impact last) → optional Repository link** (only when `repoUrl` or GitHub-only `liveUrl` exists) **→ CTA.** Do not show the product Live link on featured cards; use the case study page and `/work` for live URLs.
+
+**Case study page:** Render sections **Problem → My role → Solution → Impact**. **Hero:** **title → `date` → `oneLiner` → `techTags` → `liveUrl` / `repoUrl` buttons** (do **not** repeat `impactMetric` in the hero; impact lives in the Impact section). Use `repoUrl` for GitHub; if only `liveUrl` is GitHub, treat it as the repository link in UI.
+
+## 2. Character limits
+
+Count characters on the stored string (including spaces).
+
+| Field | Max |
+|-------|-----|
+| `problem.description` | ≤ 120 |
+| `myRole.description` | ≤ 80 |
+| `solution.description` | ≤ 140 |
+| `impactMetric` | ≤ 100 |
+| `oneLiner` | ≤ 120 |
+
+`impact.metrics`: one idea per bullet; keep each line short. Closing `impact.description`: one tight paragraph; prefer **≤ 100 chars** when possible so impact stays punchy.
+
+## 3. One idea per section
+
+- **Problem:** context only.  
+- **Role:** responsibility only.  
+- **Solution:** approach only.  
+- **Impact:** outcomes only.  
+Do not blend sections.
+
+## 4. No tech dumping
+
+- Do not list frameworks or vendors in **problem / role / solution** prose.  
+- **Stack belongs in `techTags` only** (and in outcome bullets only when the fact itself is the proof, e.g. store listing).
+
+## 5. Impact still matters most (even when last)
+
+- Make **`impactMetric`** and impact bullets **measurable or meaningful**.  
+- Avoid weak vanity metrics (“10 projects built”, “3 apps created”). Prefer ratings, adoption, growth, shipped version, or business signal.
+
+## 6. Ownership
+
+- **Role** copy: lead with **Owned / Led / Built**.  
+- Avoid “worked on”, “helped with”.
+
+## 7. Collaboration
+
+- Mention PMs, designers, or company **briefly** when true.  
+- Do not dilute ownership.
+
+## 8. Scanning
+
+Short sentences, no filler. A featured card should read in **~5–10 seconds**.
+
+## 9. Visual & proof (critical)
+
+Each case study JSON must include:
+
+- **`date`:** string (e.g. year or ISO-ish label) shown on `/work`, featured cards, and case study hero.  
+- **`liveUrl`:** real product / App Store / deployed demo when it exists (not GitHub—use `repoUrl` or GitHub-only handling).  
+- **`repoUrl`:** optional; use for GitHub when separate from `liveUrl`.
+
+`/work` rows show **Live** / **Repository** text links when URLs exist, and **`date`** under the title as well as in the date column.
+
+## 10. Consistency
+
+Same section order, tone density, and formatting across all projects under `case-studies/`.
+
+## Core principle
+
+Each project should answer:
+
+> Can this person take ownership, build the solution, and deliver real impact?

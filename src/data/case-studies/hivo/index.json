@@ -2,34 +2,38 @@
   "slug": "hivo",
   "featured": true,
   "order": 1,
+  "date": "2025",
   "title": "Hivo",
-  "oneLiner": "Full-stack rental marketplace app launched on iOS App Store in Saudi Arabia",
-  "impactMetric": "800+ downloads in first month",
-  "techTags": ["React Native", "Node.js", "PostgreSQL", "Expo"],
+  "oneLiner": "Mobile-first rental marketplace tailored for Saudi Arabia",
+  "impactMetric": "5★ rated · 800+ listings growth",
+  "techTags": [
+    "React Native",
+    "Node.js",
+    "PostgreSQL",
+    "Expo"
+  ],
   "liveUrl": "https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973",
   "repoUrl": null,
   "problem": {
     "heading": "Problem",
-    "description": "International booking platforms offered generic experiences, while local hosts had no dedicated space to showcase authentic Saudi stays. Travelers wanted more than just a bed — they sought cultural immersion, from desert villas in AlUla to smart apartments in Riyadh. Existing solutions didn't offer bilingual support (Arabic/English), secure local payments, or curated stays that reflect the Kingdom's unique regions. Hosts needed a simple way to list their properties and manage bookings with confidence."
+    "description": "Global booking platforms lacked cultural relevance, trust signals, and smooth bilingual flows for Saudi travelers and hosts."
   },
   "myRole": {
-    "heading": "My role",
-    "description": "At Eignspaces (remote), I exercised full ownership over high‑impact full‑stack features for Hivo, including the unit management system and core user interfaces of the rental marketplace. I collaborated closely with project managers and designers to execute pixel‑perfect UI implementations, ensuring a high‑end aesthetic across the app. I also mentored interns on React Native and Expo, establishing best practices for cross‑platform mobile development, and pioneered AI‑driven development workflows to accelerate feature delivery."
+    "heading": "Role",
+    "description": "Owned core full-stack features including property management and host flows, collaborating with product and design while mentoring engineers."
   },
   "solution": {
     "heading": "Solution",
-    "description": "Built Hivo as a React Native + Expo mobile app with a Node.js/PostgreSQL backend. Implemented geo‑based search for destinations (AlUla, Riyadh, Jeddah), curated stay categories, and bilingual Arabic/English UI. Added secure payment integration, instant confirmation, dedicated support, and a host dashboard for property management. Used Redis for session caching and real‑time messaging between guests and hosts."
+    "description": "Built with the Eignspaces team a mobile-first booking experience with localized discovery, bilingual flows, secure payments, and fast booking journeys."
   },
   "impact": {
     "heading": "Impact",
+    "description": "Launched on iOS with strong early traction, reaching a 5★ rating and rapid host adoption that required pacing new listings.",
     "metrics": [
-      "📱 Published on iOS App Store (KSA region)",
-      "⬇️ 500+ downloads in first month",
-      "⭐ 4.8 average rating from early users",
-      "🏠 50+ property listings from launch day",
-      "🤝 Active landlord signups and repeat guest bookings",
-      "🌍 Bilingual Arabic/English experience"
-    ],
-    "description": "Hivo became a trusted alternative to international platforms, praised for authentic Saudi hospitality and seamless booking. The app continues to grow with ongoing feature enhancements."
+      "📱 Live on iOS App Store (KSA)",
+      "⭐ 5.0 average rating",
+      "🏠 800+ listings after host launch",
+      "🚀 High demand led to controlled onboarding"
+    ]
   }
 }

@@ -142,13 +142,6 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     description: "Multi-round trivia game built with Open Trivia API",
   },
   {
-    id: "5",
-    featured: false,
-    title: "Face AI",
-    url: "https://face-ai.surge.sh/",
-    description: "Detect face expressions, age, and gender",
-  },
-  {
     id: "6",
     featured: false,
     title: "Covid Tracker",
