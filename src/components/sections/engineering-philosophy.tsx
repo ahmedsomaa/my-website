@@ -2,20 +2,16 @@ import SectionHeader from "./section-header";
 
 const PHILOSOPHY_POINTS = [
   {
-    title: "Systems thinking first",
-    body: "I start with the data model and API contracts, then wrap them in UI. This prevents rework and keeps frontend and backend aligned.",
+    title: "Systems & Experience",
+    body: "I build at the intersection of scalability and usability-creating systems that are reliable, maintainable, and feel intuitive to use.",
   },
   {
-    title: "Product over process",
-    body: "I collaborate directly with stakeholders like CFOs, founders, and designers to ship features that drive business outcomes, not just ticket completion.",
+    title: "Speed & Quality",
+    body: "I prioritize delivering value early, then iterating to improve performance, quality, and long-term maintainability.",
   },
   {
-    title: "Speed without chaos",
-    body: "I reduce technical debt systematically (40% at Reconciled) and use AI-assisted workflows (Cursor) to accelerate daily work without cutting corners.",
-  },
-  {
-    title: "Elevate the team",
-    body: "I mentor juniors, document decisions, and coordinate across time zones (6 countries) because seniority means shipping through others, not alone.",
+    title: "Collaboration & Growth",
+    body: "I work closely with product and design, and actively mentor others to raise both code quality and team capability.",
   },
 ] as const;
 
@@ -28,7 +24,7 @@ export default function EngineeringPhilosophy() {
         title="Engineering philosophy"
       />
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border hairline">
+      <ul className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border hairline">
         {PHILOSOPHY_POINTS.map((point) => (
           <li key={point.title} className="bg-background p-6 md:p-8">
             <h3 className="font-display text-lg md:text-xl uppercase leading-snug">

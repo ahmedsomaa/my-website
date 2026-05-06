@@ -30,7 +30,7 @@ export default function Contact() {
     <div className="relative mx-auto max-w-3xl px-6 md:px-10 pt-20 pb-16">
       <div className="absolute inset-x-0 top-0 h-[320px] grid-dot pointer-events-none opacity-60" />
       <header className="relative mb-12">
-        <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">03 / contact</p>
+        <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">04 / contact</p>
         <h1 className="font-display text-4xl md:text-5xl leading-[0.95] uppercase">
           Hire me <span className="text-accent-page">/</span> say hello
         </h1>

@@ -3,12 +3,12 @@ export const PROFILE = {
   handle: "som3aware",
   location: "Tanta, Egypt",
   yearsOfExperience: 7,
-  email: "hello@som3aware.dev",
+  email: "abokahfa@gmail.com",
   resumeUrl: "#",
   hashnodeHost: "som3aware.hashnode.dev",
   /** Update if your LinkedIn slug differs */
-  githubUrl: "https://github.com/som3aware",
-  linkedInUrl: "https://www.linkedin.com/in/som3aware",
+  githubUrl: "https://github.com/ahmedsomaa",
+  linkedInUrl: "https://linkedin.com/in/som3aware",
   /** Optional: Calendly / TidyCal for intro calls */
   calendlyUrl: "#",
   /** Set when you have a public status page (UptimeRobot, etc.) */

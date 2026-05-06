@@ -33,7 +33,7 @@ export default function HomeConnect() {
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:pb-28">
       <div className="border hairline p-8 md:p-12 bg-gradient-to-br from-ts-blue/5 via-transparent to-accent/5 dark:from-ts-blue/10">
         <p className="font-mono-pair text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
-          06 / connect
+          07 / connect
         </p>
         <h2 className="font-display text-2xl md:text-4xl uppercase tracking-tight max-w-2xl">
           Crafting elegant software

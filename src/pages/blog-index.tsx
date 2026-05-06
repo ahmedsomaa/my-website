@@ -1,19 +1,30 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchLatestPosts, HashnodePost } from "@/lib/hashnode";
-import SectionHeader from "./section-header";
 import { ArrowUpRight } from "lucide-react";
+import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
+import { fetchAllPosts, type HashnodePost } from "@/lib/hashnode";
+import { PROFILE } from "@/data/portfolio";
 
-export default function BlogPreview() {
+export default function BlogIndex() {
+  usePageAccent(PAGE_ACCENTS.blog);
   const [posts, setPosts] = useState<HashnodePost[] | null>(null);
 
   useEffect(() => {
-    fetchLatestPosts().then(setPosts);
+    fetchAllPosts(PROFILE.hashnodeHost).then(setPosts);
   }, []);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader index="06" label="writing" title="Notes from the field" />
+    <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
+      <div className="absolute inset-x-0 top-0 h-[420px] grid-dot pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
+      <header className="relative mb-16 md:mb-20">
+        <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          04 / writing — cat ~/posts/*.md
+        </p>
+        <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
+          notes from the <span className="text-accent-page">field</span>, published in full.
+        </h1>
+      </header>
 
       <div className="border-t hairline">
         {posts === null && (
@@ -39,10 +50,8 @@ export default function BlogPreview() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="col-span-11 md:col-span-7">
-                <h3 className="font-display text-lg md:text-2xl uppercase leading-tight">
-                  {p.title}
-                </h3>
-                <p className="mt-2 font-mono-pair text-xs md:text-sm text-muted-foreground line-clamp-2">
+                <h2 className="font-display text-lg md:text-2xl uppercase leading-tight">{p.title}</h2>
+                <p className="mt-2 font-mono-pair text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-2">
                   {p.brief}
                 </p>
               </div>
@@ -63,21 +72,21 @@ export default function BlogPreview() {
           ))}
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-pair text-xs uppercase tracking-[0.25em] text-muted-foreground">
-        <Link to="/blog" className="inline-flex items-center gap-2 hover:text-foreground transition-colors">
-          → all posts
-          <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
+      <div className="relative mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <Link to="/" className="hover:text-foreground transition-colors">
+          ← index
         </Link>
         <span className="text-foreground/30 hidden sm:inline">·</span>
         <a
-          href="https://som3aware.hashnode.dev"
+          href={`https://${PROFILE.hashnodeHost}`}
           target="_blank"
           rel="noreferrer"
-          className="hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
         >
-          open on hashnode
+          hashnode publication
+          <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
         </a>
       </div>
-    </section>
+    </div>
   );
 }

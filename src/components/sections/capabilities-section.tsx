@@ -10,22 +10,22 @@ const CAPABILITIES: readonly {
   {
     icon: LayoutTemplate,
     title: "Build scalable frontend systems",
-    body: "Pixel-perfect, component-driven UIs that increase adoption",
+    body: "Design and develop fast, reliable interfaces that scale with product growth-focused on performance, maintainability, and seamless user experience.",
   },
   {
     icon: Server,
     title: "Design robust backend & APIs",
-    body: "Secure, real-time data processing and integrations",
+    body: "Architect backend systems and APIs that handle real-world complexity, ensuring data integrity, security, and smooth integrations.",
   },
   {
     icon: Sparkles,
     title: "Integrate AI into real products",
-    body: "LLMs, vision APIs, and automation for new revenue streams",
+    body: "Apply AI to practical use cases-turning raw data into useful features like automation, insights, and intelligent workflows.",
   },
   {
     icon: Workflow,
-    title: "Improve performance & dev workflows",
-    body: "Refactoring, mentoring, and CI/CD that accelerate delivery",
+    title: "Elevate product quality & workflows",
+    body: "Improve performance, reduce technical debt, and streamline development processes to ship faster without sacrificing quality.",
   },
 ];
 
