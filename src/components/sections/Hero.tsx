@@ -1,6 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import Typewriter from "@/components/typewriter";
 import { motion } from "framer-motion";
 import { useMode } from "@/context/mode-context";
 
@@ -21,24 +20,63 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="font-display font-bold uppercase leading-[0.95] tracking-[-0.4px] text-[clamp(2rem,4vw+0.75rem,2.5rem)] md:text-[clamp(2.25rem,2.75vw+1.25rem,3.75rem)] max-w-none">
-          <Typewriter text="Crafting" speed={70} />
+        <p className="mb-4 font-mono-pair text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground">
+          Hello, I&apos;m Ahmed Ismail
+        </p>
+        <h1 className="font-display font-bold leading-[1.1] tracking-[-0.4px] text-[clamp(1.35rem,3.8vw+0.2rem,2rem)] md:text-[clamp(2rem,2.2vw+1rem,3rem)] max-w-none">
+          <motion.span
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="inline-block whitespace-nowrap"
+          >
+            I turn complex
+          </motion.span>
           <br />
-          <span className="text-ts-blue">
-            <Typewriter text="elegant" speed={55} delay={700} />
-          </span>{" "}
-          <Typewriter text="products." speed={55} delay={1500} caret={false} />
+          <span className="inline-block whitespace-nowrap">
+            <motion.span
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.35, ease: "easeOut" }}
+            >
+              ideas into{" "}
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.35, ease: "easeOut" }}
+              className="relative inline-block px-0.5"
+            >
+              intuitive
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -left-0.5 -right-0.5 -bottom-1 h-2 border-b-2 border-ts-blue/90 rotate-[-1.8deg] rounded-[999px]"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -left-0.5 -right-0.5 -bottom-[3px] h-2 border-b border-ts-blue/70 rotate-[0.8deg] rounded-[999px]"
+              />
+            </motion.span>
+          </span>
+          <br />
+          <motion.span
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.35, ease: "easeOut" }}
+            className="inline-block whitespace-nowrap"
+          >
+            digital experiences
+          </motion.span>
         </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.4, duration: 0.6 }}
-          className="mt-10 max-w-3xl text-base md:text-lg lg:text-xl text-muted-foreground font-ntype leading-relaxed"
+          transition={{ delay: 0.65, duration: 0.35, ease: "easeOut" }}
+          className="mt-10 max-w-3xl text-sm md:text-base lg:text-lg text-muted-foreground font-ntype leading-relaxed"
         >
-          I turn complex ideas into seamless digital experiences that feel
-          effortless to use—crafted to captivate, delight, and make a lasting
-          impact.
+          I care about crafting seamless, effortless experiences — designed to
+          captivate, delight, and last.
         </motion.p>
 
         <motion.div

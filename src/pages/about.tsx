@@ -71,7 +71,7 @@ export default function About() {
         </p>
         <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
           a <span className="text-accent-page">software engineer</span> who
-          designs, and a designer who ships.
+          builds products to captivate and delight users.
         </h1>
       </header>
 

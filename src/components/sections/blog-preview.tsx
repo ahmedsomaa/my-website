@@ -42,7 +42,7 @@ export default function BlogPreview() {
                 <h3 className="font-display text-lg md:text-2xl uppercase leading-tight">
                   {p.title}
                 </h3>
-                <p className="mt-2 font-mono-pair text-xs md:text-sm text-muted-foreground line-clamp-2">
+                <p className="mt-2 font-ntype text-xs md:text-sm text-muted-foreground line-clamp-2">
                   {p.brief}
                 </p>
               </div>

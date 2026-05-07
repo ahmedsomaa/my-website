@@ -51,7 +51,7 @@ export default function BlogIndex() {
               </span>
               <div className="col-span-11 md:col-span-7">
                 <h2 className="font-display text-lg md:text-2xl uppercase leading-tight">{p.title}</h2>
-                <p className="mt-2 font-mono-pair text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-2">
+                <p className="mt-2 font-ntype text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-2">
                   {p.brief}
                 </p>
               </div>
