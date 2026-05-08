@@ -87,7 +87,7 @@ export default function Hero() {
         >
           <Link
             to="/work"
-            className="group inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
+            className="group inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
           >
             View My Work
             <ArrowUpRight
@@ -97,7 +97,7 @@ export default function Hero() {
           </Link>
           <Link
             to="/contact"
-            className="group inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
+            className="group inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-muted transition-colors"
           >
             Get In Touch
             <ArrowUpRight

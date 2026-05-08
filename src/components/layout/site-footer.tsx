@@ -1,5 +1,3 @@
-import { useMode } from "@/context/mode-context";
-
 const SOCIALS = [
   { title: "email", href: "mailto:abokahfa@gmail.com" },
   { title: "x.com", href: "https://x.com/som3aware" },
@@ -13,14 +11,17 @@ const SOCIALS = [
 ] as const;
 
 export default function SiteFooter() {
-  const { mode } = useMode();
+  const year = new Date().getFullYear();
+
   return (
     <footer className="border-t hairline mt-24">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between text-xs font-mono-pair text-muted-foreground">
-        <p className="uppercase tracking-[0.2em]">
-          Crafting elegant software <span className="mx-2 text-foreground/30">|</span> som3aware — 2026
-        </p>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 uppercase tracking-[0.2em]">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-10 text-xs font-mono-pair text-muted-foreground">
+        <div className="flex flex-col items-center gap-3 text-center">
+          <p className="uppercase tracking-[0.2em] text-foreground">som3aware</p>
+          <p className="uppercase tracking-[0.2em]">
+            {year} all rights reserved
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 uppercase tracking-[0.2em]">
           {SOCIALS.map((social, i) => (
             <span key={social.title} className="inline-flex items-center">
               {i > 0 ? <span className="mr-3 text-foreground/30">·</span> : null}
@@ -34,12 +35,8 @@ export default function SiteFooter() {
               </a>
             </span>
           ))}
+          </div>
         </div>
-        {mode === "raw" && (
-          <p className="uppercase tracking-[0.2em] text-foreground/50">
-            mode: raw / hex: #141414 / grid: 24px
-          </p>
-        )}
       </div>
     </footer>
   );

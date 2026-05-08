@@ -10,10 +10,6 @@ export default function HomeConnect() {
       <h2 className="font-display text-2xl md:text-4xl uppercase tracking-tight max-w-3xl">
         Let&apos;s build something thoughtful.
       </h2>
-      <p className="mt-5 max-w-2xl font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">
-        Open for selective collaborations where product clarity, execution
-        quality, and long-term maintainability matter.
-      </p>
       <div className="mt-10">
         <Link
           to="/contact"

@@ -25,8 +25,11 @@ export default function Testimonials() {
       />
 
       <ul className="space-y-12 md:space-y-16">
-        {TESTIMONIALS.map((item) => (
-          <li key={item.author} className="max-w-4xl">
+        {TESTIMONIALS.map((item, idx) => (
+          <li
+            key={item.author}
+            className={`max-w-4xl ${idx % 2 === 1 ? "md:ml-auto md:text-right" : ""}`}
+          >
             <blockquote className="font-ntype text-lg md:text-2xl text-foreground leading-relaxed">
               "{item.quote}"
             </blockquote>
