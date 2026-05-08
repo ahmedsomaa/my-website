@@ -4,6 +4,14 @@ import SectionHeader from "./section-header";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { isGithubUrl } from "@/lib/url-helpers";
 
+const CASE_STUDY_COVERS: Record<string, string> = {
+  "editor-setup": "/images/editor-setup-cover.png",
+  hivo: "/images/hivo-cover.png",
+  reconciled: "/images/reconciled-cover.png",
+  "covid-tracker": "/images/covid-tracker-cover.png",
+  "sharp-studio": "/images/sharp-studio-cover.png",
+};
+
 export default function FeaturedWork() {
   const featured = getFeaturedCaseStudies(3);
 
@@ -16,12 +24,30 @@ export default function FeaturedWork() {
           const repoHref =
             study.repoUrl ??
             (isGithubUrl(study.liveUrl) ? study.liveUrl : null);
+          const liveHref =
+            study.liveUrl && !isGithubUrl(study.liveUrl) ? study.liveUrl : null;
+          const coverSrc = CASE_STUDY_COVERS[study.slug];
 
           return (
             <li
               key={study.slug}
-              className="border hairline bg-background p-6 md:p-8 flex flex-col min-h-[280px]"
+              className="relative border hairline bg-background p-6 md:p-8 flex flex-col min-h-[280px] overflow-hidden"
             >
+              <Link
+                to={`/work/${study.slug}`}
+                aria-label={`Open ${study.title} case study`}
+                className="absolute inset-0 z-10"
+              />
+              {coverSrc ? (
+                <div className="relative z-0 mb-5 overflow-hidden border hairline bg-muted/40">
+                  <img
+                    src={coverSrc}
+                    alt={`${study.title} project preview`}
+                    className="aspect-square w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ) : null}
               <h3 className="font-display text-xl md:text-2xl uppercase leading-tight">
                 {study.title}
               </h3>
@@ -41,33 +67,29 @@ export default function FeaturedWork() {
                   </span>
                 ))}
               </div>
-              <p className="mt-4 font-mono-pair text-xs text-ts-blue uppercase tracking-[0.15em]">
-                {study.impactMetric}
-              </p>
-              {repoHref ? (
-                <div className="mt-3 font-mono-pair text-[10px] uppercase tracking-[0.15em]">
+              <div className="relative z-20 mt-5 flex flex-wrap items-center gap-4 font-mono-pair text-[10px] uppercase tracking-[0.15em]">
+                {liveHref ? (
                   <a
-                    href={repoHref}
+                    href={liveHref}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                     className="text-ts-blue hover:underline"
                   >
-                    Repository
+                    Live
                   </a>
-                </div>
-              ) : null}
-              <div className="mt-8 pt-4 border-t hairline border-border/60">
-                <Link
-                  to={`/work/${study.slug}`}
-                  className="group inline-flex items-center gap-2 font-mono-pair text-xs uppercase tracking-[0.25em] text-foreground hover:text-ts-blue transition-colors"
-                >
-                  Read case study
-                  <ArrowUpRight
-                    className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={1.25}
-                  />
-                </Link>
+                ) : null}
+                {repoHref && repoHref !== liveHref ? (
+                  <a
+                    href={repoHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-ts-blue hover:underline"
+                  >
+                    Repo
+                  </a>
+                ) : null}
               </div>
             </li>
           );

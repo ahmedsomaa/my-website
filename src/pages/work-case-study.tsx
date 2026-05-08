@@ -5,6 +5,14 @@ import { getCaseStudyBySlug, getNextCaseStudySlug } from "@/lib/case-studies";
 import { isGithubUrl } from "@/lib/url-helpers";
 import NotFound from "./not-found";
 
+const CASE_STUDY_COVERS: Record<string, string> = {
+  "editor-setup": "/images/editor-setup-cover.png",
+  hivo: "/images/hivo-cover.png",
+  reconciled: "/images/reconciled-cover.png",
+  "covid-tracker": "/images/covid-tracker-cover.png",
+  "sharp-studio": "/images/sharp-studio-cover.png",
+};
+
 export default function WorkCaseStudy() {
   usePageAccent(PAGE_ACCENTS.work);
   const { slug } = useParams<{ slug: string }>();
@@ -19,6 +27,7 @@ export default function WorkCaseStudy() {
     study.repoUrl ?? (isGithubUrl(study.liveUrl) ? study.liveUrl : null);
   const liveHref =
     study.liveUrl && !isGithubUrl(study.liveUrl) ? study.liveUrl : null;
+  const coverSrc = CASE_STUDY_COVERS[study.slug];
 
   return (
     <article className="relative mx-auto max-w-3xl px-6 md:px-10 pt-16 pb-20">
@@ -72,6 +81,17 @@ export default function WorkCaseStudy() {
           ) : null}
         </div>
       </header>
+
+      {coverSrc ? (
+        <div className="relative mb-14 overflow-hidden border hairline bg-muted/40">
+          <img
+            src={coverSrc}
+            alt={`${study.title} project cover`}
+            className="w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      ) : null}
 
       <section className="relative mb-14">
         <h2 className="font-mono-pair text-xs uppercase tracking-[0.25em] text-ts-blue mb-4">
