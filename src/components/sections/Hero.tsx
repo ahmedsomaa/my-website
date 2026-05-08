@@ -82,7 +82,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.7, duration: 0.5 }}
+          transition={{ delay: 0.9, duration: 0.35, ease: "easeOut" }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
           <Link
