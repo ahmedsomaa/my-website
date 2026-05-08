@@ -66,7 +66,8 @@
   --font-display: "Major Mono Display", ui-monospace, monospace;
   --font-mono: "Inconsolata", ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-ntype: "NType82", ui-sans-serif, system-ui, sans-serif;
-  --font-ntype-mono: "NType82 Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-ntype-mono:
+    "NType82 Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -282,42 +283,105 @@
 
   .grid-bg {
     background-image:
-      linear-gradient(to right, hsl(var(--grid-line) / 0.6) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--grid-line) / 0.6) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        hsl(var(--grid-line) / 0.6) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--grid-line) / 0.6) 1px,
+        transparent 1px
+      );
     background-size: 56px 56px;
   }
   .grid-bg-fine {
     background-image:
-      linear-gradient(to right, hsl(var(--grid-line) / 0.5) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--grid-line) / 0.5) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        hsl(var(--grid-line) / 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--grid-line) / 0.5) 1px,
+        transparent 1px
+      );
     background-size: 24px 24px;
   }
 
   .grid-vercel {
     background-image:
-      linear-gradient(to right, hsl(var(--grid-line) / 0.9) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--grid-line) / 0.9) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        hsl(var(--grid-line) / 0.9) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--grid-line) / 0.9) 1px,
+        transparent 1px
+      );
     background-size: 48px 48px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 40%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 40%,
+      transparent 100%
+    );
   }
   .grid-vercel-dense {
     background-image:
-      linear-gradient(to right, hsl(var(--grid-line) / 0.8) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--grid-line) / 0.8) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        hsl(var(--grid-line) / 0.8) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--grid-line) / 0.8) 1px,
+        transparent 1px
+      );
     background-size: 24px 24px;
-    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 30%, transparent 100%);
-    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 60% 50% at 50% 30%,
+      #000 30%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 60% 50% at 50% 30%,
+      #000 30%,
+      transparent 100%
+    );
   }
   .grid-dot {
-    background-image: radial-gradient(hsl(var(--grid-line) / 0.9) 1px, transparent 1px);
+    background-image: radial-gradient(
+      hsl(var(--grid-line) / 0.9) 1px,
+      transparent 1px
+    );
     background-size: 22px 22px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
   }
 
   .accent-glow {
-    background: radial-gradient(ellipse 50% 40% at 50% 0%, hsl(var(--accent-page) / 0.18), transparent 70%);
+    background: radial-gradient(
+      ellipse 50% 40% at 50% 0%,
+      hsl(var(--accent-page) / 0.18),
+      transparent 70%
+    );
   }
 
   .raw-mode .raw-only {
