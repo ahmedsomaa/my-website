@@ -9,9 +9,9 @@ export default function FeaturedWork() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader index="01" label="work" title="Featured work" />
+      <SectionHeader index="01" label="work" title="Selected work" />
 
-      <ul className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border hairline">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {featured.map((study) => {
           const repoHref =
             study.repoUrl ??
@@ -20,7 +20,7 @@ export default function FeaturedWork() {
           return (
             <li
               key={study.slug}
-              className="bg-background p-6 md:p-8 flex flex-col min-h-[280px]"
+              className="border hairline bg-background p-6 md:p-8 flex flex-col min-h-[280px]"
             >
               <h3 className="font-display text-xl md:text-2xl uppercase leading-tight">
                 {study.title}

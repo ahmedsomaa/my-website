@@ -14,7 +14,7 @@ export default function SiteHeader() {
   const { mode, toggle, theme, toggleTheme } = useMode();
   return (
     <header className="sticky top-0 z-30 border-b hairline bg-background/80 backdrop-blur-md">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 h-14 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 h-14 flex items-center justify-between">
         <Link to="/" className="font-display text-sm md:text-base tracking-wider lowercase inline-flex items-center gap-2">
           <span className="h-1.5 w-1.5 bg-accent-page" />
           som3aware
@@ -71,6 +71,29 @@ export default function SiteHeader() {
           </button>
         </div>
       </div>
+      <nav className="md:hidden border-t hairline">
+        <div className="px-4 sm:px-6 py-2 flex items-center gap-4 overflow-x-auto whitespace-nowrap text-[10px] uppercase tracking-[0.2em] font-mono-pair">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `relative transition-colors hover:text-foreground ${
+                  isActive ? "text-foreground" : "text-muted-foreground"
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <span className="inline-flex items-center gap-2 py-1">
+                  {isActive && <span className="h-1 w-1 bg-foreground" />}
+                  {l.label}
+                </span>
+              )}
+            </NavLink>
+          ))}
+        </div>
+      </nav>
     </header>
   );
 }

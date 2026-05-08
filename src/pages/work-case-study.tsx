@@ -15,8 +15,10 @@ export default function WorkCaseStudy() {
   }
 
   const nextSlug = getNextCaseStudySlug(study.slug);
-  const repoHref = study.repoUrl ?? (isGithubUrl(study.liveUrl) ? study.liveUrl : null);
-  const liveHref = study.liveUrl && !isGithubUrl(study.liveUrl) ? study.liveUrl : null;
+  const repoHref =
+    study.repoUrl ?? (isGithubUrl(study.liveUrl) ? study.liveUrl : null);
+  const liveHref =
+    study.liveUrl && !isGithubUrl(study.liveUrl) ? study.liveUrl : null;
 
   return (
     <article className="relative mx-auto max-w-3xl px-6 md:px-10 pt-16 pb-20">
@@ -26,7 +28,9 @@ export default function WorkCaseStudy() {
         <p className="font-mono-pair text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
           work / {study.slug}
         </p>
-        <h1 className="font-display text-3xl md:text-5xl uppercase leading-tight">{study.title}</h1>
+        <h1 className="font-display text-3xl md:text-5xl uppercase leading-tight">
+          {study.title}
+        </h1>
         <p className="mt-3 font-mono-pair text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground tabular-nums">
           {study.date}
         </p>

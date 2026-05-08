@@ -6,7 +6,12 @@ interface Props {
   subtitle?: string;
 }
 
-export default function SectionHeader({ index, label, title, subtitle }: Props) {
+export default function SectionHeader({
+  index,
+  label,
+  title,
+  subtitle,
+}: Props) {
   return (
     <div className="mb-12 md:mb-16">
       <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">

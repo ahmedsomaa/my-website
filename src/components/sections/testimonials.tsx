@@ -18,16 +18,20 @@ const TESTIMONIALS = [
 export default function Testimonials() {
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader index="05" label="testimonials" title="Testimonials" />
+      <SectionHeader
+        index="03"
+        label="testimonials"
+        title="What working together felt like."
+      />
 
-      <ul className="border hairline divide-y divide-border">
+      <ul className="space-y-12 md:space-y-16">
         {TESTIMONIALS.map((item) => (
-          <li key={item.author} className="bg-background p-6 md:p-8">
-            <blockquote className="font-ntype text-base md:text-lg text-muted-foreground leading-relaxed">
+          <li key={item.author} className="max-w-4xl">
+            <blockquote className="font-ntype text-lg md:text-2xl text-foreground leading-relaxed">
               "{item.quote}"
             </blockquote>
-            <p className="mt-4 font-mono-pair text-xs uppercase tracking-[0.2em] text-ts-blue">
-              {item.author}, {item.role}
+            <p className="mt-5 font-mono-pair text-[11px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              — {item.author}, {item.role}
             </p>
           </li>
         ))}

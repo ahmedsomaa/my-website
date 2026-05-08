@@ -165,7 +165,6 @@ export default function WorkIndex() {
     </div>
   );
 }
-
 function StackTags({ tags }: { tags: string[] }) {
   return (
     <div className="flex flex-wrap gap-1.5 pt-0.5 md:pt-1 justify-start">
