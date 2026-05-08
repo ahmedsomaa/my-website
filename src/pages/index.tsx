@@ -1,4 +1,4 @@
-import Hero from "@/components/sections/hero";
+import Hero from "@/components/sections/Hero";
 import FeaturedWork from "@/components/sections/featured-work";
 import CapabilitiesSection from "@/components/sections/capabilities-section";
 import Testimonials from "@/components/sections/testimonials";
