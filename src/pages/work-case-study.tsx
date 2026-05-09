@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ProgressiveImage } from "@/components/progressive-image";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
 import { getCaseStudyBySlug, getNextCaseStudySlug } from "@/lib/case-studies";
 import { isGithubUrl } from "@/lib/url-helpers";
@@ -84,11 +85,11 @@ export default function WorkCaseStudy() {
 
       {coverSrc ? (
         <div className="relative mb-14 overflow-hidden border hairline bg-muted/40">
-          <img
+          <ProgressiveImage
             src={coverSrc}
             alt={`${study.title} project cover`}
-            className="w-full object-cover"
-            loading="lazy"
+            wrapperClassName="w-full min-h-[200px] md:min-h-[260px]"
+            className="w-full h-auto max-h-none object-cover"
           />
         </div>
       ) : null}

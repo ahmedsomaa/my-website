@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
+import { ProgressiveImage } from "@/components/progressive-image";
 import { PROFILE } from "@/data/portfolio";
 
 type TimelineItem = {
@@ -171,7 +172,12 @@ export default function About() {
 
   return (
     <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
-      <div className="absolute inset-x-0 top-0 h-[420px] grid-vercel-dense pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-[420px] about-hero-grid-shell overflow-hidden pointer-events-none">
+        <div
+          className="absolute left-1/2 top-1/2 size-[200vmax] -translate-x-1/2 -translate-y-1/2 grid-vercel-dense-blend rotate-45"
+          aria-hidden
+        />
+      </div>
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
 
       <header className="relative mb-16 md:mb-24">
@@ -320,12 +326,11 @@ export default function About() {
                           </p>
                         </div>
                       ) : (
-                        <img
+                        <ProgressiveImage
                           alt={item.imageHint}
                           className="h-full w-full object-cover"
-                          decoding="async"
-                          loading="lazy"
-                          src={item.imageSrc}
+                          src={item.imageSrc!}
+                          wrapperClassName="h-full w-full min-h-0"
                         />
                       )}
                     </div>

@@ -358,6 +358,38 @@
       transparent 100%
     );
   }
+
+  /** Diagonal / rotated use: lighter lines, no inner mask (shell mask blends into page). */
+  .grid-vercel-dense-blend {
+    background-image:
+      linear-gradient(
+        to right,
+        hsl(var(--grid-line) / 0.34) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--grid-line) / 0.34) 1px,
+        transparent 1px
+      );
+    background-size: 24px 24px;
+  }
+
+  /** About hero: soft vignette so the diagonal grid dissolves into the page. */
+  .about-hero-grid-shell {
+    -webkit-mask-image: radial-gradient(
+      125% 90% at 50% 20%,
+      #000 22%,
+      rgba(0, 0, 0, 0.5) 55%,
+      transparent 74%
+    );
+    mask-image: radial-gradient(
+      125% 90% at 50% 20%,
+      #000 22%,
+      rgba(0, 0, 0, 0.5) 55%,
+      transparent 74%
+    );
+  }
   .grid-dot {
     background-image: radial-gradient(
       hsl(var(--grid-line) / 0.9) 1px,
@@ -431,7 +463,7 @@
     );
   }
 
-  /** Ruled paper: dashed horizontal lines + left margin (uses `--accent-page` for the margin bar). */
+  /** Ruled paper: dashed horizontal lines (elliptical fade). */
   .notebook-lines {
     -webkit-mask-image: radial-gradient(
       ellipse 70% 60% at 50% 40%,
@@ -445,16 +477,11 @@
     );
   }
 
-  .notebook-lines::before,
-  .notebook-lines::after {
+  .notebook-lines::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-  }
-
-  /** Horizontal rules: solid stripes, then mask into dashes along X. */
-  .notebook-lines::before {
     background: repeating-linear-gradient(
       to bottom,
       hsl(var(--grid-line) / 0.55) 0 1px,
@@ -475,17 +502,6 @@
     mask-size: 1.35rem 100%;
     -webkit-mask-repeat: repeat;
     mask-repeat: repeat;
-  }
-
-  .notebook-lines::after {
-    background-image: linear-gradient(
-      to right,
-      transparent 0,
-      transparent calc(2.5rem - 1px),
-      hsl(var(--accent-page) / 0.28) calc(2.5rem - 1px),
-      hsl(var(--accent-page) / 0.28) 2.5rem,
-      transparent 2.5rem
-    );
   }
 
   .accent-glow {

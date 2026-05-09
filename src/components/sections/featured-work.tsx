@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { ProgressiveImage } from "@/components/progressive-image";
 import SectionHeader from "./section-header";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { isGithubUrl } from "@/lib/url-helpers";
@@ -40,11 +41,11 @@ export default function FeaturedWork() {
               />
               {coverSrc ? (
                 <div className="relative z-0 mb-5 overflow-hidden border hairline bg-muted/40">
-                  <img
+                  <ProgressiveImage
                     src={coverSrc}
                     alt={`${study.title} project preview`}
-                    className="aspect-square w-full object-cover"
-                    loading="lazy"
+                    wrapperClassName="aspect-square w-full"
+                    className="h-full w-full object-cover"
                   />
                 </div>
               ) : null}
