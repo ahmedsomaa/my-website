@@ -21,10 +21,10 @@ export function ModeProvider({ children }: { children: ReactNode }) {
   });
 
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light";
+    if (typeof window === "undefined") return "dark";
     const stored = localStorage.getItem("ui-theme") as Theme | null;
-    if (stored) return stored;
-    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    if (stored === "light" || stored === "dark") return stored;
+    return "dark";
   });
 
   useEffect(() => {
