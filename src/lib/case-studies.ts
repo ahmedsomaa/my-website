@@ -13,11 +13,12 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return allCaseStudies().find((c) => c.slug === slug);
 }
 
-export function getFeaturedCaseStudies(limit = 3): CaseStudy[] {
-  return allCaseStudies()
+/** All featured case studies sorted by `order`. Pass `limit` only when you need a cap (e.g. teasers). */
+export function getFeaturedCaseStudies(limit?: number): CaseStudy[] {
+  const sorted = allCaseStudies()
     .filter((c) => c.featured)
-    .sort((a, b) => a.order - b.order)
-    .slice(0, limit);
+    .sort((a, b) => a.order - b.order);
+  return limit === undefined ? sorted : sorted.slice(0, limit);
 }
 
 export function getAllCaseStudiesSorted(): CaseStudy[] {

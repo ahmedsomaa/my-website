@@ -48,15 +48,15 @@ The **main color** is **`ts-blue`** — used on the home hero for emphasis (for 
 
 These tokens are **inspired by common tooling colors** (logos and community associations, not official brand guidelines). Together they form the **palette** you draw from when assigning a **random accent** to a new page:
 
-| Token | Rough mapping | Notes |
-|--------|----------------|--------|
-| `--brand-react` | React / **React Native** / **Expo** (cyan family) | |
-| `--brand-node` | **Node.js** (green) | |
-| `--brand-ts` | **TypeScript** | Near `ts-blue`; use when you want TS-adjacent but from the brand set |
-| `--brand-css` | **CSS** | Cool blue-violet |
-| `--brand-js` | **JavaScript** | Warm yellow |
-| `--brand-tailwind` | **Tailwind CSS** | Teal / cyan |
-| `--brand-html` | **HTML** | Orange-red, distinct from JS yellow |
+| Token              | Rough mapping                                     | Notes                                                                |
+| ------------------ | ------------------------------------------------- | -------------------------------------------------------------------- |
+| `--brand-react`    | React / **React Native** / **Expo** (cyan family) |                                                                      |
+| `--brand-node`     | **Node.js** (green)                               |                                                                      |
+| `--brand-ts`       | **TypeScript**                                    | Near `ts-blue`; use when you want TS-adjacent but from the brand set |
+| `--brand-css`      | **CSS**                                           | Cool blue-violet                                                     |
+| `--brand-js`       | **JavaScript**                                    | Warm yellow                                                          |
+| `--brand-tailwind` | **Tailwind CSS**                                  | Teal / cyan                                                          |
+| `--brand-html`     | **HTML**                                          | Orange-red, distinct from JS yellow                                  |
 
 Use Tailwind: `text-brand-react`, `bg-brand-node`, `text-brand-html`, etc. (see `@theme inline` in `src/index.css`).
 
@@ -84,6 +84,9 @@ Every **major routed page** (except the minimal 404) should reinforce **place** 
 1. **Grid or line motif** — subtle, non-interactive background in the **hero band** (top ~280–420px):
    - **Line grids:** `grid-bg`, `grid-bg-fine`, `grid-vercel`, `grid-vercel-dense` (`src/index.css`).
    - **Dots:** `grid-dot` — radial dot field with soft elliptical mask.
+   - **Building blocks / voxel plate:** `building-blocks` — square grid plus offset “studs”, drawn only from `--grid-line` (no accent tint). Prefer on `/work`.
+   - **Notification dots:** `notification-dots` — small filled circles on a grid using `--accent-page` (unread-badge feel); same elliptical mask as `grid-dot`. Prefer on `/contact`.
+   - **Notebook / writing:** `notebook-lines` — horizontal dashed ruled lines plus a single left “margin” bar (tinted with `--accent-page`), same elliptical fade as `grid-dot`. Prefer on `/blog` and similar writing-focused heroes.
 2. **One highlight color per page** — choose **at random** from the stack-derived tokens **`--brand-react`**, **`--brand-node`**, **`--brand-ts`**, **`--brand-css`**, **`--brand-js`**, **`--brand-tailwind`**, **`--brand-html`**. Apply it to a focal hero element (title span, underline, radial wash, or border) and keep the rest of the page neutral so the pick reads as intentional.
 
 Optional: a soft radial wash behind the hero can reuse the same hue at low alpha (similar in spirit to a subtle glow), built from whichever brand token you selected for that page.
@@ -91,7 +94,7 @@ Optional: a soft radial wash behind the hero can reuse the same hue at low alpha
 ### Adding a new page
 
 1. Pick **one** brand token at random from the list above (or roll dice / use a PR comment to “freeze” the choice for that page forever).
-2. Layer **`grid-*` or `grid-dot`** behind the page header block (absolute, `pointer-events-none`, fixed height from top).
+2. Layer **`grid-*`, `grid-dot`, `building-blocks`, `notification-dots`, or `notebook-lines`** behind the page header block (absolute, `pointer-events-none`, fixed height from top).
 3. Wire the chosen color into hero highlights for that page only (inline style with `hsl(var(--brand-…))`, Tailwind `text-brand-*`, or a small page-scoped CSS variable).
 
 ## Layout & motion
@@ -102,13 +105,13 @@ Optional: a soft radial wash behind the hero can reuse the same hue at low alpha
 
 ## File reference
 
-| Concern | Location |
-|---------|-----------|
-| Color & theme tokens | `src/index.css` (`:root`, `.dark`, `@theme inline`) |
-| Google Fonts (display + mono) | `index.html` |
-| NType82 `@font-face` | `src/index.css` |
-| Global fine grid | `src/components/layout/site-layout.tsx` |
+| Concern                       | Location                                            |
+| ----------------------------- | --------------------------------------------------- |
+| Color & theme tokens          | `src/index.css` (`:root`, `.dark`, `@theme inline`) |
+| Google Fonts (display + mono) | `index.html`                                        |
+| NType82 `@font-face`          | `src/index.css`                                     |
+| Global fine grid              | `src/components/layout/site-layout.tsx`             |
 
 ---
 
-*When updating tokens, keep this file and `src/index.css` in sync so humans and coding agents share one contract.*
+_When updating tokens, keep this file and `src/index.css` in sync so humans and coding agents share one contract._

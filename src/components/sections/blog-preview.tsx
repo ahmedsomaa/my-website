@@ -53,7 +53,9 @@ export default function BlogPreview() {
                   day: "2-digit",
                 })}
                 <span className="mx-2">·</span>
-                {p.readTimeInMinutes}m
+                {(p.views ?? 0).toLocaleString()} views
+                <span className="mx-2">·</span>
+                {p.readTimeInMinutes} min read
               </div>
               <ArrowUpRight
                 className="hidden md:block md:col-span-1 ml-auto h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"

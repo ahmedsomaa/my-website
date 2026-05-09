@@ -4,7 +4,7 @@ export const PROFILE = {
   location: "Tanta, Egypt",
   yearsOfExperience: 7,
   email: "abokahfa@gmail.com",
-  resumeUrl: "#",
+  resumeUrl: "/docs/Ahmed_Abu_Qahf___cv_latest.pdf",
   hashnodeHost: "som3aware.hashnode.dev",
   /** Update if your LinkedIn slug differs */
   githubUrl: "https://github.com/ahmedsomaa",

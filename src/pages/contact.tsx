@@ -27,25 +27,20 @@ export default function Contact() {
   }
 
   return (
-    <div className="relative mx-auto max-w-3xl px-6 md:px-10 pt-20 pb-16">
-      <div className="absolute inset-x-0 top-0 h-[320px] grid-dot pointer-events-none opacity-60" />
-      <header className="relative mb-12">
-        <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">04 / contact</p>
-        <h1 className="font-display text-4xl md:text-5xl leading-[0.95] uppercase">
-          Hire me <span className="text-accent-page">/</span> say hello
-        </h1>
-        <p className="mt-6 font-ntype text-sm text-muted-foreground leading-relaxed">
-          Open for selective freelance and collaborations. Add a real <span className="font-mono-pair text-xs">calendlyUrl</span> in
-          your profile when you want a booking button here.
+    <div className="relative mx-auto max-w-4xl px-6 md:px-10 pt-20 pb-10">
+      <div className="absolute inset-x-0 top-0 h-[420px] notification-dots pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
+      <header className="relative mb-16 md:mb-20">
+        <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          04 / contact — compose ~/message
         </p>
+        <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
+          my <span className="text-accent-page">inbox</span> is open — say
+          hello.
+        </h1>
       </header>
 
-      <div className="relative space-y-10 border hairline bg-background p-6 md:p-10">
-        <div>
-          <p className="font-mono-pair text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">availability</p>
-          <p className="font-ntype text-sm text-accent-page">open to selective work</p>
-        </div>
-
+      <div className="relative w-full space-y-10 border hairline bg-background p-6 md:p-10">
         {calendlyReady ? (
           <a
             href={PROFILE.calendlyUrl}
@@ -55,12 +50,12 @@ export default function Contact() {
           >
             Schedule a 15-min intro
           </a>
-        ) : (
-          <p className="font-mono-pair text-xs text-muted-foreground">// add PROFILE.calendlyUrl when ready</p>
-        )}
+        ) : null}
 
         <form onSubmit={onSubmit} className="space-y-5">
-          <p className="font-mono-pair text-[10px] uppercase tracking-[0.25em] text-muted-foreground">message</p>
+          <p className="font-mono-pair text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+            message
+          </p>
 
           <label className="sr-only" htmlFor="contact-company">
             Company
@@ -76,7 +71,10 @@ export default function Contact() {
           />
 
           <div>
-            <label htmlFor="contact-name" className="block font-mono-pair text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2">
+            <label
+              htmlFor="contact-name"
+              className="block font-mono-pair text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2"
+            >
               Name
             </label>
             <input
@@ -86,7 +84,10 @@ export default function Contact() {
             />
           </div>
           <div>
-            <label htmlFor="contact-email" className="block font-mono-pair text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2">
+            <label
+              htmlFor="contact-email"
+              className="block font-mono-pair text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2"
+            >
               Email
             </label>
             <input
@@ -98,7 +99,10 @@ export default function Contact() {
             />
           </div>
           <div>
-            <label htmlFor="contact-message" className="block font-mono-pair text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2">
+            <label
+              htmlFor="contact-message"
+              className="block font-mono-pair text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2"
+            >
               Message
             </label>
             <textarea
@@ -114,12 +118,16 @@ export default function Contact() {
             type="submit"
             className="border hairline px-6 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
           >
-            Send via email
+            Contact me
           </button>
 
           {sent && (
-            <p className="font-ntype text-sm text-muted-foreground" role="status">
-              Thanks — your mail client should open. I’ll reply within 24h when this lands in my inbox.
+            <p
+              className="font-ntype text-sm text-muted-foreground"
+              role="status"
+            >
+              Thanks — your mail client should open. I’ll reply within 24h when
+              this lands in my inbox.
             </p>
           )}
         </form>

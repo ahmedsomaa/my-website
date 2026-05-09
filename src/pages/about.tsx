@@ -17,6 +17,8 @@ type JourneyItem = {
   paragraphs: string[];
   bullets?: { label: string; text: string }[];
   imageHint: string;
+  imageSrc?: string;
+  brandLabel?: string;
 };
 
 export default function About() {
@@ -81,6 +83,7 @@ export default function About() {
         "In preparatory school, I moved beyond just using computers to managing them, learning the basics of system administration like OS installation. This was also where I wrote my first lines of code. Using Visual Basic .NET, I built foundational applications like calculators and tools to compute the area and circumference of engineering shapes. This spark stayed with me through high school, leading me to pursue a degree at AUC, where I eventually specialized in web development through courses in HTML, CSS, and JavaScript.",
       ],
       imageHint: "Early days and first laptop",
+      imageSrc: "/images/programming-origins.webp",
     },
     {
       id: "02",
@@ -92,6 +95,7 @@ export default function About() {
         "These experiences solidified my expertise, and shortly after hiring opened, I joined the team full-time as a Full-Stack Software Engineer.",
       ],
       imageHint: "Internships and first shipped apps",
+      imageSrc: "/images/vois.webp",
     },
     {
       id: "03",
@@ -101,6 +105,7 @@ export default function About() {
         "On a personal note, meeting Radwa Hany was a turning point in my life; I was captivated from the moment we met and knew immediately she was the one. We are currently engaged and happily busy with the renovations of our apartment. As we plan for our wedding in a few months, I’m reminded that family always comes first. I feel incredibly fortunate to see my family growing, gaining not just a partner in Radwa, but a whole new family in hers.",
       ],
       imageHint: "Personal life and grounding",
+      imageSrc: "/images/beyond-code.webp",
     },
     {
       id: "04",
@@ -110,6 +115,7 @@ export default function About() {
         "In addition to my engineering work, I am passionate about mentorship. I enjoy guiding junior engineers through the software development lifecycle, helping them navigate their career growth and teaching them how to leverage AI effectively to build high-quality features. Even in my downtime, I’m usually experimenting with new technologies through side projects or sharing my insights through technical blogging.",
       ],
       imageHint: "Growth engineering today",
+      brandLabel: "Eignspaces",
     },
   ] as const;
 
@@ -172,8 +178,9 @@ export default function About() {
         <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
           01 / about - cd ~/about
         </p>
-        <h1 className="font-display text-4xl md:text-5xl leading-[0.95] max-w-4xl">
-          my <span className="text-accent-page">journey</span> as an engineer.
+        <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
+          <span className="block">my <span className="text-accent-page">journey</span></span>
+          <span className="block mt-2 md:mt-3">as an engineer.</span>
         </h1>
       </header>
 
@@ -185,7 +192,15 @@ export default function About() {
             <span>about</span>
           </div>
         </div>
-        <p className="max-w-3xl font-ntype text-base md:text-xl text-muted-foreground leading-relaxed mb-12">
+        <p className="mb-4 flex flex-wrap items-baseline gap-x-1.5 text-xl md:text-2xl leading-tight">
+          <span className="font-display">&ldquo;hello there&rdquo;</span>
+          <sub className="font-mono-pair text-muted-foreground normal-case text-[0.55em] tracking-[0.06em] not-italic">
+            Obi-Wan Kenobi
+          </sub>
+        </p>
+        <p className="max-w-2xl font-ntype text-base md:text-xl text-muted-foreground leading-relaxed mb-12">
+          I am Ahmed Ismail, a creative full stack engineer.
+          <br />
           Here&apos;s a quick glimpse about me and what I love to do.
         </p>
 
@@ -287,7 +302,33 @@ export default function About() {
                       idx % 2 === 0 ? "rotate-[2deg]" : "-rotate-[2deg]"
                     }`}
                   >
-                    <div className="aspect-[16/10] bg-gradient-to-br from-muted/60 to-background border hairline" />
+                    <div
+                      className={`aspect-[16/10] overflow-hidden border hairline ${
+                        item.brandLabel
+                          ? "flex items-center justify-center bg-black text-white dark:bg-white dark:text-black"
+                          : "bg-muted/30"
+                      }`}
+                    >
+                      {item.brandLabel ? (
+                        <div
+                          className="flex h-full w-full items-center justify-center"
+                          role="img"
+                          aria-label={item.imageHint}
+                        >
+                          <p className="font-display text-2xl md:text-3xl !normal-case px-6 text-center">
+                            {item.brandLabel}
+                          </p>
+                        </div>
+                      ) : (
+                        <img
+                          alt={item.imageHint}
+                          className="h-full w-full object-cover"
+                          decoding="async"
+                          loading="lazy"
+                          src={item.imageSrc}
+                        />
+                      )}
+                    </div>
                     <p className="mt-3 font-mono-pair text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                       {item.imageHint}
                     </p>

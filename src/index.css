@@ -376,6 +376,118 @@
     );
   }
 
+  /**
+   * Voxel / stud plate — square grid + offset studs, all from `--grid-line` only (no accent hue).
+   */
+  .building-blocks {
+    --bb-line: hsl(var(--grid-line) / 0.36);
+    --bb-stud: hsl(var(--grid-line) / 0.5);
+    background-image:
+      linear-gradient(var(--bb-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bb-line) 1px, transparent 1px),
+      radial-gradient(
+        circle 2.25px at center,
+        var(--bb-stud) 100%,
+        transparent 100%
+      );
+    background-size:
+      22px 22px,
+      22px 22px,
+      22px 22px;
+    background-position:
+      0 0,
+      0 0,
+      11px 11px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
+  }
+
+  /** Filled “notification” dots on a grid — tiny, low-opacity so they read as ambient texture. */
+  .notification-dots {
+    background-image: radial-gradient(
+      circle 1.25px at center,
+      hsl(var(--accent-page) / 0.08) 100%,
+      transparent 100%
+    );
+    background-size: 26px 26px;
+    background-position: 0 0;
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
+  }
+
+  /** Ruled paper: dashed horizontal lines + left margin (uses `--accent-page` for the margin bar). */
+  .notebook-lines {
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 35%,
+      transparent 100%
+    );
+  }
+
+  .notebook-lines::before,
+  .notebook-lines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /** Horizontal rules: solid stripes, then mask into dashes along X. */
+  .notebook-lines::before {
+    background: repeating-linear-gradient(
+      to bottom,
+      hsl(var(--grid-line) / 0.55) 0 1px,
+      transparent 1px 1.75rem
+    );
+    background-position: 0 0.35rem;
+    -webkit-mask-image: repeating-linear-gradient(
+      to right,
+      #fff 0 0.65rem,
+      transparent 0.65rem 1.35rem
+    );
+    mask-image: repeating-linear-gradient(
+      to right,
+      #fff 0 0.65rem,
+      transparent 0.65rem 1.35rem
+    );
+    -webkit-mask-size: 1.35rem 100%;
+    mask-size: 1.35rem 100%;
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+  }
+
+  .notebook-lines::after {
+    background-image: linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(2.5rem - 1px),
+      hsl(var(--accent-page) / 0.28) calc(2.5rem - 1px),
+      hsl(var(--accent-page) / 0.28) 2.5rem,
+      transparent 2.5rem
+    );
+  }
+
   .accent-glow {
     background: radial-gradient(
       ellipse 50% 40% at 50% 0%,

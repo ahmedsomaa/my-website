@@ -6,11 +6,11 @@ import { isGithubUrl } from "@/lib/url-helpers";
 import NotFound from "./not-found";
 
 const CASE_STUDY_COVERS: Record<string, string> = {
-  "editor-setup": "/images/editor-setup-cover.png",
-  hivo: "/images/hivo-cover.png",
-  reconciled: "/images/reconciled-cover.png",
-  "covid-tracker": "/images/covid-tracker-cover.png",
-  "sharp-studio": "/images/sharp-studio-cover.png",
+  "editor-setup": "/images/editor-setup-cover.webp",
+  hivo: "/images/hivo-cover.webp",
+  reconciled: "/images/reconciled-cover.webp",
+  "covid-tracker": "/images/covid-tracker-cover.webp",
+  "sharp-studio": "/images/sharp-studio-cover.webp",
 };
 
 export default function WorkCaseStudy() {

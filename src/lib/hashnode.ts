@@ -2,9 +2,14 @@ export interface HashnodePost {
   id: string;
   title: string;
   brief: string;
+  /** Post subtitle (preferred one-line listing copy). */
+  subtitle?: string | null;
+  seo?: { description?: string | null } | null;
   url: string;
   publishedAt: string;
   readTimeInMinutes: number;
+  /** Total page views from Hashnode (not read-time minutes). */
+  views?: number;
   coverImage?: { url: string } | null;
 }
 
@@ -12,11 +17,25 @@ const POST_FIELDS = `
   id
   title
   brief
+  subtitle
+  seo {
+    description
+  }
   url
   publishedAt
   readTimeInMinutes
+  views
   coverImage { url }
 `;
+
+/** One-line description for list UIs: subtitle, then SEO meta, then empty (not `brief`). */
+export function getPostListingDescription(post: HashnodePost): string {
+  const fromSubtitle = post.subtitle?.trim();
+  if (fromSubtitle) return fromSubtitle;
+  const fromSeo = post.seo?.description?.trim();
+  if (fromSeo) return fromSeo;
+  return "";
+}
 
 const QUERY_LATEST = `
   query UserPostsLatest($host: String!) {

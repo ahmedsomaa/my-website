@@ -5,15 +5,15 @@ import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { isGithubUrl } from "@/lib/url-helpers";
 
 const CASE_STUDY_COVERS: Record<string, string> = {
-  "editor-setup": "/images/editor-setup-cover.png",
-  hivo: "/images/hivo-cover.png",
-  reconciled: "/images/reconciled-cover.png",
-  "covid-tracker": "/images/covid-tracker-cover.png",
-  "sharp-studio": "/images/sharp-studio-cover.png",
+  "editor-setup": "/images/editor-setup-cover.webp",
+  hivo: "/images/hivo-cover.webp",
+  reconciled: "/images/reconciled-cover.webp",
+  "covid-tracker": "/images/covid-tracker-cover.webp",
+  "sharp-studio": "/images/sharp-studio-cover.webp",
 };
 
 export default function FeaturedWork() {
-  const featured = getFeaturedCaseStudies(3);
+  const featured = getFeaturedCaseStudies();
 
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
