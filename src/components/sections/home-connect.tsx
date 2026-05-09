@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { getBookingContactHref, getCalComBookingUrl } from "@/data/portfolio";
 
 export default function HomeConnect() {
+  const bookingCal = getCalComBookingUrl();
+  const contactHref = getBookingContactHref();
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
       <p className="font-mono-pair text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
@@ -11,8 +13,10 @@ export default function HomeConnect() {
         Let&apos;s build something thoughtful.
       </h2>
       <div className="mt-10">
-        <Link
-          to="/contact"
+        <a
+          href={contactHref}
+          target={bookingCal ? "_blank" : undefined}
+          rel={bookingCal ? "noopener noreferrer" : undefined}
           className="group inline-flex items-center gap-2 border hairline px-6 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
         >
           Contact
@@ -20,7 +24,7 @@ export default function HomeConnect() {
             className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             strokeWidth={1.25}
           />
-        </Link>
+        </a>
       </div>
     </section>
   );

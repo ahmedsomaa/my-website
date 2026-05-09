@@ -43,7 +43,7 @@ export default function BlogIndex() {
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
       <header className="relative mb-16 md:mb-20">
         <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
-          04 / writing — cat ~/posts/*.md
+          03 / writing — cat ~/posts/*.md
         </p>
         <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
           <span className="block">my <span className="text-accent-page">corner</span></span>

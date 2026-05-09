@@ -2,9 +2,12 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useMode } from "@/context/mode-context";
+import { getBookingContactHref, getCalComBookingUrl } from "@/data/portfolio";
 
 export default function Hero() {
   const { mode } = useMode();
+  const bookingCal = getCalComBookingUrl();
+  const contactHref = getBookingContactHref();
   return (
     <section className="relative">
       <div
@@ -95,8 +98,10 @@ export default function Hero() {
               strokeWidth={1.25}
             />
           </Link>
-          <Link
-            to="/contact"
+          <a
+            href={contactHref}
+            target={bookingCal ? "_blank" : undefined}
+            rel={bookingCal ? "noopener noreferrer" : undefined}
             className="group inline-flex items-center gap-2 border hairline px-5 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-muted transition-colors"
           >
             Get In Touch
@@ -104,7 +109,7 @@ export default function Hero() {
               className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={1.25}
             />
-          </Link>
+          </a>
         </motion.div>
 
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border hairline">

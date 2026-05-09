@@ -11,9 +11,25 @@ export const PROFILE = {
   linkedInUrl: "https://linkedin.com/in/som3aware",
   /** Optional: Calendly / TidyCal for intro calls */
   calendlyUrl: "#",
+  /**
+   * Optional Cal.com URL. When empty, “Get in touch” / Connect use mailto: PROFILE.email.
+   */
+  calComUrl: "",
   /** Set when you have a public status page (UptimeRobot, etc.) */
   apiStatusUrl: "",
 };
+
+/** Non-empty Cal.com-style booking URL, or null when using email fallback. */
+export function getCalComBookingUrl(): string | null {
+  const u = PROFILE.calComUrl.trim();
+  if (!u || u === "#") return null;
+  return u;
+}
+
+/** Opens Cal.com when configured, otherwise `mailto` to PROFILE.email. */
+export function getBookingContactHref(): string {
+  return getCalComBookingUrl() ?? `mailto:${PROFILE.email}`;
+}
 
 export const BUILD_FLOW = [
   { layer: "Database", tech: "PostgreSQL" },

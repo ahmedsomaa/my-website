@@ -25,5 +25,4 @@ export const PAGE_ACCENTS = {
   work: "53 93% 60%",
   // Tailwind teal (stack-derived palette)
   blog: "189 94% 55%",
-  contact: "270 42% 52%",
 } as const;
