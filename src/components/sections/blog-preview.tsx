@@ -66,7 +66,7 @@ export default function BlogPreview() {
       </div>
 
       <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-pair text-xs uppercase tracking-[0.25em] text-muted-foreground">
-        <Link to="/blog" className="inline-flex items-center gap-2 hover:text-foreground transition-colors">
+        <Link to="/writing" className="inline-flex items-center gap-2 hover:text-foreground transition-colors">
           → all posts
           <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
         </Link>

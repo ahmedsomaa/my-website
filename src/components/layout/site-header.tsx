@@ -6,7 +6,7 @@ const links = [
   { to: "/", label: "00 / index" },
   { to: "/about", label: "01 / about" },
   { to: "/work", label: "02 / work" },
-  { to: "/blog", label: "03 / writing" },
+  { to: "/writing", label: "03 / writing" },
 ];
 
 export default function SiteHeader() {

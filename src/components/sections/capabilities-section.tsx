@@ -35,7 +35,7 @@ const FOCUS_ITEMS: readonly {
     title: "Writing & knowledge sharing",
     body: "Share engineering and product thinking through writing to transfer knowledge and reflect on real-world experience.",
     ctaText: "Read my writing",
-    ctaTo: "/blog",
+    ctaTo: "/writing",
   },
   {
     id: "06",

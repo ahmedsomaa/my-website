@@ -85,8 +85,8 @@ Every **major routed page** (except the minimal 404) should reinforce **place** 
    - **Line grids:** `grid-bg`, `grid-bg-fine`, `grid-vercel`, `grid-vercel-dense` (`src/index.css`).
    - **Dots:** `grid-dot` — radial dot field with soft elliptical mask.
    - **Building blocks / voxel plate:** `building-blocks` — square grid plus offset “studs”, drawn only from `--grid-line` (no accent tint). Prefer on `/work`.
-   - **Notification dots:** `notification-dots` — small filled circles on a grid using `--accent-page` (unread-badge feel); same elliptical mask as `grid-dot`. Prefer on `/contact`.
-   - **Notebook / writing:** `notebook-lines` — horizontal dashed ruled lines only, same elliptical fade as `grid-dot`. Prefer on `/blog` and similar writing-focused heroes.
+   - **Notification dots:** `notification-dots` — small filled circles on a grid using `--accent-page` (unread-badge feel); same elliptical mask as `grid-dot`. Optional on dense utility or inbox-style layouts.
+   - **Notebook / writing:** `notebook-lines` — horizontal dashed ruled lines only, same elliptical fade as `grid-dot`. Prefer on `/writing` and similar writing-focused heroes.
 2. **One highlight color per page** — choose **at random** from the stack-derived tokens **`--brand-react`**, **`--brand-node`**, **`--brand-ts`**, **`--brand-css`**, **`--brand-js`**, **`--brand-tailwind`**, **`--brand-html`**. Apply it to a focal hero element (title span, underline, radial wash, or border) and keep the rest of the page neutral so the pick reads as intentional.
 
 Optional: a soft radial wash behind the hero can reuse the same hue at low alpha (similar in spirit to a subtle glow), built from whichever brand token you selected for that page.

@@ -85,7 +85,7 @@ export async function fetchLatestPosts(host = "som3aware.hashnode.dev"): Promise
   }
 }
 
-/** Full listing for /blog (Hashnode caps `first`; 50 is a safe batch). */
+/** Full listing for /writing (Hashnode caps `first`; 50 is a safe batch). */
 export async function fetchAllPosts(
   host = "som3aware.hashnode.dev",
   first = 50,
