@@ -35,8 +35,10 @@ export default function Contact() {
           04 / contact — compose ~/message
         </p>
         <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
-          my <span className="text-accent-page">inbox</span> is open — say
-          hello.
+          <span className="block">
+            my <span className="text-accent-page">inbox</span>
+          </span>
+          <span className="block mt-2 md:mt-3">is open — say hello.</span>
         </h1>
       </header>
 
