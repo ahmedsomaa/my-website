@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { ProgressiveImage } from "@/components/progressive-image";
+import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 import SectionHeader from "./section-header";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { isGithubUrl } from "@/lib/url-helpers";
@@ -15,13 +17,14 @@ const CASE_STUDY_COVERS: Record<string, string> = {
 
 export default function FeaturedWork() {
   const featured = getFeaturedCaseStudies();
+  const reduceMotion = useReducedMotion() === true;
 
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
       <SectionHeader index="01" label="work" title="Selected work" />
 
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {featured.map((study) => {
+        {featured.map((study, i) => {
           const repoHref =
             study.repoUrl ??
             (isGithubUrl(study.liveUrl) ? study.liveUrl : null);
@@ -30,9 +33,17 @@ export default function FeaturedWork() {
           const coverSrc = CASE_STUDY_COVERS[study.slug];
 
           return (
-            <li
+            <motion.li
               key={study.slug}
               className="relative border hairline bg-background p-6 md:p-8 flex flex-col min-h-[280px] overflow-hidden"
+              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.5,
+                ease: HOME_MOTION_EASE,
+                delay: reduceMotion ? 0 : 0.06 + i * 0.1,
+              }}
             >
               <Link
                 to={`/work/${study.slug}`}
@@ -92,7 +103,7 @@ export default function FeaturedWork() {
                   </a>
                 ) : null}
               </div>
-            </li>
+            </motion.li>
           );
         })}
       </ul>

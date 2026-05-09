@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
+import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 import SectionHeader from "./section-header";
 
 const FOCUS_ITEMS: readonly {
@@ -43,13 +45,25 @@ const FOCUS_ITEMS: readonly {
 ];
 
 export default function CapabilitiesSection() {
+  const reduceMotion = useReducedMotion() === true;
+
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
       <SectionHeader index="02" label="focus" title="What I focus on" />
 
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12">
-        {FOCUS_ITEMS.map((item) => (
-          <li key={item.id}>
+        {FOCUS_ITEMS.map((item, i) => (
+          <motion.li
+            key={item.id}
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.22 }}
+            transition={{
+              duration: 0.46,
+              ease: HOME_MOTION_EASE,
+              delay: reduceMotion ? 0 : 0.05 + i * 0.065,
+            }}
+          >
             <p className="font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground">
               {item.id}
             </p>
@@ -69,7 +83,7 @@ export default function CapabilitiesSection() {
                 </Link>
               </div>
             ) : null}
-          </li>
+          </motion.li>
         ))}
       </ul>
     </section>
