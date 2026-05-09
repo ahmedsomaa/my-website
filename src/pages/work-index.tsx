@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
+import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 import type { CaseStudy } from "@/types/case-study";
 import { PORTFOLIO_PROJECTS } from "@/data/portfolio";
 import { getAllShowcaseProjects } from "@/data/showcase-projects";
@@ -206,6 +208,7 @@ function WorkLineRow({
 
 export default function WorkIndex() {
   usePageAccent(PAGE_ACCENTS.work);
+  const reduceMotion = useReducedMotion() === true;
   const rows = useMemo(() => buildWorkRows(), []);
   const [page, setPage] = useState(1);
 
@@ -230,7 +233,12 @@ export default function WorkIndex() {
     <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
       <div className="absolute inset-x-0 top-0 h-[420px] building-blocks pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
-      <header className="relative mb-16 md:mb-20">
+      <motion.header
+        className="relative mb-16 md:mb-20"
+        initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: HOME_MOTION_EASE }}
+      >
         <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
           02 / work — ls -la ~/work
         </p>
@@ -238,9 +246,15 @@ export default function WorkIndex() {
           a <span className="text-accent-page">directory</span> of products
           I&apos;ve built.
         </h1>
-      </header>
+      </motion.header>
 
-      <div className="border-t hairline">
+      <motion.div
+        className="border-t hairline"
+        initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.08, margin: "0px 0px -40px 0px" }}
+        transition={{ duration: 0.5, ease: HOME_MOTION_EASE, delay: reduceMotion ? 0 : 0.05 }}
+      >
         {rows.length === 0 ? (
           <div className="py-10 font-mono-pair text-xs uppercase tracking-[0.25em] text-muted-foreground">
             // no projects listed
@@ -250,19 +264,34 @@ export default function WorkIndex() {
             {pagedRows.map((row, i) => {
               const globalIndex = (clampedPage - 1) * PAGE_SIZE + i + 1;
               return (
-                <li key={row.key} className="border-b hairline last:border-b-0">
+                <motion.li
+                  key={row.key}
+                  className="border-b hairline last:border-b-0"
+                  initial={reduceMotion ? false : { opacity: 0, x: i % 2 === 0 ? -14 : 14 }}
+                  whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.12, margin: "0px 0px -36px 0px" }}
+                  transition={{
+                    duration: 0.52,
+                    ease: HOME_MOTION_EASE,
+                    delay: reduceMotion ? 0 : 0.035 + i * 0.06,
+                  }}
+                >
                   <WorkLineRow row={row} globalIndex={globalIndex} />
-                </li>
+                </motion.li>
               );
             })}
           </ul>
         )}
-      </div>
+      </motion.div>
 
       {rows.length > PAGE_SIZE && (
-        <nav
+        <motion.nav
           className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t hairline pt-6 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
           aria-label="Work list pagination"
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.45, ease: HOME_MOTION_EASE }}
         >
           <button
             type="button"
@@ -293,14 +322,20 @@ export default function WorkIndex() {
           >
             next →
           </button>
-        </nav>
+        </motion.nav>
       )}
 
-      <div className="relative mt-10 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground">
+      <motion.div
+        className="relative mt-10 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
+        initial={reduceMotion ? false : { opacity: 0 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.42, ease: HOME_MOTION_EASE, delay: reduceMotion ? 0 : 0.05 }}
+      >
         <Link to="/" className="hover:text-foreground transition-colors">
           ← index
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 }

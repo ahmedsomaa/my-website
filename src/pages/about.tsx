@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "framer-motion";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
+import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 import { ProgressiveImage } from "@/components/progressive-image";
 import { PROFILE } from "@/data/portfolio";
 
@@ -24,6 +30,7 @@ type JourneyItem = {
 
 export default function About() {
   usePageAccent(PAGE_ACCENTS.about);
+  const reduceMotion = useReducedMotion() === true;
   const journeyRef = useRef<HTMLDivElement | null>(null);
   const roadPathRef = useRef<SVGPathElement | null>(null);
   const workRef = useRef<HTMLDivElement | null>(null);
@@ -170,6 +177,29 @@ export default function About() {
     },
   ] as const;
 
+  const interestCells = [
+    {
+      key: "reading",
+      label: "Reading",
+      body: "History, technology, and long-form essays on systems and society.",
+    },
+    {
+      key: "writing",
+      label: "Writing",
+      body: "Notes on product decisions, implementation trade-offs, and lessons from shipping.",
+    },
+    {
+      key: "exploration",
+      label: "Exploration",
+      body: "Experimenting with new tools, interaction patterns, and small creative side projects.",
+    },
+    {
+      key: "life",
+      label: "Life",
+      body: "Family, football, and quiet time that keeps perspective and energy grounded.",
+    },
+  ] as const;
+
   return (
     <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
       <div className="absolute inset-x-0 top-0 h-[420px] about-hero-grid-shell overflow-hidden pointer-events-none">
@@ -180,7 +210,12 @@ export default function About() {
       </div>
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
 
-      <header className="relative mb-16 md:mb-24">
+      <motion.header
+        className="relative mb-16 md:mb-24"
+        initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.58, ease: HOME_MOTION_EASE }}
+      >
         <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
           01 / about - cd ~/about
         </p>
@@ -188,27 +223,34 @@ export default function About() {
           <span className="block">my <span className="text-accent-page">journey</span></span>
           <span className="block mt-2 md:mt-3">as an engineer.</span>
         </h1>
-      </header>
+      </motion.header>
 
       <section className="relative mb-24">
-        <div className="mb-6">
-          <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
-            <span>01</span>
-            <span className="h-px w-10 bg-foreground/30" />
-            <span>about</span>
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.18, margin: "0px 0px -56px 0px" }}
+          transition={{ duration: 0.52, ease: HOME_MOTION_EASE }}
+        >
+          <div className="mb-6">
+            <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
+              <span>01</span>
+              <span className="h-px w-10 bg-foreground/30" />
+              <span>about</span>
+            </div>
           </div>
-        </div>
-        <p className="mb-4 flex flex-wrap items-baseline gap-x-1.5 text-xl md:text-2xl leading-tight">
-          <span className="font-display">&ldquo;hello there&rdquo;</span>
-          <sub className="font-mono-pair text-muted-foreground normal-case text-[0.55em] tracking-[0.06em] not-italic">
-            Obi-Wan Kenobi
-          </sub>
-        </p>
-        <p className="max-w-2xl font-ntype text-base md:text-xl text-muted-foreground leading-relaxed mb-12">
-          I am Ahmed Ismail, a creative full stack engineer.
-          <br />
-          Here&apos;s a quick glimpse about me and what I love to do.
-        </p>
+          <p className="mb-4 flex flex-wrap items-baseline gap-x-1.5 text-xl md:text-2xl leading-tight">
+            <span className="font-display">&ldquo;hello there&rdquo;</span>
+            <sub className="font-mono-pair text-muted-foreground normal-case text-[0.55em] tracking-[0.06em] not-italic">
+              Obi-Wan Kenobi
+            </sub>
+          </p>
+          <p className="max-w-2xl font-ntype text-base md:text-xl text-muted-foreground leading-relaxed mb-12">
+            I am Ahmed Ismail, a creative full stack engineer.
+            <br />
+            Here&apos;s a quick glimpse about me and what I love to do.
+          </p>
+        </motion.div>
 
         <div ref={journeyRef} className="relative">
           <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-6 bottom-6 hidden md:block">
@@ -253,9 +295,27 @@ export default function About() {
 
           <ol className="space-y-12 md:space-y-20">
             {journey.map((item, idx) => (
-              <li
+              <motion.li
                 key={item.id}
                 className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_96px_minmax(0,1fr)] gap-6 md:gap-4 items-start"
+                initial={
+                  reduceMotion
+                    ? false
+                    : { opacity: 0, y: 28, x: idx % 2 === 0 ? -14 : 14 }
+                }
+                whileInView={
+                  reduceMotion ? undefined : { opacity: 1, y: 0, x: 0 }
+                }
+                viewport={{
+                  once: true,
+                  amount: 0.14,
+                  margin: "0px 0px -48px 0px",
+                }}
+                transition={{
+                  duration: 0.58,
+                  ease: HOME_MOTION_EASE,
+                  delay: reduceMotion ? 0 : 0.05 + idx * 0.09,
+                }}
               >
                 <article
                   className={`${
@@ -339,13 +399,19 @@ export default function About() {
                     </p>
                   </div>
                 </aside>
-              </li>
+              </motion.li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="relative mb-20">
+      <motion.section
+        className="relative mb-20"
+        initial={reduceMotion ? false : { opacity: 0, y: 36 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -64px 0px" }}
+        transition={{ duration: 0.54, ease: HOME_MOTION_EASE }}
+      >
         <div className="mb-6">
           <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
             <span>02</span>
@@ -393,10 +459,18 @@ export default function About() {
           </div>
 
           <ol className="space-y-10 md:space-y-14">
-            {experience.map((item) => (
-              <li
+            {experience.map((item, i) => (
+              <motion.li
                 key={item.id}
                 className="grid grid-cols-1 md:grid-cols-[220px_40px_minmax(0,1fr)] gap-4 md:gap-8 items-start"
+                initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2, margin: "0px 0px -40px 0px" }}
+                transition={{
+                  duration: 0.5,
+                  ease: HOME_MOTION_EASE,
+                  delay: reduceMotion ? 0 : 0.04 + i * 0.1,
+                }}
               >
                 <div className="md:col-start-1 md:justify-self-start md:max-w-xs text-left">
                   <p className="font-display text-lg md:text-xl leading-tight">
@@ -417,13 +491,19 @@ export default function About() {
                     {item.description}
                   </p>
                 </div>
-              </li>
+              </motion.li>
             ))}
           </ol>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="relative mb-20">
+      <motion.section
+        className="relative mb-20"
+        initial={reduceMotion ? false : { opacity: 0, y: 32 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.11, margin: "0px 0px -64px 0px" }}
+        transition={{ duration: 0.52, ease: HOME_MOTION_EASE }}
+      >
         <div className="mb-6">
           <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
             <span>03</span>
@@ -435,10 +515,18 @@ export default function About() {
           My academic path.
         </p>
         <ol className="max-w-4xl border-y hairline divide-y divide-border">
-          {education.map((item) => (
-            <li
+          {education.map((item, i) => (
+            <motion.li
               key={item.id}
               className="py-5 md:py-6 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2 md:gap-6"
+              initial={reduceMotion ? false : { opacity: 0, x: -16 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.22, margin: "0px 0px -32px 0px" }}
+              transition={{
+                duration: 0.48,
+                ease: HOME_MOTION_EASE,
+                delay: reduceMotion ? 0 : 0.05 + i * 0.12,
+              }}
             >
               <p className="font-mono-pair text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 {item.period.from} - {item.period.to}
@@ -451,12 +539,18 @@ export default function About() {
                   {item.org}
                 </p>
               </div>
-            </li>
+            </motion.li>
           ))}
         </ol>
-      </section>
+      </motion.section>
 
-      <section className="relative mb-20">
+      <motion.section
+        className="relative mb-20"
+        initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -56px 0px" }}
+        transition={{ duration: 0.52, ease: HOME_MOTION_EASE }}
+      >
         <div className="mb-6">
           <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
             <span>04</span>
@@ -468,45 +562,36 @@ export default function About() {
           The interests that keep me curious.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 max-w-5xl">
-          <div>
-            <p className="font-mono-pair text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              Reading
-            </p>
-            <p className="mt-2 font-ntype text-sm md:text-base text-foreground/90">
-              History, technology, and long-form essays on systems and society.
-            </p>
-          </div>
-          <div>
-            <p className="font-mono-pair text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              Writing
-            </p>
-            <p className="mt-2 font-ntype text-sm md:text-base text-foreground/90">
-              Notes on product decisions, implementation trade-offs, and lessons
-              from shipping.
-            </p>
-          </div>
-          <div>
-            <p className="font-mono-pair text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              Exploration
-            </p>
-            <p className="mt-2 font-ntype text-sm md:text-base text-foreground/90">
-              Experimenting with new tools, interaction patterns, and small
-              creative side projects.
-            </p>
-          </div>
-          <div>
-            <p className="font-mono-pair text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              Life
-            </p>
-            <p className="mt-2 font-ntype text-sm md:text-base text-foreground/90">
-              Family, football, and quiet time that keeps perspective and energy
-              grounded.
-            </p>
-          </div>
+          {interestCells.map((cell, i) => (
+            <motion.div
+              key={cell.key}
+              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25, margin: "0px 0px -32px 0px" }}
+              transition={{
+                duration: 0.46,
+                ease: HOME_MOTION_EASE,
+                delay: reduceMotion ? 0 : 0.04 + i * 0.075,
+              }}
+            >
+              <p className="font-mono-pair text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                {cell.label}
+              </p>
+              <p className="mt-2 font-ntype text-sm md:text-base text-foreground/90">
+                {cell.body}
+              </p>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="relative border-t hairline pt-10 max-w-3xl">
+      <motion.section
+        className="relative border-t hairline pt-10 max-w-3xl"
+        initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2, margin: "0px 0px -48px 0px" }}
+        transition={{ duration: 0.55, ease: HOME_MOTION_EASE }}
+      >
         <div className="mb-6">
           <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
             <span>05</span>
@@ -517,7 +602,13 @@ export default function About() {
         <p className="max-w-3xl font-ntype text-base md:text-xl text-muted-foreground leading-relaxed mb-8">
           Want the full timeline and technical background?
         </p>
-        <div className="mt-2">
+        <motion.div
+          className="mt-2"
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.45, ease: HOME_MOTION_EASE, delay: reduceMotion ? 0 : 0.1 }}
+        >
           <a
             href={PROFILE.resumeUrl}
             target="_blank"
@@ -526,8 +617,8 @@ export default function About() {
           >
             Download Resume
           </a>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
     </div>
   );
 }

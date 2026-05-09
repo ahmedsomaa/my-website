@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
+import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 import {
   fetchAllPosts,
   getPostListingDescription,
@@ -13,6 +15,7 @@ const PAGE_SIZE = 10;
 
 export default function BlogIndex() {
   usePageAccent(PAGE_ACCENTS.blog);
+  const reduceMotion = useReducedMotion() === true;
   const [posts, setPosts] = useState<HashnodePost[] | null>(null);
   const [page, setPage] = useState(1);
 
@@ -41,7 +44,12 @@ export default function BlogIndex() {
     <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
       <div className="absolute inset-x-0 top-0 h-[420px] notebook-lines pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
-      <header className="relative mb-16 md:mb-20">
+      <motion.header
+        className="relative mb-16 md:mb-20"
+        initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: HOME_MOTION_EASE }}
+      >
         <p className="font-mono-pair text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
           03 / writing — cat ~/posts/*.md
         </p>
@@ -49,9 +57,15 @@ export default function BlogIndex() {
           <span className="block">my <span className="text-accent-page">corner</span></span>
           <span className="block mt-2 md:mt-3">on the internet.</span>
         </h1>
-      </header>
+      </motion.header>
 
-      <div className="border-t hairline">
+      <motion.div
+        className="border-t hairline"
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.08, margin: "0px 0px -40px 0px" }}
+        transition={{ duration: 0.5, ease: HOME_MOTION_EASE, delay: reduceMotion ? 0 : 0.06 }}
+      >
         {posts === null && (
           <div className="py-10 font-mono-pair text-xs uppercase tracking-[0.25em] text-muted-foreground">
             // fetching from hashnode.gql ...
@@ -76,7 +90,18 @@ export default function BlogIndex() {
                 },
               )} · ${(p.views ?? 0).toLocaleString()} views · ${p.readTimeInMinutes} min`;
               return (
-                <li key={p.id} className="border-b hairline last:border-b-0">
+                <motion.li
+                  key={p.id}
+                  className="border-b hairline last:border-b-0"
+                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                  whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15, margin: "0px 0px -32px 0px" }}
+                  transition={{
+                    duration: 0.48,
+                    ease: HOME_MOTION_EASE,
+                    delay: reduceMotion ? 0 : 0.04 + i * 0.055,
+                  }}
+                >
                   <a
                     href={p.url}
                     target="_blank"
@@ -106,17 +131,21 @@ export default function BlogIndex() {
                       </p>
                     </div>
                   </a>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
         )}
-      </div>
+      </motion.div>
 
       {posts && posts.length > PAGE_SIZE && (
-        <nav
+        <motion.nav
           className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t hairline pt-6 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
           aria-label="Blog post pagination"
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.45, ease: HOME_MOTION_EASE }}
         >
           <button
             type="button"
@@ -147,10 +176,16 @@ export default function BlogIndex() {
           >
             next →
           </button>
-        </nav>
+        </motion.nav>
       )}
 
-      <div className="relative mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground">
+      <motion.div
+        className="relative mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
+        initial={reduceMotion ? false : { opacity: 0 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.42, ease: HOME_MOTION_EASE, delay: reduceMotion ? 0 : 0.05 }}
+      >
         <Link to="/" className="hover:text-foreground transition-colors">
           ← index
         </Link>
@@ -164,7 +199,7 @@ export default function BlogIndex() {
           hashnode publication
           <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 }
