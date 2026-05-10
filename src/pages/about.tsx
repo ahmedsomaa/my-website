@@ -29,6 +29,9 @@ type JourneyItem = {
   brandLabel?: string;
 };
 
+const aboutIntroEmphasis =
+  "font-medium text-foreground underline decoration-dashed decoration-accent-page decoration-2 underline-offset-[5px]";
+
 export default function About() {
   usePageAccent(PAGE_ACCENTS.about);
   const reduceMotion = useReducedMotion() === true;
@@ -253,9 +256,16 @@ export default function About() {
             </sub>
           </p>
           <p className="max-w-2xl font-ntype text-base md:text-xl text-muted-foreground leading-relaxed mb-12">
-            I am Ahmed Ismail, a creative full stack engineer.
+            I am Ahmed Ismail, a full stack engineer based in{" "}
+            <span className={aboutIntroEmphasis}>{PROFILE.location}</span>, with{" "}
+            <span className={aboutIntroEmphasis}>
+              {PROFILE.yearsOfExperience}+ years of experience
+            </span>{" "}
+            in the field, working mostly with the{" "}
+            <span className={aboutIntroEmphasis}>MERN and PERN</span> stack.
             <br />
-            Here&apos;s a quick glimpse about me and what I love to do.
+            <br />
+            Here&apos;s a glimpse into my journey—enjoy the ride.
           </p>
         </motion.div>
 
