@@ -15,6 +15,7 @@ type TimelineItem = {
   period: { from: string; to: string };
   title: string;
   org: string;
+  orgUrl?: string;
   description?: string;
 };
 
@@ -134,31 +135,35 @@ export default function About() {
       org: "Eignspaces",
       title: "Growth Engineer",
       description:
-        "Leading growth-oriented product initiatives, shipping in-house features, and collaborating across design and engineering to improve delivery quality.",
+        "I built Hivo—mobile-first rentals for Saudi Arabia—and Reconciled (staffing invoice reconciliation, LaborEdge). I'm scaling Eignspaces with enterprise clients and in-house apps",
     },
     {
       id: "2",
       period: { from: "May, 2023", to: "Dec, 2023" },
       org: "Nodogoro",
+      orgUrl: "https://www.nodogoro.com/",
       title: "Software Engineer II",
       description:
-        "Built and delivered product features with a focus on frontend quality, maintainability, and faster iteration across the stack.",
+        "I shipped LLM-powered products: voice- and video-generated notes, resume screening workflows, and a Slack bot answering from multiple sources—OpenAI, LangChain, Next.js",
     },
     {
       id: "3",
       period: { from: "Nov, 2021", to: "May, 2023" },
       org: "New Smart Egypt",
+      orgUrl:
+        "https://www.linkedin.com/company/new-smart-egypt-integrated-solutions",
       title: "Software Engineer I",
       description:
-        "Developed web and mobile solutions, integrated vendor systems, and contributed to production workflows used by external clients.",
+        "I delivered the ECARD fertilizer mobile app for the Egyptian Company for Agriculture and Rural Development, Ramsis railway Wi-Fi portal (ads, analytics), and ZKTeco with Odoo, Oracle, and Infor",
     },
     {
       id: "4",
       period: { from: "Jul, 2020", to: "Oct, 2021" },
       org: "VOIS",
+      orgUrl: "https://www.linkedin.com/company/vois/",
       title: "Software Engineer",
       description:
-        "Delivered enterprise software features and technical support while strengthening foundations in scalable full-stack engineering.",
+        "I built and supported web software across an HR management system, a digital twin, and a COVID tracker and monitoring tool for authorities coordinating the pandemic response",
     },
   ] as const;
 
@@ -220,7 +225,9 @@ export default function About() {
           01 / about - cd ~/about
         </p>
         <h1 className="font-display text-4xl md:text-6xl leading-[0.95] max-w-4xl">
-          <span className="block">my <span className="text-accent-page">journey</span></span>
+          <span className="block">
+            my <span className="text-accent-page">journey</span>
+          </span>
           <span className="block mt-2 md:mt-3">as an engineer.</span>
         </h1>
       </motion.header>
@@ -465,7 +472,11 @@ export default function About() {
                 className="grid grid-cols-1 md:grid-cols-[220px_40px_minmax(0,1fr)] gap-4 md:gap-8 items-start"
                 initial={reduceMotion ? false : { opacity: 0, y: 22 }}
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2, margin: "0px 0px -40px 0px" }}
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                  margin: "0px 0px -40px 0px",
+                }}
                 transition={{
                   duration: 0.5,
                   ease: HOME_MOTION_EASE,
@@ -474,7 +485,18 @@ export default function About() {
               >
                 <div className="md:col-start-1 md:justify-self-start md:max-w-xs text-left">
                   <p className="font-display text-lg md:text-xl leading-tight">
-                    {item.org}
+                    {item.orgUrl ? (
+                      <a
+                        href={item.orgUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline-offset-4 hover:underline decoration-foreground/35"
+                      >
+                        {item.org}
+                      </a>
+                    ) : (
+                      item.org
+                    )}
                   </p>
                   <p className="mt-1 font-mono-pair text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                     {item.period.from} - {item.period.to}
@@ -521,7 +543,11 @@ export default function About() {
               className="py-5 md:py-6 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2 md:gap-6"
               initial={reduceMotion ? false : { opacity: 0, x: -16 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.22, margin: "0px 0px -32px 0px" }}
+              viewport={{
+                once: true,
+                amount: 0.22,
+                margin: "0px 0px -32px 0px",
+              }}
               transition={{
                 duration: 0.48,
                 ease: HOME_MOTION_EASE,
@@ -567,7 +593,11 @@ export default function About() {
               key={cell.key}
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25, margin: "0px 0px -32px 0px" }}
+              viewport={{
+                once: true,
+                amount: 0.25,
+                margin: "0px 0px -32px 0px",
+              }}
               transition={{
                 duration: 0.46,
                 ease: HOME_MOTION_EASE,
@@ -607,7 +637,11 @@ export default function About() {
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.45, ease: HOME_MOTION_EASE, delay: reduceMotion ? 0 : 0.1 }}
+          transition={{
+            duration: 0.45,
+            ease: HOME_MOTION_EASE,
+            delay: reduceMotion ? 0 : 0.1,
+          }}
         >
           <a
             href={PROFILE.resumeUrl}

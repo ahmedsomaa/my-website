@@ -8,14 +8,14 @@ const EXPERIENCE_ITEMS = [
     company: "Eignspaces",
     period: "2024 - Present",
     description:
-      "Own high-impact full-stack features across marketplace and financial products, contributing to systems that drove acquisition and improving delivery through refactoring and analytics-driven decisions.",
+      "I built Hivo—mobile-first rentals for Saudi Arabia—and Reconciled (staffing invoice reconciliation, LaborEdge). I'm scaling Eignspaces with enterprise clients and in-house apps",
   },
   {
     role: "Software Engineer",
     company: "VOIS (Vodafone Intelligent Solutions)",
     period: "2020 - 2021",
     description:
-      "Built and improved frontend systems for enterprise tools, delivering dashboards, component libraries, and internal platforms used in call center operations at scale.",
+      "I built and supported web software across an HR management system, a digital twin, and a COVID tracker and monitoring tool for authorities coordinating the pandemic response",
   },
 ] as const;
 
