@@ -6,7 +6,7 @@ const links = [
   { to: "/", label: "00 / index" },
   { to: "/about", label: "01 / about" },
   { to: "/work", label: "02 / work" },
-  { to: "/writing", label: "03 / writing" },
+  // { to: "/writing", label: "03 / writing" },
 ];
 
 export default function SiteHeader() {
@@ -14,7 +14,10 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b hairline bg-background/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 h-14 flex items-center justify-between">
-        <Link to="/" className="font-display text-sm md:text-base tracking-wider lowercase inline-flex items-center gap-2">
+        <Link
+          to="/"
+          className="font-display text-sm md:text-base tracking-wider lowercase inline-flex items-center gap-2"
+        >
           <span className="h-1.5 w-1.5 bg-accent-page" />
           som3aware
         </Link>
