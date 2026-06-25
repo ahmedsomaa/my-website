@@ -1,0 +1,4 @@
+# Cloudflare Pages — https://developers.cloudflare.com/pages/configuration/build-configuration/
+name = "som3aware"
+compatibility_date = "2025-06-25"
+pages_build_output_dir = "./dist"
