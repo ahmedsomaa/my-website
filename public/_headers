@@ -1,0 +1,11 @@
+/assets/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/assets/*.css
+  Content-Type: text/css; charset=utf-8
+
+/assets/*.otf
+  Content-Type: font/otf
+
+/assets/*.woff2
+  Content-Type: font/woff2
