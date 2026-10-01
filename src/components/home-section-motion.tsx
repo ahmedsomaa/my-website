@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 export const HOME_MOTION_EASE: [number, number, number, number] = [
   0.25, 0.1, 0.25, 1,
@@ -22,13 +22,13 @@ export function HomeHeroReveal({ children }: { children: ReactNode }) {
   const reduce = useReducedMotion() === true;
   if (reduce) return <>{children}</>;
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.55, ease: HOME_MOTION_EASE }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -44,13 +44,13 @@ export function HomeScrollReveal({
   const { y, duration, amount } = scrollPresets[preset];
   if (reduce) return <>{children}</>;
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount, margin: "0px 0px -64px 0px" }}
       transition={{ duration, ease: HOME_MOTION_EASE }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

@@ -1,27 +1,21 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { LazyMotion, domAnimation } from "framer-motion";
 import Index from "./pages/index.tsx";
-import NotFound from "./pages/not-found.tsx";
-import About from "./pages/about.tsx";
-import WorkIndex from "./pages/work-index.tsx";
-import WorkCaseStudy from "./pages/work-case-study.tsx";
-// import BlogIndex from "./pages/blog-index.tsx";
 import { ModeProvider } from "./context/mode-context";
 import SiteLayout from "./components/layout/site-layout";
 
-const queryClient = new QueryClient();
+const About = lazy(() => import("./pages/about.tsx"));
+const WorkIndex = lazy(() => import("./pages/work-index.tsx"));
+const WorkCaseStudy = lazy(() => import("./pages/work-case-study.tsx"));
+const NotFound = lazy(() => import("./pages/not-found.tsx"));
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <ModeProvider>
-        <BrowserRouter>
-          <SiteLayout>
+  <LazyMotion features={domAnimation} strict>
+    <ModeProvider>
+      <BrowserRouter>
+        <SiteLayout>
+          <Suspense fallback={null}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
@@ -31,11 +25,11 @@ const App = () => (
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </SiteLayout>
-        </BrowserRouter>
-      </ModeProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+          </Suspense>
+        </SiteLayout>
+      </BrowserRouter>
+    </ModeProvider>
+  </LazyMotion>
 );
 
 export default App;

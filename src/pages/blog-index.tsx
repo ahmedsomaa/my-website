@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
 import { HOME_MOTION_EASE } from "@/components/home-section-motion";
@@ -44,7 +44,7 @@ export default function BlogIndex() {
     <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
       <div className="absolute inset-x-0 top-0 h-[420px] notebook-lines pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
-      <motion.header
+      <m.header
         className="relative mb-16 md:mb-20"
         initial={reduceMotion ? false : { opacity: 0, y: 22 }}
         animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -57,9 +57,9 @@ export default function BlogIndex() {
           <span className="block">my <span className="text-accent-page">corner</span></span>
           <span className="block mt-2 md:mt-3">on the internet.</span>
         </h1>
-      </motion.header>
+      </m.header>
 
-      <motion.div
+      <m.div
         className="border-t hairline"
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ export default function BlogIndex() {
                 },
               )} · ${(p.views ?? 0).toLocaleString()} views · ${p.readTimeInMinutes} min`;
               return (
-                <motion.li
+                <m.li
                   key={p.id}
                   className="border-b hairline last:border-b-0"
                   initial={reduceMotion ? false : { opacity: 0, y: 18 }}
@@ -131,15 +131,15 @@ export default function BlogIndex() {
                       </p>
                     </div>
                   </a>
-                </motion.li>
+                </m.li>
               );
             })}
           </ul>
         )}
-      </motion.div>
+      </m.div>
 
       {posts && posts.length > PAGE_SIZE && (
-        <motion.nav
+        <m.nav
           className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t hairline pt-6 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
           aria-label="Blog post pagination"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -176,10 +176,10 @@ export default function BlogIndex() {
           >
             next →
           </button>
-        </motion.nav>
+        </m.nav>
       )}
 
-      <motion.div
+      <m.div
         className="relative mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
         initial={reduceMotion ? false : { opacity: 0 }}
         whileInView={reduceMotion ? undefined : { opacity: 1 }}
@@ -199,7 +199,7 @@ export default function BlogIndex() {
           hashnode publication
           <ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
         </a>
-      </motion.div>
+      </m.div>
     </div>
   );
 }

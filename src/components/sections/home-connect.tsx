@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { getBookingContactHref, getCalComBookingUrl } from "@/data/portfolio";
 import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 
@@ -10,7 +10,7 @@ export default function HomeConnect() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
-      <motion.p
+      <m.p
         className="font-mono-pair text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4"
         initial={reduceMotion ? false : { opacity: 0 }}
         whileInView={reduceMotion ? undefined : { opacity: 1 }}
@@ -18,8 +18,8 @@ export default function HomeConnect() {
         transition={{ duration: 0.4, ease: HOME_MOTION_EASE }}
       >
         04 / Connect
-      </motion.p>
-      <motion.h2
+      </m.p>
+      <m.h2
         className="font-display text-2xl md:text-4xl uppercase tracking-tight max-w-3xl"
         initial={reduceMotion ? false : { opacity: 0 }}
         whileInView={reduceMotion ? undefined : { opacity: 1 }}
@@ -31,8 +31,8 @@ export default function HomeConnect() {
         }}
       >
         Let&apos;s build something thoughtful.
-      </motion.h2>
-      <motion.div
+      </m.h2>
+      <m.div
         className="mt-10"
         initial={reduceMotion ? false : { opacity: 0 }}
         whileInView={reduceMotion ? undefined : { opacity: 1 }}
@@ -55,7 +55,7 @@ export default function HomeConnect() {
             strokeWidth={1.25}
           />
         </a>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

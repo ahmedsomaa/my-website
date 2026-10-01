@@ -69,7 +69,7 @@ Use Tailwind: `text-brand-react`, `bg-brand-node`, `text-brand-html`, etc. (see 
 
 ## Typography
 
-Three intentional roles (implemented in `index.html`, `src/index.css`, and utilities):
+Three intentional roles (self-hosted in `src/assets/fonts/`, declared in `src/index.css`, preloaded in `index.html`):
 
 1. **Major Mono Display** — **Headlines** (`font-display`, `--font-display`). All-caps display feel; used for hero title, page titles, and prominent product names.
 2. **Inconsolata** — **Subtitles & UI chrome** (`font-mono-pair`, default `font-sans` stack includes Inconsolata). Section indexes (`01 / about`), navigation, tables, tags, buttons.
@@ -108,7 +108,7 @@ Optional: a soft radial wash behind the hero can reuse the same hue at low alpha
 | Concern                       | Location                                            |
 | ----------------------------- | --------------------------------------------------- |
 | Color & theme tokens          | `src/index.css` (`:root`, `.dark`, `@theme inline`) |
-| Google Fonts (display + mono) | `index.html`                                        |
+| Self-hosted display + mono    | `src/assets/fonts/`, preloaded in `index.html`      |
 | NType82 `@font-face`          | `src/index.css`                                     |
 | Global fine grid              | `src/components/layout/site-layout.tsx`             |
 

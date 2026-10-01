@@ -1,18 +1,35 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ProgressiveImage } from "@/components/progressive-image";
 import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 import SectionHeader from "./section-header";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { isGithubUrl } from "@/lib/url-helpers";
 
-const CASE_STUDY_COVERS: Record<string, string> = {
-  "editor-setup": "/images/editor-setup-cover.webp",
-  hivo: "/images/hivo-cover.webp",
-  reconciled: "/images/reconciled-cover.webp",
-  "covid-tracker": "/images/covid-tracker-cover.webp",
-  "sharp-studio": "/images/sharp-studio-cover.webp",
+const CARD_IMAGE_SIZES =
+  "(min-width: 1280px) 520px, (min-width: 768px) calc(50vw - 120px), calc(100vw - 100px)";
+
+const CASE_STUDY_CARDS: Record<string, { src: string; srcSet: string }> = {
+  "editor-setup": {
+    src: "/images/cards/editor-setup-1080.webp",
+    srcSet:
+      "/images/cards/editor-setup-640.webp 640w, /images/cards/editor-setup-1080.webp 1080w",
+  },
+  hivo: {
+    src: "/images/cards/hivo-1080.webp",
+    srcSet: "/images/cards/hivo-640.webp 640w, /images/cards/hivo-1080.webp 1080w",
+  },
+  reconciled: {
+    src: "/images/cards/reconciled-756.webp",
+    srcSet:
+      "/images/cards/reconciled-640.webp 640w, /images/cards/reconciled-756.webp 756w",
+  },
+  "sharp-studio": {
+    src: "/images/cards/sharp-studio-1080.webp",
+    srcSet:
+      "/images/cards/sharp-studio-640.webp 640w, /images/cards/sharp-studio-1080.webp 1080w",
+  },
 };
 
 export default function FeaturedWork() {
@@ -30,10 +47,10 @@ export default function FeaturedWork() {
             (isGithubUrl(study.liveUrl) ? study.liveUrl : null);
           const liveHref =
             study.liveUrl && !isGithubUrl(study.liveUrl) ? study.liveUrl : null;
-          const coverSrc = CASE_STUDY_COVERS[study.slug];
+          const cover = CASE_STUDY_CARDS[study.slug];
 
           return (
-            <motion.li
+            <m.li
               key={study.slug}
               className="relative border hairline bg-background p-6 md:p-8 flex flex-col min-h-[280px] overflow-hidden"
               initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -50,10 +67,12 @@ export default function FeaturedWork() {
                 aria-label={`Open ${study.title} case study`}
                 className="absolute inset-0 z-10"
               />
-              {coverSrc ? (
+              {cover ? (
                 <div className="relative z-0 mb-5 overflow-hidden border hairline bg-muted/40">
                   <ProgressiveImage
-                    src={coverSrc}
+                    src={cover.src}
+                    srcSet={cover.srcSet}
+                    sizes={CARD_IMAGE_SIZES}
                     alt={`${study.title} project preview`}
                     wrapperClassName="aspect-square w-full"
                     className="h-full w-full object-cover"
@@ -103,7 +122,7 @@ export default function FeaturedWork() {
                   </a>
                 ) : null}
               </div>
-            </motion.li>
+            </m.li>
           );
         })}
       </ul>

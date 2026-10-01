@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { usePageAccent, PAGE_ACCENTS } from "@/hooks/use-page-accent";
 import { HOME_MOTION_EASE } from "@/components/home-section-motion";
@@ -233,7 +233,7 @@ export default function WorkIndex() {
     <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-20 pb-10">
       <div className="absolute inset-x-0 top-0 h-[420px] building-blocks pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
-      <motion.header
+      <m.header
         className="relative mb-16 md:mb-20"
         initial={reduceMotion ? false : { opacity: 0, y: 22 }}
         animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -246,9 +246,9 @@ export default function WorkIndex() {
           a <span className="text-accent-page">directory</span> of products
           I&apos;ve built.
         </h1>
-      </motion.header>
+      </m.header>
 
-      <motion.div
+      <m.div
         className="border-t hairline"
         initial={reduceMotion ? false : { opacity: 0, y: 24 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -264,7 +264,7 @@ export default function WorkIndex() {
             {pagedRows.map((row, i) => {
               const globalIndex = (clampedPage - 1) * PAGE_SIZE + i + 1;
               return (
-                <motion.li
+                <m.li
                   key={row.key}
                   className="border-b hairline last:border-b-0"
                   initial={reduceMotion ? false : { opacity: 0, x: i % 2 === 0 ? -14 : 14 }}
@@ -277,15 +277,15 @@ export default function WorkIndex() {
                   }}
                 >
                   <WorkLineRow row={row} globalIndex={globalIndex} />
-                </motion.li>
+                </m.li>
               );
             })}
           </ul>
         )}
-      </motion.div>
+      </m.div>
 
       {rows.length > PAGE_SIZE && (
-        <motion.nav
+        <m.nav
           className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t hairline pt-6 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
           aria-label="Work list pagination"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -322,10 +322,10 @@ export default function WorkIndex() {
           >
             next →
           </button>
-        </motion.nav>
+        </m.nav>
       )}
 
-      <motion.div
+      <m.div
         className="relative mt-10 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground"
         initial={reduceMotion ? false : { opacity: 0 }}
         whileInView={reduceMotion ? undefined : { opacity: 1 }}
@@ -335,7 +335,7 @@ export default function WorkIndex() {
         <Link to="/" className="hover:text-foreground transition-colors">
           ← index
         </Link>
-      </motion.div>
+      </m.div>
     </div>
   );
 }

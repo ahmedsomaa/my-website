@@ -4,20 +4,25 @@ import {
   useState,
   type ImgHTMLAttributes,
 } from "react";
-import { cn } from "@/lib/utils";
+import { clsx } from "clsx";
 
 export type ProgressiveImageProps = {
   src: string;
   alt: string;
   className?: string;
   wrapperClassName?: string;
-} & Pick<ImgHTMLAttributes<HTMLImageElement>, "loading" | "decoding">;
+} & Pick<
+  ImgHTMLAttributes<HTMLImageElement>,
+  "loading" | "decoding" | "srcSet" | "sizes"
+>;
 
 export function ProgressiveImage({
   src,
   alt,
   className,
   wrapperClassName,
+  srcSet,
+  sizes,
   loading = "lazy",
   decoding = "async",
 }: ProgressiveImageProps) {
@@ -34,7 +39,7 @@ export function ProgressiveImage({
   }, [src]);
 
   return (
-    <div className={cn("relative overflow-hidden", wrapperClassName)}>
+    <div className={clsx("relative overflow-hidden", wrapperClassName)}>
       {!loaded ? (
         <div
           className="absolute inset-0 z-0 bg-muted/55 animate-pulse"
@@ -44,12 +49,14 @@ export function ProgressiveImage({
       <img
         ref={imgRef}
         src={src}
+        srcSet={srcSet}
+        sizes={sizes}
         alt={alt}
         loading={loading}
         decoding={decoding}
         onLoad={() => setLoaded(true)}
         onError={() => setLoaded(true)}
-        className={cn(
+        className={clsx(
           "relative z-[1] w-full transition-opacity duration-500 ease-out",
           loaded ? "opacity-100" : "opacity-0",
           className,

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  motion,
+  m,
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
@@ -218,7 +218,7 @@ export default function About() {
       </div>
       <div className="absolute inset-x-0 top-0 h-[420px] accent-glow pointer-events-none" />
 
-      <motion.header
+      <m.header
         className="relative mb-16 md:mb-24"
         initial={reduceMotion ? false : { opacity: 0, y: 22 }}
         animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -233,10 +233,10 @@ export default function About() {
           </span>
           <span className="block mt-2 md:mt-3">as an engineer.</span>
         </h1>
-      </motion.header>
+      </m.header>
 
       <section className="relative mb-24">
-        <motion.div
+        <m.div
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.18, margin: "0px 0px -56px 0px" }}
@@ -267,7 +267,7 @@ export default function About() {
             <br />
             Here&apos;s a glimpse into my journey—enjoy the ride.
           </p>
-        </motion.div>
+        </m.div>
 
         <div ref={journeyRef} className="relative">
           <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-6 bottom-6 hidden md:block">
@@ -286,7 +286,7 @@ export default function About() {
                 strokeLinecap="round"
                 strokeDasharray="4 8"
               />
-              <motion.path
+              <m.path
                 d="M60 20 C20 130, 100 230, 60 340 C20 450, 100 550, 60 660 C20 770, 100 870, 60 980"
                 fill="none"
                 stroke="hsl(var(--accent-page))"
@@ -312,7 +312,7 @@ export default function About() {
 
           <ol className="space-y-12 md:space-y-20">
             {journey.map((item, idx) => (
-              <motion.li
+              <m.li
                 key={item.id}
                 className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_96px_minmax(0,1fr)] gap-6 md:gap-4 items-start"
                 initial={
@@ -416,13 +416,13 @@ export default function About() {
                     </p>
                   </div>
                 </aside>
-              </motion.li>
+              </m.li>
             ))}
           </ol>
         </div>
       </section>
 
-      <motion.section
+      <m.section
         className="relative mb-20"
         initial={reduceMotion ? false : { opacity: 0, y: 36 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -455,7 +455,7 @@ export default function About() {
                 strokeWidth="2.2"
                 strokeLinecap="round"
               />
-              <motion.path
+              <m.path
                 ref={workPathRef}
                 d="M20 0 L20 1000"
                 fill="none"
@@ -477,7 +477,7 @@ export default function About() {
 
           <ol className="space-y-10 md:space-y-14">
             {experience.map((item, i) => (
-              <motion.li
+              <m.li
                 key={item.id}
                 className="grid grid-cols-1 md:grid-cols-[220px_40px_minmax(0,1fr)] gap-4 md:gap-8 items-start"
                 initial={reduceMotion ? false : { opacity: 0, y: 22 }}
@@ -523,13 +523,13 @@ export default function About() {
                     {item.description}
                   </p>
                 </div>
-              </motion.li>
+              </m.li>
             ))}
           </ol>
         </div>
-      </motion.section>
+      </m.section>
 
-      <motion.section
+      <m.section
         className="relative mb-20"
         initial={reduceMotion ? false : { opacity: 0, y: 32 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -548,7 +548,7 @@ export default function About() {
         </p>
         <ol className="max-w-4xl border-y hairline divide-y divide-border">
           {education.map((item, i) => (
-            <motion.li
+            <m.li
               key={item.id}
               className="py-5 md:py-6 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-2 md:gap-6"
               initial={reduceMotion ? false : { opacity: 0, x: -16 }}
@@ -575,12 +575,12 @@ export default function About() {
                   {item.org}
                 </p>
               </div>
-            </motion.li>
+            </m.li>
           ))}
         </ol>
-      </motion.section>
+      </m.section>
 
-      <motion.section
+      <m.section
         className="relative mb-20"
         initial={reduceMotion ? false : { opacity: 0, y: 28 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -599,7 +599,7 @@ export default function About() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 max-w-5xl">
           {interestCells.map((cell, i) => (
-            <motion.div
+            <m.div
               key={cell.key}
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -620,12 +620,12 @@ export default function About() {
               <p className="mt-2 font-ntype text-sm md:text-base text-foreground/90">
                 {cell.body}
               </p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
-      </motion.section>
+      </m.section>
 
-      <motion.section
+      <m.section
         className="relative border-t hairline pt-10 max-w-3xl"
         initial={reduceMotion ? false : { opacity: 0, y: 24 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -642,7 +642,7 @@ export default function About() {
         <p className="max-w-3xl font-ntype text-base md:text-xl text-muted-foreground leading-relaxed mb-8">
           Want the full timeline and technical background?
         </p>
-        <motion.div
+        <m.div
           className="mt-2"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -661,8 +661,8 @@ export default function About() {
           >
             Download Resume
           </a>
-        </motion.div>
-      </motion.section>
+        </m.div>
+      </m.section>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import SectionHeader from "./section-header";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 
 const TESTIMONIALS = [
@@ -30,7 +30,7 @@ export default function Testimonials() {
 
       <ul className="space-y-12 md:space-y-16">
         {TESTIMONIALS.map((item, idx) => (
-          <motion.li
+          <m.li
             key={item.author}
             className={`max-w-4xl ${idx % 2 === 1 ? "md:ml-auto md:text-right" : ""}`}
             initial={
@@ -52,7 +52,7 @@ export default function Testimonials() {
             <p className="mt-5 font-mono-pair text-[11px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
               — {item.author}, {item.role}
             </p>
-          </motion.li>
+          </m.li>
         ))}
       </ul>
     </section>

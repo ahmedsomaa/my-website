@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useMode } from "@/context/mode-context";
 import { getBookingContactHref, getCalComBookingUrl } from "@/data/portfolio";
 
@@ -27,24 +27,24 @@ export default function Hero() {
           Hello, I&apos;m Ahmed Ismail
         </p>
         <h1 className="font-display font-bold leading-[1.1] tracking-[-0.4px] text-[clamp(1.35rem,3.8vw+0.2rem,2rem)] md:text-[clamp(2rem,2.2vw+1rem,3rem)] max-w-none">
-          <motion.span
+          <m.span
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="inline-block whitespace-nowrap"
           >
             I turn complex
-          </motion.span>
+          </m.span>
           <br />
           <span className="inline-block whitespace-nowrap">
-            <motion.span
+            <m.span
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.35, ease: "easeOut" }}
             >
               ideas into{" "}
-            </motion.span>
-            <motion.span
+            </m.span>
+            <m.span
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.35, ease: "easeOut" }}
@@ -59,20 +59,20 @@ export default function Hero() {
                 aria-hidden="true"
                 className="pointer-events-none absolute -left-0.5 -right-0.5 -bottom-[3px] h-2 border-b border-ts-blue/70 rotate-[0.8deg] rounded-[999px]"
               />
-            </motion.span>
+            </m.span>
           </span>
           <br />
-          <motion.span
+          <m.span
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.35, ease: "easeOut" }}
             className="inline-block whitespace-nowrap"
           >
             digital experiences
-          </motion.span>
+          </m.span>
         </h1>
 
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.35, ease: "easeOut" }}
@@ -80,9 +80,9 @@ export default function Hero() {
         >
           I care about crafting seamless, effortless experiences — designed to
           captivate, delight, and last.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.35, ease: "easeOut" }}
@@ -110,7 +110,7 @@ export default function Hero() {
               strokeWidth={1.25}
             />
           </a>
-        </motion.div>
+        </m.div>
 
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border hairline">
           {[

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { HOME_MOTION_EASE } from "@/components/home-section-motion";
 import SectionHeader from "./section-header";
 
@@ -53,7 +53,7 @@ export default function CapabilitiesSection() {
 
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12">
         {FOCUS_ITEMS.map((item, i) => (
-          <motion.li
+          <m.li
             key={item.id}
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export default function CapabilitiesSection() {
                 </Link>
               </div>
             ) : null}
-          </motion.li>
+          </m.li>
         ))}
       </ul>
     </section>

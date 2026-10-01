@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import SiteHeader from "./site-header";
 import SiteFooter from "./site-footer";
@@ -19,7 +19,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       )}
       <SiteHeader />
       <AnimatePresence mode="wait">
-        <motion.main
+        <m.main
           key={location.pathname}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
           className="flex-1 relative z-[1]"
         >
           {children}
-        </motion.main>
+        </m.main>
       </AnimatePresence>
       <SiteFooter />
     </div>
