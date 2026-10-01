@@ -113,8 +113,8 @@ export default function About() {
       id: "03",
       title: "Life Beyond Code",
       paragraphs: [
-        "When I’m not behind a screen, I find balance through reading—particularly history and novels—and listening to music. I also enjoy drawing and have a long-standing passion for watching football.",
-        "On a personal note, meeting Radwa Hany was a turning point in my life; I was captivated from the moment we met and knew immediately she was the one. We are currently engaged and happily busy with the renovations of our apartment. As we plan for our wedding in a few months, I’m reminded that family always comes first. I feel incredibly fortunate to see my family growing, gaining not just a partner in Radwa, but a whole new family in hers.",
+        "When I'm not behind a screen, I find balance through reading—particularly history and novels—and listening to music. I also enjoy drawing and have a long-standing passion for watching football.",
+        "On a personal note, meeting Radwa Hany was a turning point in my life; I was captivated from the moment we met and knew immediately she was the one. We are married now, and happily busy with the renovations of our apartment. Family always comes first, and I feel incredibly fortunate to see mine growing — gaining not just a partner in Radwa, but a whole new family in hers.",
       ],
       imageHint: "Personal life and grounding",
       imageSrc: "/images/beyond-code.webp",
@@ -123,7 +123,7 @@ export default function About() {
       id: "04",
       title: "These days",
       paragraphs: [
-        "Currently, I serve as a Growth Engineer at Eignspaces. I’m working closely with my friend, Ahmed Elghannam, to scale the company and build in-house products that solve real-world problems. A recent highlight of our work is Reconciled, which was successfully acquired by LaborEdge.",
+        "Currently, I serve as a Growth Engineer at Eignspaces. I'm working closely with my friend, Ahmed Elghannam, to scale the company and build in-house products that solve real-world problems. A recent highlight of our work is Reconciled, which was successfully acquired by LaborEdge.",
         "In addition to my engineering work, I am passionate about mentorship. I enjoy guiding junior engineers through the software development lifecycle, helping them navigate their career growth and teaching them how to leverage AI effectively to build high-quality features. Even in my downtime, I’m usually experimenting with new technologies through side projects or sharing my insights through technical blogging.",
       ],
       imageHint: "Growth engineering today",
