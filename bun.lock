@@ -19,7 +19,6 @@
         "zod": "^4.6.7",
       },
       "devDependencies": {
-        "@cloudflare/vite-plugin": "^1.26.0",
         "@tanstack/devtools-vite": "0.8.5",
         "@tanstack/eslint-config": "0.4.0",
         "@tanstack/router-cli": "^1.132.0",
@@ -72,8 +71,6 @@
     "@cloudflare/kv-asset-handler": ["@cloudflare/kv-asset-handler@0.5.0", "", {}, "sha512-jxQYkj8dSIzc0cD6cMMNdOc1UVjqSqu8BZdor5s8cGjW2I8BjODt/kWPVdY+u9zj3ms75Q5qaZgnxUad83+eAg=="],
 
     "@cloudflare/unenv-preset": ["@cloudflare/unenv-preset@2.16.2", "", { "peerDependencies": { "unenv": "2.0.0-rc.24", "workerd": ">1.20260305.0 <2.0.0-0" }, "optionalPeers": ["workerd"] }, "sha512-JBP1+Z7ZSNG/d4mRP+y8VC5dka3tZVMLEZRvS+rzQ4DGV1EoxRFQckcJTTkXbHSQiTj0DtNI01Zwb/V2fX0mvQ=="],
-
-    "@cloudflare/vite-plugin": ["@cloudflare/vite-plugin@1.64.0", "", { "dependencies": { "@cloudflare/unenv-preset": "2.16.2", "miniflare": "5.20261012.0-beta", "unenv": "2.0.0-rc.24", "workerd": "1.20261012.1", "wrangler": "4.151.0", "ws": "8.21.0" }, "peerDependencies": { "vite": "^6.1.0 || ^7.0.0 || ^8.0.0" }, "bin": { "cf-vite": "bin/cf-vite" } }, "sha512-h7Tunx9Ou5fUoao8O9jYTH0ParfrtNZzZVPA0IS19O7AoWA1SpYjwzDA6pZC78qzuV8sQSEOpYCN/yTShmd+gg=="],
 
     "@cloudflare/workerd-darwin-64": ["@cloudflare/workerd-darwin-64@1.20261012.1", "", { "os": "darwin", "cpu": "x64" }, "sha512-dkTL9aY3V4D40b+jBpGPCistWUPFQ/M61wlWi6i1o8MvHFFgEw7EQkcaYEv6Yd3bkPDD/3TFT4hRsMb2xVZSwQ=="],
 

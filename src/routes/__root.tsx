@@ -19,7 +19,7 @@ import { ModeProvider, useMode } from '@/context/mode-context'
 import { PAGE_ACCENTS } from '@/lib/page-accents'
 import type { PageAccent } from '@/lib/page-accents'
 import { HOME_TITLE } from '@/lib/site'
-import { getUiPrefs } from '@/server/ui-prefs.functions'
+import { DEFAULT_UI_PREFS, UI_PREFS_COOKIE } from '@/lib/ui-prefs'
 
 declare module '@tanstack/react-router' {
   interface StaticDataRouteOption {
@@ -28,9 +28,9 @@ declare module '@tanstack/react-router' {
   }
 }
 
+const THEME_BOOT_SCRIPT = `try{var m=document.cookie.match(/(?:^|; )${UI_PREFS_COOKIE}=([^;]*)/);var p=m?JSON.parse(decodeURIComponent(m[1])):{};var c=document.documentElement.classList;c.toggle('dark',p.theme!=='light');c.toggle('raw-mode',p.mode==='raw');c.toggle('polished',p.mode!=='raw')}catch(e){}`
+
 export const Route = createRootRoute({
-  // Cookie-backed theme/mode, read on the server so the first paint is already correct.
-  loader: () => getUiPrefs(),
   head: () => ({
     meta: [
       { charSet: 'utf-8' },
@@ -58,6 +58,9 @@ export const Route = createRootRoute({
       { name: 'twitter:site', content: '@som3aware' },
       { name: 'twitter:creator', content: '@som3aware' },
     ],
+    // Pages are prerendered, so the saved theme/mode cookie is applied before first paint
+    // here and synced into React state by ModeProvider after hydration.
+    scripts: [{ children: THEME_BOOT_SCRIPT }],
     links: [
       {
         rel: 'icon',
@@ -115,6 +118,7 @@ function Document({ children }: { children: ReactNode }) {
 
   return (
     <html
+      suppressHydrationWarning
       lang="en-US"
       className={classes}
       style={
@@ -147,9 +151,8 @@ function Document({ children }: { children: ReactNode }) {
 }
 
 function RootDocument({ children }: { children: ReactNode }) {
-  const prefs = Route.useLoaderData()
   return (
-    <ModeProvider initial={prefs}>
+    <ModeProvider initial={DEFAULT_UI_PREFS}>
       <Document>{children}</Document>
     </ModeProvider>
   )

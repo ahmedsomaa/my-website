@@ -2,11 +2,12 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react'
 import type { ReactNode } from 'react'
-import { UI_PREFS_COOKIE } from '@/lib/ui-prefs'
+import { UI_PREFS_COOKIE, parseUiPrefs } from '@/lib/ui-prefs'
 import type { Theme, UIMode, UIPrefs } from '@/lib/ui-prefs'
 
 interface ModeCtx {
@@ -36,7 +37,7 @@ function persist(prefs: UIPrefs) {
 }
 
 /**
- * Seeded from the server-read cookie, so SSR and hydration agree.
+ * Seeded with defaults so prerendered HTML and hydration agree, then synced from the cookie.
  * The `dark` / `raw-mode` classes live on <html> and are rendered by the root route.
  */
 export function ModeProvider({
@@ -47,6 +48,18 @@ export function ModeProvider({
   children: ReactNode
 }) {
   const [prefs, setPrefs] = useState<UIPrefs>(initial)
+
+  // Pages are prerendered with default prefs; adopt the visitor's saved cookie after hydration.
+  useEffect(() => {
+    const match = document.cookie.match(
+      new RegExp(`(?:^|; )${UI_PREFS_COOKIE}=([^;]*)`),
+    )
+    if (!match) return
+    const saved = parseUiPrefs(decodeURIComponent(match[1]))
+    setPrefs((prev) =>
+      prev.mode === saved.mode && prev.theme === saved.theme ? prev : saved,
+    )
+  }, [])
 
   const update = useCallback((next: Partial<UIPrefs>) => {
     setPrefs((prev) => {

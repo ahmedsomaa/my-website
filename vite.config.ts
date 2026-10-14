@@ -5,15 +5,21 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 
 import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { cloudflare } from '@cloudflare/vite-plugin'
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [
     devtools(),
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      // Cloudflare Pages serves static files only, so every page is rendered to HTML at build.
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        failOnError: true,
+      },
+      pages: [{ path: '/robots.txt' }, { path: '/sitemap.xml' }],
+    }),
     viteReact(),
   ],
 })
