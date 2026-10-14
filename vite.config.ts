@@ -17,6 +17,8 @@ const config = defineConfig({
         enabled: true,
         crawlLinks: true,
         failOnError: true,
+        // Crawling the CV link would overwrite the real PDF with a re-encoded copy.
+        filter: (page) => !page.path.startsWith('/docs/'),
       },
       pages: [{ path: '/robots.txt' }, { path: '/sitemap.xml' }],
     }),
