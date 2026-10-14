@@ -6,35 +6,36 @@
   "title": "Sharp Studio",
   "oneLiner": "Hackable image processing tool for conversion, resizing, and compression",
   "impactMetric": "Fast, flexible image processing",
-
   "techTags": ["React", "Node.js", "Sharp"],
-
   "liveUrl": "https://sharpstudio.netlify.app/",
   "repoUrl": "https://github.com/ahmedsomaa/sharp-studio",
-
   "problem": {
     "heading": "Problem",
     "description": "Image processing tools are often rigid, making it hard to customize workflows for different optimization needs."
   },
-
   "myRole": {
     "heading": "Role",
     "description": "Designed and built the tool end-to-end, focusing on flexibility, performance, and ease of use."
   },
-
   "solution": {
     "heading": "Solution",
     "description": "Built a web-based tool for converting, resizing, and compressing images with configurable processing pipelines."
   },
-
   "impact": {
     "heading": "Impact",
     "description": "Provided a fast and flexible way to process images, enabling more control over optimization workflows.",
     "metrics": [
-      "⚡ Fast image processing",
-      "🛠️ Customizable workflows",
-      "📦 Multiple formats supported",
-      "🎯 Precision control over outputs"
+      "Fast image processing",
+      "Customizable workflows",
+      "Multiple formats supported",
+      "Precision control over outputs"
     ]
+  },
+  "cover": {
+    "src": "/images/sharp-studio-cover.webp",
+    "card": {
+      "src": "/images/cards/sharp-studio-1080.webp",
+      "srcSet": "/images/cards/sharp-studio-640.webp 640w, /images/cards/sharp-studio-1080.webp 1080w"
+    }
   }
 }

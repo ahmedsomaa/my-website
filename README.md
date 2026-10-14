@@ -1,50 +1,34 @@
-# My Personal Website
+# som3aware — portfolio
 
-This repository is **my portfolio site** — a terminal-meets-editorial layout with case studies and writing (Hashnode-backed listing). Motion and transitions use **[Framer Motion](https://www.framer.com/motion/)**. Visual identity and tokens are documented in [`design.md`](./design.md).
+TanStack Start (React, SSR + streaming) on Cloudflare Workers. The previous Vite SPA lives in `v1/` for reference.
 
-## Stack
+## Develop
 
-- [Vite](https://vitejs.dev/) + [React](https://react.dev/) 19 + TypeScript
-- [Tailwind CSS](https://tailwindcss.com/) v4 (via `@tailwindcss/vite`)
-- [React Router](https://reactrouter.com/) for client-side routing
-- [Framer Motion](https://www.framer.com/motion/) for UI motion
-- UI primitives built with patterns aligned to [shadcn/ui](https://ui.shadcn.com/) (Radix-style components, `class-variance-authority`, etc.)
-- Data fetching patterns via [@tanstack/react-query](https://tanstack.com/query)
+```bash
+bun install
+bun --bun run dev      # http://localhost:3000
+bun run typecheck && bun run lint && bun run test && bun run build
+```
 
-## Prerequisites
+## Deploy
 
-- [Bun](https://bun.sh/) (see `packageManager` in `package.json` for the pinned version)
+```bash
+VITE_SITE_URL=https://your-domain.example bun run deploy
+```
 
-## Scripts
+`VITE_SITE_URL` drives canonical URLs, social tags, `sitemap.xml` and `robots.txt`.
 
-| Command              | Description              |
-| -------------------- | ------------------------ |
-| `bun install`        | Install dependencies     |
-| `bun run dev`        | Start Vite dev server    |
-| `bun run build`      | Production build         |
-| `bun run preview`    | Preview production build |
-| `bun run lint`       | ESLint                   |
-| `bun run test`       | Vitest (single run)      |
-| `bun run test:watch` | Vitest watch mode        |
+## Where things are
 
-## Routes (overview)
+| Concern             | Location                                                             |
+| ------------------- | -------------------------------------------------------------------- |
+| Routes (file-based) | `src/routes/` — `/`, `/about`, `/work`, `/work/$slug`                |
+| Case studies        | `src/data/case-studies/*/index.json` (cover images live in the JSON) |
+| Server functions    | `src/server/*.functions.ts`                                          |
+| Per-route SEO       | `seo()` in `src/lib/site.ts`                                         |
+| Security headers    | `src/start.ts`                                                       |
+| Design system       | `design.md`, tokens in `src/styles.css`                              |
 
-| Path          | Purpose                                    |
-| ------------- | ------------------------------------------ |
-| `/`           | Home                                       |
-| `/about`      | About                                      |
-| `/work`       | Work index                                 |
-| `/work/:slug` | Case study detail                          |
-| `/writing`    | Writing index (posts from Hashnode)        |
+## Notes
 
-## Design system
-
-Typography, colors (`ts-blue`, `--brand-*` accents), and page shell patterns live in **`design.md`**. When changing global styles or marketing layout, keep **`design.md`** and **`src/index.css`** aligned.
-
-## Credits
-
-- [NOTHING](https://nothing.tech) Tech. All Rights Reserved. NType fonts are documented in the community repo [xeji01/nothingfont](https://github.com/xeji01/nothingfont).
-
-## License
-
-This is a private repository.
+- Theme and grid mode are stored in the `ui-prefs` cookie and read on the server, so the first paint is correct.

@@ -6,12 +6,7 @@
   "title": "Hivo",
   "oneLiner": "Mobile-first rental marketplace tailored for Saudi Arabia",
   "impactMetric": "5★ rated · 800+ listings growth",
-  "techTags": [
-    "React Native",
-    "Node.js",
-    "PostgreSQL",
-    "Expo"
-  ],
+  "techTags": ["React Native", "Node.js", "PostgreSQL", "Expo"],
   "liveUrl": "https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973",
   "repoUrl": null,
   "problem": {
@@ -30,10 +25,17 @@
     "heading": "Impact",
     "description": "Launched on iOS with strong early traction, reaching a 5★ rating and rapid host adoption that required pacing new listings.",
     "metrics": [
-      "📱 Live on iOS App Store (KSA)",
-      "⭐ 5.0 average rating",
-      "🏠 800+ listings after host launch",
-      "🚀 High demand led to controlled onboarding"
+      "Live on iOS App Store (KSA)",
+      "5.0 average rating",
+      "800+ listings after host launch",
+      "High demand led to controlled onboarding"
     ]
+  },
+  "cover": {
+    "src": "/images/hivo-cover.webp",
+    "card": {
+      "src": "/images/cards/hivo-1080.webp",
+      "srcSet": "/images/cards/hivo-640.webp 640w, /images/cards/hivo-1080.webp 1080w"
+    }
   }
 }

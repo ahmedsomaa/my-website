@@ -1,26 +1,27 @@
-import { ReactNode } from "react";
-import { m, AnimatePresence } from "framer-motion";
-import { useLocation } from "react-router-dom";
-import SiteHeader from "./site-header";
-import SiteFooter from "./site-footer";
-import { useMode } from "@/context/mode-context";
+import type { ReactNode } from 'react'
+import { m, AnimatePresence } from 'framer-motion'
+import { useRouterState } from '@tanstack/react-router'
+import SiteHeader from './site-header'
+import SiteFooter from './site-footer'
+import { useMode } from '@/context/mode-context'
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
-  const location = useLocation();
-  const { mode } = useMode();
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
+  const { mode } = useMode()
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground relative overflow-x-hidden">
-      {mode === "raw" && (
+      {mode === 'raw' && (
         <>
           <div className="pointer-events-none fixed inset-0 grid-bg-fine opacity-70 z-0" />
           <div className="pointer-events-none fixed inset-x-0 top-0 h-px bg-foreground/20 animate-scan z-10" />
         </>
       )}
       <SiteHeader />
-      <AnimatePresence mode="wait">
+      {/* initial={false}: the server-rendered page must paint visible, not fade in from 0. */}
+      <AnimatePresence mode="wait" initial={false}>
         <m.main
-          key={location.pathname}
+          key={pathname}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
@@ -32,5 +33,5 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       </AnimatePresence>
       <SiteFooter />
     </div>
-  );
+  )
 }

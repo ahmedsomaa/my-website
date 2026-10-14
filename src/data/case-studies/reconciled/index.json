@@ -6,12 +6,7 @@
   "title": "Reconciled",
   "oneLiner": "Invoice reconciliation platform for staffing agencies",
   "impactMetric": "Acquired by LaborEdge",
-  "techTags": [
-    "React",
-    "Next.js",
-    "Node.js",
-    "PostgreSQL"
-  ],
+  "techTags": ["React", "Next.js", "Node.js", "PostgreSQL"],
   "liveUrl": "https://www.reconciled.io/",
   "repoUrl": null,
   "problem": {
@@ -30,10 +25,17 @@
     "heading": "Impact",
     "description": "Became the flagship product driving acquisition, improving billing accuracy and accelerating delivery through system-wide refactoring.",
     "metrics": [
-      "🔥 Acquired by LaborEdge",
-      "📉 Reduced technical debt",
-      "⚡ Faster feature delivery",
-      "📊 Improved billing accuracy"
+      "Acquired by LaborEdge",
+      "Reduced technical debt",
+      "Faster feature delivery",
+      "Improved billing accuracy"
     ]
+  },
+  "cover": {
+    "src": "/images/reconciled-cover.webp",
+    "card": {
+      "src": "/images/cards/reconciled-756.webp",
+      "srcSet": "/images/cards/reconciled-640.webp 640w, /images/cards/reconciled-756.webp 756w"
+    }
   }
 }

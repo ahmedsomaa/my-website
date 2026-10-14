@@ -6,35 +6,32 @@
   "title": "Covid Tracker",
   "oneLiner": "Web app for tracking COVID-19 cases with authentication",
   "impactMetric": "Secure tracking with authenticated access",
-
   "techTags": ["React", "Node.js", "Auth0"],
-
   "liveUrl": "https://github.com/ahmedsomaa/covid-tracker/",
   "repoUrl": "https://github.com/ahmedsomaa/covid-tracker",
-
   "problem": {
     "heading": "Problem",
     "description": "Tracking COVID-19 data securely required controlled access and structured data management."
   },
-
   "myRole": {
     "heading": "Role",
     "description": "Built the application end-to-end, implementing authentication and managing frontend-backend integration."
   },
-
   "solution": {
     "heading": "Solution",
     "description": "Developed a web app with authenticated access, enabling users to track and manage COVID-19 case data securely."
   },
-
   "impact": {
     "heading": "Impact",
     "description": "Provided a simple and secure interface for tracking case data with protected access and structured workflows.",
     "metrics": [
-      "🔐 Authentication with Auth0",
-      "📊 Structured data tracking",
-      "🌐 Full-stack implementation",
-      "⚙️ Secure access control"
+      "Authentication with Auth0",
+      "Structured data tracking",
+      "Full-stack implementation",
+      "Secure access control"
     ]
+  },
+  "cover": {
+    "src": "/images/covid-tracker-cover.webp"
   }
 }

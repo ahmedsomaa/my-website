@@ -1,175 +1,176 @@
 export const PROFILE = {
-  name: "Ahmed Ismail",
-  handle: "som3aware",
-  location: "Tanta, Egypt",
+  name: 'Ahmed Ismail',
+  handle: 'som3aware',
+  location: 'Tanta, Egypt',
   yearsOfExperience: 7,
-  email: "abokahfa@gmail.com",
-  resumeUrl: "/docs/Ahmed_Abu_Qahf___cv_latest.pdf",
-  hashnodeHost: "som3aware.hashnode.dev",
+  email: 'abokahfa@gmail.com',
+  /** One honest line shown above the contact button, e.g. "Open to senior full-stack roles from Jan 2027". Empty hides it. */
+  availability: '',
+  resumeUrl: '/docs/Ahmed_Abu_Qahf___cv_latest.pdf',
   /** Update if your LinkedIn slug differs */
-  githubUrl: "https://github.com/ahmedsomaa",
-  linkedInUrl: "https://linkedin.com/in/som3aware",
+  githubUrl: 'https://github.com/ahmedsomaa',
+  linkedInUrl: 'https://linkedin.com/in/som3aware',
   /** Optional: Calendly / TidyCal for intro calls */
-  calendlyUrl: "#",
+  calendlyUrl: '#',
   /**
    * Optional Cal.com URL. When empty, “Get in touch” / Connect use mailto: PROFILE.email.
    */
-  calComUrl: "",
+  calComUrl: '',
   /** Set when you have a public status page (UptimeRobot, etc.) */
-  apiStatusUrl: "",
-};
+  apiStatusUrl: '',
+}
 
 /** Non-empty Cal.com-style booking URL, or null when using email fallback. */
 export function getCalComBookingUrl(): string | null {
-  const u = PROFILE.calComUrl.trim();
-  if (!u || u === "#") return null;
-  return u;
+  const u = PROFILE.calComUrl.trim()
+  if (!u || u === '#') return null
+  return u
 }
 
 /** Opens Cal.com when configured, otherwise `mailto` to PROFILE.email. */
 export function getBookingContactHref(): string {
-  return getCalComBookingUrl() ?? `mailto:${PROFILE.email}`;
+  return getCalComBookingUrl() ?? `mailto:${PROFILE.email}`
 }
 
 export const BUILD_FLOW = [
-  { layer: "Database", tech: "PostgreSQL" },
-  { layer: "Server", tech: "Node · tRPC · TypeScript" },
-  { layer: "Client", tech: "React · TypeScript · Tailwind" },
-  { layer: "Shipping", tech: "Vite · container-ready deploys" },
-] as const;
+  { layer: 'Database', tech: 'PostgreSQL' },
+  { layer: 'Server', tech: 'Node · tRPC · TypeScript' },
+  { layer: 'Client', tech: 'React · TypeScript · Tailwind' },
+  { layer: 'Shipping', tech: 'Vite · container-ready deploys' },
+] as const
 
 export const METRICS = [
-  "Reduced API response time by ~40% on a document sync path using lean queries and targeted caching.",
-  "Built and reviewed auth/session flows scoped for five-figure concurrent users in production designs.",
-] as const;
+  'Reduced API response time by ~40% on a document sync path using lean queries and targeted caching.',
+  'Built and reviewed auth/session flows scoped for five-figure concurrent users in production designs.',
+] as const
 
 export const ABOUT_CONTENT = {
   philosophy:
-    "I believe the database is the source of truth, and the UI is a disciplined question-asker. I design systems so contracts between layers stay explicit, testable, and observable.",
+    'I believe the database is the source of truth, and the UI is a disciplined question-asker. I design systems so contracts between layers stay explicit, testable, and observable.',
   mistake:
-    "I once over-cached mutable dashboard aggregates and shipped stale numbers to clients. The fix was tighter row-level truth in Postgres, shorter cache TTLs, and version tokens on API responses — a useful lesson that “fast” without correctness compounds debt.",
+    'I once over-cached mutable dashboard aggregates and shipped stale numbers to clients. The fix was tighter row-level truth in Postgres, shorter cache TTLs, and version tokens on API responses — a useful lesson that “fast” without correctness compounds debt.',
   collaboration:
-    "I work best with small PRs, documented API surfaces (OpenAPI-style where it helps), and changelogs for anything another team integrates against.",
-} as const;
+    'I work best with small PRs, documented API surfaces (OpenAPI-style where it helps), and changelogs for anything another team integrates against.',
+} as const
 
 export interface TimelineItem {
-  year: string;
-  title: string;
-  org: string;
-  kind: "education" | "experience";
-  detail: string;
+  year: string
+  title: string
+  org: string
+  kind: 'education' | 'experience'
+  detail: string
 }
 
 export const TIMELINE: TimelineItem[] = [
   {
-    year: "2023 — present",
-    title: "Senior Software Engineer",
-    org: "Eignspaces",
-    kind: "experience",
+    year: '2023 — present',
+    title: 'Senior Software Engineer',
+    org: 'Eignspaces',
+    kind: 'experience',
     detail:
-      "Architecting product surfaces with a focus on typography systems, design tokens, and DX.",
+      'Architecting product surfaces with a focus on typography systems, design tokens, and DX.',
   },
   {
-    year: "2021 — 2023",
-    title: "Software Engineer",
-    org: "Nodogoro",
-    kind: "experience",
+    year: '2021 — 2023',
+    title: 'Software Engineer',
+    org: 'Nodogoro',
+    kind: 'experience',
     detail:
-      "Shipped end-to-end features across web platforms, owning quality from API to pixel.",
+      'Shipped end-to-end features across web platforms, owning quality from API to pixel.',
   },
   {
-    year: "2019 — 2021",
-    title: "Software Engineer",
-    org: "New Smart Egypt",
-    kind: "experience",
+    year: '2019 — 2021',
+    title: 'Software Engineer',
+    org: 'New Smart Egypt',
+    kind: 'experience',
     detail:
-      "Built internal tools, dashboards, and integrations with a strong eye for the small things.",
+      'Built internal tools, dashboards, and integrations with a strong eye for the small things.',
   },
   {
-    year: "2017 — 2019",
-    title: "Software Engineer",
-    org: "VOIS (Vodafone Intelligent Solutions)",
-    kind: "experience",
+    year: '2017 — 2019',
+    title: 'Software Engineer',
+    org: 'VOIS (Vodafone Intelligent Solutions)',
+    kind: 'experience',
     detail:
-      "Worked on enterprise-scale services and observability across distributed systems.",
+      'Worked on enterprise-scale services and observability across distributed systems.',
   },
   {
-    year: "2020 — 2023",
-    title: "Master’s in Software Engineering",
-    org: "Tanta University",
-    kind: "education",
+    year: '2020 — 2023',
+    title: 'Master’s in Software Engineering',
+    org: 'Tanta University',
+    kind: 'education',
     detail:
-      "Thesis-track research focused on developer experience and human-centric tooling.",
+      'Thesis-track research focused on developer experience and human-centric tooling.',
   },
   {
-    year: "2013 — 2018",
-    title: "Bachelor’s in Computer Engineering",
-    org: "Tanta University",
-    kind: "education",
+    year: '2013 — 2018',
+    title: 'Bachelor’s in Computer Engineering',
+    org: 'Tanta University',
+    kind: 'education',
     detail:
-      "Foundations in systems, algorithms, networks, and embedded design.",
+      'Foundations in systems, algorithms, networks, and embedded design.',
   },
-];
+]
 
 export const INTERESTS = [
-  "History — late antiquity & medieval cartography",
-  "Technical research & long-form documentation",
-  "Typography & monospaced typesetting",
-  "Mechanical keyboards & input devices",
-  "Open-source tooling for developers",
-];
+  'History — late antiquity & medieval cartography',
+  'Technical research & long-form documentation',
+  'Typography & monospaced typesetting',
+  'Mechanical keyboards & input devices',
+  'Open-source tooling for developers',
+]
 
 /** Canonical copy for home / work listings (matches project cards elsewhere). */
 export interface PortfolioProject {
-  id: string;
-  featured: boolean;
-  title: string;
-  url: string;
-  description: string;
+  id: string
+  featured: boolean
+  title: string
+  url: string
+  description: string
 }
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
-    id: "1",
+    id: '1',
     featured: true,
-    title: "Reconciled",
-    url: "https://reconciled.io",
-    description: "A reverse invoice management platform for staffing agencies",
+    title: 'Reconciled',
+    url: 'https://reconciled.io',
+    description: 'A reverse invoice management platform for staffing agencies',
   },
   {
-    id: "2",
+    id: '2',
     featured: true,
-    title: "Editor Setup",
-    url: "https://editorsetup.netlify.app/",
-    description: "Find your next optimal VS Code Setup",
+    title: 'Editor Setup',
+    url: 'https://editorsetup.netlify.app/',
+    description: 'Find your next optimal VS Code Setup',
   },
   {
-    id: "3",
+    id: '3',
     featured: true,
-    title: "Sharp Studio",
-    url: "https://sharpstudio.netlify.app/",
-    description: "Hackable image processing",
+    title: 'Sharp Studio',
+    url: 'https://sharpstudio.netlify.app/',
+    description: 'Hackable image processing',
   },
   {
-    id: "4",
+    id: '4',
     featured: true,
-    title: "Open Trivia",
-    url: "https://open-trivia-demo.netlify.app/",
-    description: "Multi-round trivia game built with Open Trivia API",
+    title: 'Open Trivia',
+    url: 'https://open-trivia-demo.netlify.app/',
+    description: 'Multi-round trivia game built with Open Trivia API',
   },
   {
-    id: "6",
+    id: '6',
     featured: false,
-    title: "Covid Tracker",
-    url: "https://github.com/ahmedsomaa/covid-tracker/",
-    description: "An app to track covid patients built with Node, React & Auth0",
+    title: 'Covid Tracker',
+    url: 'https://github.com/ahmedsomaa/covid-tracker/',
+    description:
+      'An app to track covid patients built with Node, React & Auth0',
   },
   {
-    id: "7",
+    id: '7',
     featured: false,
-    title: "Storefront API",
-    url: "https://github.com/ahmedsomaa/storefront-api",
-    description: "A node API for a store built with Typescript & PostgreSQL",
+    title: 'Storefront API',
+    url: 'https://github.com/ahmedsomaa/storefront-api',
+    description: 'A node API for a store built with Typescript & PostgreSQL',
   },
-];
-
+]

@@ -1,51 +1,46 @@
-import { Link } from "react-router-dom";
-import { m, useReducedMotion } from "framer-motion";
-import { HOME_MOTION_EASE } from "@/components/home-section-motion";
-import SectionHeader from "./section-header";
+import { m, useReducedMotion } from 'framer-motion'
+import { HOME_MOTION_EASE } from '@/components/home-section-motion'
+import SectionHeader from './section-header'
 
 const FOCUS_ITEMS: readonly {
-  id: string;
-  title: string;
-  body: string;
-  ctaText?: string;
-  ctaTo?: string;
+  id: string
+  title: string
+  body: string
 }[] = [
   {
-    id: "01",
-    title: "Simplicity in complexity",
-    body: "Make complex systems feel simple, intuitive, and effortless to use without losing depth.",
+    id: '01',
+    title: 'Simplicity in complexity',
+    body: 'Make complex systems feel simple, intuitive, and effortless to use without losing depth.',
   },
   {
-    id: "02",
-    title: "Attention to detail",
-    body: "Treat small details as meaningful decisions - they often define the difference between good and great products.",
+    id: '02',
+    title: 'Attention to detail',
+    body: 'Treat small details as meaningful decisions - they often define the difference between good and great products.',
   },
   {
-    id: "03",
-    title: "Interface craftsmanship",
-    body: "Build pixel-perfect interfaces where spacing, structure, and interaction feel intentional and consistent.",
+    id: '03',
+    title: 'Interface craftsmanship',
+    body: 'Build pixel-perfect interfaces where spacing, structure, and interaction feel intentional and consistent.',
   },
   {
-    id: "04",
-    title: "Engineering quality",
-    body: "Balance speed with maintainability - ship fast without creating fragile systems.",
+    id: '04',
+    title: 'Engineering quality',
+    body: 'Balance speed with maintainability - ship fast without creating fragile systems.',
   },
   {
-    id: "05",
-    title: "Writing & knowledge sharing",
-    body: "Share engineering and product thinking through writing to transfer knowledge and reflect on real-world experience.",
-    ctaText: "Read my writing",
-    ctaTo: "/writing",
+    id: '05',
+    title: 'Writing & knowledge sharing',
+    body: 'Share engineering and product thinking through writing to transfer knowledge and reflect on real-world experience.',
   },
   {
-    id: "06",
-    title: "Mentorship & growth",
-    body: "Help junior and mid-level engineers grow through guidance, feedback, and practical engineering insight.",
+    id: '06',
+    title: 'Mentorship & growth',
+    body: 'Help junior and mid-level engineers grow through guidance, feedback, and practical engineering insight.',
   },
-];
+]
 
 export default function CapabilitiesSection() {
-  const reduceMotion = useReducedMotion() === true;
+  const reduceMotion = useReducedMotion() === true
 
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
@@ -73,19 +68,9 @@ export default function CapabilitiesSection() {
             <p className="mt-3 font-ntype text-sm md:text-base text-muted-foreground leading-relaxed">
               {item.body}
             </p>
-            {item.ctaText && item.ctaTo ? (
-              <div className="mt-3 font-mono-pair text-xs uppercase tracking-[0.2em]">
-                <Link
-                  to={item.ctaTo}
-                  className="inline-flex items-center text-ts-blue hover:underline underline-offset-4 transition-colors"
-                >
-                  {`→ ${item.ctaText}`}
-                </Link>
-              </div>
-            ) : null}
           </m.li>
         ))}
       </ul>
     </section>
-  );
+  )
 }

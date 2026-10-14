@@ -24,11 +24,18 @@
   "impact": {
     "heading": "Impact",
     "metrics": [
-      "🎨 8 curated font + theme pairings, ready to use",
-      "⚡ Built with Next.js static generation for near‑zero latency",
-      "🔗 Direct VS Code marketplace links for one‑click install",
-      "💬 Community feedback: 'Finally, someone paired JetBrains Mono with One Dark Pro — looks amazing'"
+      "8 curated font + theme pairings, ready to use",
+      "Built with Next.js static generation for near‑zero latency",
+      "Direct VS Code marketplace links for one‑click install",
+      "Community feedback: 'Finally, someone paired JetBrains Mono with One Dark Pro — looks amazing'"
     ],
     "description": "Editor Setup solves the 'analysis paralysis' of customizing VS Code. It's a lean, focused tool that demonstrates my ability to ship a complete, user‑centric frontend application from idea to deployment."
+  },
+  "cover": {
+    "src": "/images/editor-setup-cover.webp",
+    "card": {
+      "src": "/images/cards/editor-setup-1080.webp",
+      "srcSet": "/images/cards/editor-setup-640.webp 640w, /images/cards/editor-setup-1080.webp 1080w"
+    }
   }
 }

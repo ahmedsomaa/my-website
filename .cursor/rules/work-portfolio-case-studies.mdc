@@ -1,6 +1,6 @@
 ---
 description: Senior portfolio guidelines for work / featured case study copy and proof
-globs: src/data/case-studies/**/*.json,src/components/sections/featured-work.tsx,src/pages/work-case-study.tsx,src/pages/work-index.tsx
+globs: src/data/case-studies/**/*.json,src/components/sections/featured-work.tsx,src/routes/work/$slug.tsx,src/routes/work/index.tsx
 alwaysApply: false
 ---
 

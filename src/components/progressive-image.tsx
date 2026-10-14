@@ -1,20 +1,16 @@
-import {
-  useLayoutEffect,
-  useRef,
-  useState,
-  type ImgHTMLAttributes,
-} from "react";
-import { clsx } from "clsx";
+import { useLayoutEffect, useRef, useState } from 'react'
+import type { ImgHTMLAttributes } from 'react'
+import { clsx } from 'clsx'
 
 export type ProgressiveImageProps = {
-  src: string;
-  alt: string;
-  className?: string;
-  wrapperClassName?: string;
+  src: string
+  alt: string
+  className?: string
+  wrapperClassName?: string
 } & Pick<
   ImgHTMLAttributes<HTMLImageElement>,
-  "loading" | "decoding" | "srcSet" | "sizes"
->;
+  'loading' | 'decoding' | 'srcSet' | 'sizes'
+>
 
 export function ProgressiveImage({
   src,
@@ -23,23 +19,23 @@ export function ProgressiveImage({
   wrapperClassName,
   srcSet,
   sizes,
-  loading = "lazy",
-  decoding = "async",
+  loading = 'lazy',
+  decoding = 'async',
 }: ProgressiveImageProps) {
-  const [loaded, setLoaded] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [loaded, setLoaded] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
 
   useLayoutEffect(() => {
-    setLoaded(false);
-  }, [src]);
+    setLoaded(false)
+  }, [src])
 
   useLayoutEffect(() => {
-    const el = imgRef.current;
-    if (el?.complete && el.naturalHeight > 0) setLoaded(true);
-  }, [src]);
+    const el = imgRef.current
+    if (el?.complete && el.naturalHeight > 0) setLoaded(true)
+  }, [src])
 
   return (
-    <div className={clsx("relative overflow-hidden", wrapperClassName)}>
+    <div className={clsx('relative overflow-hidden', wrapperClassName)}>
       {!loaded ? (
         <div
           className="absolute inset-0 z-0 bg-muted/55 animate-pulse"
@@ -57,11 +53,11 @@ export function ProgressiveImage({
         onLoad={() => setLoaded(true)}
         onError={() => setLoaded(true)}
         className={clsx(
-          "relative z-[1] w-full transition-opacity duration-500 ease-out",
-          loaded ? "opacity-100" : "opacity-0",
+          'relative z-[1] w-full outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10 transition-opacity duration-500 ease-out',
+          loaded ? 'opacity-100' : 'opacity-0',
           className,
         )}
       />
     </div>
-  );
+  )
 }

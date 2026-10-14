@@ -1,17 +1,21 @@
-import { ArrowUpRight } from "lucide-react";
-import { m, useReducedMotion } from "framer-motion";
-import { getBookingContactHref, getCalComBookingUrl } from "@/data/portfolio";
-import { HOME_MOTION_EASE } from "@/components/home-section-motion";
+import { ArrowUpRight } from 'lucide-react'
+import { m, useReducedMotion } from 'framer-motion'
+import {
+  PROFILE,
+  getBookingContactHref,
+  getCalComBookingUrl,
+} from '@/data/portfolio'
+import { HOME_MOTION_EASE } from '@/components/home-section-motion'
 
 export default function HomeConnect() {
-  const bookingCal = getCalComBookingUrl();
-  const contactHref = getBookingContactHref();
-  const reduceMotion = useReducedMotion() === true;
+  const bookingCal = getCalComBookingUrl()
+  const contactHref = getBookingContactHref()
+  const reduceMotion = useReducedMotion() === true
 
   return (
     <section className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
       <m.p
-        className="font-mono-pair text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4"
+        className="font-mono-pair text-xs md:text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4"
         initial={reduceMotion ? false : { opacity: 0 }}
         whileInView={reduceMotion ? undefined : { opacity: 1 }}
         viewport={{ once: true, amount: 0.35 }}
@@ -32,8 +36,14 @@ export default function HomeConnect() {
       >
         Let&apos;s build something thoughtful.
       </m.h2>
+      {PROFILE.availability ? (
+        <p className="mt-6 flex items-center gap-2 font-mono-pair text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <span className="h-1.5 w-1.5 bg-accent-page" aria-hidden />
+          {PROFILE.availability}
+        </p>
+      ) : null}
       <m.div
-        className="mt-10"
+        className="mt-10 flex flex-wrap items-center gap-3"
         initial={reduceMotion ? false : { opacity: 0 }}
         whileInView={reduceMotion ? undefined : { opacity: 1 }}
         viewport={{ once: true, amount: 0.35 }}
@@ -45,8 +55,8 @@ export default function HomeConnect() {
       >
         <a
           href={contactHref}
-          target={bookingCal ? "_blank" : undefined}
-          rel={bookingCal ? "noopener noreferrer" : undefined}
+          target={bookingCal ? '_blank' : undefined}
+          rel={bookingCal ? 'noopener noreferrer' : undefined}
           className="group inline-flex items-center gap-2 border hairline px-6 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
         >
           Contact
@@ -55,7 +65,18 @@ export default function HomeConnect() {
             strokeWidth={1.25}
           />
         </a>
+        <a
+          href={PROFILE.resumeUrl}
+          download
+          className="group inline-flex items-center gap-2 border hairline px-6 py-3 text-xs uppercase tracking-[0.25em] font-mono-pair hover:bg-foreground hover:text-background transition-colors"
+        >
+          Download CV
+          <ArrowUpRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            strokeWidth={1.25}
+          />
+        </a>
       </m.div>
     </section>
-  );
+  )
 }

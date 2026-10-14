@@ -6,35 +6,29 @@
   "title": "Open Trivia",
   "oneLiner": "Multi-round trivia game powered by Open Trivia API",
   "impactMetric": "Dynamic quiz gameplay with real-time scoring",
-
   "techTags": ["React", "API Integration"],
-
   "liveUrl": "https://open-trivia-demo.netlify.app/",
   "repoUrl": "https://github.com/ahmedsomaa/open-trivia",
-
   "problem": {
     "heading": "Problem",
     "description": "Static quiz apps lack flexibility and dynamic content, limiting replayability and engagement."
   },
-
   "myRole": {
     "heading": "Role",
     "description": "Built the application end-to-end, focusing on state management and dynamic data handling."
   },
-
   "solution": {
     "heading": "Solution",
     "description": "Developed a multi-round trivia game with API-driven questions, scoring logic, and interactive gameplay flow."
   },
-
   "impact": {
     "heading": "Impact",
     "description": "Delivered a dynamic and replayable quiz experience driven by external data and responsive UI interactions.",
     "metrics": [
-      "🎮 Multi-round gameplay",
-      "🌐 API-driven questions",
-      "⚡ Real-time scoring",
-      "🔁 High replayability"
+      "Multi-round gameplay",
+      "API-driven questions",
+      "Real-time scoring",
+      "High replayability"
     ]
   }
 }

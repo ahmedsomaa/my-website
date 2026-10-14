@@ -9,7 +9,7 @@ colors:
   ts-blue: "hsl(211 60% 43%)" # light; dark theme uses ~211 70% 60%
   ts-blue-soft: "hsl(211 60% 96%)" # light surface tint
 
-  # Stack-derived brand chips (see src/index.css --brand-*)
+  # Stack-derived brand chips (see src/styles.css --brand-*)
   brand-react: "hsl(193 95% 60%)"
   brand-node: "hsl(120 35% 55%)"
   brand-typescript: "hsl(211 70% 60%)"
@@ -58,7 +58,7 @@ These tokens are **inspired by common tooling colors** (logos and community asso
 | `--brand-tailwind` | **Tailwind CSS**                                  | Teal / cyan                                                          |
 | `--brand-html`     | **HTML**                                          | Orange-red, distinct from JS yellow                                  |
 
-Use Tailwind: `text-brand-react`, `bg-brand-node`, `text-brand-html`, etc. (see `@theme inline` in `src/index.css`).
+Use Tailwind: `text-brand-react`, `bg-brand-node`, `text-brand-html`, etc. (see `@theme inline` in `src/styles.css`).
 
 ### Neutrals & structure
 
@@ -69,10 +69,10 @@ Use Tailwind: `text-brand-react`, `bg-brand-node`, `text-brand-html`, etc. (see 
 
 ## Typography
 
-Three intentional roles (self-hosted in `src/assets/fonts/`, declared in `src/index.css`, preloaded in `index.html`):
+Three intentional roles (self-hosted in `src/assets/fonts/`, declared in `src/styles.css`, preloaded in the root route):
 
-1. **Major Mono Display** — **Headlines** (`font-display`, `--font-display`). All-caps display feel; used for hero title, page titles, and prominent product names.
-2. **Inconsolata** — **Subtitles & UI chrome** (`font-mono-pair`, default `font-sans` stack includes Inconsolata). Section indexes (`01 / about`), navigation, tables, tags, buttons.
+1. **Major Mono Display** — **Headlines** (`font-display`, `--font-display`). Lowercase display feel; used for hero title, page titles, and prominent product names. It ships one weight and its strokes are hairline-thin: never `font-bold` (synthesis is disabled) and prefer it at 28px and up.
+2. **Inconsolata** — **Subtitles & UI chrome** (`font-mono-pair`, default `font-sans` stack includes Inconsolata). Section indexes (`01 / about`), navigation, tables, tags, buttons. Floor is 12px (`text-xs`).
 3. **NType82** (local `.otf`) — **Body & long content** (`font-ntype`). Philosophy paragraphs, case study prose, contact descriptive copy.
 
 **Note:** `body` uses `font-sans` which maps to Inconsolata for a default technical rhythm; **prefer `font-ntype` on paragraphs** where the spec calls for editorial texture.
@@ -82,14 +82,21 @@ Three intentional roles (self-hosted in `src/assets/fonts/`, declared in `src/in
 Every **major routed page** (except the minimal 404) should reinforce **place** with:
 
 1. **Grid or line motif** — subtle, non-interactive background in the **hero band** (top ~280–420px):
-   - **Line grids:** `grid-bg`, `grid-bg-fine`, `grid-vercel`, `grid-vercel-dense` (`src/index.css`).
+   - **Line grids:** `grid-bg`, `grid-bg-fine`, `grid-vercel`, `grid-vercel-dense` (`src/styles.css`).
    - **Dots:** `grid-dot` — radial dot field with soft elliptical mask.
    - **Building blocks / voxel plate:** `building-blocks` — square grid plus offset “studs”, drawn only from `--grid-line` (no accent tint). Prefer on `/work`.
    - **Notification dots:** `notification-dots` — small filled circles on a grid using `--accent-page` (unread-badge feel); same elliptical mask as `grid-dot`. Optional on dense utility or inbox-style layouts.
-   - **Notebook / writing:** `notebook-lines` — horizontal dashed ruled lines only, same elliptical fade as `grid-dot`. Prefer on `/writing` and similar writing-focused heroes.
+   - **Notebook / writing:** `notebook-lines` — horizontal dashed ruled lines only, same elliptical fade as `grid-dot`. Use on writing-focused heroes if a writing page ever returns.
 2. **One highlight color per page** — choose **at random** from the stack-derived tokens **`--brand-react`**, **`--brand-node`**, **`--brand-ts`**, **`--brand-css`**, **`--brand-js`**, **`--brand-tailwind`**, **`--brand-html`**. Apply it to a focal hero element (title span, underline, radial wash, or border) and keep the rest of the page neutral so the pick reads as intentional.
 
 Optional: a soft radial wash behind the hero can reuse the same hue at low alpha (similar in spirit to a subtle glow), built from whichever brand token you selected for that page.
+
+### Per-page accent in code
+
+Each route declares its accent as `staticData: { accent: PAGE_ACCENTS.x }` (`src/lib/page-accents.ts`).
+Every accent has a `light` and a `dark` value: the light one is darkened so accent **text** clears 4.5:1 on the
+light background (the raw brand yellow measured 1.3:1). The root route renders both as
+`--page-accent-light/-dark`, and `--accent-page` resolves per theme, so it is correct in the server HTML.
 
 ### Adding a new page
 
@@ -107,11 +114,11 @@ Optional: a soft radial wash behind the hero can reuse the same hue at low alpha
 
 | Concern                       | Location                                            |
 | ----------------------------- | --------------------------------------------------- |
-| Color & theme tokens          | `src/index.css` (`:root`, `.dark`, `@theme inline`) |
+| Color & theme tokens          | `src/styles.css` (`:root`, `.dark`, `@theme inline`) |
 | Self-hosted display + mono    | `src/assets/fonts/`, preloaded in `index.html`      |
-| NType82 `@font-face`          | `src/index.css`                                     |
+| NType82 `@font-face`          | `src/styles.css`                                     |
 | Global fine grid              | `src/components/layout/site-layout.tsx`             |
 
 ---
 
-_When updating tokens, keep this file and `src/index.css` in sync so humans and coding agents share one contract._
+_When updating tokens, keep this file and `src/styles.css` in sync so humans and coding agents share one contract._

@@ -6,35 +6,29 @@
   "title": "Storefront API",
   "oneLiner": "RESTful API for e-commerce systems built with TypeScript and PostgreSQL",
   "impactMetric": "Structured backend for scalable commerce workflows",
-
   "techTags": ["Node.js", "TypeScript", "PostgreSQL"],
-
   "liveUrl": "https://github.com/ahmedsomaa/storefront-api",
   "repoUrl": "https://github.com/ahmedsomaa/storefront-api",
-
   "problem": {
     "heading": "Problem",
     "description": "E-commerce systems require structured APIs to manage products, users, and orders reliably at scale."
   },
-
   "myRole": {
     "heading": "Role",
     "description": "Designed and built the API, focusing on data modeling, authentication, and scalable backend architecture."
   },
-
   "solution": {
     "heading": "Solution",
     "description": "Developed a RESTful API with TypeScript and PostgreSQL to handle core commerce workflows and secure endpoints."
   },
-
   "impact": {
     "heading": "Impact",
     "description": "Provided a solid backend foundation for managing e-commerce operations with structured data and secure access.",
     "metrics": [
-      "🧩 Modular API architecture",
-      "🔐 Secure authentication",
-      "📦 Product & order management",
-      "⚙️ Scalable data modeling"
+      "Modular API architecture",
+      "Secure authentication",
+      "Product & order management",
+      "Scalable data modeling"
     ]
   }
 }

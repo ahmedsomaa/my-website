@@ -1,9 +1,9 @@
 interface Props {
-  index: string;
-  label: string;
-  title: string;
-  /** Optional editorial line under the title (NType82). */
-  subtitle?: string;
+  index: string
+  label: string
+  title: string
+  /** Optional editorial line under the title . */
+  subtitle?: string
 }
 
 export default function SectionHeader({
@@ -14,7 +14,7 @@ export default function SectionHeader({
 }: Props) {
   return (
     <div className="mb-12 md:mb-16">
-      <div className="flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
+      <div className="flex items-center gap-3 text-xs md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-mono-pair mb-4">
         <span>{index}</span>
         <span className="h-px w-10 bg-foreground/30" />
         <span>{label}</span>
@@ -28,5 +28,5 @@ export default function SectionHeader({
         </p>
       ) : null}
     </div>
-  );
+  )
 }
