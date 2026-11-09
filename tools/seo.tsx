@@ -98,21 +98,39 @@ Sitemap: ${SITE}/sitemap.xml
 `
 
 /** Every section and item, as /?p=tab/slug (query strings are separate pages to crawlers; #/ links are not). */
-const pages = [
-  `${SITE}/`,
-  `${SITE}/?plain`,
-  ...TABS.slice(1).flatMap((t) =>
-    isSingle(t)
-      ? [`${SITE}/?p=${t.id}`]
-      : [
-          `${SITE}/?p=${t.id}`,
-          ...t.items.map((x) => `${SITE}/?p=${t.id}/${x.slug}`),
-        ],
-  ),
+const pages: Array<[loc: string, changefreq: string, priority: string]> = [
+  [`${SITE}/`, 'weekly', '1.0'],
+  ...TABS.slice(1).flatMap((t) => [
+    [
+      `${SITE}/?p=${t.id}`,
+      t.id === 'changelog' ? 'weekly' : 'monthly',
+      '0.8',
+    ] as [string, string, string],
+    ...(isSingle(t)
+      ? []
+      : t.items.map(
+          (x) =>
+            [`${SITE}/?p=${t.id}/${x.slug}`, 'monthly', '0.6'] as [
+              string,
+              string,
+              string,
+            ],
+        )),
+  ]),
+  [`${SITE}/?plain`, 'monthly', '0.5'],
 ]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map((loc) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join('\n')}
+${pages
+  .map(
+    ([loc, freq, prio]) => `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${freq}</changefreq>
+    <priority>${prio}</priority>
+  </url>`,
+  )
+  .join('\n')}
 </urlset>
 `
 
