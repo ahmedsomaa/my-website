@@ -10,9 +10,13 @@ const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map(
   (v) => (v + 0.5) / 16,
 )
 const cache = new Map<string, Gray>()
-const hexRgb = (h: string) => {
-  const s = h.trim().replace('#', '')
-  return [0, 2, 4].map((i) => parseInt(s.slice(i, i + 2), 16))
+/** Any CSS colour to [r, g, b]. The build minifies `#ffffff` to `#fff`, so let the browser parse it. */
+const rgb = (c: string) => {
+  const x = document.createElement('canvas').getContext('2d')
+  if (!x) return [0, 0, 0]
+  x.fillStyle = c.trim()
+  x.fillRect(0, 0, 1, 1)
+  return Array.from(x.getImageData(0, 0, 1, 1).data.slice(0, 3))
 }
 const lum = ([r, g, b]: Array<number>) => 0.2126 * r + 0.7152 * g + 0.0722 * b
 
@@ -49,8 +53,8 @@ export function gray(img: HTMLImageElement): Gray {
 /** Paint the dither with the current theme's background and foreground. */
 export function paint(cv: HTMLCanvasElement, { w, h, g }: Gray) {
   const cs = getComputedStyle(document.documentElement)
-  const bg = hexRgb(cs.getPropertyValue('--background'))
-  const ink = hexRgb(cs.getPropertyValue('--foreground'))
+  const bg = rgb(cs.getPropertyValue('--background'))
+  const ink = rgb(cs.getPropertyValue('--foreground'))
   const dark = lum(bg) < lum(ink) // on dark themes invert, so bright screens sink into the background
   const lo = dark ? bg : ink
   const hi = dark ? ink : bg

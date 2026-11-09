@@ -14,4 +14,11 @@ export const store = {
       /* not saved */
     }
   },
+  del(k: string) {
+    try {
+      localStorage.removeItem(k)
+    } catch {
+      /* nothing saved */
+    }
+  },
 }

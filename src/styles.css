@@ -5,6 +5,9 @@
 /* <html class="plain"> is the ?plain reading view, <html class="tui"> the workspace */
 @custom-variant plain (&:where(.plain *));
 @custom-variant tui (&:where(.tui *));
+/* laptop-height screens (1366x768, 1280x720): tighter dashboard so it fits without scrolling */
+@custom-variant short (@media (max-height: 820px));
+@custom-variant tall (@media (min-height: 821px));
 
 @theme {
   --breakpoint-*: initial;
@@ -15,7 +18,7 @@
   --text-*: initial;
   --color-*: initial;
 
-  --animate-in: tuin 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-in: tuin 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
   @keyframes tuin {
     from {
       opacity: 0;
@@ -44,6 +47,13 @@
   --color-warning: var(--warning);
   --color-info: var(--info);
   --color-focus: var(--focus);
+  /* the theme's six terminal colours (ANSI 1-6), held to the text contrast floor */
+  --color-hue-1: var(--hue-1);
+  --color-hue-2: var(--hue-2);
+  --color-hue-3: var(--hue-3);
+  --color-hue-4: var(--hue-4);
+  --color-hue-5: var(--hue-5);
+  --color-hue-6: var(--hue-6);
 
   --font-mono: var(--m);
   --font-px: var(--px);
@@ -54,14 +64,63 @@
   --text-sm: calc(12px * var(--fz));
   --text-base: calc(13px * var(--fz));
   --text-lg: calc(16px * var(--fz));
+  /* leading is a ratio of each size, so it follows the font and its --fz scale */
+  --text-2xs--line-height: 1.4;
+  --text-xs--line-height: 1.45;
+  --text-sm--line-height: 1.5;
+  --text-base--line-height: 1.55;
+  --text-lg--line-height: 1.6;
+
+  /* pixel heading sizes, swapped per heading font (see [data-pixel] below) */
+  --text-hero: var(--px-hero);
+  --text-hero--line-height: var(--px-hero-lh);
+  --text-hero-sm: var(--px-hero-sm);
+  --text-hero-sm--line-height: var(--px-hero-sm-lh);
+  --text-title: var(--px-title);
+  --text-title--line-height: var(--px-title-lh);
+  --text-title-m: var(--px-title-m);
+  --text-title-m--line-height: var(--px-title-m-lh);
+  --text-stat: var(--px-stat);
+  --text-stat--line-height: var(--px-stat-lh);
+  --text-num: var(--px-num);
+  --text-mode: var(--px-mode);
 }
 
 @layer base {
   :root {
     --mono-fallback: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    --m: 'JetBrains Mono', var(--mono-fallback);
+    --m: 'Xanh Mono', 'Adwaita Mono', var(--mono-fallback);
     --px: 'Geist Pixel', var(--mono-fallback);
     --fz: 1;
+
+    /* Geist Pixel (default) */
+    --px-hero: 48px;
+    --px-hero-lh: 48px;
+    --px-hero-sm: 36px;
+    --px-hero-sm-lh: 38px;
+    --px-title: 30px;
+    --px-title-lh: 32px;
+    --px-title-m: 33px;
+    --px-title-m-lh: 34px;
+    --px-stat: 22px;
+    --px-stat-lh: 26px;
+    --px-num: 18px;
+    --px-mode: 11px;
+  }
+  /* UnifontEX is drawn on a 16px grid: it is only crisp at multiples of 16 */
+  [data-pixel='unifontex'] {
+    --px-hero: 48px;
+    --px-hero-lh: 48px;
+    --px-hero-sm: 32px;
+    --px-hero-sm-lh: 36px;
+    --px-title: 32px;
+    --px-title-lh: 36px;
+    --px-title-m: 32px;
+    --px-title-m-lh: 36px;
+    --px-stat: 16px;
+    --px-stat-lh: 20px;
+    --px-num: 16px;
+    --px-mode: 16px;
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -77,7 +136,7 @@
   body {
     background: var(--background);
     color: var(--foreground);
-    font: calc(13px * var(--fz)) / 20px var(--m);
+    font: calc(13px * var(--fz)) / 1.55 var(--m);
     transition:
       background-color 0.25s,
       color 0.25s;

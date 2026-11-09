@@ -1,10 +1,11 @@
 """Build src/styles/themes.css + src/lib/themes.ts from tui-design theme JSON files.
-Usage: python3 tools/gen_themes.py ~/.claude/skills/tui-design/references/themes"""
+Usage: python3 tools/extra_themes.py && python3 tools/gen_themes.py tools/themes
+(tools/themes holds the tui-design skill themes plus the ones tools/extra_themes.py writes)"""
 import json, sys, pathlib
 
 src = pathlib.Path(sys.argv[1]).expanduser()
 out = pathlib.Path(__file__).resolve().parent.parent
-DEFAULT = 'rose-pine-main'
+DEFAULT = 'vitesse-black'  # :root fallback and dark-system default; light systems get vitesse-light
 
 def hx(h): h = h.lstrip('#'); return [int(h[i:i+2], 16) for i in (0, 2, 4)]
 def mix(a, b, t):  # t of a over b
@@ -60,6 +61,11 @@ for f in sorted(src.glob('*.json')):
         if n != v[k]: nudged.setdefault(d['id'], []).append(k); v[k] = n
     # text on accent: keep the theme's on-accent unless black/white reads better
     v['accent-foreground'] = v['foreground-inverted'] = max([v['foreground-inverted'], bg, '#000000', '#ffffff'], key=lambda c: (ratio(c, v['accent']) >= 4.5, c in (v['foreground-inverted'], bg), ratio(c, v['accent'])))
+    # the theme's six terminal colours (ANSI slots 1-6: red, green, yellow, blue, magenta, cyan),
+    # held to the text contrast floor so they work as text colours
+    ansi = d['terminal']['ansi']
+    for i in range(1, 7):
+        v[f'hue-{i}'] = floor(ansi[i], bg, 4.5)
     light = d['appearance'] == 'light'
     body = ' '.join(f'--{k}:{c};' for k, c in v.items())
     body += f" --grain:{'.38' if light else '.15'}; --grain-blend:{'multiply' if light else 'normal'}; color-scheme:{d['appearance']};"
@@ -67,7 +73,7 @@ for f in sorted(src.glob('*.json')):
     if d['id'] == DEFAULT: sel = ':root, ' + sel
     css.append(f'{sel} {{ {body} }}')
     meta.append({'id': d['id'], 'name': d['name'], 'scheme': d['scheme'], 'variant': d['variant'],
-                 'appearance': d['appearance'], 'sw': [bg, fg, acc, v['success'], v['danger']]})
+                 'appearance': d['appearance'], 'sw': [bg, fg] + [v[f'hue-{i}'] for i in range(1, 7)]})
 
 # default first so :root fallback is not overridden by source order
 css.sort(key=lambda s: not s.startswith(':root'))

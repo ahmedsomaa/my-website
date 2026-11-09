@@ -9,6 +9,7 @@ import { store } from '#/lib/store'
 import { DEFAULT_THEME, THEMES } from '#/lib/themes'
 import type { Theme } from '#/lib/theme-types'
 import { CV, EMAIL, ThemeContext } from '#/lib/view'
+import { cycle } from '#/lib/hues'
 
 type Pane = 'list' | 'det'
 type ModalKind = 'theme' | 'font' | 'palette' | 'help'
@@ -26,6 +27,8 @@ interface State {
   mIdx: number
   theme: string
   font: string
+  /** pixel font for headings */
+  pixel: string
   msg: string
 }
 
@@ -36,6 +39,7 @@ interface Row {
   id?: string
   theme?: Theme
   font?: TuiFont
+  pixel?: TuiPixel
   run?: () => void
 }
 
@@ -52,8 +56,14 @@ const smallMq = matchMedia('(max-width: 760px)')
 const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches
 const root = document.documentElement
 const themeById = (id?: string | null) => THEMES.find((t) => t.id === id)
+/** Vitesse Light on light systems, Vitesse Black otherwise (same rule as the boot script). */
+const systemTheme = () =>
+  matchMedia('(prefers-color-scheme: light)').matches
+    ? 'vitesse-light'
+    : DEFAULT_THEME
 const fonts = () => window.TUI_FONTS
 const fontById = (id: string) => fonts().find((f) => f.id === id) ?? fonts()[0]
+const pixels = () => window.TUI_PIXELS
 const behavior = (): ScrollBehavior => (reduce() ? 'auto' : 'smooth')
 
 /**
@@ -82,8 +92,9 @@ export function Tui() {
     modal: null,
     q: '',
     mIdx: 0,
-    theme: themeById(root.dataset.theme)?.id ?? DEFAULT_THEME,
+    theme: themeById(root.dataset.theme)?.id ?? systemTheme(),
     font: root.dataset.font ?? fonts()[0].id,
+    pixel: root.dataset.pixel ?? pixels()[0].id,
     msg: '',
   }))
   const s = S.current
@@ -96,7 +107,7 @@ export function Tui() {
   /** element to focus after the next render (it may be hidden until then) */
   const focusNext = useRef<(() => HTMLElement | null) | null>(null)
   const anchorNext = useRef<string | null>(null)
-  const before = useRef({ theme: s.theme, font: s.font })
+  const before = useRef({ theme: s.theme, font: s.font, pixel: s.pixel })
   const msgT = useRef(0)
   const lastG = useRef(0)
 
@@ -216,7 +227,7 @@ export function Tui() {
     const idx = [...S.current.idx]
     idx[r.tab] = r.idx
     set({ tab: r.tab, idx })
-    if (read && r.item && TABS[r.tab].id === 'work' && !smallMq.matches)
+    if (read && r.item && TABS[r.tab].id === 'projects' && !smallMq.matches)
       setZoom(true)
     else {
       if (S.current.zoom && tabChanged) setZoom(false)
@@ -225,6 +236,7 @@ export function Tui() {
     }
     if (r.anchor) anchorNext.current = r.anchor
     if (push) history.pushState(null, '', r.anchor ? hash : hashFor())
+    else if (r.moved) history.replaceState(null, '', hashFor()) // old tab name in the url
   }
   function onHistory() {
     const r = parseHash(location.hash, ROUTES)
@@ -244,13 +256,16 @@ export function Tui() {
       history.replaceState(null, '', hashFor())
       return
     }
-    if (r.tab === st.tab && r.idx === st.idx[st.tab] && !r.anchor) return
+    if (r.tab === st.tab && r.idx === st.idx[st.tab] && !r.anchor) {
+      if (r.moved) history.replaceState(null, '', hashFor()) // old tab name in the url
+      return
+    }
     route(location.hash)
   }
 
   /* ---------- theme + font ---------- */
   function applyTheme(id: string, save: boolean) {
-    const t = themeById(id) ?? themeById(DEFAULT_THEME)
+    const t = themeById(id) ?? themeById(systemTheme())
     if (!t) return
     root.dataset.theme = t.id
     set({ theme: t.id })
@@ -261,6 +276,11 @@ export function Tui() {
     set({ font: f.id })
     if (save) store.set('tui-font', f.id)
   }
+  function applyPixel(id: string, save: boolean) {
+    const f = window.TUI_SET_PIXEL(id)
+    set({ pixel: f.id })
+    if (save) store.set('tui-pixel', f.id)
+  }
 
   /* ---------- modals: theme picker, font picker, command palette, help ---------- */
   function rows(kind = S.current.modal, filter = S.current.q): Array<Row> {
@@ -269,7 +289,7 @@ export function Tui() {
       const all: Array<Row> = [
         {
           label: 'restore default',
-          meta: themeById(DEFAULT_THEME)?.name ?? '',
+          meta: themeById(systemTheme())?.name ?? '',
         },
         ...THEMES.map((t) => ({
           id: t.id,
@@ -290,14 +310,22 @@ export function Tui() {
       )
     }
     if (kind === 'font')
-      return fonts()
-        .map((ff, i) => ({
+      return [
+        ...pixels().map((pf, i) => ({
+          id: pf.id,
+          group: 'headings',
+          label: pf.name,
+          meta: i ? '' : 'default',
+          pixel: pf,
+        })),
+        ...fonts().map((ff, i) => ({
           id: ff.id,
+          group: 'text',
           label: ff.name,
-          meta: `${ff.size}px${i ? '' : ' · default'}`,
+          meta: i ? '' : 'default',
           font: ff,
-        }))
-        .filter((r) => !f || r.label.toLowerCase().includes(f))
+        })),
+      ].filter((r) => !f || `${r.label} ${r.group}`.toLowerCase().includes(f))
     if (kind !== 'palette') return []
     const all: Array<Row> = []
     TABS.forEach((t, i) =>
@@ -327,6 +355,12 @@ export function Tui() {
       },
       {
         group: 'actions',
+        label: 'changelog',
+        meta: `${TABS.length}`,
+        run: () => goTab(TABS.findIndex((t) => t.id === 'changelog')),
+      },
+      {
+        group: 'actions',
         label: 'email ahmed',
         meta: '↗',
         run: () => (location.href = `mailto:${EMAIL}`),
@@ -349,6 +383,13 @@ export function Tui() {
         group: 'fonts',
         label: `font: ${ff.name}`,
         run: () => applyFont(ff.id, true),
+      }),
+    )
+    pixels().forEach((pf) =>
+      all.push({
+        group: 'fonts',
+        label: `heading font: ${pf.name}`,
+        run: () => applyPixel(pf.id, true),
       }),
     )
     all.push({
@@ -374,8 +415,12 @@ export function Tui() {
   function preview(mIdx: number) {
     const r = rows()[mIdx] as Row | undefined
     if (!r) return
-    if (S.current.modal === 'theme') applyTheme(r.id ?? DEFAULT_THEME, false)
-    if (S.current.modal === 'font' && r.id) applyFont(r.id, false)
+    if (S.current.modal === 'theme') applyTheme(r.id ?? systemTheme(), false)
+    if (S.current.modal === 'font' && r.id) {
+      // preview one font at a time; the other kind goes back to what it was
+      applyFont(r.font ? r.id : before.current.font, false)
+      applyPixel(r.pixel ? r.id : before.current.pixel, false)
+    }
   }
   function setModalIdx(mIdx: number) {
     set({ mIdx })
@@ -393,7 +438,7 @@ export function Tui() {
     if (!q && kind === 'font')
       mIdx = Math.max(
         0,
-        list.findIndex((r) => r.id === before.current.font),
+        list.findIndex((r) => r.font && r.id === before.current.font),
       )
     set({ q })
     setModalIdx(mIdx)
@@ -405,10 +450,12 @@ export function Tui() {
   function openModal(kind: ModalKind, seed = '') {
     if (S.current.modal) closeModal(false)
     if (kind === 'theme')
-      before.current.theme = root.dataset.theme ?? DEFAULT_THEME
+      before.current.theme = root.dataset.theme ?? systemTheme()
     if (kind === 'font') {
       before.current.font = S.current.font
-      fonts().forEach((f) => window.TUI_LOAD_FONT(f)) // picker rows render in their own face
+      before.current.pixel = S.current.pixel
+      // picker rows render in their own face
+      ;[...fonts(), ...pixels()].forEach((f) => window.TUI_LOAD_FONT(f))
     }
     set({ modal: kind })
     if (kind === 'help') {
@@ -420,9 +467,24 @@ export function Tui() {
   }
   function closeModal(keep: boolean, id?: string) {
     const kind = S.current.modal
-    if (kind === 'theme')
-      applyTheme(keep && id ? id : before.current.theme, keep)
-    if (kind === 'font') applyFont(keep && id ? id : before.current.font, keep)
+    if (kind === 'theme') {
+      if (keep && !id) {
+        // "restore default": forget the pick and follow the system again
+        store.del('tui-theme')
+        applyTheme(systemTheme(), false)
+      } else applyTheme(keep && id ? id : before.current.theme, keep)
+    }
+    if (kind === 'font') {
+      const isPixel = !!id && pixels().some((f) => f.id === id)
+      applyFont(
+        keep && id && !isPixel ? id : before.current.font,
+        keep && !isPixel,
+      )
+      applyPixel(
+        keep && id && isPixel ? id : before.current.pixel,
+        keep && isPixel,
+      )
+    }
     set({ modal: null })
     setPane(S.current.pane)
   }
@@ -432,13 +494,16 @@ export function Tui() {
     if (!r) return
     if (kind === 'font' && r.id) {
       closeModal(true, r.id)
-      say(`✓ font ${fontById(r.id).name}`)
+      say(`✓ ${r.pixel ? 'heading font' : 'font'} ${r.label}`)
       return
     }
     if (kind === 'theme') {
-      const id = r.id ?? DEFAULT_THEME
-      closeModal(true, id)
-      say(`✓ theme ${themeById(id)?.name}`)
+      closeModal(true, r.id)
+      say(
+        r.id
+          ? `✓ theme ${themeById(r.id)?.name}`
+          : '✓ theme follows the system',
+      )
       return
     }
     closeModal(false)
@@ -538,10 +603,15 @@ export function Tui() {
       return openModal('palette')
     }
     if (k === 'z') return setZoom(!st.zoom)
-    if (k === 'y') return void copy()
-    if (k === 't') return openModal('theme')
-    if (k === 'f') return openModal('font')
-    if (k === '?') return openModal('help')
+    if (k === 'c') return void copy()
+    // keys that open a dialog must not also type into its search box
+    const dialog = ({ t: 'theme', f: 'font', '?': 'help' } as const)[
+      k as 't' | 'f' | '?'
+    ] as ModalKind | undefined
+    if (dialog) {
+      e.preventDefault()
+      return openModal(dialog)
+    }
     if (k === 'Escape') {
       if (st.zoom) setZoom(false)
       else if (st.mdet) showDet(false)
@@ -572,8 +642,8 @@ export function Tui() {
 
   /* ---------- effects ---------- */
   // handlers read the latest closure through a ref, so listeners attach once
-  const live = useRef({ onKey, onHistory, showDet })
-  live.current = { onKey, onHistory, showDet }
+  const live = useRef({ onKey, onHistory, showDet, applyTheme })
+  live.current = { onKey, onHistory, showDet, applyTheme }
 
   useEffect(() => {
     const key = (e: KeyboardEvent) => live.current.onKey(e)
@@ -583,11 +653,19 @@ export function Tui() {
     addEventListener('popstate', hist)
     addEventListener('hashchange', hist)
     smallMq.addEventListener('change', mq)
+    // no saved theme: follow the system when it switches light/dark
+    const scheme = matchMedia('(prefers-color-scheme: light)')
+    const follow = () => {
+      if (!store.get('tui-theme') && !S.current.modal)
+        live.current.applyTheme(systemTheme(), false)
+    }
+    scheme.addEventListener('change', follow)
     return () => {
       removeEventListener('keydown', key)
       removeEventListener('popstate', hist)
       removeEventListener('hashchange', hist)
       smallMq.removeEventListener('change', mq)
+      scheme.removeEventListener('change', follow)
     }
   }, [])
 
@@ -599,6 +677,10 @@ export function Tui() {
     applyFont(S.current.font, false)
     applyTheme(S.current.theme, false)
     setPane('list', false)
+    // crawlable address from the sitemap: /?p=projects/hivo opens #/projects/hivo
+    const fromQuery = new URLSearchParams(location.search).get('p')
+    if (fromQuery && !location.hash && parseHash(`#/${fromQuery}`, ROUTES))
+      history.replaceState(null, '', `${location.pathname}#/${fromQuery}`)
     if (location.hash) {
       if (parseHash(location.hash, ROUTES) === false)
         history.replaceState(null, '', location.pathname + location.search)
@@ -708,7 +790,7 @@ export function Tui() {
                     ['j/k', 'scroll'],
                     ['h', 'list'],
                     ['z', 'expand'],
-                    ...(item.copy ? [['y', 'copy'] as [string, string]] : []),
+                    ...(item.copy ? [['c', 'copy'] as [string, string]] : []),
                     ['?', 'keys'],
                   ]
 
@@ -774,7 +856,7 @@ export function Tui() {
                     aria-hidden="true"
                     className={clsx(
                       'max-md:hidden',
-                      on ? 'text-on-accent opacity-70' : 'text-muted',
+                      on ? 'text-on-accent opacity-70' : cycle(i),
                     )}
                   >
                     {i + 1}
@@ -900,7 +982,7 @@ export function Tui() {
                   className="text-muted hover:text-fg active:translate-y-px"
                   onClick={() => void copy()}
                 >
-                  <kbd className="px-1 text-fg">y</kbd> copy
+                  <kbd className="px-1 text-fg">c</kbd> copy
                 </button>
               )}
               {!one && (
@@ -922,7 +1004,9 @@ export function Tui() {
             tabIndex={-1}
             className={clsx(
               scrollCls,
-              tab.layout === 'dash' ? 'pt-3 pb-1' : 'pt-3.5 pb-2.5',
+              tab.layout === 'dash'
+                ? 'flex flex-col pt-3 pb-1'
+                : 'pt-3.5 pb-2.5',
             )}
           >
             <div
@@ -930,7 +1014,7 @@ export function Tui() {
               className={clsx(
                 'animate-in',
                 tab.layout === 'dash'
-                  ? 'p-0'
+                  ? 'flex flex-1 flex-col p-0'
                   : clsx(
                       'px-5.5 pt-1 pb-6 max-md:px-3.5 max-md:pb-5',
                       (one || s.zoom) && 'mx-auto max-w-[78ch] pt-4',
@@ -943,7 +1027,22 @@ export function Tui() {
         </PaneBox>
 
         <footer className="col-span-full flex items-center overflow-hidden text-sm whitespace-nowrap">
-          <span className="bg-accent px-2.5 py-0.5 font-px text-[11px] tracking-[.04em] text-on-accent">
+          <span
+            className={clsx(
+              'px-2.5 py-0.5 font-px text-mode tracking-[.04em]',
+              // one colour per mode, like vim
+              s.modal
+                ? {
+                    palette: 'bg-hue-4 text-bg',
+                    theme: 'bg-hue-5 text-bg',
+                    font: 'bg-hue-6 text-bg',
+                    help: 'bg-hue-3 text-bg',
+                  }[s.modal]
+                : s.zoom
+                  ? 'bg-hue-2 text-bg'
+                  : 'bg-accent text-on-accent',
+            )}
+          >
             {s.modal ? s.modal.toUpperCase() : s.zoom ? 'READ' : 'NORMAL'}
           </span>
           <span className="truncate px-3 text-muted [&_b]:text-accent">
@@ -1023,7 +1122,7 @@ export function Tui() {
                         s.modal === 'theme'
                           ? `search ${THEMES.length} themes`
                           : s.modal === 'font'
-                            ? `search ${fonts().length} fonts`
+                            ? `search ${fonts().length + pixels().length} fonts`
                             : 'go to, search work, themes…'
                       }
                       value={s.q}
@@ -1058,10 +1157,10 @@ export function Tui() {
                     sel={s.mIdx}
                     current={
                       s.modal === 'theme'
-                        ? before.current.theme
+                        ? [before.current.theme]
                         : s.modal === 'font'
-                          ? before.current.font
-                          : undefined
+                          ? [before.current.font, before.current.pixel]
+                          : []
                     }
                     onPick={(k) => {
                       set({ mIdx: k })
@@ -1193,7 +1292,8 @@ const Mk = () => (
 const grpCls =
   'overflow-hidden pt-2.5 pr-3.5 pb-0.5 pl-2.5 text-sm whitespace-nowrap text-accent before:text-line before:content-["──_"]'
 const tableCols =
-  'grid-cols-[16px_14ch_8ch_15ch_minmax(0,1fr)] gap-2.5 max-xl:grid-cols-[16px_13ch_8ch_minmax(0,1fr)] max-lg:grid-cols-[16px_minmax(0,1fr)_minmax(0,1.3fr)]'
+  // columns are in ch of the 13px row font; rows and header must share that font size or the ch differ
+  'grid-cols-[16px_15ch_8ch_15ch_minmax(0,1fr)] gap-2.5 max-xl:grid-cols-[16px_15ch_8ch_minmax(0,1fr)] max-lg:grid-cols-[16px_minmax(0,1fr)_minmax(0,1.3fr)]'
 
 function ListRows({
   tab,
@@ -1212,7 +1312,7 @@ function ListRows({
           role="presentation"
           aria-hidden="true"
           className={clsx(
-            'sticky -top-3.5 z-1 grid bg-bg pr-3.5 pb-1.5 pl-2.5 text-xs tracking-[.06em] text-muted uppercase',
+            'sticky -top-3.5 z-1 grid items-baseline bg-bg pr-3.5 pb-1.5 pl-2.5 text-base text-muted [&>span]:text-xs [&>span]:tracking-[.06em] [&>span]:uppercase',
             tableCols,
           )}
         >
@@ -1260,10 +1360,10 @@ function ListRows({
               {tab.layout === 'table' ? (
                 <>
                   <span className="truncate">{x.key}</span>
-                  <span className="truncate text-sm text-muted max-lg:hidden">
+                  <span className="truncate text-sm text-hue-3 max-lg:hidden">
                     {x.meta}
                   </span>
-                  <span className="truncate text-sm text-muted max-xl:hidden">
+                  <span className="truncate text-sm text-hue-6 max-xl:hidden">
                     {x.role}
                   </span>
                   <span className="truncate text-fg group-aria-selected/it:text-accent">
@@ -1276,7 +1376,8 @@ function ListRows({
                     aria-hidden="true"
                     className={clsx(
                       'relative text-center',
-                      x.now ? 'text-success' : 'text-subtle',
+                      // one colour per branch, like git log --graph; HEAD stays green
+                      x.now ? 'text-success' : cycle(k),
                       !last &&
                         "after:absolute after:top-4 after:left-1/2 after:h-[calc(100%+4px)] after:border-l after:border-line after:content-['']",
                     )}
@@ -1315,7 +1416,7 @@ function ModalRows({
 }: {
   rows: Array<Row>
   sel: number
-  current?: string
+  current: Array<string>
   onPick: (k: number) => void
 }) {
   let group: string | undefined
@@ -1347,10 +1448,16 @@ function ModalRows({
                 style={
                   r.font
                     ? {
-                        fontFamily: `'${r.font.name}', var(--mono-fallback)`,
+                        fontFamily: `'${r.font.name}', 'Adwaita Mono', var(--mono-fallback)`,
                         fontSize: `${r.font.size}px`,
                       }
-                    : undefined
+                    : r.pixel
+                      ? {
+                          fontFamily: `'${r.pixel.name}', var(--mono-fallback)`,
+                          fontSize: '22px',
+                          lineHeight: '28px',
+                        }
+                      : undefined
                 }
               >
                 {r.theme && (
@@ -1358,10 +1465,10 @@ function ModalRows({
                     aria-hidden="true"
                     className="inline-flex flex-none overflow-hidden rounded-[2px] border border-line"
                   >
-                    {r.theme.sw.map((c) => (
+                    {r.theme.sw.map((c, j) => (
                       <i
-                        key={c}
-                        className="h-3.5 w-[9px]"
+                        key={j}
+                        className="h-3.5 w-[7px]"
                         style={{ background: c }}
                       />
                     ))}
@@ -1373,7 +1480,7 @@ function ModalRows({
                 )}
               </span>
               <span className="text-sm text-muted">
-                {r.id && r.id === current && (
+                {r.id && current.includes(r.id) && (
                   <b className="font-normal text-success">✓ current </b>
                 )}
                 {r.meta}
@@ -1398,7 +1505,7 @@ function Help() {
     [`${MOD}K`, 'command palette'],
     ['t', 'theme'],
     ['f', 'font'],
-    ['y', 'copy link or address'],
+    ['c', 'copy link or address'],
     ['z', 'expand the reading pane'],
     ['esc', 'close · collapse · back'],
     ['?', 'this help'],

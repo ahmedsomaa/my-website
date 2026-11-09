@@ -1,10 +1,19 @@
 /* Content pieces shared by the plain page and the workspace reading pane. */
-import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import {
+  Fragment,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
 import clsx from 'clsx'
 import type { ReactNode } from 'react'
 import { gray, paint } from '#/lib/dither'
 import type { Gray } from '#/lib/dither'
 import { ThemeContext, ViewContext } from '#/lib/view'
+import { byName, cycle } from '#/lib/hues'
+import { Icon } from '#/icons'
 
 type Kids = { children?: ReactNode }
 
@@ -23,13 +32,13 @@ export function A({ href, children }: Kids & { href: string }) {
 }
 
 export const H = ({ children }: Kids) => (
-  <h3 className="mt-1 mb-2.5 font-px text-[30px]/[32px] font-normal max-md:text-[33px]/[34px]">
+  <h3 className="mt-1 mb-2.5 font-px text-title font-normal max-md:text-title-m">
     {children}
   </h3>
 )
 
 export const Hero = ({ children }: Kids) => (
-  <h4 className="mt-0.5 mb-3.5 font-px text-[48px]/[48px] font-normal plain:text-[36px]/[38px]">
+  <h4 className="mt-0.5 mb-3.5 font-px text-hero font-normal plain:text-hero-sm short:mb-2 short:text-hero-sm">
     {children}
   </h4>
 )
@@ -38,9 +47,9 @@ export const Hello = ({ children }: Kids) => (
   <p className="m-0 text-success">{children}</p>
 )
 
-/** The one-line summary; `y` copies fall back to selecting it. */
+/** The one-line summary; `c` copies fall back to selecting it. */
 export const Lead = ({ children }: Kids) => (
-  <p data-lead className="mt-0 max-w-[56ch] text-lg/[26px] text-fg">
+  <p data-lead className="mt-0 max-w-[56ch] text-lg text-fg">
     {children}
   </p>
 )
@@ -56,14 +65,21 @@ export const Small = ({ children }: Kids) => (
 )
 
 /** Section heading. `id` like "/about/education" makes it reachable as #/about/education. */
-export function Sec({ children, id }: Kids & { id?: string }) {
+export function Sec({
+  children,
+  id,
+  hue,
+}: Kids & { id?: string; hue?: string }) {
   const view = useContext(ViewContext)
   return (
     <h4
       // the plain page scrolls to ids natively; the workspace scrolls by data-anchor
       id={view === 'plain' ? id : undefined}
       data-anchor={id?.split('/').pop()}
-      className="mt-4.5 scroll-mt-4.5 font-normal text-accent before:text-line before:content-['──_'] target:bg-[color-mix(in_srgb,var(--accent)_10%,transparent)]"
+      className={clsx(
+        "mt-4.5 scroll-mt-4.5 font-normal before:text-line before:content-['──_'] target:bg-[color-mix(in_srgb,var(--accent)_10%,transparent)]",
+        hue ?? 'text-accent',
+      )}
     >
       {children}
     </h4>
@@ -89,7 +105,9 @@ export function Kv({
       {rows.map(([k, v], i) => (
         <div key={i} className="contents">
           <dt>{k}</dt>
-          <dd>{v}</dd>
+          <dd>
+            {k === 'stack' && typeof v === 'string' ? <Stack list={v} /> : v}
+          </dd>
         </div>
       ))}
     </dl>
@@ -131,7 +149,7 @@ export function Quote({
     <blockquote
       className={clsx(
         'relative max-w-[60ch] pl-[2ch] text-fg before:absolute before:top-0 before:left-0 before:text-accent before:content-[">"]',
-        small ? 'mt-3 text-sm/[19px] first-of-type:mt-0' : 'mt-4',
+        small ? 'mt-3 text-sm first-of-type:mt-0' : 'mt-4',
       )}
     >
       {children}
@@ -178,21 +196,29 @@ export function Stats({
   return (
     <ul
       className={clsx(
-        'grid max-w-[72ch] gap-2',
+        'grid gap-2',
         two
-          ? 'm-0 grid-cols-2'
-          : 'mt-4 mb-1 grid-cols-[repeat(auto-fit,minmax(14ch,1fr))]',
+          ? 'm-0 flex-1 auto-rows-fr grid-cols-2'
+          : 'mt-4 mb-1 max-w-[72ch] grid-cols-[repeat(auto-fit,minmax(14ch,1fr))]',
       )}
     >
-      {items.map(([b, s]) => (
+      {items.map(([b, s], i) => (
         <li
           key={b}
-          className="grid gap-0.5 rounded-[3px] border border-line-subtle bg-surface px-3 py-2.5"
+          className="grid content-center gap-1 rounded-[3px] border border-line-subtle bg-surface px-4 py-3"
         >
-          <b className="font-px text-[22px]/[26px] font-normal text-accent">
+          <b
+            className={clsx(
+              'font-px font-normal',
+              two ? 'text-hero-sm short:text-stat' : 'text-stat',
+              cycle(i),
+            )}
+          >
             {b}
           </b>
-          <span className="text-sm/4 text-muted">{s}</span>
+          <span className="text-sm/[1.35] whitespace-pre-line text-muted">
+            {s}
+          </span>
         </li>
       ))}
     </ul>
@@ -276,10 +302,60 @@ function DitherImg({ className, ...img }: Shot & { className: string }) {
   )
 }
 
+/** "React · Next.js · Node.js": each tech keeps its own colour across the site. */
+export const Stack = ({ list }: { list: string }) => (
+  <>
+    {list.split(' · ').map((t, i) => (
+      <Fragment key={t}>
+        {i > 0 && <span className="text-subtle"> · </span>}
+        <span className={byName(t)}>
+          <Icon name={t} />
+          {t}
+        </span>
+      </Fragment>
+    ))}
+  </>
+)
+
+/** "Node.js · Express" in a skills list: each tech gets its icon (in its colour), text stays plain. */
+const Techs = ({ list }: { list: string }) => (
+  <>
+    {list.split(' · ').map((t, i) => (
+      <Fragment key={t}>
+        {i > 0 && <span className="text-subtle"> · </span>}
+        <span className={byName(t)}>
+          <Icon name={t} />
+        </span>
+        {t}
+      </Fragment>
+    ))}
+  </>
+)
+
 /* ---------- index dashboard ---------- */
 
+/** Testimonials, stacked. */
+export const Quotes = ({ children }: Kids) => (
+  <div className="grid gap-y-3 [&>blockquote]:mt-0">{children}</div>
+)
+
+/** Dashboard panels in reading order; each title takes the next colour. */
+const PANELS = ['who', 'num', 'work', 'kind', 'con']
+
 export const Dash = ({ children }: Kids) => (
-  <div className="grid grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] gap-x-3 gap-y-5.5 [grid-template-areas:'who_num'_'work_now'_'kind_con'] max-lg:grid-cols-1 max-lg:[grid-template-areas:'who'_'work'_'now'_'num'_'kind'_'con'] plain:grid-cols-1 plain:[grid-template-areas:'who'_'work'_'now'_'num'_'kind'_'con']">
+  <div
+    className={clsx(
+      'grid flex-1 gap-x-3 gap-y-5.5 short:gap-y-3.5',
+      // from lg the grid fills the pane: on tall screens the top two rows split the spare height,
+      // on short ones only the middle row grows (an even split would overflow)
+      'lg:grid-rows-[auto_1fr_auto] lg:tall:grid-rows-[1fr_1fr_auto]',
+      // one column below lg; from lg a 12-column grid:
+      // who (7) | stats (5) · projects (6) | testimonials (6) · connect across
+      "grid-cols-1 [grid-template-areas:'who'_'work'_'num'_'kind'_'con']",
+      "lg:grid-cols-12 lg:[grid-template-areas:'who_who_who_who_who_who_who_num_num_num_num_num'_'work_work_work_work_work_work_kind_kind_kind_kind_kind_kind'_'con_con_con_con_con_con_con_con_con_con_con_con']",
+      "plain:grid-cols-1 plain:[grid-template-areas:'who'_'work'_'num'_'kind'_'con']",
+    )}
+  >
     {children}
   </div>
 )
@@ -288,13 +364,22 @@ export function Panel({
   title,
   area,
   children,
-}: Kids & { title: string; area: string }) {
+  center,
+}: Kids & { title: string; area: string; center?: boolean }) {
   return (
     <section
       style={{ gridArea: area }}
-      className="min-w-0 plain:border-b plain:border-dashed plain:border-line plain:py-5 tui:relative tui:rounded-[3px] tui:border tui:border-line tui:px-4.5 tui:pt-4.5 tui:pb-4 tui:hover:border-[color-mix(in_srgb,var(--accent)_45%,var(--border))]"
+      className={clsx(
+        'flex min-w-0 flex-col plain:border-b plain:border-dashed plain:border-line plain:py-5 tui:relative tui:rounded-[3px] tui:border tui:border-line tui:px-4.5 tui:pt-4.5 tui:pb-4 tui:short:pt-3.5 tui:short:pb-3 tui:hover:border-[color-mix(in_srgb,var(--accent)_45%,var(--border))]',
+        center && 'justify-center',
+      )}
     >
-      <h3 className="text-muted plain:mb-2 plain:text-accent tui:absolute tui:-top-[11px] tui:left-2.5 tui:bg-bg tui:px-1.5 tui:font-medium tui:text-fg">
+      <h3
+        className={clsx(
+          'plain:mb-2 tui:absolute tui:-top-[11px] tui:left-2.5 tui:bg-bg tui:px-1.5 tui:font-medium',
+          cycle(PANELS.indexOf(area)),
+        )}
+      >
         {title}
       </h3>
       {children}
@@ -315,11 +400,11 @@ export const WorkList = ({ rows }: { rows: Array<WorkRow> }) => (
     {rows.map((r) => (
       <li key={r.slug}>
         <a
-          href={`#/work/${r.slug}`}
+          href={`#/projects/${r.slug}`}
           className="-mx-2 grid grid-cols-[14ch_8ch_minmax(0,1fr)_auto] items-baseline gap-3 rounded-[2px] px-2 py-1 text-muted no-underline hover:bg-overlay hover:text-fg max-lg:grid-cols-[minmax(0,1fr)_auto] max-lg:gap-x-3 max-lg:gap-y-0 max-md:py-1.5"
         >
           <b className="font-medium text-fg">{r.name}</b>
-          <i className="text-sm text-muted not-italic">{r.years}</i>
+          <i className="text-sm text-hue-3 not-italic">{r.years}</i>
           <span className="truncate max-lg:col-span-full">{r.what}</span>
           <em className="whitespace-nowrap text-success not-italic max-lg:col-span-full">
             {r.result}
@@ -333,12 +418,15 @@ export const WorkList = ({ rows }: { rows: Array<WorkRow> }) => (
 /* ---------- about ---------- */
 
 export const Principles = ({ items }: { items: Array<[string, string]> }) => (
-  <ol className="mt-4.5 grid max-w-[72ch] gap-4.5 [counter-reset:p]">
-    {items.map(([t, d]) => (
-      <li
-        key={t}
-        className="grid grid-cols-[4ch_minmax(0,1fr)] gap-x-2.5 [counter-increment:p] before:row-[1/span_2] before:font-px before:text-[18px] before:text-accent before:content-[counter(p,decimal-leading-zero)]"
-      >
+  <ol className="mt-4.5 grid max-w-[72ch] gap-4.5">
+    {items.map(([t, d], i) => (
+      <li key={t} className="grid grid-cols-[4ch_minmax(0,1fr)] gap-x-2.5">
+        <span
+          aria-hidden="true"
+          className={clsx('row-span-2 font-px text-num', cycle(i))}
+        >
+          {String(i + 1).padStart(2, '0')}
+        </span>
         <b className="font-medium text-fg">{t}</b>
         <p className="mt-0.5 max-w-[64ch] text-pretty text-muted">{d}</p>
       </li>
@@ -373,9 +461,9 @@ export const Skills = ({
   groups: Array<[string, Array<[Level, string]>]>
 }) => (
   <div className="grid max-w-[96ch] grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-x-7 gap-y-1 max-md:grid-cols-1">
-    {groups.map(([title, skills]) => (
+    {groups.map(([title, skills], i) => (
       <section key={title}>
-        <Sec>{title}</Sec>
+        <Sec hue={cycle(i)}>{title}</Sec>
         <ul>
           {skills.map(([lv, s]) => (
             <li
@@ -386,7 +474,7 @@ export const Skills = ({
               )}
             >
               <Glyph lv={lv} className="inline-block w-[2.5ch] indent-0" />
-              {s}
+              <Techs list={s} />
               <span className="sr-only">
                 {' '}
                 ({lv === 's' ? 'strong' : lv === 'w' ? 'working' : 'exploring'})

@@ -1,0 +1,420 @@
+# Ahmed Abu Qahf (som3aware): full site text
+
+Source: https://som3aware.pages.dev
+
+## index
+
+URL: https://som3aware.pages.dev/#/index
+
+whoami
+Hello, I'm
+Ahmed Abu Qahf
+Full-stack engineer. Product-minded. Design-driven.
+I build digital products end to end, combining engineering depth with a strong eye for interfaces and user experience.
+
+role: Senior Full-stack Engineer @ Cypienta
+based: Tanta, Egypt · remote
+
+→ view projects: https://som3aware.pages.dev/#/projects
+→ cv: https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf
+→ get in touch: mailto:abokahfa@gmail.com
+
+stats
+
+- 7+ yrs shipping products
+- 10+ products
+- 5 organizations
+- 2 degrees MSE Software Eng. (ASU)
+BSc Computer Eng. (AUC)
+
+featured projects
+
+- Stayro 2025–26 guest + host apps, Saudi Arabia led a team of 2
+- Hivo 2025–26 rental marketplace, Saudi Arabia ★ 5.0 · 800+ listings
+- Reconciled 2024–25 invoice reconciliation acquired by LaborEdge
+→ all 9 projects
+
+testimonials
+“Ahmed helped prove our product was technically feasible. He ramped fast, asked smart questions, and delivered with clarity and reliability.”
+Josh Zack · Co-Founder @ Reconciled
+“Thoughtful, detail-oriented, and impactful. Ahmed consistently improved the product and brought strong execution to every challenge.”
+Brock Rumer · Product & Design @ Reconciled
+→ the Reconciled story
+
+connect
+Let's build something thoughtful. email abokahfa@gmail.com c cv download ↗ → all contact
+
+## projects / Stayro
+
+URL: https://som3aware.pages.dev/#/projects/stayro
+
+Stayro
+Guest and host mobile apps for stays in Saudi Arabia.
+
+- 2 apps guest + host
+- team of 2 that I led
+- 3 national integrations
+
+role: engineering lead, mobile and infra
+where: Eignspaces · 2025–26
+stack: React Native · Expo · EAS · GitHub Actions · GCP · Celery · Redis
+contributions
+
+- led two developers to refine, debug and scale both apps
+- integrated Nafath national identity, Ministry of Tourism compliance and secure payments
+- built CI/CD with GitHub Actions and EAS, so builds go straight to the App Store
+- set up GCP: Cloud Run, Cloud SQL and Redis behind an async Celery backend
+
+## projects / Hivo
+
+URL: https://som3aware.pages.dev/#/projects/hivo
+
+Hivo
+Mobile-first rental marketplace for Saudi Arabia.
+
+- ★ 5.0 App Store rating
+- 800+ listings after host launch
+- paced host onboarding, from demand
+
+role: full-stack · unit management system · mentor
+where: Eignspaces · 2025–26
+stack: React Native · Expo · Node.js · PostgreSQL
+
+context
+Global booking platforms lacked cultural relevance, trust signals and smooth bilingual flows for Saudi travelers and hosts. Hivo answers with localized discovery, bilingual flows, secure payments and fast booking.
+contributions
+
+- owned the unit management system and core marketplace screens, end to end
+- worked closely with project managers and designers on pixel-perfect UI
+- mentored interns on React Native and Expo
+- brought AI-assisted workflows with Cursor to the team
+→ App Store: https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973
+
+## projects / Reconciled
+
+URL: https://som3aware.pages.dev/#/projects/reconciled
+
+Reconciled
+Invoice reconciliation platform for staffing agencies.
+
+- acquired by LaborEdge, as the flagship
+- −40% technical debt
+- 6 countries on the team
+
+role: frontend systems · analytics · UI/UX gaps
+where: Eignspaces, with Herwin Software · 2024–25
+stack: React · Next.js · Node.js · PostgreSQL · Segment · Mixpanel · Hotjar
+
+context
+Manual invoice reconciliation across VMS systems caused errors, delays and lost revenue. Reconciled automates invoice matching, flags discrepancies and streamlines the whole process.
+contributions
+
+- built scalable React components from Figma, for a more consistent UI
+- set up product analytics with Segment, Mixpanel and Hotjar
+- refactored steadily to cut technical debt by 40%
+- shipped business features directly with the CFO and engineering leadership
+- mentored juniors and interns on React, Next.js and design patterns
+what they said
+“Ahmed helped prove our product was technically feasible. He ramped fast, asked smart questions, and delivered with clarity and reliability.”
+Josh Zack · Co-Founder @ Reconciled
+“Thoughtful, detail-oriented, and impactful. Ahmed consistently improved the product and brought strong execution to every challenge.”
+Brock Rumer · Product & Design @ Reconciled
+→ reconciled.io: https://www.reconciled.io/
+
+## projects / Outlined AI
+
+URL: https://som3aware.pages.dev/#/projects/outlined-ai
+
+Outlined AI
+AI mobile app that turns audio and video into structured notes.
+
+- 4 outputs: transcript, summary, notes, questions
+- lead end to end
+
+role: development lead
+where: Nodogoro · 2023
+stack: React Native · Node.js · OpenAI · Whisper · FFmpeg
+context
+Getting insights out of audio and video is slow. Outlined AI extracts the transcript, then gives you a summary, notes and the common questions, in one mobile app.
+
+## projects / Sharp Studio
+
+URL: https://som3aware.pages.dev/#/projects/sharp-studio
+
+Sharp Studio
+Hackable image processing: convert, resize and compress.
+
+- solo design to deploy
+- pipelines you configure
+
+stack: React · Node.js · TypeScript · Sharp
+context
+Existing image tools are rigid and hard to customize. Sharp Studio is a web tool with configurable pipelines, many formats and precise control over output.
+→ sharpstudio.netlify.app: https://sharpstudio.netlify.app/
+→ source: https://github.com/ahmedsomaa/sharp-studio
+
+## projects / Editor Setup
+
+URL: https://som3aware.pages.dev/#/projects/editor-setup
+
+Editor Setup
+Curated VS Code font and theme pairings.
+
+- 8 hand-picked pairings
+- solo design to deploy
+- static near-zero latency
+
+stack: Next.js · React · TypeScript · Netlify
+context
+Developers spend hours on Reddit, blogs and GitHub looking for a theme and font that work together. Editor Setup gives 8 pairings, each with a code preview and one-click install links.
+“Finally, someone paired JetBrains Mono with One Dark Pro — looks amazing”
+community feedback
+→ editorsetup.som3aware.workers.dev: https://editorsetup.som3aware.workers.dev/
+→ source: https://github.com/ahmedsomaa/editor-setup
+
+## projects / Open Trivia
+
+URL: https://som3aware.pages.dev/#/projects/open-trivia
+
+Open Trivia
+Multi-round trivia game on the Open Trivia API.
+
+stack: React · TypeScript
+A small project to practice game state and API integration.
+→ source: https://github.com/ahmedsomaa/open-trivia
+
+## projects / Covid Tracker
+
+URL: https://som3aware.pages.dev/#/projects/covid-tracker
+
+Covid Tracker
+App to track COVID patients.
+
+stack: React · Node.js · Auth0
+Patient tracking behind a simple, authenticated interface.
+→ source: https://github.com/ahmedsomaa/covid-tracker
+
+## projects / Storefront API
+
+URL: https://som3aware.pages.dev/#/projects/storefront-api
+
+Storefront API
+Node API for a store.
+
+stack: Node.js · TypeScript · PostgreSQL
+A store backend with typed models and a relational database.
+→ source: https://github.com/ahmedsomaa/storefront-api
+
+## experience / Cypienta
+
+URL: https://som3aware.pages.dev/#/experience/cypienta
+
+Cypienta
+
+role: Senior Full-stack Engineer
+dates: 2026 – present
+where: remote
+product
+
+- Cypienta: a security data platform that condenses and contextualizes telemetry, grouping related events, logs and alerts before they reach SIEM, SOAR and AI tools
+→ cypienta.com: https://cypienta.com
+
+## experience / Eignspaces
+
+URL: https://som3aware.pages.dev/#/experience/eignspaces
+
+Eignspaces
+
+role: Growth Engineer
+dates: Jan 2024 – 2026
+where: remote
+products
+
+- Reconciled: invoice reconciliation, acquired by LaborEdge
+- Hivo: rental marketplace for Saudi Arabia
+- Stayro: guest and host apps
+what I did
+
+- led a team of two on Stayro
+- mentored interns
+- introduced Cursor-based AI workflows
+- worked with teams in the USA, Egypt, Mexico, Argentina, Kenya and Sweden
+
+## experience / Nodogoro
+
+URL: https://som3aware.pages.dev/#/experience/nodogoro
+
+Nodogoro
+
+role: Software Engineer II
+dates: May – Dec 2023
+where: remote
+products
+
+- Outlined AI: audio and video into structured notes
+- ads analyzer: turns feedback on image ads into creative briefs (Next.js, GPT-4 Vision)
+- Slack bot: answers across Drive, Gmail, Calendar, ClickUp and Fireflies (LangChain, Pinecone)
+- resume screening tool
+- price-matching scrapers across online stores (Python, Selenium)
+what I did
+
+- led development of Outlined AI
+- built the ads analyzer, the Slack bot and the scrapers
+- built the resume screening tool at the NodoAI hackathon
+
+## experience / New Smart Egypt
+
+URL: https://som3aware.pages.dev/#/experience/new-smart-egypt
+
+New Smart Egypt
+
+role: Software Engineer I
+dates: Nov 2021 – May 2023
+where: Nasr City, Cairo
+products
+
+- ECARD: an Android app for the Egyptian Company for Agricultural and Rural Development
+- ad server dashboard for Ramses Station's free Wi-Fi portal
+- face attendance app
+- Odoo attendance with ZKTeco fingerprint scanners
+what I did
+
+- deployed ECARD end to end on the Etisalat cloud
+- built the ad server dashboard, plus a faster mobile refactor of the portal
+- built the face attendance app on face-api.js
+- wired ZKTeco fingerprint scanners into Odoo attendance
+
+## experience / VOIS
+
+URL: https://som3aware.pages.dev/#/experience/vois
+
+VOIS
+
+role: Software Engineer
+dates: Jul 2020 – Oct 2021
+where: Smart Village, Giza
+products
+
+- call-centre dashboard for agent performance
+- COVID-19 tracker
+- employee benefits portal
+- the company's React component library
+what I did
+
+- built the call-centre dashboard (React, Redux Toolkit, react-vis)
+- fixes and API work on the COVID-19 tracker (React, Node.js, Mapbox GL)
+- features for the benefits portal (Angular,.NET Core)
+- redesigned the component library
+Joined after internships there in 2018 and 2019.
+
+## toolbox
+
+URL: https://som3aware.pages.dev/#/toolbox
+
+Toolbox
+What I build with, by discipline. Levels are honest: ● strong = shipped in production, ◐ working = used on real projects, ○ exploring = learning now.
+
+frontend engineering
+
+- ● React (strong)
+- ● TypeScript (strong)
+- ● Next.js (strong)
+- ● Modern CSS · Tailwind CSS (strong)
+- ● Design systems · shadcn/ui (strong)
+- ● UI architecture (strong)
+- ◐ Svelte (working)
+
+mobile engineering
+
+- ● React Native (strong)
+- ● Expo · EAS (strong)
+- ● Mobile app architecture (strong)
+
+backend engineering
+
+- ● Node.js · Express (strong)
+- ● REST APIs (strong)
+- ● PostgreSQL (strong)
+- ◐ Python · FastAPI · Celery (working)
+- ◐ Django (working)
+- ◐.NET Core (working)
+- ◐ MongoDB · SQL Server · MySQL · DynamoDB · Redis (working)
+- ○ NestJS (exploring)
+
+infrastructure
+
+- ● CI/CD · GitHub Actions (strong)
+- ● GCP · Cloud Run · Cloud SQL (strong)
+- ◐ AWS · Azure (working)
+- ◐ Netlify · Vercel (working)
+- ◐ Product analytics · Segment · Mixpanel · Hotjar (working)
+
+ai
+
+- ● LLM APIs · OpenAI (strong)
+- ● AI-powered product workflows (strong)
+- ◐ LangChain · Pinecone (working)
+- ◐ Whisper · FFmpeg (working)
+- ○ Spec-driven development (exploring)
+- ○ Skills for AI agents (exploring)
+
+## about
+
+URL: https://som3aware.pages.dev/#/about
+
+About
+Full-stack engineer in Tanta, Egypt, with 7+ years building single-page apps, mobile apps and RESTful APIs.
+I grew up around computers and wrote my first code in preparatory school, in Visual Basic.NET. These days I care most about the part people touch, and I'm growing toward design engineering. See experience for where, and principles for how.
+mentorship
+I mentor junior and mid-level engineers and interns on React, React Native, Next.js and design patterns, and I've trained teams on AI-assisted workflows with Cursor.
+education
+
+2022–23: MSE, Software Engineering · Arizona State University · 4.0 GPA · AGFE OLS scholarship
+2014–19: BSc, Computer Engineering · The American University in Cairo · Egyptian Public Schools scholarship
+courses: McKinsey Forward Program (2024) · Udacity Advanced Full-Stack (2022) · Udacity React (2022)
+hackathons: Hajj Hackathon, Jeddah (2018): Kun 3awnan, IoT help for pilgrims · Dell EMC 423x (2019)
+off the clock
+
+reading: History, technology and long-form essays.
+writing: Product decisions and lessons from shipping, on Hashnode.
+exploring: New tools and side projects.
+life: Family and football. Recently married, so learning that renovating an apartment is a very different kind of engineering.
+
+## principles
+
+URL: https://som3aware.pages.dev/#/principles
+
+How I work
+
+- 01 Simplicity in complexity
+Make complex systems feel simple, intuitive, and effortless to use without losing depth.
+- 02 Attention to detail
+Treat small details as meaningful decisions. They often define the difference between good and great products.
+- 03 Interface craftsmanship
+Build pixel-perfect interfaces where spacing, structure, and interaction feel intentional and consistent.
+- 04 Engineering quality
+Balance speed with maintainability. Ship fast without creating fragile systems.
+- 05 Writing & knowledge sharing
+Share engineering and product thinking through writing, to transfer knowledge and reflect on real-world experience.
+- 06 Mentorship & growth
+Help junior and mid-level engineers grow through guidance, feedback, and practical engineering insight.
+
+## contact
+
+URL: https://som3aware.pages.dev/#/contact
+
+Contact
+Let's build something thoughtful.
+Email is the fastest way to reach me. I usually reply quickly.
+
+→ abokahfa@gmail.com: mailto:abokahfa@gmail.com
+→ download cv: https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf
+everywhere
+
+email: abokahfa@gmail.com c copies it
+linkedin: linkedin.com/in/som3aware
+github: github.com/ahmedsomaa
+x: x.com/som3aware
+hashnode: som3aware.hashnode.dev
+mentor: frontendmentor.io/profile/ahmedsomaa
+cv: Ahmed_Abu_Qahf_cv.pdf ↗
