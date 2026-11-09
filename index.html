@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en" class="no-js" data-theme="rose-pine-main">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ahmed Abu Qahf · som3aware</title>
+<meta name="description" content="Ahmed Abu Qahf (som3aware), senior full-stack engineer in Tanta, Egypt. I turn complex ideas into intuitive digital experiences. Work, experience and contact.">
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    try { t = localStorage.getItem('tui-theme'); } catch (e) {}
+    // themes.js validates the id later; unknown ids fall back to :root (rose-pine-main)
+    d.dataset.theme = /^[a-z0-9-]+$/.test(t || '') ? t : (matchMedia('(prefers-color-scheme: light)').matches ? 'rose-pine-dawn' : 'rose-pine-main');
+    // fonts: free/open only. size = px at which the x-height matches JetBrains Mono at 13px (measured)
+    var FS = 'https://cdn.jsdelivr.net/npm/@fontsource/', W3 = ['400', '500', '700'];
+    var fs = function (n, w) { return (w || W3).map(function (x) { return FS + n + '@5.3.0/' + x + '.css'; }); };
+    var F = window.TUI_FONTS = [
+      { id: 'jetbrains-mono', name: 'JetBrains Mono', size: 13, css: [] },
+      { id: 'geist-mono', name: 'Geist Mono', size: 14, css: fs('geist-mono'), note: 'Vercel: 14/20, no ligatures, tabular nums' },
+      { id: 'inconsolata', name: 'Inconsolata', size: 15.5, css: fs('inconsolata') },
+      { id: 'fira-code', name: 'Fira Code', size: 13.5, css: fs('fira-code') },
+      { id: 'victor-mono', name: 'Victor Mono', size: 12.5, css: fs('victor-mono') },
+      { id: 'martian-mono', name: 'Martian Mono', size: 12.5, css: fs('martian-mono') },
+      { id: 'commit-mono', name: 'Commit Mono', size: 13, css: fs('commit-mono') },
+      { id: 'ibm-plex-mono', name: 'IBM Plex Mono', size: 14, css: fs('ibm-plex-mono') },
+      { id: 'dm-mono', name: 'DM Mono', size: 14.5, css: fs('dm-mono', ['400', '500']) },
+      { id: 'chivo-mono', name: 'Chivo Mono', size: 14, css: fs('chivo-mono') },
+      { id: 'maple-mono', name: 'Maple Mono', size: 13, css: fs('maple-mono') },
+      { id: 'hack', name: 'Hack', size: 13, css: ['https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css'] },
+      { id: 'zed-mono', name: 'Zed Mono', size: 13.5, css: [] },
+      { id: 'fantasque-sans-mono', name: 'Fantasque Sans Mono', size: 14, css: [] },
+      { id: 'brass-mono', name: 'Brass Mono', size: 15, css: [] }
+    ];
+    var loaded = {};
+    window.TUI_LOAD_FONT = function (f) {
+      f.css.forEach(function (u) {
+        if (loaded[u]) return; loaded[u] = 1;
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = u; document.head.appendChild(l);
+      });
+    };
+    window.TUI_SET_FONT = function (id) {
+      var f = F.filter(function (x) { return x.id === id; })[0] || F[0];
+      window.TUI_LOAD_FONT(f);
+      d.dataset.font = f.id;
+      d.style.setProperty('--m', '"' + f.name + '", var(--mono-fallback)');
+      d.style.setProperty('--fz', String(f.size / 13));
+      return f;
+    };
+    var f = null; try { f = localStorage.getItem('tui-font'); } catch (e) {}
+    f = { geist: 'geist-mono', jetbrains: 'jetbrains-mono' }[f] || f; // ids from the first version
+    window.TUI_SET_FONT(f);
+    d.className = /[?&]plain\b/.test(location.search) ? 'plain' : 'tui';
+  })();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%222%22 fill=%22%23191724%22/%3E%3Cpath d=%22M3 4l4 4-4 4%22 stroke=%22%23ebbcba%22 stroke-width=%222%22 fill=%22none%22/%3E%3Crect x=%228%22 y=%2211%22 width=%225%22 height=%222%22 fill=%22%239ccfd8%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/geist-pixel@5.3.0/400.css" rel="stylesheet">
+<link href="fonts.css" rel="stylesheet">
+<link href="themes.css" rel="stylesheet">
+<link href="tui.css" rel="stylesheet">
+<script src="themes.js" defer></script>
+<script src="tui.js" defer onerror="document.documentElement.className='plain'"></script>
+</head>
+<body>
+
+<!-- ============ PLAIN / NO-JS VIEW (also the content source for the TUI) ============ -->
+<header class="pl-head">
+  <h1 class="pl-host"><span class="sr">Ahmed Abu Qahf, </span>ahmed<b>@</b>som3aware</h1>
+  <nav aria-label="Sections">
+    <a href="#/index">index</a><a href="#/work">work</a><a href="#/experience">experience</a><a href="#/expertise">expertise</a><a href="#/about">about</a><a href="#/contact">contact</a><a href="https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf" target="_blank" rel="noopener">cv ↗</a>
+    <a class="pl-tui" href="./">tui view →</a>
+  </nav>
+</header>
+
+<main id="content">
+  <section id="/index" data-tab="index" data-layout="dash">
+    <h2>index</h2>
+
+    <article id="/index/readme" data-key="index" data-copy="abokahfa@gmail.com">
+      <div class="dash">
+        <section class="pn pn-who">
+          <h3 class="pn-t">whoami</h3>
+          <p class="tu-hello">Hello, I'm</p>
+          <h4 class="tu-hero">Ahmed Abu Qahf</h4>
+          <p class="tu-lead">Full-stack engineer. Product-minded. Design-driven.</p>
+          <p>I build digital products end to end, combining engineering depth with a strong eye for interfaces and user experience.</p>
+          <dl class="tu-kv">
+            <dt>role</dt><dd>Senior Full-stack Engineer @ <a href="#/experience/cypienta">Cypienta</a></dd>
+            <dt>based</dt><dd>Tanta, Egypt · remote</dd>
+          </dl>
+          <p class="tu-cta"><a class="tu-link" href="#/work">view work</a><a class="tu-link alt" href="https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf" target="_blank" rel="noopener">cv ↗</a><a class="tu-link alt" href="mailto:abokahfa@gmail.com">get in touch ↗</a></p>
+        </section>
+
+        <section class="pn pn-num">
+          <h3 class="pn-t">numbers</h3>
+          <ul class="tu-stats tu-stats-2">
+            <li><b>7+ yrs</b><span>shipping products</span></li>
+            <li><b>10+</b><span>products</span></li>
+            <li><b>5</b><span>organizations</span></li>
+            <li><b>2</b><span>degrees, AUC + ASU</span></li>
+          </ul>
+        </section>
+
+        <section class="pn pn-work">
+          <h3 class="pn-t">featured work</h3>
+          <ul class="tu-work">
+            <li><a href="#/work/stayro"><b>Stayro</b><i>2025–26</i><span>guest + host apps, Saudi Arabia</span><em>led a team of 2</em></a></li>
+            <li><a href="#/work/hivo"><b>Hivo</b><i>2025–26</i><span>rental marketplace, Saudi Arabia</span><em>★ 5.0 · 800+ listings</em></a></li>
+            <li><a href="#/work/reconciled"><b>Reconciled</b><i>2024–25</i><span>invoice reconciliation</span><em>acquired by LaborEdge</em></a></li>
+          </ul>
+          <p class="tu-small"><a href="#/work">→ all 9 projects</a></p>
+        </section>
+
+        <section class="pn pn-now">
+          <h3 class="pn-t">now</h3>
+          <p class="tu-branch"><span class="tu-dot" aria-hidden="true">●</span> <b>Cypienta</b> · Senior Full-stack Engineer · 2026–</p>
+          <p>A security data platform that condenses and contextualizes telemetry before it reaches SIEM, SOAR and AI tools.</p>
+          <p class="tu-small"><a href="#/experience">→ full history</a></p>
+        </section>
+
+        <section class="pn pn-kind">
+          <h3 class="pn-t">kind words</h3>
+          <blockquote class="tu-q">“Ahmed helped prove our product was technically feasible. He ramped fast, asked smart questions, and delivered with clarity and reliability.”<cite>Josh Zack · Co-Founder @ Reconciled</cite></blockquote>
+          <p class="tu-small"><a href="#/work/reconciled">→ the Reconciled story</a></p>
+        </section>
+
+        <section class="pn pn-con">
+          <h3 class="pn-t">connect</h3>
+          <p class="tu-lead">Let's build something thoughtful.</p>
+          <dl class="tu-kv">
+            <dt>email</dt><dd><a href="mailto:abokahfa@gmail.com">abokahfa@gmail.com</a> <kbd>y</kbd></dd>
+            <dt>cv</dt><dd><a href="https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf" target="_blank" rel="noopener">download ↗</a></dd>
+          </dl>
+          <p class="tu-small"><a href="#/contact">→ all contact</a></p>
+        </section>
+      </div>
+    </article>
+  </section>
+
+  <section id="/work" data-tab="work" data-layout="table">
+    <h2>work</h2>
+
+    <article id="/work/stayro" data-key="Stayro" data-meta="2025–26" data-group="featured" data-role="lead · mobile" data-result="KSA integrations live">
+      <h3 class="tu-h">Stayro</h3>
+      <p class="tu-lead">Guest and host mobile apps for stays in Saudi Arabia.</p>
+      <ul class="tu-stats">
+        <li><b>2 apps</b><span>guest + host</span></li>
+        <li><b>team of 2</b><span>that I led</span></li>
+        <li><b>3</b><span>national integrations</span></li>
+      </ul>
+      <dl class="tu-kv">
+        <dt>role</dt><dd>engineering lead, mobile and infra</dd>
+        <dt>where</dt><dd><a href="#/experience/eignspaces">Eignspaces</a> · 2025–26</dd>
+        <dt>stack</dt><dd>React Native · Expo · EAS · GitHub Actions · GCP · Celery · Redis</dd>
+      </dl>
+      <h4 class="tu-sec">contributions</h4>
+      <ul class="tu-ul">
+        <li>led two developers to refine, debug and scale both apps</li>
+        <li>integrated Nafath national identity, Ministry of Tourism compliance and secure payments</li>
+        <li>built CI/CD with GitHub Actions and EAS, so builds go straight to the App Store</li>
+        <li>set up GCP: Cloud Run, Cloud SQL and Redis behind an async Celery backend</li>
+      </ul>
+    </article>
+    <article id="/work/hivo" data-key="Hivo" data-meta="2025–26" data-group="featured" data-role="full-stack" data-result="★ 5.0 · 800+ listings">
+      <h3 class="tu-h">Hivo</h3>
+      <p class="tu-lead">Mobile-first rental marketplace for Saudi Arabia.</p>
+      <ul class="tu-stats">
+        <li><b>★ 5.0</b><span>App Store rating</span></li>
+        <li><b>800+</b><span>listings after host launch</span></li>
+        <li><b>paced</b><span>host onboarding, from demand</span></li>
+      </ul>
+      <dl class="tu-kv">
+        <dt>role</dt><dd>full-stack · unit management system · mentor</dd>
+        <dt>where</dt><dd><a href="#/experience/eignspaces">Eignspaces</a> · 2025–26</dd>
+        <dt>stack</dt><dd>React Native · Expo · Node.js · PostgreSQL</dd>
+      </dl>
+      <figure class="tu-shots phone">
+        <img src="shots/hivo-1.jpg" alt="Hivo App Store screenshot: Your home is wherever you are" width="460" height="998" loading="lazy" data-dither>
+        <img src="shots/hivo-2.jpg" alt="Hivo App Store screenshot" width="460" height="998" loading="lazy" data-dither>
+        <img src="shots/hivo-3.jpg" alt="Hivo App Store screenshot" width="460" height="998" loading="lazy" data-dither>
+      </figure>
+      <h4 class="tu-sec">context</h4>
+      <p>Global booking platforms lacked cultural relevance, trust signals and smooth bilingual flows for Saudi travelers and hosts. Hivo answers with localized discovery, bilingual flows, secure payments and fast booking.</p>
+      <h4 class="tu-sec">contributions</h4>
+      <ul class="tu-ul">
+        <li>owned the unit management system and core marketplace screens, end to end</li>
+        <li>worked closely with project managers and designers on pixel-perfect UI</li>
+        <li>mentored interns on React Native and Expo</li>
+        <li>brought AI-assisted workflows with Cursor to the team</li>
+      </ul>
+      <a class="tu-link" href="https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973" target="_blank" rel="noopener">App Store ↗</a>
+    </article>
+    <article id="/work/reconciled" data-key="Reconciled" data-meta="2024–25" data-group="featured" data-role="frontend lead" data-result="acquired by LaborEdge">
+      <h3 class="tu-h">Reconciled</h3>
+      <p class="tu-lead">Invoice reconciliation platform for staffing agencies.</p>
+      <ul class="tu-stats">
+        <li><b>acquired</b><span>by LaborEdge, as the flagship</span></li>
+        <li><b>−40%</b><span>technical debt</span></li>
+        <li><b>6</b><span>countries on the team</span></li>
+      </ul>
+      <dl class="tu-kv">
+        <dt>role</dt><dd>frontend systems · analytics · UI/UX gaps</dd>
+        <dt>where</dt><dd><a href="#/experience/eignspaces">Eignspaces</a>, with Herwin Software · 2024–25</dd>
+        <dt>stack</dt><dd>React · Next.js · Node.js · PostgreSQL · Segment · Mixpanel · Hotjar</dd>
+      </dl>
+      <figure class="tu-shots wide">
+        <img src="shots/reconciled.png" alt="Reconciled reconciliation screen: invoices by week with VMS and facility filters" width="1080" height="300" loading="lazy" data-dither>
+      </figure>
+      <h4 class="tu-sec">context</h4>
+      <p>Manual invoice reconciliation across VMS systems caused errors, delays and lost revenue. Reconciled automates invoice matching, flags discrepancies and streamlines the whole process.</p>
+      <h4 class="tu-sec">contributions</h4>
+      <ul class="tu-ul">
+        <li>built scalable React components from Figma, for a more consistent UI</li>
+        <li>set up product analytics with Segment, Mixpanel and Hotjar</li>
+        <li>refactored steadily to cut technical debt by 40%</li>
+        <li>shipped business features directly with the CFO and engineering leadership</li>
+        <li>mentored juniors and interns on React, Next.js and design patterns</li>
+      </ul>
+      <h4 class="tu-sec">what they said</h4>
+      <blockquote class="tu-q">“Ahmed helped prove our product was technically feasible. He ramped fast, asked smart questions, and delivered with clarity and reliability.”<cite>Josh Zack · Co-Founder @ Reconciled</cite></blockquote>
+      <blockquote class="tu-q">“Thoughtful, detail-oriented, and impactful. Ahmed consistently improved the product and brought strong execution to every challenge.”<cite>Brock Rumer · Product &amp; Design @ Reconciled</cite></blockquote>
+      <a class="tu-link" href="https://www.reconciled.io/" target="_blank" rel="noopener">reconciled.io ↗</a>
+    </article>
+    <article id="/work/outlined-ai" data-key="Outlined AI" data-meta="2023" data-group="other work" data-role="lead" data-result="audio + video → notes">
+      <h3 class="tu-h">Outlined AI</h3>
+      <p class="tu-lead">AI mobile app that turns audio and video into structured notes.</p>
+      <ul class="tu-stats">
+        <li><b>4</b><span>outputs: transcript, summary, notes, questions</span></li>
+        <li><b>lead</b><span>end to end</span></li>
+      </ul>
+      <dl class="tu-kv">
+        <dt>role</dt><dd>development lead</dd>
+        <dt>where</dt><dd><a href="#/experience/nodogoro">Nodogoro</a> · 2023</dd>
+        <dt>stack</dt><dd>React Native · Node.js · OpenAI · Whisper · FFmpeg</dd>
+      </dl>
+      <h4 class="tu-sec">context</h4>
+      <p>Getting insights out of audio and video is slow. Outlined AI extracts the transcript, then gives you a summary, notes and the common questions, in one mobile app.</p>
+    </article>
+    <article id="/work/sharp-studio" data-key="Sharp Studio" data-meta="2024" data-group="other work" data-role="solo" data-result="configurable pipelines">
+      <h3 class="tu-h">Sharp Studio</h3>
+      <p class="tu-lead">Hackable image processing: convert, resize and compress.</p>
+      <ul class="tu-stats">
+        <li><b>solo</b><span>design to deploy</span></li>
+        <li><b>pipelines</b><span>you configure</span></li>
+      </ul>
+      <dl class="tu-kv"><dt>stack</dt><dd>React · Node.js · TypeScript · Sharp</dd></dl>
+      <h4 class="tu-sec">context</h4>
+      <p>Existing image tools are rigid and hard to customize. Sharp Studio is a web tool with configurable pipelines, many formats and precise control over output.</p>
+      <a class="tu-link" href="https://sharpstudio.netlify.app/" target="_blank" rel="noopener">sharpstudio.netlify.app ↗</a>
+      <a class="tu-link alt" href="https://github.com/ahmedsomaa/sharp-studio" target="_blank" rel="noopener">source ↗</a>
+    </article>
+    <article id="/work/editor-setup" data-key="Editor Setup" data-meta="2025" data-group="other work" data-role="solo" data-result="8 pairings · open source">
+      <h3 class="tu-h">Editor Setup</h3>
+      <p class="tu-lead">Curated VS Code font and theme pairings.</p>
+      <ul class="tu-stats">
+        <li><b>8</b><span>hand-picked pairings</span></li>
+        <li><b>solo</b><span>design to deploy</span></li>
+        <li><b>static</b><span>near-zero latency</span></li>
+      </ul>
+      <dl class="tu-kv"><dt>stack</dt><dd>Next.js · React · TypeScript · Netlify</dd></dl>
+      <h4 class="tu-sec">context</h4>
+      <p>Developers spend hours on Reddit, blogs and GitHub looking for a theme and font that work together. Editor Setup gives 8 pairings, each with a code preview and one-click install links.</p>
+      <blockquote class="tu-q">“Finally, someone paired JetBrains Mono with One Dark Pro — looks amazing”<cite>community feedback</cite></blockquote>
+      <a class="tu-link" href="https://editorsetup.netlify.app/" target="_blank" rel="noopener">editorsetup.netlify.app ↗</a>
+      <a class="tu-link alt" href="https://github.com/ahmedsomaa/editor-setup" target="_blank" rel="noopener">source ↗</a>
+    </article>
+    <article id="/work/open-trivia" data-key="Open Trivia" data-meta="2024" data-group="archive" data-role="solo" data-result="trivia game">
+      <h3 class="tu-h">Open Trivia</h3>
+      <p class="tu-lead">Multi-round trivia game on the Open Trivia API.</p>
+      <dl class="tu-kv"><dt>stack</dt><dd>React · TypeScript</dd></dl>
+      <p>A small project to practice game state and API integration.</p>
+      <a class="tu-link alt" href="https://github.com/ahmedsomaa/open-trivia" target="_blank" rel="noopener">source ↗</a>
+    </article>
+    <article id="/work/covid-tracker" data-key="Covid Tracker" data-meta="2023" data-group="archive" data-role="solo" data-result="patient tracking">
+      <h3 class="tu-h">Covid Tracker</h3>
+      <p class="tu-lead">App to track COVID patients.</p>
+      <dl class="tu-kv"><dt>stack</dt><dd>React · Node.js · Auth0</dd></dl>
+      <p>Patient tracking behind a simple, authenticated interface.</p>
+      <a class="tu-link alt" href="https://github.com/ahmedsomaa/covid-tracker" target="_blank" rel="noopener">source ↗</a>
+    </article>
+    <article id="/work/storefront-api" data-key="Storefront API" data-meta="2022" data-group="archive" data-role="solo" data-result="typed store API">
+      <h3 class="tu-h">Storefront API</h3>
+      <p class="tu-lead">Node API for a store.</p>
+      <dl class="tu-kv"><dt>stack</dt><dd>Node.js · TypeScript · PostgreSQL</dd></dl>
+      <p>A store backend with typed models and a relational database.</p>
+      <a class="tu-link alt" href="https://github.com/ahmedsomaa/storefront-api" target="_blank" rel="noopener">source ↗</a>
+    </article>
+  </section>
+
+  <section id="/experience" data-tab="experience" data-layout="graph">
+    <h2>experience</h2>
+
+    <article id="/experience/cypienta" data-key="Cypienta" data-meta="2026–" data-now="1">
+      <h3 class="tu-h">Cypienta</h3>
+      <dl class="tu-kv"><dt>role</dt><dd>Senior Full-stack Engineer</dd><dt>dates</dt><dd>2026 – present</dd><dt>where</dt><dd>remote</dd></dl>
+      <p>A security data platform that condenses and contextualizes telemetry, grouping related events, logs and alerts before they reach SIEM, SOAR and AI tools.</p>
+      <a class="tu-link" href="https://cypienta.com" target="_blank" rel="noopener">cypienta.com ↗</a>
+    </article>
+    <article id="/experience/eignspaces" data-key="Eignspaces" data-meta="2024–26">
+      <h3 class="tu-h">Eignspaces</h3>
+      <dl class="tu-kv"><dt>role</dt><dd>Growth Engineer</dd><dt>dates</dt><dd>Jan 2024 – 2026</dd><dt>where</dt><dd>remote</dd></dl>
+      <h4 class="tu-sec">products</h4>
+      <ul class="tu-branches">
+        <li><a href="#/work/reconciled">Reconciled</a>: invoice reconciliation, acquired by LaborEdge</li>
+        <li><a href="#/work/hivo">Hivo</a>: rental marketplace for Saudi Arabia</li>
+        <li><a href="#/work/stayro">Stayro</a>: guest and host apps, led a team of two</li>
+      </ul>
+      <p>Mentored interns, introduced Cursor-based AI workflows, and worked with teams in the USA, Egypt, Mexico, Argentina, Kenya and Sweden.</p>
+    </article>
+    <article id="/experience/nodogoro" data-key="Nodogoro" data-meta="2023">
+      <h3 class="tu-h">Nodogoro</h3>
+      <dl class="tu-kv"><dt>role</dt><dd>Software Engineer II</dd><dt>dates</dt><dd>May – Dec 2023</dd><dt>where</dt><dd>remote</dd></dl>
+      <ul class="tu-ul">
+        <li>an ads analyzer that turns feedback on image ads into creative briefs (Next.js, GPT-4 Vision)</li>
+        <li>a Slack bot that answers across Drive, Gmail, Calendar, ClickUp and Fireflies (LangChain, Pinecone)</li>
+        <li>a resume screening tool, built at the NodoAI hackathon</li>
+        <li>price-matching scrapers across online stores (Python, Selenium)</li>
+      </ul>
+      <h4 class="tu-sec">products</h4>
+      <ul class="tu-branches"><li><a href="#/work/outlined-ai">Outlined AI</a>: audio and video into structured notes, as lead</li></ul>
+    </article>
+    <article id="/experience/new-smart-egypt" data-key="New Smart Egypt" data-meta="2021–23">
+      <h3 class="tu-h">New Smart Egypt</h3>
+      <dl class="tu-kv"><dt>role</dt><dd>Software Engineer I</dd><dt>dates</dt><dd>Nov 2021 – May 2023</dd><dt>where</dt><dd>Nasr City, Cairo</dd></dl>
+      <ul class="tu-ul">
+        <li>ECARD, an Android app for the Egyptian Company for Agricultural and Rural Development, deployed end to end on the Etisalat cloud</li>
+        <li>an ad server dashboard for Ramses Station's free Wi-Fi portal, plus a faster mobile refactor</li>
+        <li>a face attendance app on face-api.js</li>
+        <li>ZKTeco fingerprint scanners wired into Odoo attendance</li>
+      </ul>
+    </article>
+    <article id="/experience/vois" data-key="VOIS" data-meta="2020–21">
+      <h3 class="tu-h">VOIS</h3>
+      <dl class="tu-kv"><dt>role</dt><dd>Software Engineer</dd><dt>dates</dt><dd>Jul 2020 – Oct 2021</dd><dt>where</dt><dd>Smart Village, Giza</dd></dl>
+      <ul class="tu-ul">
+        <li>a call-centre dashboard for agent performance (React, Redux Toolkit, react-vis)</li>
+        <li>fixes and API work on a COVID-19 tracker (React, Node.js, Mapbox GL)</li>
+        <li>features for an employee benefits portal (Angular, .NET Core)</li>
+        <li>a redesign of the company's React component library</li>
+      </ul>
+      <p>Joined after internships there in 2018 and 2019.</p>
+    </article>
+  </section>
+
+  <section id="/expertise" data-tab="expertise" data-layout="single">
+    <h2>expertise</h2>
+
+    <article id="/expertise/skills" data-key="expertise">
+      <h3 class="tu-h">Expertise</h3>
+      <p class="tu-lead">What I build with, by discipline. Levels are honest: <span class="lv lv-s">strong</span> = shipped in production, <span class="lv lv-w">working</span> = used on real projects, <span class="lv lv-e">exploring</span> = learning now.</p>
+      <div class="tu-xp">
+        <section><h4 class="tu-sec">frontend engineering</h4><ul>
+          <li class="lv-s">React</li><li class="lv-s">TypeScript</li><li class="lv-s">Next.js</li><li class="lv-s">Modern CSS · Tailwind CSS</li><li class="lv-s">Design systems · shadcn/ui</li><li class="lv-s">UI architecture</li><li class="lv-w">Svelte</li>
+        </ul></section>
+        <section><h4 class="tu-sec">mobile engineering</h4><ul>
+          <li class="lv-s">React Native</li><li class="lv-s">Expo · EAS</li><li class="lv-s">Mobile app architecture</li>
+        </ul></section>
+        <section><h4 class="tu-sec">backend engineering</h4><ul>
+          <li class="lv-s">Node.js · Express</li><li class="lv-s">REST APIs</li><li class="lv-s">PostgreSQL</li><li class="lv-w">Python · FastAPI · Celery</li><li class="lv-w">Django</li><li class="lv-w">.NET Core</li><li class="lv-w">MongoDB · SQL Server · MySQL · DynamoDB · Redis</li><li class="lv-e">NestJS</li>
+        </ul></section>
+        <section><h4 class="tu-sec">infrastructure</h4><ul>
+          <li class="lv-s">CI/CD · GitHub Actions</li><li class="lv-s">GCP · Cloud Run · Cloud SQL</li><li class="lv-w">AWS · Azure</li><li class="lv-w">Netlify · Vercel</li><li class="lv-w">Product analytics · Segment · Mixpanel · Hotjar</li>
+        </ul></section>
+        <section><h4 class="tu-sec">ai</h4><ul>
+          <li class="lv-s">LLM APIs · OpenAI</li><li class="lv-s">AI-powered product workflows</li><li class="lv-w">LangChain · Pinecone</li><li class="lv-w">Whisper · FFmpeg</li><li class="lv-e">Spec-driven development</li><li class="lv-e">Skills for AI agents</li>
+        </ul></section>
+      </div>
+    </article>
+  </section>
+
+  <section id="/about" data-tab="about" data-layout="single">
+    <h2>about</h2>
+
+    <article id="/about/me" data-key="about" >
+      <h3 class="tu-h">About</h3>
+      <p class="tu-lead">Full-stack engineer in Tanta, Egypt, with 7+ years building single-page apps, mobile apps and RESTful APIs.</p>
+      <p>I grew up around computers and wrote my first code in preparatory school, in Visual Basic .NET. These days I care most about the part people touch, and I'm growing toward design engineering. See <a href="#/experience">experience</a> for where, and the principles below for how.</p>
+
+      <h4 class="tu-sec" id="/about/principles">how I work</h4>
+      <ol class="tu-princ">
+        <li><b>Simplicity in complexity</b><p>Make complex systems feel simple, intuitive, and effortless to use without losing depth.</p></li>
+        <li><b>Attention to detail</b><p>Treat small details as meaningful decisions. They often define the difference between good and great products.</p></li>
+        <li><b>Interface craftsmanship</b><p>Build pixel-perfect interfaces where spacing, structure, and interaction feel intentional and consistent.</p></li>
+        <li><b>Engineering quality</b><p>Balance speed with maintainability. Ship fast without creating fragile systems.</p></li>
+        <li><b>Writing &amp; knowledge sharing</b><p>Share engineering and product thinking through writing, to transfer knowledge and reflect on real-world experience.</p></li>
+        <li><b>Mentorship &amp; growth</b><p>Help junior and mid-level engineers grow through guidance, feedback, and practical engineering insight.</p></li>
+      </ol>
+      <h4 class="tu-sec" id="/about/mentorship">mentorship</h4>
+      <p>I mentor junior and mid-level engineers and interns on React, React Native, Next.js and design patterns, and I've trained teams on AI-assisted workflows with Cursor.</p>
+      <h4 class="tu-sec" id="/about/education">education</h4>
+      <dl class="tu-kv tu-kv-wide">
+        <dt>2022–23</dt><dd><b>MSE, Software Engineering</b> · Arizona State University · 4.0 GPA · AGFE OLS scholarship</dd>
+        <dt>2014–19</dt><dd><b>BSc, Computer Engineering</b> · The American University in Cairo · Egyptian Public Schools scholarship</dd>
+        <dt>courses</dt><dd>McKinsey Forward Program (2024) · Udacity Advanced Full-Stack (2022) · Udacity React (2022)</dd>
+        <dt>hackathons</dt><dd>Hajj Hackathon, Jeddah (2018): Kun 3awnan, IoT help for pilgrims · Dell EMC 423x (2019)</dd>
+      </dl>
+
+
+      <h4 class="tu-sec" id="/about/life">off the clock</h4>
+      <dl class="tu-kv tu-kv-wide">
+        <dt>reading</dt><dd>History, technology and long-form essays.</dd>
+        <dt>writing</dt><dd>Product decisions and lessons from shipping, on <a href="https://som3aware.hashnode.dev" target="_blank" rel="noopener">Hashnode</a>.</dd>
+        <dt>exploring</dt><dd>New tools and side projects.</dd>
+        <dt>life</dt><dd>Family and football. Recently married, so learning that renovating an apartment is a very different kind of engineering.</dd>
+      </dl>
+    </article>
+  </section>
+
+  <section id="/contact" data-tab="contact" data-layout="single">
+    <h2>contact</h2>
+
+    <article id="/contact/me" data-key="contact" data-copy="abokahfa@gmail.com">
+      <h3 class="tu-h">Contact</h3>
+      <p class="tu-lead">Let's build something thoughtful.</p>
+      <p>Email is the fastest way to reach me. I usually reply quickly.</p>
+      <p class="tu-cta"><a class="tu-link" href="mailto:abokahfa@gmail.com">abokahfa@gmail.com ↗</a><a class="tu-link alt" href="https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf" target="_blank" rel="noopener">download cv ↗</a></p>
+      <h4 class="tu-sec">everywhere</h4>
+      <dl class="tu-kv tu-kv-wide">
+        <dt>email</dt><dd><a href="mailto:abokahfa@gmail.com">abokahfa@gmail.com</a> <kbd>y</kbd> copies it</dd>
+        <dt>linkedin</dt><dd><a href="https://linkedin.com/in/som3aware" target="_blank" rel="noopener">linkedin.com/in/som3aware</a></dd>
+        <dt>github</dt><dd><a href="https://github.com/ahmedsomaa" target="_blank" rel="noopener">github.com/ahmedsomaa</a></dd>
+        <dt>x</dt><dd><a href="https://x.com/som3aware" target="_blank" rel="noopener">x.com/som3aware</a></dd>
+        <dt>hashnode</dt><dd><a href="https://som3aware.hashnode.dev" target="_blank" rel="noopener">som3aware.hashnode.dev</a></dd>
+        <dt>mentor</dt><dd><a href="https://www.frontendmentor.io/profile/ahmedsomaa" target="_blank" rel="noopener">frontendmentor.io/profile/ahmedsomaa</a></dd>
+        <dt>cv</dt><dd><a href="https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf" target="_blank" rel="noopener">Ahmed_Abu_Qahf_cv.pdf ↗</a></dd>
+      </dl>
+    </article>
+  </section>
+
+</main>
+
+<footer class="pl-foot"><p>© 2026 Ahmed Abu Qahf · <a href="./">tui view</a></p></footer>
+
+<!-- ============ TUI SHELL (shown only when JS runs) ============ -->
+<div class="tu" id="app" aria-label="Portfolio, workspace view">
+  <a class="tu-skip" href="?plain">read as a plain page</a>
+  <header class="tu-top">
+    <h1 class="tu-host"><span class="sr">Ahmed Abu Qahf, </span>ahmed<b>@</b>som3aware</h1>
+    <nav class="tu-tabs" role="tablist" aria-label="Sections" id="tabs"></nav>
+    <span class="tu-right">
+      <a class="tu-btn" id="btn-cv" href="https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf" target="_blank" rel="noopener">cv ↗</a>
+      <button class="tu-btn" id="btn-theme" type="button" aria-haspopup="dialog"><kbd>t</kbd> <b id="theme-name">Rosé Pine</b></button>
+      <button class="tu-btn" id="btn-font" type="button" aria-haspopup="dialog"><kbd>f</kbd> <b id="font-name">JetBrains Mono</b></button>
+      <button class="tu-btn" id="btn-palette" type="button" aria-haspopup="dialog" aria-label="Command palette"><kbd id="k-mod">⌘K</kbd></button>
+      <button class="tu-btn" id="btn-help" type="button" aria-haspopup="dialog" aria-label="Keyboard help"><kbd>?</kbd></button>
+    </span>
+  </header>
+
+  <section class="tu-pane focus" id="listpane" aria-labelledby="list-title">
+    <span class="tu-legend"><b id="list-title">index</b></span>
+    <span class="tu-legend r" id="list-count">1/4</span>
+    <div class="tu-scroll" id="list" role="listbox" tabindex="0" aria-labelledby="list-title"></div>
+  </section>
+
+  <section class="tu-pane" id="detpane" aria-labelledby="det-title">
+    <span class="tu-legend"><button type="button" class="tu-back" id="btn-back" aria-label="Back to list">←</button><span class="tu-crumb" id="det-crumb"></span><b id="det-title">whoami</b></span>
+    <span class="tu-legend r tu-acts">
+      <button type="button" id="btn-copy" class="tu-act" hidden><kbd>y</kbd> copy</button>
+      <button type="button" id="btn-zoom" class="tu-act"><kbd>z</kbd> <span id="zoom-label">expand</span></button>
+    </span>
+    <div class="tu-scroll" id="det" tabindex="-1"></div>
+  </section>
+
+  <footer class="tu-bar">
+    <span class="mode" id="mode">NORMAL</span>
+    <span class="keys" id="keys"></span>
+    <span class="msg" id="msg" role="status" aria-live="polite"></span>
+    <span class="pos" id="pos"></span>
+  </footer>
+
+  <div class="tu-modal" id="modal" hidden>
+    <section class="tu-pane focus" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <span class="tu-legend"><b id="modal-title">keys</b></span>
+      <span class="tu-legend r" id="modal-count"></span>
+      <label class="tu-find" id="find" hidden><span aria-hidden="true">›</span><input id="q" type="text" autocomplete="off" spellcheck="false" aria-controls="modal-body" aria-label="Filter"></label>
+      <div class="tu-scroll" id="modal-body"></div>
+      <p class="tu-mhint" id="modal-hint"></p>
+    </section>
+  </div>
+</div>
+</body>
+</html>
