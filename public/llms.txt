@@ -1,0 +1,46 @@
+# Ahmed Abu Qahf (som3aware)
+
+> Full-stack engineer. Product-minded. Design-driven.
+
+Portfolio of a senior full-stack engineer. The site is a keyboard-driven terminal-style workspace; every section is also readable as one plain page at https://som3aware.pages.dev/?plain. Full text: https://som3aware.pages.dev/llms-full.txt
+
+## projects
+
+- [Stayro](https://som3aware.pages.dev/#/projects/stayro) (2025–26): Guest and host mobile apps for stays in Saudi Arabia.
+- [Hivo](https://som3aware.pages.dev/#/projects/hivo) (2025–26): Mobile-first rental marketplace for Saudi Arabia.
+- [Reconciled](https://som3aware.pages.dev/#/projects/reconciled) (2024–25): Invoice reconciliation platform for staffing agencies.
+- [Outlined AI](https://som3aware.pages.dev/#/projects/outlined-ai) (2023): AI mobile app that turns audio and video into structured notes.
+- [Sharp Studio](https://som3aware.pages.dev/#/projects/sharp-studio) (2024): Hackable image processing: convert, resize and compress.
+- [Editor Setup](https://som3aware.pages.dev/#/projects/editor-setup) (2025): Curated VS Code font and theme pairings.
+- [Open Trivia](https://som3aware.pages.dev/#/projects/open-trivia) (2024): Multi-round trivia game on the Open Trivia API.
+- [Covid Tracker](https://som3aware.pages.dev/#/projects/covid-tracker) (2023): App to track COVID patients.
+- [Storefront API](https://som3aware.pages.dev/#/projects/storefront-api) (2022): Node API for a store.
+
+## experience
+
+- [Cypienta](https://som3aware.pages.dev/#/experience/cypienta) (2026–): Senior Full-stack Engineer
+- [Eignspaces](https://som3aware.pages.dev/#/experience/eignspaces) (2024–26): Growth Engineer
+- [Nodogoro](https://som3aware.pages.dev/#/experience/nodogoro) (2023): Software Engineer II
+- [New Smart Egypt](https://som3aware.pages.dev/#/experience/new-smart-egypt) (2021–23): Software Engineer I
+- [VOIS](https://som3aware.pages.dev/#/experience/vois) (2020–21): Software Engineer
+
+## toolbox
+
+- [toolbox](https://som3aware.pages.dev/#/toolbox)
+
+## about
+
+- [about](https://som3aware.pages.dev/#/about)
+
+## principles
+
+- [principles](https://som3aware.pages.dev/#/principles)
+
+## contact
+
+- [contact](https://som3aware.pages.dev/#/contact)
+
+## Optional
+
+- [CV (PDF)](https://som3aware.pages.dev/docs/Ahmed_Abu_Qahf___cv_latest.pdf)
+- [Changelog](https://som3aware.pages.dev/#/changelog)

@@ -18,99 +18,47 @@
         try {
           t = localStorage.getItem('tui-theme')
         } catch (e) {}
-        // the app validates the id later; unknown ids fall back to :root (rose-pine-main)
+        // the app validates the id later; unknown ids fall back to :root (vitesse-black).
+        // no saved theme = follow the system (the app keeps following it live)
         d.dataset.theme = /^[a-z0-9-]+$/.test(t || '')
           ? t
           : matchMedia('(prefers-color-scheme: light)').matches
-            ? 'rose-pine-dawn'
-            : 'rose-pine-main'
-        // fonts: free/open only. size = px at which the x-height matches JetBrains Mono at 13px (measured)
-        var FS = 'https://cdn.jsdelivr.net/npm/@fontsource/',
-          W3 = ['400', '500', '700']
-        var fs = function (n, w) {
-          return (w || W3).map(function (x) {
-            return FS + n + '@5.3.0/' + x + '.css'
-          })
-        }
+            ? 'vitesse-light'
+            : 'vitesse-black'
+        // text fonts: free/open, self-hosted full builds (public/fonts) so box and status glyphs draw in them.
+        // one size for all, so switching fonts does not move the layout
         var F = (window.TUI_FONTS = [
+          { id: 'xanh-mono', name: 'Xanh Mono', size: 13, css: [] },
+          { id: 'go-mono', name: 'Go Mono', size: 13, css: [] },
           { id: 'jetbrains-mono', name: 'JetBrains Mono', size: 13, css: [] },
+          { id: 'geist-mono', name: 'Geist Mono', size: 13, css: [] },
+          { id: 'adwaita-mono', name: 'Adwaita Mono', size: 13, css: [] },
+          { id: 'fira-code', name: 'Fira Code', size: 13, css: [] },
           {
-            id: 'geist-mono',
-            name: 'Geist Mono',
-            size: 14,
-            css: fs('geist-mono'),
-            note: 'Vercel: 14/20, no ligatures, tabular nums',
-          },
-          {
-            id: 'inconsolata',
-            name: 'Inconsolata',
-            size: 15.5,
-            css: fs('inconsolata'),
-          },
-          {
-            id: 'fira-code',
-            name: 'Fira Code',
-            size: 13.5,
-            css: fs('fira-code'),
-          },
-          {
-            id: 'victor-mono',
-            name: 'Victor Mono',
-            size: 12.5,
-            css: fs('victor-mono'),
-          },
-          {
-            id: 'martian-mono',
-            name: 'Martian Mono',
-            size: 12.5,
-            css: fs('martian-mono'),
-          },
-          {
-            id: 'commit-mono',
-            name: 'Commit Mono',
+            id: 'ubuntu-sans-mono',
+            name: 'Ubuntu Sans Mono',
             size: 13,
-            css: fs('commit-mono'),
-          },
-          {
-            id: 'ibm-plex-mono',
-            name: 'IBM Plex Mono',
-            size: 14,
-            css: fs('ibm-plex-mono'),
-          },
-          {
-            id: 'dm-mono',
-            name: 'DM Mono',
-            size: 14.5,
-            css: fs('dm-mono', ['400', '500']),
-          },
-          {
-            id: 'chivo-mono',
-            name: 'Chivo Mono',
-            size: 14,
-            css: fs('chivo-mono'),
-          },
-          {
-            id: 'maple-mono',
-            name: 'Maple Mono',
-            size: 13,
-            css: fs('maple-mono'),
-          },
-          {
-            id: 'hack',
-            name: 'Hack',
-            size: 13,
-            css: [
-              'https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css',
-            ],
-          },
-          { id: 'zed-mono', name: 'Zed Mono', size: 13.5, css: [] },
-          {
-            id: 'fantasque-sans-mono',
-            name: 'Fantasque Sans Mono',
-            size: 14,
             css: [],
           },
-          { id: 'brass-mono', name: 'Brass Mono', size: 15, css: [] },
+          { id: 'commit-mono', name: 'Commit Mono', size: 13, css: [] },
+          { id: 'source-code-pro', name: 'Source Code Pro', size: 13, css: [] },
+          { id: 'victor-mono', name: 'Victor Mono', size: 13, css: [] },
+          { id: 'maple-mono', name: 'Maple Mono', size: 13, css: [] },
+        ])
+        // heading (pixel) fonts. sizes per font live in src/styles.css under [data-pixel]
+        var FSRC = 'https://cdn.jsdelivr.net/npm/@fontsource/'
+        var P = (window.TUI_PIXELS = [
+          {
+            id: 'geist-pixel',
+            name: 'Geist Pixel',
+            css: [FSRC + 'geist-pixel@5.3.0/400.css'],
+          },
+          // unmodified 2 MB file (the licence reserves its name, so it cannot be subset); loads only when picked
+          {
+            id: 'unifontex',
+            name: 'UnifontEX',
+            css: [FSRC + 'unifontex@5.3.0/400.css'],
+          },
         ])
         var loaded = {}
         window.TUI_LOAD_FONT = function (f) {
@@ -123,23 +71,41 @@
             document.head.appendChild(l)
           })
         }
-        window.TUI_SET_FONT = function (id) {
-          var f =
-            F.filter(function (x) {
+        var pick = function (list, id) {
+          return (
+            list.filter(function (x) {
               return x.id === id
-            })[0] || F[0]
+            })[0] || list[0]
+          )
+        }
+        window.TUI_SET_FONT = function (id) {
+          var f = pick(F, id)
           window.TUI_LOAD_FONT(f)
           d.dataset.font = f.id
-          d.style.setProperty('--m', '"' + f.name + '", var(--mono-fallback)')
+          // Adwaita Mono has every terminal glyph the site uses; it fills the gaps of the chosen font
+          d.style.setProperty(
+            '--m',
+            '"' + f.name + '", "Adwaita Mono", var(--mono-fallback)',
+          )
           d.style.setProperty('--fz', String(f.size / 13))
           return f
         }
-        var f = null
+        window.TUI_SET_PIXEL = function (id) {
+          var f = pick(P, id)
+          window.TUI_LOAD_FONT(f)
+          d.dataset.pixel = f.id
+          d.style.setProperty('--px', '"' + f.name + '", var(--mono-fallback)')
+          return f
+        }
+        var f = null,
+          px = null
         try {
           f = localStorage.getItem('tui-font')
+          px = localStorage.getItem('tui-pixel')
         } catch (e) {}
         f = { geist: 'geist-mono', jetbrains: 'jetbrains-mono' }[f] || f // ids from the first version
-        window.TUI_SET_FONT(f)
+        window.TUI_SET_FONT(f) // removed fonts fall back to the first one
+        window.TUI_SET_PIXEL(px)
         d.className = /[?&]plain\b/.test(location.search) ? 'plain' : 'tui'
       })()
     </script>
@@ -147,15 +113,12 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%222%22 fill=%22%23191724%22/%3E%3Cpath d=%22M3 4l4 4-4 4%22 stroke=%22%23ebbcba%22 stroke-width=%222%22 fill=%22none%22/%3E%3Crect x=%228%22 y=%2211%22 width=%225%22 height=%222%22 fill=%22%239ccfd8%22/%3E%3C/svg%3E"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/@fontsource/geist-pixel@5.3.0/400.css"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/xanh-mono/regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
   </head>
   <body>

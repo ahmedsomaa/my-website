@@ -5,3 +5,7 @@ v1
 dist
 src/lib/themes.ts
 src/styles/themes.css
+src/styles/fonts.css
+public/fonts
+tools/themes
+tools/theme-sources

@@ -1,65 +1,48 @@
-/* self-hosted open fonts (subset to Latin + UI glyphs). licenses sit next to the files.
+/* Self-hosted open fonts (full glyph sets, licences next to the files, sources in public/fonts/README.md).
    @font-face costs nothing until a font is actually used. */
-@font-face {
-  font-family: 'Zed Mono';
-  src: url('/fonts/zed-mono/regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Zed Mono';
-  src: url('/fonts/zed-mono/bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Zed Mono';
-  src: url('/fonts/zed-mono/italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Brass Mono';
-  src: url('/fonts/brass-mono/regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Brass Mono';
-  src: url('/fonts/brass-mono/bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Brass Mono';
-  src: url('/fonts/brass-mono/italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Fantasque Sans Mono';
-  src: url('/fonts/fantasque-sans-mono/regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Fantasque Sans Mono';
-  src: url('/fonts/fantasque-sans-mono/bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Fantasque Sans Mono';
-  src: url('/fonts/fantasque-sans-mono/italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+@font-face { font-family: 'JetBrains Mono'; src: url('/fonts/jetbrains-mono/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('/fonts/jetbrains-mono/medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('/fonts/jetbrains-mono/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('/fonts/jetbrains-mono/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Geist Mono'; src: url('/fonts/geist-mono/variable.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Fira Code'; src: url('/fonts/fira-code/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fira Code'; src: url('/fonts/fira-code/medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fira Code'; src: url('/fonts/fira-code/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Adwaita Mono'; src: url('/fonts/adwaita-mono/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Adwaita Mono'; src: url('/fonts/adwaita-mono/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Adwaita Mono'; src: url('/fonts/adwaita-mono/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Ubuntu Sans Mono'; src: url('/fonts/ubuntu-sans-mono/variable.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Ubuntu Sans Mono'; src: url('/fonts/ubuntu-sans-mono/italic.woff2') format('woff2'); font-weight: 400 700; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Commit Mono'; src: url('/fonts/commit-mono/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Commit Mono'; src: url('/fonts/commit-mono/medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Commit Mono'; src: url('/fonts/commit-mono/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Commit Mono'; src: url('/fonts/commit-mono/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Source Code Pro'; src: url('/fonts/source-code-pro/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Source Code Pro'; src: url('/fonts/source-code-pro/medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Source Code Pro'; src: url('/fonts/source-code-pro/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Source Code Pro'; src: url('/fonts/source-code-pro/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Go Mono'; src: url('/fonts/go-mono/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Go Mono'; src: url('/fonts/go-mono/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Go Mono'; src: url('/fonts/go-mono/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Victor Mono'; src: url('/fonts/victor-mono/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Victor Mono'; src: url('/fonts/victor-mono/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Victor Mono'; src: url('/fonts/victor-mono/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Maple Mono'; src: url('/fonts/maple-mono/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Maple Mono'; src: url('/fonts/maple-mono/medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Maple Mono'; src: url('/fonts/maple-mono/bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Maple Mono'; src: url('/fonts/maple-mono/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+/* Xanh Mono has no bold, so bold is synthesized */
+@font-face { font-family: 'Xanh Mono'; src: url('/fonts/xanh-mono/regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Xanh Mono'; src: url('/fonts/xanh-mono/italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+/* heading fonts Geist Pixel and UnifontEX come from fontsource (see index.html) */

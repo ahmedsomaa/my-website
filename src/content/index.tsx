@@ -16,6 +16,7 @@ import {
   Panel,
   Principles,
   Quote,
+  Quotes,
   Sec,
   Shots,
   Skills,
@@ -25,6 +26,8 @@ import {
   WorkList,
 } from '#/components/content'
 import { CV, EMAIL } from '#/lib/view'
+import { Icon } from '#/icons'
+import { Changelog } from './changelog'
 
 export type Layout = 'dash' | 'table' | 'graph' | 'single'
 
@@ -39,7 +42,7 @@ export interface Item {
   result?: string
   /** experience graph: the current job */
   now?: boolean
-  /** what `y` copies */
+  /** what `c` copies */
   copy?: string
   body: ReactNode
 }
@@ -59,6 +62,10 @@ const JOSH: [ReactNode, string] = [
   '“Ahmed helped prove our product was technically feasible. He ramped fast, asked smart questions, and delivered with clarity and reliability.”',
   'Josh Zack · Co-Founder @ Reconciled',
 ]
+const BROCK: [ReactNode, string] = [
+  '“Thoughtful, detail-oriented, and impactful. Ahmed consistently improved the product and brought strong execution to every challenge.”',
+  'Brock Rumer · Product & Design @ Reconciled',
+]
 
 const index: Tab = {
   id: 'index',
@@ -70,7 +77,7 @@ const index: Tab = {
       copy: EMAIL,
       body: (
         <Dash>
-          <Panel title="whoami" area="who">
+          <Panel title="whoami" area="who" center>
             <Hello>Hello, I'm</Hello>
             <Hero>Ahmed Abu Qahf</Hero>
             <Lead>Full-stack engineer. Product-minded. Design-driven.</Lead>
@@ -91,7 +98,7 @@ const index: Tab = {
               ]}
             />
             <Cta>
-              <LinkBtn href="#/work">view work</LinkBtn>
+              <LinkBtn href="#/projects">view projects</LinkBtn>
               <LinkBtn alt href={CV}>
                 cv ↗
               </LinkBtn>
@@ -101,19 +108,22 @@ const index: Tab = {
             </Cta>
           </Panel>
 
-          <Panel title="numbers" area="num">
+          <Panel title="stats" area="num">
             <Stats
               two
               items={[
                 ['7+ yrs', 'shipping products'],
                 ['10+', 'products'],
                 ['5', 'organizations'],
-                ['2', 'degrees, AUC + ASU'],
+                [
+                  '2 degrees',
+                  'MSE Software Eng. (ASU)\nBSc Computer Eng. (AUC)',
+                ],
               ]}
             />
           </Panel>
 
-          <Panel title="featured work" area="work">
+          <Panel title="featured projects" area="work">
             <WorkList
               rows={[
                 {
@@ -140,52 +150,45 @@ const index: Tab = {
               ]}
             />
             <Small>
-              <a href="#/work">→ all 9 projects</a>
+              <a href="#/projects">→ all 9 projects</a>
             </Small>
           </Panel>
 
-          <Panel title="now" area="now">
-            <p className="mt-0 text-fg">
-              <span className="text-success" aria-hidden="true">
-                ●
-              </span>{' '}
-              <b className="font-medium">Cypienta</b> · Senior Full-stack
-              Engineer · 2026–
-            </p>
-            <P>
-              A security data platform that condenses and contextualizes
-              telemetry before it reaches SIEM, SOAR and AI tools.
-            </P>
+          <Panel title="testimonials" area="kind">
+            <Quotes>
+              <Quote small by={JOSH[1]}>
+                {JOSH[0]}
+              </Quote>
+              <Quote small by={BROCK[1]}>
+                {BROCK[0]}
+              </Quote>
+            </Quotes>
             <Small>
-              <a href="#/experience">→ full history</a>
-            </Small>
-          </Panel>
-
-          <Panel title="kind words" area="kind">
-            <Quote small by={JOSH[1]}>
-              {JOSH[0]}
-            </Quote>
-            <Small>
-              <a href="#/work/reconciled">→ the Reconciled story</a>
+              <a href="#/projects/reconciled">→ the Reconciled story</a>
             </Small>
           </Panel>
 
           <Panel title="connect" area="con">
-            <Lead>Let's build something thoughtful.</Lead>
-            <Kv
-              rows={[
-                [
-                  'email',
-                  <>
-                    <a href={MAIL}>{EMAIL}</a> <kbd>y</kbd>
-                  </>,
-                ],
-                ['cv', <A href={CV}>download ↗</A>],
-              ]}
-            />
-            <Small>
-              <a href="#/contact">→ all contact</a>
-            </Small>
+            <p className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
+              <span className="text-lg text-fg">
+                Let's build something thoughtful.
+              </span>
+              <span>
+                <span className="text-muted">email </span>
+                <a href={MAIL}>
+                  <Icon name="email" />
+                  {EMAIL}
+                </a>{' '}
+                <kbd>c</kbd>
+              </span>
+              <span>
+                <span className="text-muted">cv </span>
+                <A href={CV}>download ↗</A>
+              </span>
+              <a href="#/contact" className="text-sm">
+                → all contact
+              </a>
+            </p>
           </Panel>
         </Dash>
       ),
@@ -194,7 +197,7 @@ const index: Tab = {
 }
 
 const work: Tab = {
-  id: 'work',
+  id: 'projects',
   layout: 'table',
   items: [
     {
@@ -381,11 +384,7 @@ const work: Tab = {
           />
           <Sec>what they said</Sec>
           <Quote by={JOSH[1]}>{JOSH[0]}</Quote>
-          <Quote by="Brock Rumer · Product & Design @ Reconciled">
-            “Thoughtful, detail-oriented, and impactful. Ahmed consistently
-            improved the product and brought strong execution to every
-            challenge.”
-          </Quote>
+          <Quote by={BROCK[1]}>{BROCK[0]}</Quote>
           <LinkBtn href="https://www.reconciled.io/">reconciled.io ↗</LinkBtn>
         </>
       ),
@@ -471,7 +470,7 @@ const work: Tab = {
       group: 'other work',
       role: 'solo',
       result: '8 pairings · open source',
-      copy: 'https://editorsetup.netlify.app/',
+      copy: 'https://editorsetup.som3aware.workers.dev/',
       body: (
         <>
           <H>Editor Setup</H>
@@ -494,8 +493,8 @@ const work: Tab = {
             “Finally, someone paired JetBrains Mono with One Dark Pro — looks
             amazing”
           </Quote>
-          <LinkBtn href="https://editorsetup.netlify.app/">
-            editorsetup.netlify.app ↗
+          <LinkBtn href="https://editorsetup.som3aware.workers.dev/">
+            editorsetup.som3aware.workers.dev ↗
           </LinkBtn>
           <LinkBtn alt href="https://github.com/ahmedsomaa/editor-setup">
             source ↗
@@ -590,11 +589,17 @@ const experience: Tab = {
         <>
           <H>Cypienta</H>
           {role('Senior Full-stack Engineer', '2026 – present', 'remote')}
-          <P>
-            A security data platform that condenses and contextualizes
-            telemetry, grouping related events, logs and alerts before they
-            reach SIEM, SOAR and AI tools.
-          </P>
+          <Sec>product</Sec>
+          <Branches
+            items={[
+              <>
+                <b className="font-medium text-fg">Cypienta</b>: a security data
+                platform that condenses and contextualizes telemetry, grouping
+                related events, logs and alerts before they reach SIEM, SOAR and
+                AI tools
+              </>,
+            ]}
+          />
           <LinkBtn href="https://cypienta.com">cypienta.com ↗</LinkBtn>
         </>
       ),
@@ -611,23 +616,27 @@ const experience: Tab = {
           <Branches
             items={[
               <>
-                <a href="#/work/reconciled">Reconciled</a>: invoice
+                <a href="#/projects/reconciled">Reconciled</a>: invoice
                 reconciliation, acquired by LaborEdge
               </>,
               <>
-                <a href="#/work/hivo">Hivo</a>: rental marketplace for Saudi
+                <a href="#/projects/hivo">Hivo</a>: rental marketplace for Saudi
                 Arabia
               </>,
               <>
-                <a href="#/work/stayro">Stayro</a>: guest and host apps, led a
-                team of two
+                <a href="#/projects/stayro">Stayro</a>: guest and host apps
               </>,
             ]}
           />
-          <P>
-            Mentored interns, introduced Cursor-based AI workflows, and worked
-            with teams in the USA, Egypt, Mexico, Argentina, Kenya and Sweden.
-          </P>
+          <Sec>what I did</Sec>
+          <Ul
+            items={[
+              'led a team of two on Stayro',
+              'mentored interns',
+              'introduced Cursor-based AI workflows',
+              'worked with teams in the USA, Egypt, Mexico, Argentina, Kenya and Sweden',
+            ]}
+          />
         </>
       ),
     },
@@ -639,21 +648,25 @@ const experience: Tab = {
         <>
           <H>Nodogoro</H>
           {role('Software Engineer II', 'May – Dec 2023', 'remote')}
-          <Ul
-            items={[
-              'an ads analyzer that turns feedback on image ads into creative briefs (Next.js, GPT-4 Vision)',
-              'a Slack bot that answers across Drive, Gmail, Calendar, ClickUp and Fireflies (LangChain, Pinecone)',
-              'a resume screening tool, built at the NodoAI hackathon',
-              'price-matching scrapers across online stores (Python, Selenium)',
-            ]}
-          />
           <Sec>products</Sec>
           <Branches
             items={[
               <>
-                <a href="#/work/outlined-ai">Outlined AI</a>: audio and video
-                into structured notes, as lead
+                <a href="#/projects/outlined-ai">Outlined AI</a>: audio and
+                video into structured notes
               </>,
+              'ads analyzer: turns feedback on image ads into creative briefs (Next.js, GPT-4 Vision)',
+              'Slack bot: answers across Drive, Gmail, Calendar, ClickUp and Fireflies (LangChain, Pinecone)',
+              'resume screening tool',
+              'price-matching scrapers across online stores (Python, Selenium)',
+            ]}
+          />
+          <Sec>what I did</Sec>
+          <Ul
+            items={[
+              'led development of Outlined AI',
+              'built the ads analyzer, the Slack bot and the scrapers',
+              'built the resume screening tool at the NodoAI hackathon',
             ]}
           />
         </>
@@ -671,12 +684,22 @@ const experience: Tab = {
             'Nov 2021 – May 2023',
             'Nasr City, Cairo',
           )}
+          <Sec>products</Sec>
+          <Branches
+            items={[
+              'ECARD: an Android app for the Egyptian Company for Agricultural and Rural Development',
+              "ad server dashboard for Ramses Station's free Wi-Fi portal",
+              'face attendance app',
+              'Odoo attendance with ZKTeco fingerprint scanners',
+            ]}
+          />
+          <Sec>what I did</Sec>
           <Ul
             items={[
-              'ECARD, an Android app for the Egyptian Company for Agricultural and Rural Development, deployed end to end on the Etisalat cloud',
-              "an ad server dashboard for Ramses Station's free Wi-Fi portal, plus a faster mobile refactor",
-              'a face attendance app on face-api.js',
-              'ZKTeco fingerprint scanners wired into Odoo attendance',
+              'deployed ECARD end to end on the Etisalat cloud',
+              'built the ad server dashboard, plus a faster mobile refactor of the portal',
+              'built the face attendance app on face-api.js',
+              'wired ZKTeco fingerprint scanners into Odoo attendance',
             ]}
           />
         </>
@@ -694,12 +717,22 @@ const experience: Tab = {
             'Jul 2020 – Oct 2021',
             'Smart Village, Giza',
           )}
+          <Sec>products</Sec>
+          <Branches
+            items={[
+              'call-centre dashboard for agent performance',
+              'COVID-19 tracker',
+              'employee benefits portal',
+              "the company's React component library",
+            ]}
+          />
+          <Sec>what I did</Sec>
           <Ul
             items={[
-              'a call-centre dashboard for agent performance (React, Redux Toolkit, react-vis)',
-              'fixes and API work on a COVID-19 tracker (React, Node.js, Mapbox GL)',
-              'features for an employee benefits portal (Angular, .NET Core)',
-              "a redesign of the company's React component library",
+              'built the call-centre dashboard (React, Redux Toolkit, react-vis)',
+              'fixes and API work on the COVID-19 tracker (React, Node.js, Mapbox GL)',
+              'features for the benefits portal (Angular, .NET Core)',
+              'redesigned the component library',
             ]}
           />
           <P>Joined after internships there in 2018 and 2019.</P>
@@ -709,16 +742,16 @@ const experience: Tab = {
   ],
 }
 
-const expertise: Tab = {
-  id: 'expertise',
+const toolbox: Tab = {
+  id: 'toolbox',
   layout: 'single',
   items: [
     {
-      key: 'expertise',
+      key: 'toolbox',
       slug: 'skills',
       body: (
         <>
-          <H>Expertise</H>
+          <H>Toolbox</H>
           <Lead>
             What I build with, by discipline. Levels are honest:{' '}
             <Lv lv="s">strong</Lv> = shipped in production,{' '}
@@ -807,39 +840,9 @@ const about: Tab = {
             I grew up around computers and wrote my first code in preparatory
             school, in Visual Basic .NET. These days I care most about the part
             people touch, and I'm growing toward design engineering. See{' '}
-            <a href="#/experience">experience</a> for where, and the principles
-            below for how.
+            <a href="#/experience">experience</a> for where, and{' '}
+            <a href="#/principles">principles</a> for how.
           </P>
-
-          <Sec id="/about/principles">how I work</Sec>
-          <Principles
-            items={[
-              [
-                'Simplicity in complexity',
-                'Make complex systems feel simple, intuitive, and effortless to use without losing depth.',
-              ],
-              [
-                'Attention to detail',
-                'Treat small details as meaningful decisions. They often define the difference between good and great products.',
-              ],
-              [
-                'Interface craftsmanship',
-                'Build pixel-perfect interfaces where spacing, structure, and interaction feel intentional and consistent.',
-              ],
-              [
-                'Engineering quality',
-                'Balance speed with maintainability. Ship fast without creating fragile systems.',
-              ],
-              [
-                'Writing & knowledge sharing',
-                'Share engineering and product thinking through writing, to transfer knowledge and reflect on real-world experience.',
-              ],
-              [
-                'Mentorship & growth',
-                'Help junior and mid-level engineers grow through guidance, feedback, and practical engineering insight.',
-              ],
-            ]}
-          />
 
           <Sec id="/about/mentorship">mentorship</Sec>
           <P>
@@ -902,6 +905,50 @@ const about: Tab = {
   ],
 }
 
+const principles: Tab = {
+  id: 'principles',
+  layout: 'single',
+  items: [
+    {
+      key: 'principles',
+      slug: 'how-i-work',
+      body: (
+        <>
+          <H>How I work</H>
+          <Principles
+            items={[
+              [
+                'Simplicity in complexity',
+                'Make complex systems feel simple, intuitive, and effortless to use without losing depth.',
+              ],
+              [
+                'Attention to detail',
+                'Treat small details as meaningful decisions. They often define the difference between good and great products.',
+              ],
+              [
+                'Interface craftsmanship',
+                'Build pixel-perfect interfaces where spacing, structure, and interaction feel intentional and consistent.',
+              ],
+              [
+                'Engineering quality',
+                'Balance speed with maintainability. Ship fast without creating fragile systems.',
+              ],
+              [
+                'Writing & knowledge sharing',
+                'Share engineering and product thinking through writing, to transfer knowledge and reflect on real-world experience.',
+              ],
+              [
+                'Mentorship & growth',
+                'Help junior and mid-level engineers grow through guidance, feedback, and practical engineering insight.',
+              ],
+            ]}
+          />
+        </>
+      ),
+    },
+  ],
+}
+
 const contact: Tab = {
   id: 'contact',
   layout: 'single',
@@ -928,31 +975,45 @@ const contact: Tab = {
               [
                 'email',
                 <>
-                  <a href={MAIL}>{EMAIL}</a> <kbd>y</kbd> copies it
+                  <a href={MAIL}>
+                    <Icon name="email" />
+                    {EMAIL}
+                  </a>{' '}
+                  <kbd>c</kbd> copies it
                 </>,
               ],
               [
                 'linkedin',
                 <A href="https://linkedin.com/in/som3aware">
+                  <Icon name="linkedin" />
                   linkedin.com/in/som3aware
                 </A>,
               ],
               [
                 'github',
                 <A href="https://github.com/ahmedsomaa">
+                  <Icon name="github" />
                   github.com/ahmedsomaa
                 </A>,
               ],
-              ['x', <A href="https://x.com/som3aware">x.com/som3aware</A>],
+              [
+                'x',
+                <A href="https://x.com/som3aware">
+                  <Icon name="x" />
+                  x.com/som3aware
+                </A>,
+              ],
               [
                 'hashnode',
                 <A href="https://som3aware.hashnode.dev">
+                  <Icon name="hashnode" />
                   som3aware.hashnode.dev
                 </A>,
               ],
               [
                 'mentor',
                 <A href="https://www.frontendmentor.io/profile/ahmedsomaa">
+                  <Icon name="frontend mentor" />
                   frontendmentor.io/profile/ahmedsomaa
                 </A>,
               ],
@@ -965,11 +1026,19 @@ const contact: Tab = {
   ],
 }
 
+const changelog: Tab = {
+  id: 'changelog',
+  layout: 'single',
+  items: [{ key: 'changelog', slug: 'log', body: <Changelog /> }],
+}
+
 export const TABS: Array<Tab> = [
   index,
   work,
   experience,
-  expertise,
+  toolbox,
   about,
+  principles,
   contact,
+  changelog,
 ]

@@ -8,8 +8,17 @@ interface TuiFont {
   note?: string
 }
 
+/** Pixel font for headings. */
+interface TuiPixel {
+  id: string
+  name: string
+  css: Array<string>
+}
+
 interface Window {
   TUI_FONTS: Array<TuiFont>
-  TUI_LOAD_FONT: (f: TuiFont) => void
+  TUI_PIXELS: Array<TuiPixel>
+  TUI_LOAD_FONT: (f: { css: Array<string> }) => void
   TUI_SET_FONT: (id: string | null) => TuiFont
+  TUI_SET_PIXEL: (id: string | null) => TuiPixel
 }
