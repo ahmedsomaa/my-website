@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+@import './styles/themes.css';
+@import './styles/fonts.css';
+
+/* <html class="plain"> is the ?plain reading view, <html class="tui"> the workspace */
+@custom-variant plain (&:where(.plain *));
+@custom-variant tui (&:where(.tui *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-md: 761px;
+  --breakpoint-lg: 901px;
+  --breakpoint-xl: 1101px;
+
+  --text-*: initial;
+  --color-*: initial;
+
+  --animate-in: tuin 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @keyframes tuin {
+    from {
+      opacity: 0;
+      transform: translateX(4px);
+    }
+  }
+}
+
+/* theme tokens come from styles/themes.css, swapped by <html data-theme> */
+@theme inline {
+  --color-bg: var(--background);
+  --color-fg: var(--foreground);
+  --color-muted: var(--foreground-muted);
+  --color-subtle: var(--foreground-subtle);
+  --color-line: var(--border);
+  --color-line-subtle: var(--border-subtle);
+  --color-line-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--accent-foreground);
+  --color-surface: var(--surface);
+  --color-overlay: var(--surface-overlay);
+  --color-selected: var(--surface-selected);
+  --color-on-selected: var(--foreground-selected);
+  --color-hover: var(--hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-focus: var(--focus);
+
+  --font-mono: var(--m);
+  --font-px: var(--px);
+
+  /* --fz scales body text so every mono font shares one x-height */
+  --text-2xs: calc(10px * var(--fz));
+  --text-xs: calc(11px * var(--fz));
+  --text-sm: calc(12px * var(--fz));
+  --text-base: calc(13px * var(--fz));
+  --text-lg: calc(16px * var(--fz));
+}
+
+@layer base {
+  :root {
+    --mono-fallback: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --m: 'JetBrains Mono', var(--mono-fallback);
+    --px: 'Geist Pixel', var(--mono-fallback);
+    --fz: 1;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  html.tui,
+  html.tui body,
+  html.tui #root {
+    height: 100%;
+  }
+  html.tui body {
+    overflow: hidden;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font: calc(13px * var(--fz)) / 20px var(--m);
+    transition:
+      background-color 0.25s,
+      color 0.25s;
+  }
+  /* Geist Mono the way Vercel sets it: 14/20, no ligatures, tabular figures */
+  [data-font='geist-mono'] body {
+    font-variant-ligatures: none;
+    font-feature-settings: 'tnum';
+  }
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  button {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: var(--selection);
+    color: var(--foreground);
+  }
+  kbd {
+    font: inherit;
+    font-size: calc(11px * var(--fz));
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    padding: 0 5px;
+    color: var(--foreground-muted);
+  }
+  [hidden] {
+    display: none !important;
+  }
+
+  /* film grain over everything */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: -50%;
+    z-index: 40;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1.4 -.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: var(--grain);
+    mix-blend-mode: var(--grain-blend);
+  }
+  @media print {
+    body::after {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}

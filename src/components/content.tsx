@@ -1,0 +1,400 @@
+/* Content pieces shared by the plain page and the workspace reading pane. */
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import clsx from 'clsx'
+import type { ReactNode } from 'react'
+import { gray, paint } from '#/lib/dither'
+import type { Gray } from '#/lib/dither'
+import { ThemeContext, ViewContext } from '#/lib/view'
+
+type Kids = { children?: ReactNode }
+
+const external = (href: string) =>
+  /^https?:|^\/docs\//.test(href)
+    ? { target: '_blank', rel: 'noopener' }
+    : undefined
+
+/** Link that opens outside the site in a new tab; internal `#/…` links stay put. */
+export function A({ href, children }: Kids & { href: string }) {
+  return (
+    <a href={href} {...external(href)}>
+      {children}
+    </a>
+  )
+}
+
+export const H = ({ children }: Kids) => (
+  <h3 className="mt-1 mb-2.5 font-px text-[30px]/[32px] font-normal max-md:text-[33px]/[34px]">
+    {children}
+  </h3>
+)
+
+export const Hero = ({ children }: Kids) => (
+  <h4 className="mt-0.5 mb-3.5 font-px text-[48px]/[48px] font-normal plain:text-[36px]/[38px]">
+    {children}
+  </h4>
+)
+
+export const Hello = ({ children }: Kids) => (
+  <p className="m-0 text-success">{children}</p>
+)
+
+/** The one-line summary; `y` copies fall back to selecting it. */
+export const Lead = ({ children }: Kids) => (
+  <p data-lead className="mt-0 max-w-[56ch] text-lg/[26px] text-fg">
+    {children}
+  </p>
+)
+
+export const P = ({ children }: Kids) => (
+  <p className="mt-2.5 max-w-[64ch] text-pretty text-muted [dl+&]:mt-4.5 [&_b]:font-medium [&_b]:text-fg">
+    {children}
+  </p>
+)
+
+export const Small = ({ children }: Kids) => (
+  <p className="mt-3 max-w-[64ch] text-sm text-muted">{children}</p>
+)
+
+/** Section heading. `id` like "/about/education" makes it reachable as #/about/education. */
+export function Sec({ children, id }: Kids & { id?: string }) {
+  const view = useContext(ViewContext)
+  return (
+    <h4
+      // the plain page scrolls to ids natively; the workspace scrolls by data-anchor
+      id={view === 'plain' ? id : undefined}
+      data-anchor={id?.split('/').pop()}
+      className="mt-4.5 scroll-mt-4.5 font-normal text-accent before:text-line before:content-['──_'] target:bg-[color-mix(in_srgb,var(--accent)_10%,transparent)]"
+    >
+      {children}
+    </h4>
+  )
+}
+
+export function Kv({
+  rows,
+  wide,
+}: {
+  rows: Array<[ReactNode, ReactNode]>
+  wide?: boolean
+}) {
+  return (
+    <dl
+      className={clsx(
+        'mt-3.5 grid gap-x-4.5 [&_dd]:min-w-0 [&_dd]:wrap-anywhere [&_dt]:text-muted',
+        wide
+          ? 'max-w-[72ch] grid-cols-[12ch_minmax(0,1fr)] gap-y-1.5 max-md:grid-cols-[9ch_minmax(0,1fr)] max-md:gap-x-3 [&_dd]:text-muted [&_dd_b]:font-medium [&_dd_b]:text-fg'
+          : 'grid-cols-[max-content_1fr] gap-y-0.5 [&_dd]:text-fg',
+      )}
+    >
+      {rows.map(([k, v], i) => (
+        <div key={i} className="contents">
+          <dt>{k}</dt>
+          <dd>{v}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
+export const Ul = ({ items }: { items: Array<ReactNode> }) => (
+  <ul className="max-w-[64ch]">
+    {items.map((x, i) => (
+      <li
+        key={i}
+        className="mt-1.5 pl-[2ch] -indent-[2ch] text-fg before:text-accent before:content-['•_']"
+      >
+        {x}
+      </li>
+    ))}
+  </ul>
+)
+
+export const Branches = ({ items }: { items: Array<ReactNode> }) => (
+  <ul className="mt-2 max-w-[64ch]">
+    {items.map((x, i) => (
+      <li
+        key={i}
+        className="mt-1 pl-[4ch] -indent-[4ch] text-muted before:text-line-strong before:content-['├─_'] last:before:content-['└─_']"
+      >
+        {x}
+      </li>
+    ))}
+  </ul>
+)
+
+export function Quote({
+  children,
+  by,
+  small,
+}: Kids & { by: string; small?: boolean }) {
+  return (
+    <blockquote
+      className={clsx(
+        'relative max-w-[60ch] pl-[2ch] text-fg before:absolute before:top-0 before:left-0 before:text-accent before:content-[">"]',
+        small ? 'mt-3 text-sm/[19px] first-of-type:mt-0' : 'mt-4',
+      )}
+    >
+      {children}
+      <cite className="mt-1.5 block text-muted not-italic">{by}</cite>
+    </blockquote>
+  )
+}
+
+/** Bordered link button. The first one in the reading pane is what ⏎ opens. */
+export function LinkBtn({
+  href,
+  children,
+  alt,
+}: Kids & { href: string; alt?: boolean }) {
+  return (
+    <a
+      href={href}
+      {...external(href)}
+      data-link
+      className={clsx(
+        'mt-4.5 mr-2 inline-flex gap-2 rounded-[2px] border px-3 py-1 no-underline transition-colors',
+        alt
+          ? 'border-line text-muted hover:bg-overlay hover:text-fg'
+          : 'border-accent text-accent hover:bg-accent hover:text-on-accent data-armed:bg-accent data-armed:text-on-accent',
+        'active:bg-[color-mix(in_srgb,var(--accent)_80%,var(--background))] active:text-on-accent',
+      )}
+    >
+      {children}
+    </a>
+  )
+}
+
+export const Cta = ({ children }: Kids) => (
+  <p className="mt-2.5 flex flex-wrap">{children}</p>
+)
+
+export function Stats({
+  items,
+  two,
+}: {
+  items: Array<[string, string]>
+  two?: boolean
+}) {
+  return (
+    <ul
+      className={clsx(
+        'grid max-w-[72ch] gap-2',
+        two
+          ? 'm-0 grid-cols-2'
+          : 'mt-4 mb-1 grid-cols-[repeat(auto-fit,minmax(14ch,1fr))]',
+      )}
+    >
+      {items.map(([b, s]) => (
+        <li
+          key={b}
+          className="grid gap-0.5 rounded-[3px] border border-line-subtle bg-surface px-3 py-2.5"
+        >
+          <b className="font-px text-[22px]/[26px] font-normal text-accent">
+            {b}
+          </b>
+          <span className="text-sm/4 text-muted">{s}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export interface Shot {
+  src: string
+  alt: string
+  width: number
+  height: number
+}
+
+export function Shots({
+  kind,
+  shots,
+}: {
+  kind: 'phone' | 'wide'
+  shots: Array<Shot>
+}) {
+  const each = clsx(
+    'block min-w-0 rounded-[3px] border border-line',
+    kind === 'phone' ? 'h-auto max-w-[180px] flex-[1_1_0]' : 'h-auto w-full',
+  )
+  return (
+    <figure className="mt-4.5 mb-1 flex max-w-[72ch] gap-2.5">
+      {shots.map((s) => (
+        <DitherImg key={s.src} {...s} className={each} />
+      ))}
+    </figure>
+  )
+}
+
+/** Image that turns into a two-colour dither in the workspace and repaints on theme change. */
+function DitherImg({ className, ...img }: Shot & { className: string }) {
+  const view = useContext(ViewContext)
+  const theme = useContext(ThemeContext)
+  const imgRef = useRef<HTMLImageElement>(null)
+  const cvRef = useRef<HTMLCanvasElement>(null)
+  const [g, setG] = useState<Gray | null>(null)
+
+  const load = (el: HTMLImageElement) => {
+    try {
+      setG(gray(el))
+    } catch {
+      /* keep the plain image */
+    }
+  }
+  useEffect(() => {
+    const el = imgRef.current
+    if (el && el.complete && el.naturalWidth) load(el)
+  }, [])
+  useLayoutEffect(() => {
+    if (g && cvRef.current) paint(cvRef.current, g)
+  }, [g, theme])
+
+  if (view === 'plain')
+    return (
+      <img
+        {...img}
+        loading="lazy"
+        className={clsx(className, 'grayscale contrast-110')}
+      />
+    )
+  if (g)
+    return (
+      <canvas
+        ref={cvRef}
+        role="img"
+        aria-label={img.alt}
+        className={clsx(className, 'w-full [image-rendering:pixelated]')}
+      />
+    )
+  return (
+    <img
+      {...img}
+      ref={imgRef}
+      className={className}
+      onLoad={(e) => load(e.currentTarget)}
+    />
+  )
+}
+
+/* ---------- index dashboard ---------- */
+
+export const Dash = ({ children }: Kids) => (
+  <div className="grid grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] gap-x-3 gap-y-5.5 [grid-template-areas:'who_num'_'work_now'_'kind_con'] max-lg:grid-cols-1 max-lg:[grid-template-areas:'who'_'work'_'now'_'num'_'kind'_'con'] plain:grid-cols-1 plain:[grid-template-areas:'who'_'work'_'now'_'num'_'kind'_'con']">
+    {children}
+  </div>
+)
+
+export function Panel({
+  title,
+  area,
+  children,
+}: Kids & { title: string; area: string }) {
+  return (
+    <section
+      style={{ gridArea: area }}
+      className="min-w-0 plain:border-b plain:border-dashed plain:border-line plain:py-5 tui:relative tui:rounded-[3px] tui:border tui:border-line tui:px-4.5 tui:pt-4.5 tui:pb-4 tui:hover:border-[color-mix(in_srgb,var(--accent)_45%,var(--border))]"
+    >
+      <h3 className="text-muted plain:mb-2 plain:text-accent tui:absolute tui:-top-[11px] tui:left-2.5 tui:bg-bg tui:px-1.5 tui:font-medium tui:text-fg">
+        {title}
+      </h3>
+      {children}
+    </section>
+  )
+}
+
+export interface WorkRow {
+  slug: string
+  name: string
+  years: string
+  what: string
+  result: string
+}
+
+export const WorkList = ({ rows }: { rows: Array<WorkRow> }) => (
+  <ul>
+    {rows.map((r) => (
+      <li key={r.slug}>
+        <a
+          href={`#/work/${r.slug}`}
+          className="-mx-2 grid grid-cols-[14ch_8ch_minmax(0,1fr)_auto] items-baseline gap-3 rounded-[2px] px-2 py-1 text-muted no-underline hover:bg-overlay hover:text-fg max-lg:grid-cols-[minmax(0,1fr)_auto] max-lg:gap-x-3 max-lg:gap-y-0 max-md:py-1.5"
+        >
+          <b className="font-medium text-fg">{r.name}</b>
+          <i className="text-sm text-muted not-italic">{r.years}</i>
+          <span className="truncate max-lg:col-span-full">{r.what}</span>
+          <em className="whitespace-nowrap text-success not-italic max-lg:col-span-full">
+            {r.result}
+          </em>
+        </a>
+      </li>
+    ))}
+  </ul>
+)
+
+/* ---------- about ---------- */
+
+export const Principles = ({ items }: { items: Array<[string, string]> }) => (
+  <ol className="mt-4.5 grid max-w-[72ch] gap-4.5 [counter-reset:p]">
+    {items.map(([t, d]) => (
+      <li
+        key={t}
+        className="grid grid-cols-[4ch_minmax(0,1fr)] gap-x-2.5 [counter-increment:p] before:row-[1/span_2] before:font-px before:text-[18px] before:text-accent before:content-[counter(p,decimal-leading-zero)]"
+      >
+        <b className="font-medium text-fg">{t}</b>
+        <p className="mt-0.5 max-w-[64ch] text-pretty text-muted">{d}</p>
+      </li>
+    ))}
+  </ol>
+)
+
+/* ---------- expertise: level = glyph + colour, never colour alone ---------- */
+
+export type Level = 's' | 'w' | 'e'
+const LV: Record<Level, [string, string]> = {
+  s: ['●', 'text-accent'],
+  w: ['◐', 'text-info'],
+  e: ['○', 'text-muted'],
+}
+const Glyph = ({ lv, className }: { lv: Level; className?: string }) => (
+  <span aria-hidden="true" className={clsx(LV[lv][1], className)}>
+    {LV[lv][0]}
+  </span>
+)
+
+export const Lv = ({ lv, children }: Kids & { lv: Level }) => (
+  <span className="whitespace-nowrap text-fg">
+    <Glyph lv={lv} className="mr-1" />
+    {children}
+  </span>
+)
+
+export const Skills = ({
+  groups,
+}: {
+  groups: Array<[string, Array<[Level, string]>]>
+}) => (
+  <div className="grid max-w-[96ch] grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-x-7 gap-y-1 max-md:grid-cols-1">
+    {groups.map(([title, skills]) => (
+      <section key={title}>
+        <Sec>{title}</Sec>
+        <ul>
+          {skills.map(([lv, s]) => (
+            <li
+              key={s}
+              className={clsx(
+                'mt-1.5 pl-[2.5ch] -indent-[2.5ch]',
+                lv === 'e' ? 'text-muted' : 'text-fg',
+              )}
+            >
+              <Glyph lv={lv} className="inline-block w-[2.5ch] indent-0" />
+              {s}
+              <span className="sr-only">
+                {' '}
+                ({lv === 's' ? 'strong' : lv === 'w' ? 'working' : 'exploring'})
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+)
