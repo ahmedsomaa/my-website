@@ -3,7 +3,7 @@
 All notable changes to som3aware, the portfolio of Ahmed Abu Qahf.
 Dates are when a version reached `main`. The site shows this file as its changelog page.
 
-## v3.2: no project images (unreleased)
+## v3.2: no project images (2026-11-10)
 
 ### Removed
 
