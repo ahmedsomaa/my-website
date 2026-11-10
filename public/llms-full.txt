@@ -30,9 +30,9 @@ what I do
 selected work
 
 - Cypienta 2026– security data platform company-wide design system, in progress
-- Reconciled 2024–25 invoice reconciliation acquired by LaborEdge
-- Hivo 2025–26 rental app for the Saudi marketplace ★ 5.0 on the App Store
 - Stayro 2025–26 guest + host rental apps for the Saudi marketplace to the App Store in ~3 months
+- Hivo 2025–26 rental app for the Saudi marketplace ★ 5.0 on the App Store
+- Reconciled 2024–25 invoice reconciliation acquired by LaborEdge
 - Editor Setup 2025 VS Code font + theme pairings 8 font + theme pairings
 → all work
 
@@ -60,6 +60,7 @@ role: design system · interfaces
 where: Cypienta · 2026–
 stack: Svelte · Django
 highlight: company-wide design system, in progress
+
 about
 Security teams are flooded with events, logs and alerts. Cypienta groups and condenses that telemetry, so SIEM, SOAR and AI tools get context instead of noise.
 what I did
@@ -72,6 +73,32 @@ links
 
 → cypienta.com: https://cypienta.com
 → logsquash.io: https://logsquash.io
+
+## work / Stayro
+
+URL: https://som3aware.pages.dev/#/work/stayro
+
+Stayro
+Guest and host rental apps for the Saudi marketplace.
+
+role: team lead · mobile · infra
+where: Eignspaces · 2025–26
+stack: React Native · Expo · EAS · GitHub Actions · GCP · Redis · Celery
+highlight: to the App Store in ~3 months
+
+about
+Guests and hosts in Saudi Arabia needed rental apps that meet local requirements, like national identity, Ministry of Tourism compliance and local payments, on a two-to-three-month release schedule.
+what I did
+
+- led and supervised a team of two developers and reviewed their work
+- guided a junior developer through the Nafath national identity integration with docs and support
+- fixed bugs and got key flows working, including payments and the Ministry of Tourism flow
+- set up and managed GCP: Cloud Run, Cloud SQL and Redis for an async Celery backend
+- owned CI/CD with GitHub Actions and EAS, building and publishing to the App Store
+- worked with the UI/UX designer to improve screens and flows
+links
+
+→ stayro.com: https://stayro.com/
 
 ## work / Hivo
 
@@ -97,31 +124,6 @@ links
 
 → App Store: https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973
 → hivo-tech.com: https://hivo-tech.com/
-
-## work / Stayro
-
-URL: https://som3aware.pages.dev/#/work/stayro
-
-Stayro
-Guest and host rental apps for the Saudi marketplace.
-
-role: team lead · mobile · infra
-where: Eignspaces · 2025–26
-stack: React Native · Expo · EAS · GitHub Actions · GCP · Redis · Celery
-highlight: to the App Store in ~3 months
-about
-Guests and hosts in Saudi Arabia needed rental apps that meet local requirements, like national identity, Ministry of Tourism compliance and local payments, on a two-to-three-month release schedule.
-what I did
-
-- led and supervised a team of two developers and reviewed their work
-- guided a junior developer through the Nafath national identity integration with docs and support
-- fixed bugs and got key flows working, including payments and the Ministry of Tourism flow
-- set up and managed GCP: Cloud Run, Cloud SQL and Redis for an async Celery backend
-- owned CI/CD with GitHub Actions and EAS, building and publishing to the App Store
-- worked with the UI/UX designer to improve screens and flows
-links
-
-→ stayro.com: https://stayro.com/
 
 ## work / Reconciled
 
@@ -384,6 +386,7 @@ role: solo
 where: side project · 2026
 stack: React · TypeScript · Tailwind CSS · Vite · Vitest · Cloudflare Pages
 highlight: ~90 themes · keyboard-first
+
 about
 A portfolio that shows design-engineering craft as a keyboard-driven, terminal-style workspace, without getting in the way of reading it.
 what I did
@@ -409,6 +412,7 @@ role: solo
 where: side project · 2025
 stack: TanStack Start · React · TypeScript
 highlight: 8 font + theme pairings
+
 about
 Developers spend hours on Reddit, blogs and GitHub looking for a theme and a font that work together. Editor Setup gives 8 pairings, each with a code preview and one-click install links.
 what I did
@@ -430,6 +434,7 @@ role: solo
 where: side project · 2024
 stack: React · Node.js · TypeScript · Sharp
 highlight: configurable image pipelines
+
 about
 Existing image tools are rigid and hard to customize. Sharp Studio is a web tool with configurable pipelines, many formats and precise control over output.
 what I did
@@ -472,6 +477,7 @@ role: solo
 where: side project · 2023
 stack: React · Node.js · Auth0
 highlight: patient tracking
+
 about
 Patient tracking behind a simple, authenticated interface.
 what I did
@@ -615,7 +621,7 @@ URL: https://som3aware.pages.dev/#/experience/vois
 
 VOIS
 
-roles: Software Engineer (full-stack) · Jul 2020 – Oct 2021 · hybrid Intern · Jan 2020 – Apr 2020 · on-site Mobile App Developer intern · Jan 2018 · on-site
+roles: Software Engineer (full-stack) · Jul 2020 – Oct 2021 · hybrid; Intern · Jan 2020 – Apr 2020 · on-site; Mobile App Developer intern · Jan 2018 · on-site
 where: Smart Village, Giza
 stack: React · Redux · Node.js · Redis · Mapbox GL · GCP · Angular ·.NET Core · SQL Server · React Native · SST (Serverless Stack) · AWS
 products

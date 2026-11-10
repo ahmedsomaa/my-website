@@ -87,7 +87,7 @@ const lead = (node: ReactNode) => {
   )
   const m =
     html.match(/<p data-lead[^>]*>([\s\S]*?)<\/p>/) ??
-    html.match(/<dt>role<\/dt><dd>([\s\S]*?)<\/dd>/)
+    html.match(/<dt>roles?<\/dt><dd>([\s\S]*?)<\/dd>/)
   return m ? flatten(m[1]).replace(/\n/g, ' ') : ''
 }
 
@@ -95,6 +95,8 @@ const robots = `User-agent: *
 Allow: /
 
 Sitemap: ${SITE}/sitemap.xml
+
+# Plain-text summary for AI agents: ${SITE}/llms.txt (full text: ${SITE}/llms-full.txt)
 `
 
 /** Every section and item, as /?p=tab/slug (query strings are separate pages to crawlers; #/ links are not). */

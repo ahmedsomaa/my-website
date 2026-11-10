@@ -16,6 +16,9 @@ Every page now reads from one data file, and the content was rewritten around re
 - Toolbox: daily tools (editors, terminal, browsers, design, API and data, machines)
 - About: journey, education with awards, and life outside work
 - Brand colours from Simple Icons, matched to the active theme, for every tech icon
+- Screenshots for Cypienta, Stayro, Reconciled, Editor Setup, Sharp Studio, Covid Tracker and this site, shown halftoned
+- Open Graph image (`og.png`) and link-preview tags for LinkedIn, Slack, X and WhatsApp
+- Canonical URL, theme colour and structured data (schema.org `ProfilePage` and `Person`) for search engines
 
 ### Changed
 
@@ -24,6 +27,10 @@ Every page now reads from one data file, and the content was rewritten around re
 - Toolbox: main stack and "also used" only; skill levels removed
 - Cypienta listed as its own company; titles and dates corrected
 - Work rows stack on narrower screens so wide fonts no longer overflow
+- Phone header: section tabs get their own row with a fade that shows they scroll, so none are cut off
+- Work and selected work are ordered by most recent end date
+- Plain view is wider (96 characters)
+- `robots.txt` points to `llms.txt`
 - Page description, `llms.txt`, `llms-full.txt` and `sitemap.xml` match the new content
 
 ## v3: TUI workspace (unreleased)

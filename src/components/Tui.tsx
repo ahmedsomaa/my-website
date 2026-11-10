@@ -822,7 +822,7 @@ export function Tui() {
           read as a plain page
         </a>
 
-        <header className="col-span-full flex flex-wrap items-center gap-1 max-md:flex-nowrap">
+        <header className="col-span-full flex flex-wrap items-center gap-1 max-md:gap-y-1.5">
           <h1 className="mr-3 font-px font-normal text-fg max-md:hidden">
             <span className="sr-only">Ahmed Abu Qahf, </span>ahmed
             <b className="font-normal text-muted">@</b>som3aware
@@ -831,7 +831,7 @@ export function Tui() {
             ref={tabsRef}
             role="tablist"
             aria-label="Sections"
-            className="flex flex-wrap gap-0.5 max-md:min-w-0 max-md:flex-1 max-md:flex-nowrap max-md:overflow-x-auto max-md:[scrollbar-width:none]"
+            className="flex flex-wrap gap-0.5 max-md:order-2 max-md:basis-full max-md:flex-nowrap max-md:overflow-x-auto max-md:[mask-image:linear-gradient(to_right,black_85%,transparent)] max-md:pr-8 max-md:[scrollbar-width:none]"
           >
             {TABS.map((t, i) => {
               const on = i === s.tab
@@ -866,7 +866,7 @@ export function Tui() {
               )
             })}
           </nav>
-          <span className="ml-auto flex items-center gap-3.5 text-muted">
+          <span className="ml-auto flex items-center gap-3.5 text-muted max-md:w-full max-md:justify-between">
             <a
               className={clsx(btn, 'text-accent')}
               href={CV}

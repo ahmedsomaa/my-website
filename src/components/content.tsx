@@ -244,7 +244,13 @@ export function Shots({
     kind === 'phone' ? 'h-auto max-w-[180px] flex-[1_1_0]' : 'h-auto w-full',
   )
   return (
-    <figure className="mt-4.5 mb-1 flex max-w-[72ch] gap-2.5">
+    <figure
+      className={clsx(
+        'mt-4.5 mb-1 flex max-w-[72ch] gap-2.5',
+        // wide shots stack so each stays readable; phone shots sit side by side
+        kind === 'wide' && 'flex-col',
+      )}
+    >
       {shots.map((s) => (
         <DitherImg key={s.src} {...s} className={each} />
       ))}

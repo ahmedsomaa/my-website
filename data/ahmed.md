@@ -370,22 +370,6 @@ Security teams are flooded with events, logs and alerts. Cypienta groups and con
 - polishing the marketing sites, which the company built
 - some backend work
 
-### Hivo
-
-Rental app for the Saudi marketplace.
-
-- **Year:** 2025–26 · **Role:** full-stack · **Quick fact:** ★ 5.0 on the App Store
-- **Stack:** React Native · Expo · Node.js · PostgreSQL
-- **Links:** [App Store](https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973) · [hivo-tech.com](https://hivo-tech.com/)
-- **Facts:** ★ 5.0 (App Store rating) · 800+ (listings after host launch)
-
-Global booking platforms lacked cultural relevance, trust signals and smooth bilingual flows for Saudi travelers and hosts. Hivo answers with localized discovery, bilingual flows, secure payments and fast booking.
-
-- owned the unit management system and core marketplace screens, end to end
-- worked closely with project managers and designers on the UI
-- mentored interns on React Native and Expo
-- introduced AI-assisted workflows with Cursor
-
 ### Stayro
 
 Guest and host rental apps for the Saudi marketplace.
@@ -403,6 +387,22 @@ Guests and hosts in Saudi Arabia needed rental apps that meet local requirements
 - set up and managed GCP: Cloud Run, Cloud SQL and Redis for an async Celery backend
 - owned CI/CD with GitHub Actions and EAS, building and publishing to the App Store
 - worked with the UI/UX designer to improve screens and flows
+
+### Hivo
+
+Rental app for the Saudi marketplace.
+
+- **Year:** 2025–26 · **Role:** full-stack · **Quick fact:** ★ 5.0 on the App Store
+- **Stack:** React Native · Expo · Node.js · PostgreSQL
+- **Links:** [App Store](https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973) · [hivo-tech.com](https://hivo-tech.com/)
+- **Facts:** ★ 5.0 (App Store rating) · 800+ (listings after host launch)
+
+Global booking platforms lacked cultural relevance, trust signals and smooth bilingual flows for Saudi travelers and hosts. Hivo answers with localized discovery, bilingual flows, secure payments and fast booking.
+
+- owned the unit management system and core marketplace screens, end to end
+- worked closely with project managers and designers on the UI
+- mentored interns on React Native and Expo
+- introduced AI-assisted workflows with Cursor
 
 ### Reconciled
 
@@ -744,6 +744,3 @@ Nodogoro Slack #general, farewell thread, December 2023 (screenshots). Goodbye m
 
 - Images: drop them in public/shots/ (see `images.where`).
 - JICA essay award: do you have the certificate, a photo from the ceremony or a news clipping? The JICA page is gone.
-- Eignspaces: which month did it end? Cypienta: full-time employee or contract?
-- Cypienta title: Growth Engineer or Senior Fullstack Engineer? (site/CV say Growth Engineer; GitHub README says Senior Fullstack Engineer)
-- NestJS: main stack or still learning?

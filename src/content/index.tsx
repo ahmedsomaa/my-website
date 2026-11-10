@@ -392,8 +392,9 @@ function CompanyPage({ c }: { c: Company }) {
           [
             c.roles.length > 1 ? 'roles' : 'role',
             <>
-              {c.roles.map((r) => (
+              {c.roles.map((r, i) => (
                 <span key={r.start} className="block">
+                  {i > 0 && <span className="sr-only">; </span>}
                   {r.title}
                   <span className="text-muted">
                     {' '}

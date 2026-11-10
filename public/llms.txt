@@ -7,8 +7,8 @@ Portfolio of a full-stack engineer with 7+ years building web and mobile apps wi
 ## work
 
 - [Cypienta](https://som3aware.pages.dev/#/work/cypienta) (2026–): Security data platform that condenses and contextualizes telemetry before it reaches SIEM, SOAR and AI tools.
-- [Hivo](https://som3aware.pages.dev/#/work/hivo) (2025–26): Rental app for the Saudi marketplace.
 - [Stayro](https://som3aware.pages.dev/#/work/stayro) (2025–26): Guest and host rental apps for the Saudi marketplace.
+- [Hivo](https://som3aware.pages.dev/#/work/hivo) (2025–26): Rental app for the Saudi marketplace.
 - [Reconciled](https://som3aware.pages.dev/#/work/reconciled) (2024–25): Invoice reconciliation platform for staffing agencies.
 - [Outlined AI](https://som3aware.pages.dev/#/work/outlined-ai) (2023): Internal AI tool that turns audio and video into structured notes.
 - [Ads analyzer](https://som3aware.pages.dev/#/work/ads-analyzer) (2023): Turns feedback on image ads into creative briefs, built for Konstant Kreative.
@@ -34,7 +34,7 @@ Portfolio of a full-stack engineer with 7+ years building web and mobile apps wi
 - [Eignspaces](https://som3aware.pages.dev/#/experience/eignspaces) (2024–26): Growth Engineer · Jan 2024 – 2026
 - [Nodogoro](https://som3aware.pages.dev/#/experience/nodogoro) (2023): Software Engineer II · May 2023 – Dec 2023
 - [New Smart Egypt](https://som3aware.pages.dev/#/experience/new-smart-egypt) (2021–23): Software Engineer I · Nov 2021 – May 2023
-- [VOIS](https://som3aware.pages.dev/#/experience/vois) (2018–21): 
+- [VOIS](https://som3aware.pages.dev/#/experience/vois) (2018–21): Software Engineer (full-stack) · Jul 2020 – Oct 2021 · hybrid; Intern · Jan 2020 – Apr 2020 · on-site; Mobile App Developer intern · Jan 2018 · on-site
 
 ## toolbox
 

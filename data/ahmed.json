@@ -109,11 +109,8 @@
     "github": {
       "readmeTagline": "Software Engineer by day and Explorer by night",
       "askMeAbout": ["web development", "APIs", "developer tools"],
-      "learning": ["NestJS", "spec-driven development", "AI agent skills"],
-      "conflicts": [
-        "README says 'Senior Fullstack Engineer @ Cypienta'; Ahmed said 'Growth Engineer @ Cypienta'. Confirm the real title.",
-        "README lists NestJS under 'Learning'; skills.main lists it as main stack. Confirm."
-      ]
+      "learning": ["spec-driven development", "AI agent skills"],
+      "conflicts": []
     }
   },
   "about": {
@@ -805,11 +802,83 @@
             "url": "https://logsquash.io"
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "/shots/cypienta.jpg",
+            "alt": "cypienta.com home page: condense and contextualize telemetry",
+            "width": 1200,
+            "height": 675
+          },
+          {
+            "src": "/shots/logsquash.jpg",
+            "alt": "logsquash.io home page: auto-condense logs before SIEM",
+            "width": 1200,
+            "height": 675
+          }
+        ],
         "shareable": "marketing sites only (built by the company, being polished); the app revamp is private and not finished",
         "tagline": "security data platform",
         "start": "2026-10",
-        "note": "The app revamp is private and still in progress, so there are no screenshots yet. The marketing sites are public."
+        "note": "The app revamp is private and still in progress, so there are no screenshots yet. The marketing sites are public.",
+        "end": null
+      },
+      {
+        "id": "stayro",
+        "name": "Stayro",
+        "experience": "eignspaces",
+        "year": "2025–26",
+        "role": "team lead · mobile · infra",
+        "quickFact": "to the App Store in ~3 months",
+        "about": "Guest and host rental apps for the Saudi marketplace.",
+        "problem": "Guests and hosts in Saudi Arabia needed rental apps that meet local requirements, like national identity, Ministry of Tourism compliance and local payments, on a two-to-three-month release schedule.",
+        "contributions": [
+          "led and supervised a team of two developers and reviewed their work",
+          "guided a junior developer through the Nafath national identity integration with docs and support",
+          "fixed bugs and got key flows working, including payments and the Ministry of Tourism flow",
+          "set up and managed GCP: Cloud Run, Cloud SQL and Redis for an async Celery backend",
+          "owned CI/CD with GitHub Actions and EAS, building and publishing to the App Store",
+          "worked with the UI/UX designer to improve screens and flows"
+        ],
+        "facts": [
+          {
+            "value": "2 apps",
+            "label": "guest + host"
+          },
+          {
+            "value": "team of 2",
+            "label": "that I led"
+          },
+          {
+            "value": "2–3 months",
+            "label": "to release"
+          }
+        ],
+        "stack": [
+          "React Native",
+          "Expo",
+          "EAS",
+          "GitHub Actions",
+          "GCP",
+          "Redis",
+          "Celery"
+        ],
+        "links": [
+          {
+            "label": "stayro.com",
+            "url": "https://stayro.com/"
+          }
+        ],
+        "images": [
+          {
+            "src": "/shots/stayro.jpg",
+            "alt": "stayro.com home page, in Arabic",
+            "width": 1200,
+            "height": 442
+          }
+        ],
+        "tagline": "guest + host rental apps for the Saudi marketplace",
+        "start": "2025-04",
+        "end": "2026-06"
       },
       {
         "id": "hivo",
@@ -868,57 +937,8 @@
           }
         ],
         "tagline": "rental app for the Saudi marketplace",
-        "start": "2025-10"
-      },
-      {
-        "id": "stayro",
-        "name": "Stayro",
-        "experience": "eignspaces",
-        "year": "2025–26",
-        "role": "team lead · mobile · infra",
-        "quickFact": "to the App Store in ~3 months",
-        "about": "Guest and host rental apps for the Saudi marketplace.",
-        "problem": "Guests and hosts in Saudi Arabia needed rental apps that meet local requirements, like national identity, Ministry of Tourism compliance and local payments, on a two-to-three-month release schedule.",
-        "contributions": [
-          "led and supervised a team of two developers and reviewed their work",
-          "guided a junior developer through the Nafath national identity integration with docs and support",
-          "fixed bugs and got key flows working, including payments and the Ministry of Tourism flow",
-          "set up and managed GCP: Cloud Run, Cloud SQL and Redis for an async Celery backend",
-          "owned CI/CD with GitHub Actions and EAS, building and publishing to the App Store",
-          "worked with the UI/UX designer to improve screens and flows"
-        ],
-        "facts": [
-          {
-            "value": "2 apps",
-            "label": "guest + host"
-          },
-          {
-            "value": "team of 2",
-            "label": "that I led"
-          },
-          {
-            "value": "2–3 months",
-            "label": "to release"
-          }
-        ],
-        "stack": [
-          "React Native",
-          "Expo",
-          "EAS",
-          "GitHub Actions",
-          "GCP",
-          "Redis",
-          "Celery"
-        ],
-        "links": [
-          {
-            "label": "stayro.com",
-            "url": "https://stayro.com/"
-          }
-        ],
-        "images": [],
-        "tagline": "guest + host rental apps for the Saudi marketplace",
-        "start": "2025-04"
+        "start": "2025-10",
+        "end": "2026-04"
       },
       {
         "id": "reconciled",
@@ -964,15 +984,16 @@
         ],
         "images": [
           {
-            "src": "/shots/reconciled.png",
+            "src": "/shots/reconciled.webp",
             "alt": "Reconciled reconciliation screen: invoices by week with VMS and facility filters",
-            "width": 1080,
-            "height": 300
+            "width": 1365,
+            "height": 756
           }
         ],
         "testimonials": ["josh-zack", "brock-rumer"],
         "tagline": "invoice reconciliation",
-        "start": "2024-01"
+        "start": "2024-01",
+        "end": "2025-10"
       },
       {
         "id": "outlined-ai",
@@ -995,7 +1016,8 @@
         "images": [],
         "tagline": "audio + video → notes",
         "start": "2023-05",
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2023-12"
       },
       {
         "links": [],
@@ -1014,7 +1036,8 @@
           "built the interface with Tailwind CSS and shadcn/ui"
         ],
         "stack": ["Next.js", "OpenAI", "Tailwind CSS", "shadcn/ui"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2023-12"
       },
       {
         "links": [],
@@ -1033,7 +1056,8 @@
           "used Node.js, LangChain and the Google APIs"
         ],
         "stack": ["Node.js", "LangChain", "Pinecone"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2023-12"
       },
       {
         "links": [],
@@ -1052,7 +1076,8 @@
           "answered questions about resumes with Python, LangChain and OpenAI"
         ],
         "stack": ["Python", "LangChain", "OpenAI"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2023-12"
       },
       {
         "links": [],
@@ -1071,7 +1096,8 @@
           "deployed the API and database on the Etisalat cloud (IIS, Windows Server 2019)"
         ],
         "stack": ["React Native", "Expo", ".NET Core", "SQL Server"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2023-05"
       },
       {
         "links": [],
@@ -1093,7 +1119,8 @@
           "deployed it on-premise (Windows Server, IIS, SSL)"
         ],
         "stack": ["HTML", "CSS", "IIS"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2023-05"
       },
       {
         "links": [],
@@ -1112,7 +1139,8 @@
           "integrated ZKTeco MA500 and MB2000 scanners with Odoo"
         ],
         "stack": [".NET Core", "SQL Server"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2023-05"
       },
       {
         "id": "covid-mobility",
@@ -1134,7 +1162,8 @@
         "images": [],
         "tagline": "mobility data for governments",
         "start": "2020-07",
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2021-10"
       },
       {
         "links": [],
@@ -1154,7 +1183,8 @@
           "helped bring delivery forward by about one to one and a half months"
         ],
         "stack": ["Angular", ".NET Core", "SQL Server"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2021-10"
       },
       {
         "links": [],
@@ -1173,7 +1203,8 @@
           "worked on the front end and the back end"
         ],
         "stack": ["React Native", "AWS", "DynamoDB"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2021-10"
       },
       {
         "links": [],
@@ -1192,7 +1223,8 @@
           "built the charts with Uber react-vis and state with Redux Toolkit"
         ],
         "stack": ["React", "Redux"],
-        "noLink": "Internal tool. I no longer have access to it."
+        "noLink": "Internal tool. I no longer have access to it.",
+        "end": "2021-10"
       }
     ],
     "side": [
@@ -1229,10 +1261,18 @@
             "url": "https://github.com/ahmedsomaa/my-website"
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "/shots/portfolio.jpg",
+            "alt": "This portfolio home page in the terminal-style workspace",
+            "width": 1200,
+            "height": 675
+          }
+        ],
         "tagline": "this site",
         "start": "2026",
-        "problem": "A portfolio that shows design-engineering craft as a keyboard-driven, terminal-style workspace, without getting in the way of reading it."
+        "problem": "A portfolio that shows design-engineering craft as a keyboard-driven, terminal-style workspace, without getting in the way of reading it.",
+        "end": "2026"
       },
       {
         "id": "editor-setup",
@@ -1260,14 +1300,22 @@
             "url": "https://github.com/ahmedsomaa/editor-setup"
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "/shots/editor-setup.webp",
+            "alt": "Editor Setup home page: find your next VS Code setup",
+            "width": 1600,
+            "height": 776
+          }
+        ],
         "quote": {
           "text": "Finally, someone paired JetBrains Mono with One Dark Pro — looks amazing",
           "by": "community feedback",
           "source": null
         },
         "tagline": "VS Code font + theme pairings",
-        "start": "2025"
+        "start": "2025",
+        "end": "2025"
       },
       {
         "id": "sharp-studio",
@@ -1290,9 +1338,17 @@
             "url": "https://github.com/ahmedsomaa/sharp-studio"
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "/shots/sharp-studio.webp",
+            "alt": "Sharp Studio home page",
+            "width": 1600,
+            "height": 776
+          }
+        ],
         "tagline": "image pipelines",
-        "start": "2024"
+        "start": "2024",
+        "end": "2024"
       },
       {
         "id": "open-trivia",
@@ -1316,7 +1372,8 @@
         "images": [],
         "archived": true,
         "start": "2024",
-        "problem": "A small project to practice game state and API integration."
+        "problem": "A small project to practice game state and API integration.",
+        "end": "2024"
       },
       {
         "id": "covid-tracker",
@@ -1337,10 +1394,18 @@
             "url": "https://github.com/ahmedsomaa/covid-tracker"
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "/shots/covid-tracker.webp",
+            "alt": "Covid Tracker app screen",
+            "width": 1600,
+            "height": 808
+          }
+        ],
         "archived": true,
         "start": "2023",
-        "problem": "Patient tracking behind a simple, authenticated interface."
+        "problem": "Patient tracking behind a simple, authenticated interface.",
+        "end": "2023"
       },
       {
         "id": "storefront-api",
@@ -1364,10 +1429,11 @@
         "images": [],
         "archived": true,
         "start": "2022",
-        "problem": "A store backend with typed models and a relational database."
+        "problem": "A store backend with typed models and a relational database.",
+        "end": "2022"
       }
     ],
-    "note": "Each group is newest first (by start). Archived side projects stay in the side group."
+    "note": "Each group is newest first: by end date (present first), then start."
   },
   "skills": {
     "main": {
@@ -1640,10 +1706,7 @@
   ],
   "open": [
     "Images: drop them in public/shots/ (see `images.where`).",
-    "JICA essay award: do you have the certificate, a photo from the ceremony or a news clipping? The JICA page is gone.",
-    "Eignspaces: which month did it end? Cypienta: full-time employee or contract?",
-    "Cypienta title: Growth Engineer or Senior Fullstack Engineer? (site/CV say Growth Engineer; GitHub README says Senior Fullstack Engineer)",
-    "NestJS: main stack or still learning?"
+    "JICA essay award: do you have the certificate, a photo from the ceremony or a news clipping? The JICA page is gone."
   ],
   "kindWords": {
     "source": "Nodogoro Slack #general, farewell thread, December 2023 (screenshots)",
@@ -1693,9 +1756,9 @@
   "home": {
     "selectedWork": [
       "cypienta",
-      "reconciled",
-      "hivo",
       "stayro",
+      "hivo",
+      "reconciled",
       "editor-setup"
     ],
     "testimonials": ["josh-zack", "brock-rumer"],
