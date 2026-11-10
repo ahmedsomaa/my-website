@@ -473,24 +473,29 @@ export const WorkList = ({ rows }: { rows: Array<WorkRow> }) => (
 
 /* ---------- about ---------- */
 
-/** Numbered principles: title, what it means, and the work that shows it. */
+/** Principles, one tile each in a single column: number, title, what it means, and the work that shows it. */
 export const Principles = ({
   items,
 }: {
   items: Array<[string, string, string]>
 }) => (
-  <ol className="mt-4.5 grid max-w-[72ch] gap-5">
+  <ol className="mt-4.5 grid max-w-[72ch] gap-2.5">
     {items.map(([t, d, proof], i) => (
-      <li key={t} className="grid grid-cols-[4ch_minmax(0,1fr)] gap-x-2.5">
-        <span
-          aria-hidden="true"
-          className={clsx('row-span-3 font-px text-num', cycle(i))}
-        >
-          {String(i + 1).padStart(2, '0')}
+      <li
+        key={t}
+        className="grid content-start gap-1.5 rounded-[3px] border border-line-subtle bg-surface px-4 py-3.5 plain:bg-transparent"
+      >
+        <span className="flex items-baseline gap-2.5">
+          <span
+            aria-hidden="true"
+            className={clsx('font-px text-num', cycle(i))}
+          >
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <b className={clsx('font-px text-lg font-normal', cycle(i))}>{t}</b>
         </span>
-        <b className="font-medium text-fg">{t}</b>
-        <p className="mt-0.5 max-w-[64ch] text-pretty text-fg">{d}</p>
-        <p className="mt-1 max-w-[64ch] text-sm text-pretty text-muted">
+        <p className="text-pretty text-fg">{d}</p>
+        <p className="text-sm text-pretty text-muted">
           <span className="text-subtle">in practice: </span>
           {proof}
         </p>

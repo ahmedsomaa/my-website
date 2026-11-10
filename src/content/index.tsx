@@ -592,7 +592,7 @@ const philosophy: Tab = {
       body: (
         <>
           <H>Philosophy</H>
-          <Lead>How I work, and the work that shows it.</Lead>
+          <Lead>{data.philosophyLead}</Lead>
           <Principles
             items={data.principles.map((x) => [x.title, x.text, x.proof])}
           />

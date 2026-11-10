@@ -26,7 +26,9 @@ I'm Ahmed Abu Qahf (som3aware), a full-stack engineer in Tanta, Egypt, working r
 
 ### Journey
 
-- **early:** Grew up around computers. Wrote my first code in preparatory school, in Visual Basic .NET.
+- **early:** My fascination with computers started on visits to the countryside, rushing to use my cousin's computer, the first in our family, to explore apps and the early internet.
+- **6th grade:** Ranked top of my whole governorate and got my first laptop as the prize.
+- **prep school:** Moved from using computers to managing them, installing operating systems, and wrote my first code in Visual Basic .NET: calculators and tools for the area and circumference of shapes.
 - **2013:** Won 2nd place nationwide in JICA's first essay competition in Egypt, run with the Ministry of Education and sponsored by Toshiba El Araby, writing about my dreams for the future. Out of about 1,000 essays.
 - **2014–19:** Studied computer engineering at AUC on a scholarship. Designed flyers and posters for student clubs (SPE, the Society of Petroleum Engineers; Glow; CSTA, the Community of Scientific and Technological Activities) and for yoga instructor sessions: my first design work.
 - **2018:** Intern on Vodafone's meeting-room booking app: designed most of the screens and built the back end.
@@ -51,35 +53,53 @@ I'm Ahmed Abu Qahf (som3aware), a full-stack engineer in Tanta, Egypt, working r
 
 ## Principles
 
-### 1. Keep it simple
+### 1. Honest and straightforward
 
-I don't like complicated things, at work or in life. If something can be a little simpler to use, I'll make it simpler. The hard part should be my problem, not the user's.
+I value people who are genuine and say what they mean, and I try to be one: no spin, no detours, just what I did and what I didn't.
 
-_Proof:_ Turning the Ramses Station Wi-Fi portal into a few clear steps. One reconciliation view for messy invoice matching at Reconciled. Design systems so every screen follows the same rules.
+_Proof:_ Every number on this site has a source, and shared work says so.
 
-### 2. Small details, big impact
+### 2. Open mind, patient ear
 
-Small things often make the biggest difference. I don't ship just anything: the work should look good, feel good, and be easy, even enjoyable, to use.
+I try to hear the whole story before forming a view, and to stay patient while I do.
 
-_Proof:_ This site's themes, type and keyboard states. Working side by side with designers on Hivo and Stayro. Refactoring the Ramses portal until it ran well on old phones.
+_Proof:_ Tracing a months-old map bug at VOIS to its real cause, a platform setting, instead of the obvious suspect.
 
-### 3. Help people grow
+### 3. Keep it simple
 
-I like helping people, junior engineers especially, but not only in software. Helping someone get unstuck is one of the best parts of the job.
+I like taking complex things and making them simple, at work and at home. If it can be easier to use, I'll make it easier.
 
-_Proof:_ Led and reviewed a team of two on Stayro. Guided a junior developer through the Nafath integration with docs and support. Mentored interns on Hivo and Reconciled.
+_Proof:_ A Wi-Fi portal cut to a few clear steps; one view for invoice matching at Reconciled.
 
-### 4. Honest and genuine
+### 4. Small details, big impact
 
-I value honest, genuine people. No showing off, no making a big deal out of everything, no going round in circles to get what you want. I try to work the same way: say what I did, say what I didn't.
+I notice the small stuff, the spacing, the empty state, the button that feels off, because that's what people feel.
 
-_Proof:_ On this site, every number has a source, and when someone else built a part of a project, it says so.
+_Proof:_ This site's themes and keyboard states; screens refined with designers on Hivo and Stayro.
 
-### 5. Share what I know
+### 5. Creative, but realistic
 
-Knowledge is more useful shared. I write about what I learn, and I'm just as happy to talk it through, in person or on a call.
+I like creative ideas that can actually ship. Not everything fits the budget, the timeline or the team, so I look for the version that does.
 
-_Proof:_ Writing on Hashnode. Training teams on AI-assisted workflows with Cursor. Mentoring interns on React, React Native and Next.js.
+_Proof:_ Shipping Stayro's guest and host apps in two to three months; at Reconciled, “balance creativity with practical execution” (Brock Rumer).
+
+### 6. Keep learning
+
+I'm always eager to learn and grow, to be a better version of myself than I was yesterday.
+
+_Proof:_ An MSE at ASU while working full time; moving from web to mobile, AI and now design systems.
+
+### 7. Help people grow
+
+Helping someone get unstuck is my favourite part of the job. I mentor junior engineers and interns, and show teams how to use AI well.
+
+_Proof:_ Mentored interns and juniors on Hivo and Reconciled; led and reviewed a team of two; guided a junior through the Nafath integration.
+
+### 8. Share what I know
+
+I share what I learn through writing and through good discussions, about tech, history or football, in person or on a call.
+
+_Proof:_ Writing on Hashnode; training teams on AI-assisted workflows.
 
 ## Experience
 

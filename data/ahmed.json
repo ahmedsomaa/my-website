@@ -118,7 +118,15 @@
     "journey": [
       {
         "when": "early",
-        "text": "Grew up around computers. Wrote my first code in preparatory school, in Visual Basic .NET."
+        "text": "My fascination with computers started on visits to the countryside, rushing to use my cousin's computer, the first in our family, to explore apps and the early internet."
+      },
+      {
+        "when": "6th grade",
+        "text": "Ranked top of my whole governorate and got my first laptop as the prize."
+      },
+      {
+        "when": "prep school",
+        "text": "Moved from using computers to managing them, installing operating systems, and wrote my first code in Visual Basic .NET: calculators and tools for the area and circumference of shapes."
       },
       {
         "when": "2013",
@@ -197,38 +205,57 @@
         "text": "Recently married, so learning that renovating an apartment is a very different kind of engineering."
       }
     ],
-    "opener": "I started out designing posters for university clubs and never stopped. Now I build the whole product behind the interface too: web, mobile, and the design systems that hold them together."
+    "opener": "I started out designing posters for university clubs and never stopped. Now I build the whole product behind the interface too: web, mobile, and the design systems that hold them together.",
+    "sources": "Origin story from the v2 About page (Ahmed's own words), confirmed 2026-11-10."
   },
   "principles": [
     {
+      "id": "honest",
+      "title": "Honest and straightforward",
+      "text": "I value people who are genuine and say what they mean, and I try to be one: no spin, no detours, just what I did and what I didn't.",
+      "proof": "Every number on this site has a source, and shared work says so."
+    },
+    {
+      "id": "open",
+      "title": "Open mind, patient ear",
+      "text": "I try to hear the whole story before forming a view, and to stay patient while I do.",
+      "proof": "Tracing a months-old map bug at VOIS to its real cause, a platform setting, instead of the obvious suspect."
+    },
+    {
       "id": "simple",
       "title": "Keep it simple",
-      "text": "I don't like complicated things, at work or in life. If something can be a little simpler to use, I'll make it simpler. The hard part should be my problem, not the user's.",
-      "proof": "Turning the Ramses Station Wi-Fi portal into a few clear steps. One reconciliation view for messy invoice matching at Reconciled. Design systems so every screen follows the same rules."
+      "text": "I like taking complex things and making them simple, at work and at home. If it can be easier to use, I'll make it easier.",
+      "proof": "A Wi-Fi portal cut to a few clear steps; one view for invoice matching at Reconciled."
     },
     {
       "id": "details",
       "title": "Small details, big impact",
-      "text": "Small things often make the biggest difference. I don't ship just anything: the work should look good, feel good, and be easy, even enjoyable, to use.",
-      "proof": "This site's themes, type and keyboard states. Working side by side with designers on Hivo and Stayro. Refactoring the Ramses portal until it ran well on old phones."
+      "text": "I notice the small stuff, the spacing, the empty state, the button that feels off, because that's what people feel.",
+      "proof": "This site's themes and keyboard states; screens refined with designers on Hivo and Stayro."
+    },
+    {
+      "id": "creative",
+      "title": "Creative, but realistic",
+      "text": "I like creative ideas that can actually ship. Not everything fits the budget, the timeline or the team, so I look for the version that does.",
+      "proof": "Shipping Stayro's guest and host apps in two to three months; at Reconciled, “balance creativity with practical execution” (Brock Rumer)."
+    },
+    {
+      "id": "learn",
+      "title": "Keep learning",
+      "text": "I'm always eager to learn and grow, to be a better version of myself than I was yesterday.",
+      "proof": "An MSE at ASU while working full time; moving from web to mobile, AI and now design systems."
     },
     {
       "id": "help",
       "title": "Help people grow",
-      "text": "I like helping people, junior engineers especially, but not only in software. Helping someone get unstuck is one of the best parts of the job.",
-      "proof": "Led and reviewed a team of two on Stayro. Guided a junior developer through the Nafath integration with docs and support. Mentored interns on Hivo and Reconciled."
-    },
-    {
-      "id": "honest",
-      "title": "Honest and genuine",
-      "text": "I value honest, genuine people. No showing off, no making a big deal out of everything, no going round in circles to get what you want. I try to work the same way: say what I did, say what I didn't.",
-      "proof": "On this site, every number has a source, and when someone else built a part of a project, it says so."
+      "text": "Helping someone get unstuck is my favourite part of the job. I mentor junior engineers and interns, and show teams how to use AI well.",
+      "proof": "Mentored interns and juniors on Hivo and Reconciled; led and reviewed a team of two; guided a junior through the Nafath integration."
     },
     {
       "id": "share",
       "title": "Share what I know",
-      "text": "Knowledge is more useful shared. I write about what I learn, and I'm just as happy to talk it through, in person or on a call.",
-      "proof": "Writing on Hashnode. Training teams on AI-assisted workflows with Cursor. Mentoring interns on React, React Native and Next.js."
+      "text": "I share what I learn through writing and through good discussions, about tech, history or football, in person or on a call.",
+      "proof": "Writing on Hashnode; training teams on AI-assisted workflows."
     }
   ],
   "experience": [
@@ -1820,5 +1847,6 @@
     }
   ],
   "servicesNote": "Home shows the 4 services Ahmed has done most (CV, LinkedIn, GitHub). Full list in servicesMore.",
-  "experienceColorsNote": "Graph dots use Tailwind colours (tailwind field). 'fg' = the theme's text colour, used for black brands so they show on dark themes."
+  "experienceColorsNote": "Graph dots use Tailwind colours (tailwind field). 'fg' = the theme's text colour, used for black brands so they show on dark themes.",
+  "philosophyLead": "The values I live and work by, each one backed by the work."
 }

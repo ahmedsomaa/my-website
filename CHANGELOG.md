@@ -14,7 +14,8 @@ Every page now reads from one data file, and the content was rewritten around re
 - Work: 21 projects in two groups, professional and side projects, newest first; every project page uses the same sections
 - Experience: several roles per company (internships, full-time), and each company in its brand colour on the graph
 - Toolbox: daily tools (editors, terminal, browsers, design, API and data, machines)
-- About: journey, education with awards, and life outside work
+- About: journey (from the first computer and a sixth-grade laptop prize to Cypienta), education with awards, and life outside work
+- Philosophy: eight values (honest, open-minded, simple, detail-minded, creative but realistic, always learning, helping people grow, sharing what I know), each with an "in practice" line, in a single column with pixel-font titles
 - Brand colours from Simple Icons, matched to the active theme, for every tech icon
 - Icons for Zed, Zen Browser, VS Code, OpenAI, Pinecone and Segment, and logos from their own sites for LiveCodes, Paper, TinyCast, Better Shot, MacUSB and Dbstudio
 - Screenshots for Cypienta, Stayro, Reconciled, Editor Setup, Sharp Studio, Covid Tracker and this site, shown halftoned
