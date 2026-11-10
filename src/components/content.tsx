@@ -333,25 +333,22 @@ export const Stack = ({ list }: { list: string }) => {
   )
 }
 
-/** "Node.js · Express" in a skills list: each tech gets its icon (in its colour), text stays plain. */
-export const Techs = ({ list }: { list: string }) => {
-  const items = list.split(' · ')
-  return (
-    <>
-      {items.map((t, i) => (
-        <Fragment key={t}>
-          <span className="whitespace-nowrap">
-            <span className={byName(t)}>
-              <Icon name={t} />
-            </span>
-            {t}
-            <Sep last={i === items.length - 1} />
-          </span>{' '}
-        </Fragment>
-      ))}
-    </>
-  )
-}
+/** "Node.js · Express" in the toolbox: one chip per tech, icon in its brand colour, name in the text colour. */
+export const Techs = ({ list }: { list: string }) => (
+  <ul className="flex flex-wrap gap-1.5">
+    {list.split(' · ').map((t) => (
+      <li
+        key={t}
+        className="inline-flex items-center rounded-[3px] border border-line-subtle bg-surface px-1.5 py-px whitespace-nowrap text-fg plain:bg-transparent"
+      >
+        <span className={byName(t)}>
+          <Icon name={t} />
+        </span>
+        {t}
+      </li>
+    ))}
+  </ul>
+)
 
 /* ---------- index dashboard ---------- */
 

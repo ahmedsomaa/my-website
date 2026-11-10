@@ -25,7 +25,7 @@ Every page now reads from one data file, and the content was rewritten around re
 
 - "Projects" is now "work", and "principles" is now "philosophy"; old `#/projects` and `#/principles` links still resolve
 - Home: two main buttons, "selected work" with five rows, and testimonials in a grid with exact quotes
-- Toolbox: main stack and "also used" only; skill levels removed
+- Toolbox: main stack and "also used" only, shown as chips; skill levels removed
 - Cypienta listed as its own company; titles and dates corrected
 - Work rows stack on narrower screens so wide fonts no longer overflow
 - Phone header: section tabs get their own row with a fade that shows they scroll, so none are cut off

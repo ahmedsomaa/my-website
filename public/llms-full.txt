@@ -663,29 +663,115 @@ Toolbox
 What I build with, and the tools I use every day. The main stack is what I reach for first; also used means real projects, more than once.
 main stack
 
-frontend: TypeScript · React · Next.js · Vite
-mobile: React Native · Expo · EAS
-backend: Node.js · Express · NestJS
-data: PostgreSQL
+frontend:
+
+- TypeScript
+- React
+- Next.js
+- Vite
+mobile:
+
+- React Native
+- Expo
+- EAS
+backend:
+
+- Node.js
+- Express
+- NestJS
+data:
+
+- PostgreSQL
 also used
 
-frontend: Svelte · Angular · Tailwind CSS · shadcn/ui · Redux · Mapbox GL
-backend: Django · Python · FastAPI ·.NET Core · Celery
-data: SQL Server · MongoDB · Redis · DynamoDB
-infra: GitHub Actions · GCP · Cloud Run · Cloud SQL · AWS · SST · IIS · Windows Server · Netlify · Vercel · Cloudflare
-ai: OpenAI · LangChain · Pinecone · Whisper · FFmpeg
-product: Segment · Mixpanel · Hotjar
+frontend:
+
+- Svelte
+- Angular
+- Tailwind CSS
+- shadcn/ui
+- Redux
+- Mapbox GL
+backend:
+
+- Django
+- Python
+- FastAPI
+-.NET Core
+- Celery
+data:
+
+- SQL Server
+- MongoDB
+- Redis
+- DynamoDB
+infra:
+
+- GitHub Actions
+- GCP
+- Cloud Run
+- Cloud SQL
+- AWS
+- SST
+- IIS
+- Windows Server
+- Netlify
+- Vercel
+- Cloudflare
+ai:
+
+- OpenAI
+- LangChain
+- Pinecone
+- Whisper
+- FFmpeg
+product:
+
+- Segment
+- Mixpanel
+- Hotjar
 daily tools
 
-editors: Zed · VS Code · Cursor
-ai: Claude Code
-terminal: Warp
-browsers: Firefox · Zen Browser · Chrome
-design: Paper
-api & data: Bruno · DataGrip · DBeaver · Dbstudio.sh
-playground: LiveCodes
-capture: TinyCast · BetterShot
-machines: MacBook · Fedora · Linux Mint · Zorin OS · Ubuntu · MacUSB
+editors:
+
+- Zed
+- VS Code
+- Cursor
+ai:
+
+- Claude Code
+terminal:
+
+- Warp
+browsers:
+
+- Firefox
+- Zen Browser
+- Chrome
+design:
+
+- Paper
+api & data:
+
+- Bruno
+- DataGrip
+- DBeaver
+- Dbstudio.sh
+playground:
+
+- LiveCodes
+capture:
+
+- TinyCast
+- BetterShot
+machines:
+
+- MacBook
+- Fedora
+- Linux Mint
+- Zorin OS
+- Ubuntu
+- MacUSB
 
 ## about
 
