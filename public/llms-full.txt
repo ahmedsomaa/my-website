@@ -129,6 +129,7 @@ links
 
 URL: https://som3aware.pages.dev/#/work/reconciled
 
+-
 Reconciled
 Invoice reconciliation platform for staffing agencies.
 
@@ -194,6 +195,7 @@ Internal tool. I no longer have access to it.
 
 URL: https://som3aware.pages.dev/#/work/slack-bot
 
+-
 Slack assistant
 Slack assistant that answers questions across Google Drive, Gmail, Calendar, ClickUp and Fireflies.
 
@@ -563,6 +565,7 @@ what I learned
 
 URL: https://som3aware.pages.dev/#/experience/nodogoro
 
+-
 Nodogoro
 
 role: Software Engineer II · May 2023 – Dec 2023
@@ -648,6 +651,14 @@ what I learned
 
 URL: https://som3aware.pages.dev/#/toolbox
 
+-
+-
+-
+-
+-
+-
+-
+-
 Toolbox
 What I build with, and the tools I use every day. The main stack is what I reach for first; also used means real projects, more than once.
 main stack

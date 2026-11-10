@@ -309,34 +309,49 @@ function DitherImg({ className, ...img }: Shot & { className: string }) {
 }
 
 /** "React · Next.js · Node.js": each tech keeps its own colour across the site. */
-export const Stack = ({ list }: { list: string }) => (
-  <>
-    {list.split(' · ').map((t, i) => (
-      <Fragment key={t}>
-        {i > 0 && <span className="text-subtle"> · </span>}
-        <span className={byName(t)}>
-          <Icon name={t} />
-          {t}
-        </span>
-      </Fragment>
-    ))}
-  </>
-)
+/** Separator that stays at the end of a line, so a wrapped line never starts with "·". */
+const Sep = ({ last }: { last: boolean }) =>
+  last ? null : <span className="text-subtle"> ·</span>
+
+export const Stack = ({ list }: { list: string }) => {
+  const items = list.split(' · ')
+  return (
+    <>
+      {items.map((t, i) => (
+        <Fragment key={t}>
+          {/* icon, name and its separator never split across lines */}
+          <span className="whitespace-nowrap">
+            <span className={byName(t)}>
+              <Icon name={t} />
+              {t}
+            </span>
+            <Sep last={i === items.length - 1} />
+          </span>{' '}
+        </Fragment>
+      ))}
+    </>
+  )
+}
 
 /** "Node.js · Express" in a skills list: each tech gets its icon (in its colour), text stays plain. */
-export const Techs = ({ list }: { list: string }) => (
-  <>
-    {list.split(' · ').map((t, i) => (
-      <Fragment key={t}>
-        {i > 0 && <span className="text-subtle"> · </span>}
-        <span className={byName(t)}>
-          <Icon name={t} />
-        </span>
-        {t}
-      </Fragment>
-    ))}
-  </>
-)
+export const Techs = ({ list }: { list: string }) => {
+  const items = list.split(' · ')
+  return (
+    <>
+      {items.map((t, i) => (
+        <Fragment key={t}>
+          <span className="whitespace-nowrap">
+            <span className={byName(t)}>
+              <Icon name={t} />
+            </span>
+            {t}
+            <Sep last={i === items.length - 1} />
+          </span>{' '}
+        </Fragment>
+      ))}
+    </>
+  )
+}
 
 /* ---------- index dashboard ---------- */
 

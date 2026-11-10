@@ -16,6 +16,7 @@ Every page now reads from one data file, and the content was rewritten around re
 - Toolbox: daily tools (editors, terminal, browsers, design, API and data, machines)
 - About: journey, education with awards, and life outside work
 - Brand colours from Simple Icons, matched to the active theme, for every tech icon
+- Icons for Zed, Zen Browser, VS Code, OpenAI, Pinecone and Segment, and logos from their own sites for LiveCodes, Paper, TinyCast, Better Shot, MacUSB and Dbstudio
 - Screenshots for Cypienta, Stayro, Reconciled, Editor Setup, Sharp Studio, Covid Tracker and this site, shown halftoned
 - Open Graph image (`og.png`) and link-preview tags for LinkedIn, Slack, X and WhatsApp
 - Canonical URL, theme colour and structured data (schema.org `ProfilePage` and `Person`) for search engines
