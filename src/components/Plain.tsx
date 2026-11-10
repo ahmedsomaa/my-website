@@ -5,7 +5,7 @@ import { CV } from '#/lib/view'
 export function Plain() {
   return (
     <>
-      <header className="mx-auto flex max-w-[76ch] flex-wrap justify-between gap-x-6 gap-y-2 border-b border-line px-4 pt-6 pb-3">
+      <header className="mx-auto flex max-w-[96ch] flex-wrap justify-between gap-x-6 gap-y-2 border-b border-line px-4 pt-6 pb-3">
         <h1 className="font-px font-normal text-success">
           <span className="sr-only">Ahmed Abu Qahf, </span>ahmed
           <b className="font-normal text-muted">@</b>som3aware
@@ -23,7 +23,7 @@ export function Plain() {
         </nav>
       </header>
 
-      <main className="mx-auto max-w-[76ch] px-4">
+      <main className="mx-auto max-w-[96ch] px-4">
         {TABS.map((t) => (
           <section key={t.id} id={`/${t.id}`} className="pt-10 pb-2">
             <h2 className="text-base font-normal text-accent before:text-line before:content-['##_']">
@@ -42,7 +42,7 @@ export function Plain() {
         ))}
       </main>
 
-      <footer className="mx-auto max-w-[76ch] px-4 pt-8 pb-12 text-muted">
+      <footer className="mx-auto max-w-[96ch] px-4 pt-8 pb-12 text-muted">
         <p>
           © 2026 Ahmed Abu Qahf · <a href="./">tui view</a>
         </p>
