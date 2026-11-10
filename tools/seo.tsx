@@ -140,7 +140,7 @@ const llms = [
   '',
   `> ${lead(index.body)}`,
   '',
-  `Portfolio of a senior full-stack engineer. The site is a keyboard-driven terminal-style workspace; every section is also readable as one plain page at ${SITE}/?plain. Full text: ${SITE}/llms-full.txt`,
+  `Portfolio of a full-stack engineer with 7+ years building web and mobile apps with React, React Native and Node.js. The site is a keyboard-driven terminal-style workspace; every section is also readable as one plain page at ${SITE}/?plain. Full text: ${SITE}/llms-full.txt`,
   '',
   ...TABS.slice(1)
     .filter((t) => t.id !== 'changelog')

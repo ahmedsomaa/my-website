@@ -1,0 +1,1761 @@
+{
+  "meta": {
+    "updated": "2026-11-10",
+    "about": "Single source of truth for everything the site and the CV say about Ahmed. Edit this file only; data/ahmed.md is generated from it with `bun run data`.",
+    "rules": [
+      "null = unknown. Never fill it with a guess.",
+      "Dates are YYYY-MM. end: null = present.",
+      "facts (stat tiles) need a source.",
+      "Quotes need a named person."
+    ]
+  },
+  "profile": {
+    "name": "Ahmed Abu Qahf",
+    "fullName": "Ahmed Ismail Abu Qahf",
+    "handle": "som3aware",
+    "headline": "Full-stack engineer. Product-minded. Design-driven.",
+    "intro": {
+      "current": "I build digital products end to end, combining engineering depth with a strong eye for interfaces and user experience.",
+      "drafts": [
+        "For {years}+ years, I've turned ideas into real products, designing, building and shipping web and mobile apps from first concept to real users. I make things people love to use and businesses value.",
+        "I started out designing posters for university clubs and never stopped. Now I build the whole product behind the interface too: web, mobile, and the design systems that hold them together.",
+        "Shipping web and mobile products since 2018, from the first screen to the App Store, with a soft spot for design systems."
+      ],
+      "chosen": "For {years}+ years, I've turned ideas into real products, designing, building and shipping web and mobile apps from first concept to real users. I make things people love to use and businesses value.",
+      "rejected": [
+        "I build interfaces and the design systems behind them, on web and mobile. Right now: a design system for Cypienta. Before that: a platform acquired by LaborEdge and travel apps on the App Store.",
+        "Half designer, half engineer. I build web and mobile apps from the database to the last bit of spacing, and the design systems that keep them that way.",
+        "Full-stack engineer by trade, designer at heart. I've spent {years}+ years building web and mobile apps across different domains, including travel, finance, security and government, with React, React Native and Node.js.",
+        "Full-stack engineer by trade, designer at heart. I've spent {years}+ years shipping web and mobile apps with React, React Native and Node.js, from hospitality marketplaces to finance, security and government platforms.",
+        "Full-stack engineer by trade, designer at heart. For {years}+ years I've shipped web and mobile apps with React, React Native and Node.js: hospitality marketplaces, finance tools, and security and government platforms. Here you'll find that work, what I built for each, and how.",
+        "Full-stack engineer by trade, designer at heart. For {years}+ years I've shipped web and mobile apps with React, React Native and Node.js, for hospitality, finance, security and government products. You get one engineer who can design the interface, build everything behind it, and take it all the way to production.",
+        "Full-stack engineer by trade, designer at heart. In {years}+ years I've shipped an app Saudi hosts list their homes on, a platform LaborEdge went on to buy, and the maps governments watched during COVID, usually building the screen and everything behind it.",
+        "Full-stack engineer by trade, designer at heart. {years}+ years building web and mobile apps with React, React Native and Node.js, from small ideas to production apps on the App Store and a platform that got acquired."
+      ],
+      "note": "{years} is replaced with whole years since home.experienceFrom.",
+      "domains": {
+        "hospitality": ["hivo", "stayro"],
+        "finance": ["reconciled"],
+        "security": ["cypienta"],
+        "government": ["covid-mobility", "ecard"]
+      },
+      "sources": {
+        "real users": "Hivo (★ 5.0, 800+ listings), Stayro, Cypienta",
+        "businesses value": "Reconciled, acquired by LaborEdge; client testimonials",
+        "first concept": "side projects, hackathons, internal tools"
+      }
+    },
+    "aspiration": "Design engineer: working between design and engineering.",
+    "currentRole": {
+      "title": "Growth Engineer",
+      "company": "Cypienta"
+    },
+    "location": {
+      "city": "Tanta",
+      "country": "Egypt",
+      "workMode": "remote"
+    },
+    "availability": {
+      "open": false,
+      "note": "Not looking for roles. Happy to talk design systems, interfaces and product engineering."
+    },
+    "contact": {
+      "email": "abokahfa@gmail.com",
+      "site": "https://som3aware.pages.dev",
+      "cv": "/docs/Ahmed_Abu_Qahf___cv_latest.pdf"
+    },
+    "links": [
+      {
+        "id": "linkedin",
+        "label": "linkedin.com/in/som3aware",
+        "url": "https://linkedin.com/in/som3aware"
+      },
+      {
+        "id": "github",
+        "label": "github.com/ahmedsomaa",
+        "url": "https://github.com/ahmedsomaa"
+      },
+      {
+        "id": "x",
+        "label": "x.com/som3aware",
+        "url": "https://x.com/som3aware"
+      },
+      {
+        "id": "hashnode",
+        "label": "som3aware.hashnode.dev",
+        "url": "https://som3aware.hashnode.dev"
+      },
+      {
+        "id": "frontendmentor",
+        "label": "frontendmentor.io/profile/ahmedsomaa",
+        "url": "https://www.frontendmentor.io/profile/ahmedsomaa"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Arabic",
+        "level": "native"
+      },
+      {
+        "name": "English",
+        "level": "C2 Proficient",
+        "proof": {
+          "label": "EF SET 74/100 (listening 72, reading 75), Feb 2024",
+          "url": "https://www.efset.org/cert/pCgpEi"
+        },
+        "note": "Both degrees (AUC BSc, ASU MSE) were taught in English."
+      }
+    ],
+    "github": {
+      "readmeTagline": "Software Engineer by day and Explorer by night",
+      "askMeAbout": ["web development", "APIs", "developer tools"],
+      "learning": ["NestJS", "spec-driven development", "AI agent skills"],
+      "conflicts": [
+        "README says 'Senior Fullstack Engineer @ Cypienta'; Ahmed said 'Growth Engineer @ Cypienta'. Confirm the real title.",
+        "README lists NestJS under 'Learning'; skills.main lists it as main stack. Confirm."
+      ]
+    }
+  },
+  "about": {
+    "who": "I'm Ahmed Abu Qahf (som3aware), a full-stack engineer in Tanta, Egypt, working remotely. I work in the space between design and engineering: interfaces, the design systems behind them, and the products around them, on web and mobile.",
+    "journey": [
+      {
+        "when": "early",
+        "text": "Grew up around computers. Wrote my first code in preparatory school, in Visual Basic .NET."
+      },
+      {
+        "when": "2013",
+        "text": "Won 2nd place nationwide in JICA's first essay competition in Egypt, run with the Ministry of Education and sponsored by Toshiba El Araby, writing about my dreams for the future. Out of about 1,000 essays."
+      },
+      {
+        "when": "2014–19",
+        "text": "Studied computer engineering at AUC on a scholarship. Designed flyers and posters for student clubs (SPE, the Society of Petroleum Engineers; Glow; CSTA, the Community of Scientific and Technological Activities) and for yoga instructor sessions: my first design work."
+      },
+      {
+        "when": "2018",
+        "text": "Intern on Vodafone's meeting-room booking app: designed most of the screens and built the back end."
+      },
+      {
+        "when": "2018–19",
+        "text": "Hackathons: Hajj Hackathon in Jeddah (Kun 3awnan, IoT help for pilgrims) and Dell EMC 423x."
+      },
+      {
+        "when": "2020–21",
+        "text": "First full-time job at VOIS. Within months, sole maintainer of a COVID-19 mobility platform for governments, working with a UK supervisor. Helped rescue a late HR system and built a React Native component library from Vodafone's brand guidelines."
+      },
+      {
+        "when": "2021–23",
+        "text": "New Smart Egypt: software for government, enterprise and public places. An agricultural delivery-tracking app, the Ramses Station free Wi-Fi journey (designed and built), fingerprint-scanner integrations with Odoo. Deployed on cloud and on-premise."
+      },
+      {
+        "when": "2022–23",
+        "text": "MSE in Software Engineering at ASU, online, while working full time. 4.0 GPA, including a master's class on mobile systems with React Native."
+      },
+      {
+        "when": "2023",
+        "text": "Nodogoro: moved into AI products. Led Outlined AI and built LLM tools."
+      },
+      {
+        "when": "2024–26",
+        "text": "Eignspaces: client product work. Reconciled (acquired by LaborEdge), Hivo and Stayro."
+      },
+      {
+        "when": "2026–",
+        "text": "Cypienta: a company-wide design system and an interface revamp for a security data platform."
+      }
+    ],
+    "outside": [
+      {
+        "label": "family",
+        "text": "Family first. Loving husband, and I love kids."
+      },
+      {
+        "label": "talk",
+        "text": "I love reading, discussing and talking about history, football, tech and programming. I watch a lot of history too."
+      },
+      {
+        "label": "football",
+        "text": "Played football until preparatory school. Still watch it, and play FIFA."
+      },
+      {
+        "label": "code for fun",
+        "text": "I like using programming for genuine, personal things, like the site I made for my wife's birthday.",
+        "url": "https://happy-birthday-rody.pages.dev"
+      },
+      {
+        "label": "drawing",
+        "text": "I used to draw, and still do from time to time."
+      },
+      {
+        "label": "saxophone",
+        "text": "Used to take saxophone lessons from my aunt's husband."
+      },
+      {
+        "label": "writing",
+        "text": "Product decisions and lessons from shipping, on Hashnode.",
+        "url": "https://som3aware.hashnode.dev"
+      },
+      {
+        "label": "life",
+        "text": "Recently married, so learning that renovating an apartment is a very different kind of engineering."
+      }
+    ],
+    "opener": "I started out designing posters for university clubs and never stopped. Now I build the whole product behind the interface too: web, mobile, and the design systems that hold them together."
+  },
+  "principles": [
+    {
+      "id": "simple",
+      "title": "Keep it simple",
+      "text": "I don't like complicated things, at work or in life. If something can be a little simpler to use, I'll make it simpler. The hard part should be my problem, not the user's.",
+      "proof": "Turning the Ramses Station Wi-Fi portal into a few clear steps. One reconciliation view for messy invoice matching at Reconciled. Design systems so every screen follows the same rules."
+    },
+    {
+      "id": "details",
+      "title": "Small details, big impact",
+      "text": "Small things often make the biggest difference. I don't ship just anything: the work should look good, feel good, and be easy, even enjoyable, to use.",
+      "proof": "This site's themes, type and keyboard states. Working side by side with designers on Hivo and Stayro. Refactoring the Ramses portal until it ran well on old phones."
+    },
+    {
+      "id": "help",
+      "title": "Help people grow",
+      "text": "I like helping people, junior engineers especially, but not only in software. Helping someone get unstuck is one of the best parts of the job.",
+      "proof": "Led and reviewed a team of two on Stayro. Guided a junior developer through the Nafath integration with docs and support. Mentored interns on Hivo and Reconciled."
+    },
+    {
+      "id": "honest",
+      "title": "Honest and genuine",
+      "text": "I value honest, genuine people. No showing off, no making a big deal out of everything, no going round in circles to get what you want. I try to work the same way: say what I did, say what I didn't.",
+      "proof": "On this site, every number has a source, and when someone else built a part of a project, it says so."
+    },
+    {
+      "id": "share",
+      "title": "Share what I know",
+      "text": "Knowledge is more useful shared. I write about what I learn, and I'm just as happy to talk it through, in person or on a call.",
+      "proof": "Writing on Hashnode. Training teams on AI-assisted workflows with Cursor. Mentoring interns on React, React Native and Next.js."
+    }
+  ],
+  "experience": [
+    {
+      "id": "cypienta",
+      "name": "Cypienta",
+      "url": "https://cypienta.com",
+      "location": "remote",
+      "roles": [
+        {
+          "title": "Growth Engineer",
+          "type": null,
+          "start": "2026-10",
+          "end": null
+        }
+      ],
+      "summary": "Security data platform that condenses and contextualizes telemetry, grouping related events, logs and alerts before they reach SIEM, SOAR and AI tools.",
+      "products": [
+        {
+          "id": "cypienta",
+          "name": "Cypienta",
+          "start": "2026-10",
+          "end": null,
+          "what": "Security data platform that condenses and contextualizes telemetry, grouping related events, logs and alerts before they reach SIEM, SOAR and AI tools.",
+          "contributions": [
+            "revamping the Cypienta app interfaces (in progress)",
+            "building a unified design system for the company (in progress)",
+            "polishing the marketing sites, which the company built (cypienta.com, logsquash.io)",
+            "some backend work"
+          ],
+          "stack": ["Svelte", "Django"],
+          "links": [
+            {
+              "label": "cypienta.com",
+              "url": "https://cypienta.com"
+            },
+            {
+              "label": "logsquash.io",
+              "url": "https://logsquash.io"
+            }
+          ],
+          "short": "design system, app revamp, marketing sites"
+        }
+      ],
+      "highlights": [],
+      "learned": ["rebranding a product", "building design systems"],
+      "did": [
+        "revamping the app interfaces",
+        "building a company-wide design system",
+        "polishing the marketing sites",
+        "some backend work in Django"
+      ],
+      "color": "4B0082",
+      "colorNote": "brand: indigo (used) + sky blue",
+      "tailwind": "indigo-500"
+    },
+    {
+      "id": "eignspaces",
+      "name": "Eignspaces",
+      "url": null,
+      "location": "remote",
+      "roles": [
+        {
+          "title": "Growth Engineer",
+          "type": "full-time",
+          "start": "2024-01",
+          "end": "2026",
+          "endNote": "Ended in 2026 (after Stayro, before Cypienta). Exact month unknown."
+        }
+      ],
+      "summary": "Product engineering for Eignspaces clients: an invoice reconciliation platform later acquired by LaborEdge, and two Saudi travel apps.",
+      "products": [
+        {
+          "id": "stayro",
+          "name": "Stayro",
+          "start": "2025-04",
+          "end": "2026-06",
+          "what": "Guest and host mobile apps for stays in Saudi Arabia.",
+          "contributions": [
+            "led and supervised a team of two developers and reviewed their work",
+            "guided a junior developer through the Nafath national identity integration with docs and support",
+            "fixed bugs and got key flows working, including payments and the Ministry of Tourism flow",
+            "set up and managed GCP: Cloud Run, Cloud SQL and Redis for an async Celery backend",
+            "owned CI/CD with GitHub Actions and EAS, building and publishing to the App Store",
+            "worked with the UI/UX designer to improve screens and flows",
+            "delivered on a two-to-three-month schedule to release"
+          ],
+          "stack": [
+            "React Native",
+            "Expo",
+            "EAS",
+            "GitHub Actions",
+            "GCP",
+            "Cloud Run",
+            "Cloud SQL",
+            "Redis",
+            "Celery"
+          ],
+          "links": [
+            {
+              "label": "stayro.com",
+              "url": "https://stayro.com/"
+            }
+          ],
+          "short": "guest + host rental apps"
+        },
+        {
+          "id": "hivo",
+          "name": "Hivo",
+          "start": "2025-10",
+          "end": "2026-04",
+          "what": "Mobile-first rental marketplace for Saudi Arabia.",
+          "contributions": [
+            "owned the unit management system and core marketplace screens, end to end",
+            "worked closely with project managers and designers on the UI",
+            "mentored interns on React Native and Expo",
+            "introduced AI-assisted workflows with Cursor and trained the team on them"
+          ],
+          "stack": ["React Native", "Expo", "Node.js", "PostgreSQL"],
+          "links": [
+            {
+              "label": "App Store",
+              "url": "https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973"
+            },
+            {
+              "label": "hivo-tech.com",
+              "url": "https://hivo-tech.com/"
+            }
+          ],
+          "short": "rental app"
+        },
+        {
+          "id": "reconciled",
+          "name": "Reconciled",
+          "partner": "Herwin Software",
+          "start": "2024-01",
+          "end": "2025-10",
+          "what": "Invoice reconciliation platform for staffing agencies. Acquired by LaborEdge as its flagship.",
+          "contributions": [
+            "built scalable React components from Figma designs for a more consistent UI",
+            "set up product analytics with Segment, Mixpanel and Hotjar",
+            "filled design gaps by crafting UI/UX solutions independently",
+            "refactored steadily to reduce technical debt",
+            "shipped business features directly with the CFO and engineering leadership",
+            "mentored juniors and interns on React, Next.js and design patterns"
+          ],
+          "stack": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "PostgreSQL",
+            "Segment",
+            "Mixpanel",
+            "Hotjar"
+          ],
+          "short": "invoice reconciliation, acquired by LaborEdge"
+        }
+      ],
+      "highlights": [
+        "worked with teams in the USA, Egypt, Mexico, Argentina, Kenya and Sweden",
+        "mentored interns and juniors across projects",
+        "introduced Cursor-based AI workflows"
+      ],
+      "learned": [
+        "handling contract clients and working closely with them",
+        "paying attention to every detail in a client's requirements",
+        "making product decisions for a single product"
+      ],
+      "did": [
+        "built frontend for an invoice reconciliation platform, later acquired by LaborEdge",
+        "owned the unit management system of a rental app, rated 5.0 on the App Store",
+        "led a team of two on guest and host rental apps and owned their App Store release pipeline",
+        "mentored interns and juniors, and introduced AI-assisted workflows with Cursor",
+        "worked with teams in the USA, Egypt, Mexico, Argentina, Kenya and Sweden"
+      ],
+      "color": "000000",
+      "colorNote": "brand: black (used) + blue",
+      "tailwind": "fg"
+    },
+    {
+      "id": "nodogoro",
+      "name": "Nodogoro",
+      "url": null,
+      "location": "remote",
+      "roles": [
+        {
+          "title": "Software Engineer II",
+          "type": "full-time",
+          "start": "2023-05",
+          "end": "2023-12"
+        }
+      ],
+      "summary": "AI products and internal tools.",
+      "products": [
+        {
+          "id": "outlined-ai",
+          "name": "Outlined AI",
+          "what": "Internal mobile tool that turns audio and video into a transcript, summary, notes and common questions.",
+          "contributions": ["led development"],
+          "stack": [
+            "React Native",
+            "Node.js",
+            "OpenAI",
+            "Whisper API",
+            "FFmpeg"
+          ],
+          "short": "audio + video → notes"
+        },
+        {
+          "id": "ads-analyzer",
+          "name": "Ads analyzer (Konstant Kreative)",
+          "what": "Analyzes an image ad, gives feedback and turns it into creative briefs.",
+          "contributions": ["full-stack development"],
+          "stack": ["Next.js", "GPT-4 Vision API", "Tailwind CSS", "shadcn/ui"],
+          "short": "image ads → creative briefs"
+        },
+        {
+          "id": "konstant-kreative-bubble",
+          "name": "Konstant Kreative platform",
+          "what": "Client platform built on Bubble.",
+          "contributions": [
+            "maintained it: fixed reported bugs and added features"
+          ],
+          "stack": ["Bubble"],
+          "short": "client platform on Bubble"
+        },
+        {
+          "id": "slack-bot",
+          "name": "Slack bot",
+          "what": "Answers questions across Google Drive, Calendar, Gmail, ClickUp, Fireflies and more.",
+          "contributions": [
+            "collaborated; ingested Google data sources into the Pinecone vector database"
+          ],
+          "stack": ["Node.js", "LangChain", "Pinecone", "Google APIs"],
+          "short": "Slack assistant across 5+ sources"
+        },
+        {
+          "id": "resume-screening",
+          "name": "Resume screening tool (NodoAI hackathon)",
+          "what": "Recruiters enter a job description and ask questions about candidate resumes.",
+          "contributions": ["built at the company hackathon"],
+          "stack": ["Python", "LangChain", "OpenAI"],
+          "short": "hackathon tool for recruiters"
+        },
+        {
+          "id": "price-scrapers",
+          "name": "Price-matching scrapers",
+          "what": "Fetch similar prices for a product across online stores.",
+          "contributions": ["collaborated on the scripts"],
+          "stack": ["Python", "LangChain", "OpenAI", "Selenium"],
+          "short": "price matching across stores"
+        }
+      ],
+      "highlights": [],
+      "learned": ["getting started with AI tools and building AI-powered apps"],
+      "did": [
+        "led development of Outlined AI, an internal audio and video notes app",
+        "built an ads analyzer that turns feedback into creative briefs",
+        "built the data ingestion for an internal Slack assistant",
+        "built a resume screening tool at the NodoAI hackathon"
+      ],
+      "color": "EA5B31",
+      "colorNote": "brand red-orange from nodogoro.com",
+      "tailwind": "orange-600"
+    },
+    {
+      "id": "new-smart-egypt",
+      "name": "New Smart Egypt Integrated Solutions",
+      "url": null,
+      "location": "Nasr City, Cairo",
+      "roles": [
+        {
+          "title": "Software Engineer I",
+          "type": "full-time",
+          "start": "2021-11",
+          "end": "2023-05"
+        }
+      ],
+      "summary": "Government, enterprise and public-venue software, from mobile apps to on-premise deployments.",
+      "products": [
+        {
+          "id": "ecard",
+          "name": "ECARD",
+          "what": "Android app for the Egyptian Company for Agricultural and Rural Development (Ministry of Agriculture). An employee and driver check the day's delivery orders from factories to outlets across governorates, and the shipment is tracked to find loss and theft.",
+          "contributions": [
+            "built it front end and back end",
+            "deployed the database and API on the Etisalat cloud (IIS, .NET Core hosting bundle, Windows Server 2019)"
+          ],
+          "stack": [
+            "React Native",
+            "Expo",
+            ".NET Core",
+            "SQL Server",
+            "IIS",
+            "Etisalat cloud"
+          ],
+          "short": "delivery tracking for a Ministry of Agriculture company"
+        },
+        {
+          "id": "ramses-wifi",
+          "name": "Ramses Station free Wi-Fi",
+          "what": "The multi-page journey users go through to get online at Ramses Station, showing advertisers' ads (e.g. TG Development, WE Telecom Egypt).",
+          "contributions": [
+            "designed the site and its user flow",
+            "built the ad-serving dashboard for multiple advertisers, plus analytics",
+            "connected the API to the Wi-Fi routers to let users online",
+            "refactored the legacy site to run well on older, slower phones",
+            "deployed on-premise (Windows Server, IIS, SSL)"
+          ],
+          "notMine": ["router and server setup (another company)"],
+          "stack": ["HTML", "CSS", "API integration", "Windows Server", "IIS"],
+          "short": "free Wi-Fi portal with ads"
+        },
+        {
+          "id": "erp-attendance",
+          "name": "ERP attendance integration",
+          "what": "Attendance and work-hours APIs that take fingerprint punches from ZKTeco MA500 and MB2000 scanners and pass only the valid ones to the Odoo ERP attendance module, for several clients.",
+          "contributions": ["back end and integration"],
+          "stack": [".NET Core", "SQL Server", "Odoo", "ZKTeco"],
+          "short": "fingerprint scanners → Odoo"
+        },
+        {
+          "id": "face-attendance",
+          "name": "Face attendance (experiment)",
+          "what": "Face recognition for field-site attendance; detects expressions, age and gender.",
+          "contributions": ["built it on face-api.js"],
+          "stack": ["face-api.js"],
+          "short": "face recognition experiment"
+        },
+        {
+          "id": "payment-gateway-research",
+          "name": "Payment gateway research",
+          "what": "Researched building a gateway from scratch vs. a white-label solution; contacted vendors.",
+          "contributions": ["research and vendor outreach"],
+          "stack": [],
+          "short": "build vs. white-label research"
+        }
+      ],
+      "highlights": [],
+      "learned": [
+        "dealing with clients",
+        "thinking about the business",
+        "leading people and teams",
+        "integrations"
+      ],
+      "did": [
+        "built and deployed ECARD, a delivery-tracking app for a Ministry of Agriculture company",
+        "designed and built the Ramses Station free Wi-Fi portal",
+        "integrated fingerprint scanners with the Odoo ERP",
+        "deployed to the cloud and to on-premise servers"
+      ],
+      "color": "1D4ED8",
+      "colorNote": "brand: blue",
+      "tailwind": "blue-500"
+    },
+    {
+      "id": "vois",
+      "name": "VOIS",
+      "url": null,
+      "location": "Smart Village, Giza",
+      "roles": [
+        {
+          "title": "Software Engineer (full-stack)",
+          "type": "full-time",
+          "start": "2020-07",
+          "end": "2021-10",
+          "mode": "hybrid"
+        },
+        {
+          "title": "Intern",
+          "type": "internship",
+          "start": "2020-01",
+          "end": "2020-04",
+          "mode": "on-site"
+        },
+        {
+          "title": "Mobile App Developer intern",
+          "type": "internship",
+          "start": "2018-01",
+          "end": "2018-01",
+          "mode": "on-site"
+        }
+      ],
+      "summary": "Internal and government-facing products for Vodafone, built with teams in Egypt and the UK.",
+      "products": [
+        {
+          "id": "covid-mobility",
+          "name": "COVID-19 mobility platform",
+          "role": "Software Engineer",
+          "what": "Platform for governments in Vodafone markets to see anonymised movement between cities and spot crowded areas, to guide decisions such as work-from-home orders and curfews.",
+          "contributions": [
+            "joined as support with a UK team, then became the sole maintainer under a UK supervisor (with the platform team)",
+            "worked front end and back end: features, services, fixing, removing and improving chart visualisations",
+            "found the cause of a months-old bug breaking Germany's data on the map: a platform configuration issue outside my remit",
+            "recognised by the UK supervisor and the Egyptian team manager"
+          ],
+          "context": "Joined three to four months into the job, after much simpler apps. Redis caching on the back end; data pipelines run by the data engineering team; React + Redux with async generators + Mapbox GL on the client.",
+          "stack": ["React", "Redux", "Node.js", "Redis", "Mapbox GL", "GCP"],
+          "short": "mobility data for governments"
+        },
+        {
+          "id": "hr-system",
+          "name": "HR management system",
+          "role": "Software Engineer",
+          "what": "HR management system for both HR staff and employees, covering HR services including employee benefits. The project was late, with a large backlog.",
+          "contributions": [
+            "moved onto the project with a colleague to help; focused on the client side",
+            "coordinated the pair alongside the project team; together cleared about 80–90% of the backlog (estimate)",
+            "helped bring delivery forward by about one to one and a half months (estimate)",
+            "recognised by the team manager"
+          ],
+          "stack": ["Angular", ".NET Core", "SQL Server"],
+          "short": "HR and benefits for employees"
+        },
+        {
+          "id": "component-library",
+          "name": "Component library",
+          "role": "Software Engineer",
+          "what": "React Native component library built from the company's brand guidelines, with a UK team.",
+          "contributions": ["front end and back end"],
+          "stack": [
+            "React Native",
+            "SST (Serverless Stack)",
+            "AWS",
+            "DynamoDB"
+          ],
+          "short": "React Native, from Vodafone's brand"
+        },
+        {
+          "id": "digital-twin",
+          "name": "Digital twin (call centre)",
+          "role": "Software Engineer",
+          "what": "Lets call-centre managers monitor team performance, track employee metrics and predict future metrics under different working conditions.",
+          "contributions": [
+            "designed and built UI components and pages (client side only)"
+          ],
+          "stack": ["React", "Redux Toolkit", "Uber react-vis"],
+          "short": "call-centre metrics + forecasts"
+        },
+        {
+          "id": "leavers-checklist",
+          "name": "Leaver's checklist",
+          "role": "Intern (2020)",
+          "what": "Departing employees track their exit checklist: each item's status, what to do, and who to contact.",
+          "contributions": [],
+          "stack": [
+            "React",
+            "Redux",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Pivotal Web Services"
+          ],
+          "short": "internship, 2020"
+        },
+        {
+          "id": "employee-finance",
+          "name": "Employee financial records",
+          "role": "Intern (2020)",
+          "what": "Lets the finance team work out each employee's monthly pay adjustments (benefits such as gym subscriptions, bonuses, cost centre) against base salary.",
+          "contributions": [],
+          "stack": [
+            "React",
+            "Redux",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Pivotal Web Services"
+          ],
+          "short": "internship, 2020"
+        },
+        {
+          "id": "room-booking",
+          "name": "Meeting-room booking app",
+          "role": "Intern (2018)",
+          "what": "Native mobile app for employees to see offices, room calendars and free slots, and book meeting rooms.",
+          "contributions": [
+            "designed most of the screens: welcome, login, sign-up, home, calendar, available rooms, plus custom components",
+            "built the Express back end: login, sign-up, calendars, available rooms per day",
+            "set up the MongoDB database on mLab",
+            "learned ngrok from a senior developer to test on real phones instead of emulators"
+          ],
+          "stack": [
+            "React Native",
+            "Redux",
+            "Node.js",
+            "Express",
+            "MongoDB (mLab)"
+          ],
+          "short": "internship, 2018"
+        }
+      ],
+      "highlights": [],
+      "learned": ["working across many different technologies"],
+      "note": "Part of Vodafone; VOIS became its own company in late 2020.",
+      "did": [
+        "became the sole maintainer of a COVID-19 platform for governments",
+        "helped a late HR system deliver about a month sooner",
+        "built a React Native component library from Vodafone's brand",
+        "built the UI of a call-centre performance app",
+        "as an intern, designed and built a meeting-room booking app"
+      ],
+      "color": "E60000",
+      "colorNote": "brand: Vodafone red + black",
+      "tailwind": "red-600"
+    },
+    {
+      "id": "auc-library",
+      "name": "The American University in Cairo, Library",
+      "url": null,
+      "location": "New Cairo, Cairo",
+      "showOnSite": false,
+      "roles": [
+        {
+          "title": "Database Administrator (student job)",
+          "type": "part-time",
+          "start": "2018-02",
+          "end": "2018-07"
+        }
+      ],
+      "summary": "Archives work in the Rare Books and Special Collections library.",
+      "products": [
+        {
+          "id": "islamic-offprints",
+          "name": "Islamic offprints collection",
+          "what": "A collection of printed articles on Islamic civilization, already boxed in Rare Books and Special Collections.",
+          "contributions": [
+            "trained on ArchivesSpace, the university's web-based archives system",
+            "created a dedicated XML database for the collection and uploaded it to ArchivesSpace",
+            "moved the collection data from Excel into the database and checked the library website for the number of copies of each article"
+          ],
+          "stack": ["ArchivesSpace", "XML", "Excel"],
+          "short": "rare-books collection"
+        }
+      ],
+      "highlights": [],
+      "learned": null,
+      "did": [
+        "created an XML database for a rare-books collection in ArchivesSpace"
+      ],
+      "color": "8A1538",
+      "tailwind": "fg"
+    }
+  ],
+  "projects": {
+    "professional": [
+      {
+        "id": "cypienta",
+        "name": "Cypienta",
+        "experience": "cypienta",
+        "year": "2026–",
+        "role": "design system · interfaces",
+        "quickFact": "company-wide design system, in progress",
+        "about": "Security data platform that condenses and contextualizes telemetry before it reaches SIEM, SOAR and AI tools.",
+        "problem": "Security teams are flooded with events, logs and alerts. Cypienta groups and condenses that telemetry, so SIEM, SOAR and AI tools get context instead of noise.",
+        "contributions": [
+          "revamping the app interfaces (in progress)",
+          "building a unified design system for the company (in progress)",
+          "polishing the marketing sites, which the company built",
+          "some backend work"
+        ],
+        "facts": [],
+        "stack": ["Svelte", "Django"],
+        "links": [
+          {
+            "label": "cypienta.com",
+            "url": "https://cypienta.com"
+          },
+          {
+            "label": "logsquash.io",
+            "url": "https://logsquash.io"
+          }
+        ],
+        "images": [],
+        "shareable": "marketing sites only (built by the company, being polished); the app revamp is private and not finished",
+        "tagline": "security data platform",
+        "start": "2026-10",
+        "note": "The app revamp is private and still in progress, so there are no screenshots yet. The marketing sites are public."
+      },
+      {
+        "id": "hivo",
+        "name": "Hivo",
+        "experience": "eignspaces",
+        "year": "2025–26",
+        "role": "full-stack",
+        "quickFact": "★ 5.0 on the App Store",
+        "about": "Rental app for the Saudi marketplace.",
+        "problem": "Global booking platforms lacked cultural relevance, trust signals and smooth bilingual flows for Saudi travelers and hosts. Hivo answers with localized discovery, bilingual flows, secure payments and fast booking.",
+        "contributions": [
+          "owned the unit management system and core marketplace screens, end to end",
+          "worked closely with project managers and designers on the UI",
+          "mentored interns on React Native and Expo",
+          "introduced AI-assisted workflows with Cursor"
+        ],
+        "facts": [
+          {
+            "value": "★ 5.0",
+            "label": "App Store rating"
+          },
+          {
+            "value": "800+",
+            "label": "listings after host launch"
+          }
+        ],
+        "stack": ["React Native", "Expo", "Node.js", "PostgreSQL"],
+        "links": [
+          {
+            "label": "App Store",
+            "url": "https://apps.apple.com/us/app/hivo-%D9%87%D9%8A%DA%A4%D9%88/id6757620973"
+          },
+          {
+            "label": "hivo-tech.com",
+            "url": "https://hivo-tech.com/"
+          }
+        ],
+        "images": [
+          {
+            "src": "/shots/hivo-1.jpg",
+            "alt": "Hivo App Store screenshot: Your home is wherever you are",
+            "width": 460,
+            "height": 998
+          },
+          {
+            "src": "/shots/hivo-2.jpg",
+            "alt": "Hivo App Store screenshot",
+            "width": 460,
+            "height": 998
+          },
+          {
+            "src": "/shots/hivo-3.jpg",
+            "alt": "Hivo App Store screenshot",
+            "width": 460,
+            "height": 998
+          }
+        ],
+        "tagline": "rental app for the Saudi marketplace",
+        "start": "2025-10"
+      },
+      {
+        "id": "stayro",
+        "name": "Stayro",
+        "experience": "eignspaces",
+        "year": "2025–26",
+        "role": "team lead · mobile · infra",
+        "quickFact": "to the App Store in ~3 months",
+        "about": "Guest and host rental apps for the Saudi marketplace.",
+        "problem": "Guests and hosts in Saudi Arabia needed rental apps that meet local requirements, like national identity, Ministry of Tourism compliance and local payments, on a two-to-three-month release schedule.",
+        "contributions": [
+          "led and supervised a team of two developers and reviewed their work",
+          "guided a junior developer through the Nafath national identity integration with docs and support",
+          "fixed bugs and got key flows working, including payments and the Ministry of Tourism flow",
+          "set up and managed GCP: Cloud Run, Cloud SQL and Redis for an async Celery backend",
+          "owned CI/CD with GitHub Actions and EAS, building and publishing to the App Store",
+          "worked with the UI/UX designer to improve screens and flows"
+        ],
+        "facts": [
+          {
+            "value": "2 apps",
+            "label": "guest + host"
+          },
+          {
+            "value": "team of 2",
+            "label": "that I led"
+          },
+          {
+            "value": "2–3 months",
+            "label": "to release"
+          }
+        ],
+        "stack": [
+          "React Native",
+          "Expo",
+          "EAS",
+          "GitHub Actions",
+          "GCP",
+          "Redis",
+          "Celery"
+        ],
+        "links": [
+          {
+            "label": "stayro.com",
+            "url": "https://stayro.com/"
+          }
+        ],
+        "images": [],
+        "tagline": "guest + host rental apps for the Saudi marketplace",
+        "start": "2025-04"
+      },
+      {
+        "id": "reconciled",
+        "name": "Reconciled",
+        "experience": "eignspaces",
+        "year": "2024–25",
+        "role": "frontend lead",
+        "quickFact": "acquired by LaborEdge",
+        "about": "Invoice reconciliation platform for staffing agencies.",
+        "problem": "Manual invoice reconciliation across VMS systems caused errors, delays and lost revenue. Reconciled automates invoice matching, flags discrepancies and streamlines the process.",
+        "contributions": [
+          "built scalable React components from Figma designs for a more consistent UI",
+          "set up product analytics with Segment, Mixpanel and Hotjar",
+          "filled design gaps by crafting UI/UX solutions independently",
+          "refactored steadily to reduce technical debt",
+          "shipped business features directly with the CFO and engineering leadership",
+          "mentored juniors and interns on React, Next.js and design patterns"
+        ],
+        "facts": [
+          {
+            "value": "acquired",
+            "label": "by LaborEdge, as its flagship"
+          },
+          {
+            "value": "6",
+            "label": "countries on the team"
+          }
+        ],
+        "stack": [
+          "React",
+          "Next.js",
+          "Node.js",
+          "PostgreSQL",
+          "Segment",
+          "Mixpanel",
+          "Hotjar"
+        ],
+        "links": [
+          {
+            "label": "reconciled.io",
+            "url": "https://www.reconciled.io/"
+          }
+        ],
+        "images": [
+          {
+            "src": "/shots/reconciled.png",
+            "alt": "Reconciled reconciliation screen: invoices by week with VMS and facility filters",
+            "width": 1080,
+            "height": 300
+          }
+        ],
+        "testimonials": ["josh-zack", "brock-rumer"],
+        "tagline": "invoice reconciliation",
+        "start": "2024-01"
+      },
+      {
+        "id": "outlined-ai",
+        "name": "Outlined AI",
+        "experience": "nodogoro",
+        "year": "2023",
+        "role": "development lead",
+        "quickFact": "internal tool · audio + video → notes",
+        "about": "Internal AI tool that turns audio and video into structured notes.",
+        "problem": "Getting insights out of audio and video is slow. Outlined AI extracts the transcript, then gives a summary, notes and the common questions, in one mobile app.",
+        "contributions": ["led development end to end"],
+        "facts": [
+          {
+            "value": "4",
+            "label": "outputs: transcript, summary, notes, questions"
+          }
+        ],
+        "stack": ["React Native", "Node.js", "OpenAI", "Whisper", "FFmpeg"],
+        "links": [],
+        "images": [],
+        "tagline": "audio + video → notes",
+        "start": "2023-05",
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "ads-analyzer",
+        "name": "Ads analyzer",
+        "experience": "nodogoro",
+        "year": "2023",
+        "start": "2023-05",
+        "role": "full-stack",
+        "quickFact": "image ads → creative briefs",
+        "about": "Turns feedback on image ads into creative briefs, built for Konstant Kreative.",
+        "problem": "Turning feedback on an image ad into a usable creative brief was slow, manual work. The analyzer reviews the ad and writes the brief.",
+        "contributions": [
+          "built it full-stack: a Next.js app with GPT-4 Vision analysis",
+          "built the interface with Tailwind CSS and shadcn/ui"
+        ],
+        "stack": ["Next.js", "OpenAI", "Tailwind CSS", "shadcn/ui"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "slack-bot",
+        "name": "Slack assistant",
+        "experience": "nodogoro",
+        "year": "2023",
+        "start": "2023-05",
+        "role": "contributor",
+        "quickFact": "answers across 5+ sources",
+        "about": "Slack assistant that answers questions across Google Drive, Gmail, Calendar, ClickUp and Fireflies.",
+        "problem": "Company knowledge was spread across many tools, so finding one answer meant searching each of them.",
+        "contributions": [
+          "built the ingestion of Google Drive, Gmail and Calendar data into a Pinecone vector database",
+          "used Node.js, LangChain and the Google APIs"
+        ],
+        "stack": ["Node.js", "LangChain", "Pinecone"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "resume-screening",
+        "name": "Resume screening",
+        "experience": "nodogoro",
+        "year": "2023",
+        "start": "2023-05",
+        "role": "hackathon",
+        "quickFact": "built at the NodoAI hackathon",
+        "about": "Recruiters enter a job description and ask questions about candidates' resumes.",
+        "problem": "Checking many resumes against one job description takes recruiters hours.",
+        "contributions": [
+          "built it at Nodogoro's company hackathon, NodoAI",
+          "answered questions about resumes with Python, LangChain and OpenAI"
+        ],
+        "stack": ["Python", "LangChain", "OpenAI"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "ecard",
+        "name": "ECARD",
+        "experience": "new-smart-egypt",
+        "year": "2021–23",
+        "start": "2021-11",
+        "role": "full-stack",
+        "quickFact": "deployed on the Etisalat cloud",
+        "about": "Android app for the Egyptian Company for Agricultural and Rural Development.",
+        "problem": "Deliveries from factories to outlets across Egypt's governorates had to be tracked, to find loss and theft.",
+        "contributions": [
+          "built the app front end and back end",
+          "deployed the API and database on the Etisalat cloud (IIS, Windows Server 2019)"
+        ],
+        "stack": ["React Native", "Expo", ".NET Core", "SQL Server"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "ramses-wifi",
+        "name": "Ramses Wi-Fi",
+        "experience": "new-smart-egypt",
+        "year": "2021–23",
+        "start": "2021-11",
+        "role": "design · full-stack",
+        "quickFact": "designed the user flow",
+        "about": "The journey people go through to get online on Ramses Station's free Wi-Fi, with advertisers' ads.",
+        "problem": "The station needed a free Wi-Fi portal that shows advertisers' ads and still gets people online quickly, even on old phones.",
+        "contributions": [
+          "designed the site and its user flow",
+          "built the ad-serving dashboard for advertisers, plus analytics",
+          "connected the portal's API to the Wi-Fi routers",
+          "refactored the old site to run well on older, slower phones",
+          "deployed it on-premise (Windows Server, IIS, SSL)"
+        ],
+        "stack": ["HTML", "CSS", "IIS"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "erp-attendance",
+        "name": "ERP attendance",
+        "experience": "new-smart-egypt",
+        "year": "2021–23",
+        "start": "2021-11",
+        "role": "back end",
+        "quickFact": "fingerprint scanners → Odoo",
+        "about": "APIs that pass valid fingerprint punches from ZKTeco scanners to Odoo's attendance module.",
+        "problem": "Fingerprint scanners record every punch, but only the valid ones should reach attendance in Odoo, for several clients.",
+        "contributions": [
+          "built the attendance and work-hours APIs in .NET Core and SQL Server",
+          "integrated ZKTeco MA500 and MB2000 scanners with Odoo"
+        ],
+        "stack": [".NET Core", "SQL Server"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "id": "covid-mobility",
+        "name": "COVID-19 platform",
+        "experience": "vois",
+        "year": "2020–21",
+        "role": "sole maintainer",
+        "quickFact": "fixed a months-old map bug",
+        "about": "Platform for governments in Vodafone markets to see anonymised movement between cities and spot crowded areas.",
+        "problem": "Governments needed to see where people were moving and crowding, to guide decisions such as work-from-home orders and curfews.",
+        "contributions": [
+          "became the sole maintainer under a UK supervisor, three to four months into the job",
+          "worked across the client and the server: features, services and chart visualisations",
+          "found the cause of a months-old bug breaking Germany's data on the map (a platform configuration issue)"
+        ],
+        "facts": [],
+        "stack": ["React", "Redux", "Node.js", "Redis", "Mapbox GL", "GCP"],
+        "links": [],
+        "images": [],
+        "tagline": "mobility data for governments",
+        "start": "2020-07",
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "hr-system",
+        "name": "HR system",
+        "experience": "vois",
+        "year": "2020–21",
+        "start": "2020-07",
+        "role": "frontend",
+        "quickFact": "delivered about a month sooner",
+        "about": "HR management system for HR staff and employees, covering HR services including benefits.",
+        "problem": "The project was late, with a large backlog of tickets.",
+        "contributions": [
+          "moved onto the project with a colleague to help, on the client side",
+          "together we cleared most of the backlog, about 80–90% by my estimate",
+          "helped bring delivery forward by about one to one and a half months"
+        ],
+        "stack": ["Angular", ".NET Core", "SQL Server"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "component-library",
+        "name": "Component library",
+        "experience": "vois",
+        "year": "2020–21",
+        "start": "2020-07",
+        "role": "full-stack",
+        "quickFact": "built from Vodafone's brand",
+        "about": "React Native component library built from Vodafone's brand guidelines.",
+        "problem": "Teams needed shared React Native components that follow Vodafone's brand, instead of rebuilding them in every app.",
+        "contributions": [
+          "built components from the brand guidelines with a UK team",
+          "worked on the front end and the back end"
+        ],
+        "stack": ["React Native", "AWS", "DynamoDB"],
+        "noLink": "Internal tool. I no longer have access to it."
+      },
+      {
+        "links": [],
+        "images": [],
+        "id": "digital-twin",
+        "name": "Call-centre app",
+        "experience": "vois",
+        "year": "2020–21",
+        "start": "2020-07",
+        "role": "frontend",
+        "quickFact": "team metrics + forecasts",
+        "about": "Lets call-centre managers monitor team performance and forecast metrics under different working conditions.",
+        "problem": "Managers needed to see how their teams performed, and what to expect if working conditions changed.",
+        "contributions": [
+          "designed and built the UI components and pages",
+          "built the charts with Uber react-vis and state with Redux Toolkit"
+        ],
+        "stack": ["React", "Redux"],
+        "noLink": "Internal tool. I no longer have access to it."
+      }
+    ],
+    "side": [
+      {
+        "id": "portfolio",
+        "name": "This portfolio",
+        "year": "2026",
+        "role": "solo",
+        "quickFact": "~90 themes · keyboard-first",
+        "about": "This portfolio: a keyboard-driven, TUI-style workspace with a plain-page fallback.",
+        "contributions": [
+          "theme generator that turns upstream palettes into semantic tokens",
+          "keyboard model, command palette, ARIA listbox and tabs",
+          "hash routes plus crawlable ?p= URLs, sitemap and llms.txt from the content",
+          "dithered images, self-hosted fonts with a glyph fallback chain",
+          "CI with typecheck, lint, tests and build"
+        ],
+        "facts": [],
+        "stack": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Vite",
+          "Vitest",
+          "Cloudflare Pages"
+        ],
+        "links": [
+          {
+            "label": "som3aware.pages.dev",
+            "url": "https://som3aware.pages.dev"
+          },
+          {
+            "label": "source",
+            "url": "https://github.com/ahmedsomaa/my-website"
+          }
+        ],
+        "images": [],
+        "tagline": "this site",
+        "start": "2026",
+        "problem": "A portfolio that shows design-engineering craft as a keyboard-driven, terminal-style workspace, without getting in the way of reading it."
+      },
+      {
+        "id": "editor-setup",
+        "name": "Editor Setup",
+        "year": "2025",
+        "role": "solo",
+        "quickFact": "8 font + theme pairings",
+        "about": "Curated VS Code font and theme pairings.",
+        "problem": "Developers spend hours on Reddit, blogs and GitHub looking for a theme and a font that work together. Editor Setup gives 8 pairings, each with a code preview and one-click install links.",
+        "contributions": ["designed and built it, solo"],
+        "facts": [
+          {
+            "value": "8",
+            "label": "hand-picked pairings"
+          }
+        ],
+        "stack": ["TanStack Start", "React", "TypeScript"],
+        "links": [
+          {
+            "label": "editorsetup.som3aware.workers.dev",
+            "url": "https://editorsetup.som3aware.workers.dev/"
+          },
+          {
+            "label": "source",
+            "url": "https://github.com/ahmedsomaa/editor-setup"
+          }
+        ],
+        "images": [],
+        "quote": {
+          "text": "Finally, someone paired JetBrains Mono with One Dark Pro — looks amazing",
+          "by": "community feedback",
+          "source": null
+        },
+        "tagline": "VS Code font + theme pairings",
+        "start": "2025"
+      },
+      {
+        "id": "sharp-studio",
+        "name": "Sharp Studio",
+        "year": "2024",
+        "role": "solo",
+        "quickFact": "configurable image pipelines",
+        "about": "Hackable image processing: convert, resize and compress.",
+        "problem": "Existing image tools are rigid and hard to customize. Sharp Studio is a web tool with configurable pipelines, many formats and precise control over output.",
+        "contributions": ["designed and built it, solo"],
+        "facts": [],
+        "stack": ["React", "Node.js", "TypeScript", "Sharp"],
+        "links": [
+          {
+            "label": "sharpstudio.netlify.app",
+            "url": "https://sharpstudio.netlify.app/"
+          },
+          {
+            "label": "source",
+            "url": "https://github.com/ahmedsomaa/sharp-studio"
+          }
+        ],
+        "images": [],
+        "tagline": "image pipelines",
+        "start": "2024"
+      },
+      {
+        "id": "open-trivia",
+        "name": "Open Trivia",
+        "year": "2024",
+        "role": "solo",
+        "quickFact": "trivia game",
+        "about": "Multi-round trivia game on the Open Trivia API.",
+        "contributions": [
+          "built a multi-round trivia game on the Open Trivia API",
+          "kept score and game state across rounds"
+        ],
+        "facts": [],
+        "stack": ["React", "TypeScript"],
+        "links": [
+          {
+            "label": "source",
+            "url": "https://github.com/ahmedsomaa/open-trivia"
+          }
+        ],
+        "images": [],
+        "archived": true,
+        "start": "2024",
+        "problem": "A small project to practice game state and API integration."
+      },
+      {
+        "id": "covid-tracker",
+        "name": "Covid Tracker",
+        "year": "2023",
+        "role": "solo",
+        "quickFact": "patient tracking",
+        "about": "App to track COVID patients behind a simple, authenticated interface.",
+        "contributions": [
+          "built patient tracking with an authenticated React front end",
+          "connected it to a Node.js API, with sign-in through Auth0"
+        ],
+        "facts": [],
+        "stack": ["React", "Node.js", "Auth0"],
+        "links": [
+          {
+            "label": "source",
+            "url": "https://github.com/ahmedsomaa/covid-tracker"
+          }
+        ],
+        "images": [],
+        "archived": true,
+        "start": "2023",
+        "problem": "Patient tracking behind a simple, authenticated interface."
+      },
+      {
+        "id": "storefront-api",
+        "name": "Storefront API",
+        "year": "2022",
+        "role": "solo",
+        "quickFact": "typed store API",
+        "about": "Node API for a store, with typed models and a relational database.",
+        "contributions": [
+          "built a typed Node.js API in TypeScript",
+          "modelled the store's data in PostgreSQL"
+        ],
+        "facts": [],
+        "stack": ["Node.js", "TypeScript", "PostgreSQL"],
+        "links": [
+          {
+            "label": "source",
+            "url": "https://github.com/ahmedsomaa/storefront-api"
+          }
+        ],
+        "images": [],
+        "archived": true,
+        "start": "2022",
+        "problem": "A store backend with typed models and a relational database."
+      }
+    ],
+    "note": "Each group is newest first (by start). Archived side projects stay in the side group."
+  },
+  "skills": {
+    "main": {
+      "label": "main stack",
+      "note": "What I reach for first.",
+      "groups": [
+        {
+          "label": "frontend",
+          "items": ["TypeScript", "React", "Next.js", "Vite"]
+        },
+        {
+          "label": "mobile",
+          "items": ["React Native", "Expo", "EAS"]
+        },
+        {
+          "label": "backend",
+          "items": ["Node.js", "Express", "NestJS"]
+        },
+        {
+          "label": "data",
+          "items": ["PostgreSQL"]
+        }
+      ],
+      "evidence": {
+        "React Native": "https://github.com/ahmedsomaa/mobile-systems"
+      }
+    },
+    "used": {
+      "label": "also used",
+      "note": "Used on real projects, more than once or in production, but not my main stack.",
+      "groups": [
+        {
+          "label": "frontend",
+          "items": [
+            "Svelte",
+            "Angular",
+            "Tailwind CSS",
+            "shadcn/ui",
+            "Redux",
+            "Mapbox GL"
+          ]
+        },
+        {
+          "label": "backend",
+          "items": ["Django", "Python · FastAPI", ".NET Core", "Celery"]
+        },
+        {
+          "label": "data",
+          "items": ["SQL Server", "MongoDB", "Redis", "DynamoDB"]
+        },
+        {
+          "label": "infra",
+          "items": [
+            "GitHub Actions",
+            "GCP · Cloud Run · Cloud SQL",
+            "AWS · SST",
+            "IIS · Windows Server",
+            "Netlify · Vercel · Cloudflare"
+          ]
+        },
+        {
+          "label": "ai",
+          "items": ["OpenAI", "LangChain · Pinecone", "Whisper · FFmpeg"]
+        },
+        {
+          "label": "product",
+          "items": ["Segment", "Mixpanel", "Hotjar"]
+        }
+      ]
+    },
+    "capabilities": [
+      {
+        "name": "Design systems & component libraries",
+        "evidence": ["cypienta", "component-library", "reconciled"]
+      },
+      {
+        "name": "Interfaces on web and mobile",
+        "evidence": ["reconciled", "hivo", "ramses-wifi"]
+      },
+      {
+        "name": "Full-stack product features",
+        "evidence": ["hivo", "ecard", "covid-mobility"]
+      },
+      {
+        "name": "Release pipelines & cloud set-up",
+        "evidence": ["stayro", "ecard"]
+      },
+      {
+        "name": "AI features with LLMs",
+        "evidence": ["outlined-ai", "ads-analyzer"]
+      },
+      {
+        "name": "Leading and mentoring small teams",
+        "evidence": ["stayro", "hivo", "reconciled"]
+      }
+    ]
+  },
+  "tools": [
+    {
+      "label": "editors",
+      "items": ["Zed", "VS Code", "Cursor"]
+    },
+    {
+      "label": "ai",
+      "items": ["Claude Code"]
+    },
+    {
+      "label": "terminal",
+      "items": ["Warp"]
+    },
+    {
+      "label": "browsers",
+      "items": ["Firefox", "Zen Browser", "Chrome"]
+    },
+    {
+      "label": "design",
+      "items": ["Paper"]
+    },
+    {
+      "label": "api & data",
+      "items": ["Bruno", "DataGrip", "DBeaver", "Dbstudio.sh"]
+    },
+    {
+      "label": "playground",
+      "items": ["LiveCodes"]
+    },
+    {
+      "label": "capture",
+      "items": ["TinyCast", "BetterShot"]
+    },
+    {
+      "label": "machines",
+      "items": [
+        "MacBook",
+        "Fedora",
+        "Linux Mint",
+        "Zorin OS",
+        "Ubuntu",
+        "MacUSB"
+      ]
+    }
+  ],
+  "education": {
+    "degrees": [
+      {
+        "degree": "MSE, Software Engineering",
+        "school": "Arizona State University",
+        "mode": "online",
+        "start": "2022-01",
+        "end": "2023-12",
+        "gpa": "4.0 / 4.0",
+        "honors": ["AGFE OLS scholarship"],
+        "coursework": [
+          {
+            "name": "Mobile systems (React Native)",
+            "url": "https://github.com/ahmedsomaa/mobile-systems"
+          }
+        ]
+      },
+      {
+        "degree": "BSc, Computer Engineering",
+        "school": "The American University in Cairo",
+        "mode": "on campus, New Cairo",
+        "start": "2014",
+        "end": "2019",
+        "gpa": "3.0 / 4.0",
+        "showGpa": false,
+        "honors": ["Egyptian Public Schools scholarship"]
+      }
+    ],
+    "courses": [
+      {
+        "name": "Forward Program",
+        "by": "McKinsey & Company",
+        "start": "2024-04",
+        "end": "2024-07"
+      },
+      {
+        "name": "React Development Cross-Skilling Nanodegree",
+        "by": "Udacity",
+        "end": "2022-12"
+      },
+      {
+        "name": "Advanced Full-Stack Web Development Nanodegree",
+        "by": "Udacity",
+        "start": "2022-09",
+        "end": "2022-11"
+      }
+    ],
+    "hackathons": [
+      {
+        "name": "Hajj Hackathon",
+        "where": "Jeddah",
+        "date": "2018-08",
+        "what": "Kun 3awnan ('Be Helpful'): uses IoT devices in Masjid al-Haram to give pilgrims real-time help"
+      },
+      {
+        "name": "Dell EMC 423x Hackathon",
+        "where": "New Cairo",
+        "date": "2019-02",
+        "what": "the Mars Challenge, with a team"
+      },
+      {
+        "name": "NodoAI (company hackathon)",
+        "where": "Nodogoro",
+        "date": "2023",
+        "what": "resume screening tool"
+      }
+    ],
+    "activities": [
+      {
+        "name": "Vodafone Ambassador",
+        "where": "AUC Employment Fair",
+        "date": "2019-04",
+        "what": "represented Vodafone and connected candidates with recruiters"
+      },
+      {
+        "name": "Club design work",
+        "where": "AUC student clubs",
+        "date": null,
+        "what": "designed flyers and posters for club events, and for yoga instructor sessions",
+        "clubs": [
+          "SPE (Society of Petroleum Engineers)",
+          "Glow",
+          "CSTA (Community of Scientific and Technological Activities)"
+        ],
+        "samples": []
+      }
+    ],
+    "awards": [
+      {
+        "name": "JICA essay competition (first edition)",
+        "result": "2nd place nationwide",
+        "date": "2013-03",
+        "level": "2nd year of secondary school",
+        "theme": "Your dreams for the future",
+        "organizers": ["JICA Egypt", "Egyptian Ministry of Education"],
+        "sponsor": "Toshiba El Araby",
+        "details": "About 1,000 essays submitted; 15 finalists; a six-member jury (three from the Ministry, a Japanese journalist, two from JICA). Prize for 2nd place: a tablet. Ceremony on 24 March at the Ministry.",
+        "source": {
+          "label": "JICA Egypt: حفل تسليم جوائز أول مسابقة مقال لجايكا",
+          "url": "https://www.jica.go.jp/egypt/arabic/office/topics/topics130324.html",
+          "live": false
+        },
+        "sourceNote": "JICA removed the old page in its site move (only topics from 2021 onward were migrated). The old address redirects to /Resource/... and returns 404, and there is no Wayback Machine copy. Search engines still index its text, which lists 'أحمد إسماعيل' (Ahmed Ismail) in 2nd place. The theme comes from Ahmed. Better proof: his own certificate, prize photo or a news clipping."
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "id": "josh-zack",
+      "name": "Josh Zack",
+      "title": "President",
+      "company": "Reconciled",
+      "url": "https://www.linkedin.com/in/joshua-zack/",
+      "source": "LinkedIn recommendation",
+      "excerpt": "He ramped fast, worked hard, and cared about the outcome, not just completing tickets. He helped us prove our idea was technically feasible, and was a pleasure to work with.",
+      "full": "Ahmed (Somaa) was an important piece for us in the founding story of Reconciled. He ramped fast, worked hard, and cared about the outcome, not just completing tickets. He helped us prove our idea was technically feasible, and was a pleasure to work with. What stood out day to day... he’s engaged, asks smart questions, pushes for clarity, and keeps communication tight. He's reliable, positive, and easy to work with. I’m genuinely grateful I got to work with him and I wish him many successes in the future."
+    },
+    {
+      "id": "brock-rumer",
+      "name": "Brock Rumer",
+      "title": "Product & Design",
+      "company": "Reconciled",
+      "url": "https://www.linkedin.com/in/brock/",
+      "source": "LinkedIn recommendation",
+      "excerpt": "He brought a thoughtful, detail-oriented approach to every discussion and consistently contributed ideas that helped us refine and improve the product.",
+      "full": "I had the pleasure of working with Ahmed during his contract with Reconciled, and I really valued the collaboration. He brought a thoughtful, detail-oriented approach to every discussion and consistently contributed ideas that helped us refine and improve the product. His ability to balance creativity with practical execution made a real difference, and his contributions had a tangible impact on our product’s evolution. I’d happily recommend Ahmed to any team looking for someone who can combine attention to detail, collaborative energy, and genuine commitment to building quality solutions."
+    }
+  ],
+  "open": [
+    "Images: drop them in public/shots/ (see `images.where`).",
+    "JICA essay award: do you have the certificate, a photo from the ceremony or a news clipping? The JICA page is gone.",
+    "Eignspaces: which month did it end? Cypienta: full-time employee or contract?",
+    "Cypienta title: Growth Engineer or Senior Fullstack Engineer? (site/CV say Growth Engineer; GitHub README says Senior Fullstack Engineer)",
+    "NestJS: main stack or still learning?"
+  ],
+  "kindWords": {
+    "source": "Nodogoro Slack #general, farewell thread, December 2023 (screenshots)",
+    "publish": true,
+    "note": "Goodbye messages from colleagues when I left Nodogoro. Shown as 'Nodogoro team', without names.",
+    "items": [
+      {
+        "text": "Had the pleasure working with you Somaa, Wish you all the best with your next journey",
+        "id": "nodogoro-1"
+      },
+      {
+        "text": "Somaa 😭 We’re gonna miss you so much! You were such a joy to see at every gathering I wish you all the best 🫶",
+        "id": "nodogoro-2",
+        "excerpt": "We’re gonna miss you so much! You were such a joy to see at every gathering."
+      },
+      {
+        "text": "It was really a pleasure working with you, Somaa! All the best, always! 🤍",
+        "id": "nodogoro-3"
+      },
+      {
+        "text": "All the best Somaa it was a pleasure working with you ❤️❤️",
+        "id": "nodogoro-4"
+      },
+      {
+        "text": "Wishing you all the best in your upcoming steps ❤️",
+        "id": "nodogoro-5"
+      },
+      {
+        "text": "It was a pleasure getting to know and work with you Somaa, wishing you all the best in what’s to come ❤️",
+        "id": "nodogoro-6",
+        "excerpt": "It was a pleasure getting to know and work with you, wishing you all the best in what’s to come."
+      },
+      {
+        "text": "you will be missed Somaa ❤️ Wishing you nothing but success and happiness in your next chapter.",
+        "id": "nodogoro-7"
+      },
+      {
+        "text": "It was a pleasure knowing you ya somaa ❤️ I wish you the best ❤️",
+        "id": "nodogoro-8"
+      }
+    ],
+    "by": "Nodogoro team"
+  },
+  "images": {
+    "where": "public/shots/<project-id>-<n>.png (or .jpg), originals at full quality; the site dithers them. University design work: public/shots/design/<name>.png. Then add each to the project's `images` list (src, alt, width, height), or send them and I'll add them."
+  },
+  "home": {
+    "selectedWork": [
+      "cypienta",
+      "reconciled",
+      "hivo",
+      "stayro",
+      "editor-setup"
+    ],
+    "testimonials": ["josh-zack", "brock-rumer"],
+    "stack": ["React", "React Native", "Node.js", "PostgreSQL"],
+    "experienceFrom": "2019-01",
+    "experienceNote": "Working since 2018/19 (VOIS internship Jan 2018, AUC library 2018, full-time from Jul 2020). Counted from Jan 2019, per Ahmed: 7+ years.",
+    "kindWords": ["nodogoro-2", "nodogoro-6"]
+  },
+  "services": [
+    {
+      "name": "Web apps",
+      "text": "Front ends with React, Next.js and TypeScript, from dashboards to full products.",
+      "work": ["reconciled", "cypienta", "covid-mobility"],
+      "evidence": "Most of his work: Cypienta, Reconciled, COVID-19 platform, call-centre app, HR system, Ramses Wi-Fi, ads analyzer; most of GitHub"
+    },
+    {
+      "name": "Mobile apps",
+      "text": "iOS and Android apps with React Native and Expo, through to the App Store.",
+      "work": ["hivo", "stayro", "ecard"],
+      "evidence": "Hivo, Stayro, ECARD, Outlined AI, VOIS component library, 2018 booking app; mobile-systems (ASU)"
+    },
+    {
+      "name": "APIs & back ends",
+      "text": "REST APIs and services with Node.js and PostgreSQL, deployed and kept running.",
+      "work": ["hivo", "ecard", "covid-mobility"],
+      "evidence": "Hivo, COVID-19 platform, ECARD API, ERP attendance APIs, booking app back end, Stayro GCP"
+    },
+    {
+      "name": "Design systems & UI",
+      "text": "Tokens, components and interface revamps that keep a product consistent as it grows.",
+      "work": ["cypienta", "reconciled"],
+      "evidence": "Cypienta design system, Reconciled Figma components, VOIS component library, Ramses Wi-Fi design"
+    }
+  ],
+  "servicesMore": [
+    {
+      "name": "Design systems",
+      "text": "Tokens, components and guidelines that keep a product consistent as it grows."
+    },
+    {
+      "name": "Interface design & revamps",
+      "text": "Turning rough or dated screens into clear, polished flows."
+    },
+    {
+      "name": "Web apps",
+      "text": "Fast, maintainable front ends with React, Next.js and TypeScript."
+    },
+    {
+      "name": "Mobile apps",
+      "text": "iOS and Android apps with React Native and Expo, through to the App Store."
+    },
+    {
+      "name": "Full-stack features",
+      "text": "APIs and back ends with Node.js, from data model to screen."
+    },
+    {
+      "name": "AI-powered features",
+      "text": "Adding LLM features, like summaries and assistants, to real products."
+    }
+  ],
+  "servicesNote": "Home shows the 4 services Ahmed has done most (CV, LinkedIn, GitHub). Full list in servicesMore.",
+  "experienceColorsNote": "Graph dots use Tailwind colours (tailwind field). 'fg' = the theme's text colour, used for black brands so they show on dark themes."
+}

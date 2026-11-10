@@ -12,3 +12,9 @@ dist-ssr
 __unconfig*
 todos.json
 .vite
+
+# local notes, not published
+evaluation/
+data/cv.md
+data/cv-guide.md
+data/github-readme.md

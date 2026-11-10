@@ -7,61 +7,133 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects</loc>
+    <loc>https://som3aware.pages.dev/?p=work</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/stayro</loc>
+    <loc>https://som3aware.pages.dev/?p=work/cypienta</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/hivo</loc>
+    <loc>https://som3aware.pages.dev/?p=work/hivo</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/reconciled</loc>
+    <loc>https://som3aware.pages.dev/?p=work/stayro</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/outlined-ai</loc>
+    <loc>https://som3aware.pages.dev/?p=work/reconciled</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/sharp-studio</loc>
+    <loc>https://som3aware.pages.dev/?p=work/outlined-ai</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/editor-setup</loc>
+    <loc>https://som3aware.pages.dev/?p=work/ads-analyzer</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/open-trivia</loc>
+    <loc>https://som3aware.pages.dev/?p=work/slack-bot</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/covid-tracker</loc>
+    <loc>https://som3aware.pages.dev/?p=work/resume-screening</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=projects/storefront-api</loc>
+    <loc>https://som3aware.pages.dev/?p=work/ecard</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/ramses-wifi</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/erp-attendance</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/covid-mobility</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/hr-system</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/component-library</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/digital-twin</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/portfolio</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/editor-setup</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/sharp-studio</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/open-trivia</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/covid-tracker</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://som3aware.pages.dev/?p=work/storefront-api</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -115,7 +187,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://som3aware.pages.dev/?p=principles</loc>
+    <loc>https://som3aware.pages.dev/?p=philosophy</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

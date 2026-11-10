@@ -3,6 +3,29 @@
 All notable changes to som3aware, the portfolio of Ahmed Abu Qahf.
 Dates are when a version reached `main`. The site shows this file as its changelog page.
 
+## v3.1: content rework (unreleased)
+
+Every page now reads from one data file, and the content was rewritten around real work.
+
+### Added
+
+- `data/ahmed.json`: one source for the profile, work, experience, skills, tools, education and testimonials; `bun run data` writes a Markdown copy
+- Home: services grid ("what I do"), years of experience, current role and core stack in the hero
+- Work: 21 projects in two groups, professional and side projects, newest first; every project page uses the same sections
+- Experience: several roles per company (internships, full-time), and each company in its brand colour on the graph
+- Toolbox: daily tools (editors, terminal, browsers, design, API and data, machines)
+- About: journey, education with awards, and life outside work
+- Brand colours from Simple Icons, matched to the active theme, for every tech icon
+
+### Changed
+
+- "Projects" is now "work", and "principles" is now "philosophy"; old `#/projects` and `#/principles` links still resolve
+- Home: two main buttons, "selected work" with five rows, and testimonials in a grid with exact quotes
+- Toolbox: main stack and "also used" only; skill levels removed
+- Cypienta listed as its own company; titles and dates corrected
+- Work rows stack on narrower screens so wide fonts no longer overflow
+- Page description, `llms.txt`, `llms-full.txt` and `sitemap.xml` match the new content
+
 ## v3: TUI workspace (unreleased)
 
 The site becomes a terminal-style workspace, built in React 19 and Tailwind CSS v4.

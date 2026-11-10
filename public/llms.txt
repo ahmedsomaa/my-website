@@ -2,27 +2,39 @@
 
 > Full-stack engineer. Product-minded. Design-driven.
 
-Portfolio of a senior full-stack engineer. The site is a keyboard-driven terminal-style workspace; every section is also readable as one plain page at https://som3aware.pages.dev/?plain. Full text: https://som3aware.pages.dev/llms-full.txt
+Portfolio of a full-stack engineer with 7+ years building web and mobile apps with React, React Native and Node.js. The site is a keyboard-driven terminal-style workspace; every section is also readable as one plain page at https://som3aware.pages.dev/?plain. Full text: https://som3aware.pages.dev/llms-full.txt
 
-## projects
+## work
 
-- [Stayro](https://som3aware.pages.dev/#/projects/stayro) (2025–26): Guest and host mobile apps for stays in Saudi Arabia.
-- [Hivo](https://som3aware.pages.dev/#/projects/hivo) (2025–26): Mobile-first rental marketplace for Saudi Arabia.
-- [Reconciled](https://som3aware.pages.dev/#/projects/reconciled) (2024–25): Invoice reconciliation platform for staffing agencies.
-- [Outlined AI](https://som3aware.pages.dev/#/projects/outlined-ai) (2023): AI mobile app that turns audio and video into structured notes.
-- [Sharp Studio](https://som3aware.pages.dev/#/projects/sharp-studio) (2024): Hackable image processing: convert, resize and compress.
-- [Editor Setup](https://som3aware.pages.dev/#/projects/editor-setup) (2025): Curated VS Code font and theme pairings.
-- [Open Trivia](https://som3aware.pages.dev/#/projects/open-trivia) (2024): Multi-round trivia game on the Open Trivia API.
-- [Covid Tracker](https://som3aware.pages.dev/#/projects/covid-tracker) (2023): App to track COVID patients.
-- [Storefront API](https://som3aware.pages.dev/#/projects/storefront-api) (2022): Node API for a store.
+- [Cypienta](https://som3aware.pages.dev/#/work/cypienta) (2026–): Security data platform that condenses and contextualizes telemetry before it reaches SIEM, SOAR and AI tools.
+- [Hivo](https://som3aware.pages.dev/#/work/hivo) (2025–26): Rental app for the Saudi marketplace.
+- [Stayro](https://som3aware.pages.dev/#/work/stayro) (2025–26): Guest and host rental apps for the Saudi marketplace.
+- [Reconciled](https://som3aware.pages.dev/#/work/reconciled) (2024–25): Invoice reconciliation platform for staffing agencies.
+- [Outlined AI](https://som3aware.pages.dev/#/work/outlined-ai) (2023): Internal AI tool that turns audio and video into structured notes.
+- [Ads analyzer](https://som3aware.pages.dev/#/work/ads-analyzer) (2023): Turns feedback on image ads into creative briefs, built for Konstant Kreative.
+- [Slack assistant](https://som3aware.pages.dev/#/work/slack-bot) (2023): Slack assistant that answers questions across Google Drive, Gmail, Calendar, ClickUp and Fireflies.
+- [Resume screening](https://som3aware.pages.dev/#/work/resume-screening) (2023): Recruiters enter a job description and ask questions about candidates' resumes.
+- [ECARD](https://som3aware.pages.dev/#/work/ecard) (2021–23): Android app for the Egyptian Company for Agricultural and Rural Development.
+- [Ramses Wi-Fi](https://som3aware.pages.dev/#/work/ramses-wifi) (2021–23): The journey people go through to get online on Ramses Station's free Wi-Fi, with advertisers' ads.
+- [ERP attendance](https://som3aware.pages.dev/#/work/erp-attendance) (2021–23): APIs that pass valid fingerprint punches from ZKTeco scanners to Odoo's attendance module.
+- [COVID-19 platform](https://som3aware.pages.dev/#/work/covid-mobility) (2020–21): Platform for governments in Vodafone markets to see anonymised movement between cities and spot crowded areas.
+- [HR system](https://som3aware.pages.dev/#/work/hr-system) (2020–21): HR management system for HR staff and employees, covering HR services including benefits.
+- [Component library](https://som3aware.pages.dev/#/work/component-library) (2020–21): React Native component library built from Vodafone's brand guidelines.
+- [Call-centre app](https://som3aware.pages.dev/#/work/digital-twin) (2020–21): Lets call-centre managers monitor team performance and forecast metrics under different working conditions.
+- [This portfolio](https://som3aware.pages.dev/#/work/portfolio) (2026): This portfolio: a keyboard-driven, TUI-style workspace with a plain-page fallback.
+- [Editor Setup](https://som3aware.pages.dev/#/work/editor-setup) (2025): Curated VS Code font and theme pairings.
+- [Sharp Studio](https://som3aware.pages.dev/#/work/sharp-studio) (2024): Hackable image processing: convert, resize and compress.
+- [Open Trivia](https://som3aware.pages.dev/#/work/open-trivia) (2024): Multi-round trivia game on the Open Trivia API.
+- [Covid Tracker](https://som3aware.pages.dev/#/work/covid-tracker) (2023): App to track COVID patients behind a simple, authenticated interface.
+- [Storefront API](https://som3aware.pages.dev/#/work/storefront-api) (2022): Node API for a store, with typed models and a relational database.
 
 ## experience
 
-- [Cypienta](https://som3aware.pages.dev/#/experience/cypienta) (2026–): Senior Full-stack Engineer
-- [Eignspaces](https://som3aware.pages.dev/#/experience/eignspaces) (2024–26): Growth Engineer
-- [Nodogoro](https://som3aware.pages.dev/#/experience/nodogoro) (2023): Software Engineer II
-- [New Smart Egypt](https://som3aware.pages.dev/#/experience/new-smart-egypt) (2021–23): Software Engineer I
-- [VOIS](https://som3aware.pages.dev/#/experience/vois) (2020–21): Software Engineer
+- [Cypienta](https://som3aware.pages.dev/#/experience/cypienta) (2026–): Growth Engineer · Oct 2026 – present
+- [Eignspaces](https://som3aware.pages.dev/#/experience/eignspaces) (2024–26): Growth Engineer · Jan 2024 – 2026
+- [Nodogoro](https://som3aware.pages.dev/#/experience/nodogoro) (2023): Software Engineer II · May 2023 – Dec 2023
+- [New Smart Egypt](https://som3aware.pages.dev/#/experience/new-smart-egypt) (2021–23): Software Engineer I · Nov 2021 – May 2023
+- [VOIS](https://som3aware.pages.dev/#/experience/vois) (2018–21): 
 
 ## toolbox
 
@@ -32,9 +44,9 @@ Portfolio of a senior full-stack engineer. The site is a keyboard-driven termina
 
 - [about](https://som3aware.pages.dev/#/about)
 
-## principles
+## philosophy
 
-- [principles](https://som3aware.pages.dev/#/principles)
+- [philosophy](https://som3aware.pages.dev/#/philosophy)
 
 ## contact
 

@@ -3,6 +3,23 @@
  * Icons dropped. An icon is decoration beside the word, never instead of it, so it is aria-hidden.
  */
 import {
+  siApple,
+  siBruno,
+  siClaude,
+  siCloudflare,
+  siDatagrip,
+  siDbeaver,
+  siFedora,
+  siFirefox,
+  siGooglechrome,
+  siLinuxmint,
+  siMapbox,
+  siRedux,
+  siSst,
+  siUbuntu,
+  siVite,
+  siWarp,
+  siZorin,
   siAngular,
   siAppstore,
   siAuth0,
@@ -40,6 +57,7 @@ import {
   siSharp,
   siSvelte,
   siTailwindcss,
+  siTanstack,
   siTypescript,
   siVercel,
   siX,
@@ -49,10 +67,18 @@ import { DEVICON } from './devicon'
 interface Glyph {
   path: string
   viewBox: string
+  /** official brand colour, hex without '#' */
+  hex: string
 }
-const si = (i: { path: string }): Glyph => ({
+const si = (i: { path: string; hex: string }): Glyph => ({
   path: i.path,
   viewBox: '0 0 24 24',
+  hex: i.hex,
+})
+/** Devicon glyphs carry no colour; these are the brands' official ones. */
+const dev = (g: { path: string; viewBox: string }, hex: string): Glyph => ({
+  ...g,
+  hex,
 })
 
 /** Lower-case name as written on the site → icon. */
@@ -62,6 +88,7 @@ const ICONS: Record<string, Glyph> = {
   typescript: si(siTypescript),
   javascript: si(siJavascript),
   'next.js': si(siNextdotjs),
+  'tanstack start': si(siTanstack),
   'node.js': si(siNodedotjs),
   express: si(siExpress),
   postgresql: si(siPostgresql),
@@ -95,13 +122,31 @@ const ICONS: Record<string, Glyph> = {
   angular: si(siAngular),
   cursor: si(siCursor),
   figma: si(siFigma),
-  aws: DEVICON.amazonwebservices,
-  azure: DEVICON.azure,
-  dynamodb: DEVICON.dynamodb,
-  'sql server': DEVICON.microsoftsqlserver,
+  aws: dev(DEVICON.amazonwebservices, 'FF9900'),
+  azure: dev(DEVICON.azure, '0078D4'),
+  dynamodb: dev(DEVICON.dynamodb, '4053D6'),
+  'sql server': dev(DEVICON.microsoftsqlserver, 'CC2927'),
+  // tools
+  vite: si(siVite),
+  redux: si(siRedux),
+  'mapbox gl': si(siMapbox),
+  sst: si(siSst),
+  cloudflare: si(siCloudflare),
+  warp: si(siWarp),
+  firefox: si(siFirefox),
+  chrome: si(siGooglechrome),
+  bruno: si(siBruno),
+  datagrip: si(siDatagrip),
+  dbeaver: si(siDbeaver),
+  'claude code': si(siClaude),
+  macbook: si(siApple),
+  fedora: si(siFedora),
+  'linux mint': si(siLinuxmint),
+  'zorin os': si(siZorin),
+  ubuntu: si(siUbuntu),
   // places
   github: si(siGithub),
-  linkedin: DEVICON.linkedin,
+  linkedin: dev(DEVICON.linkedin, '0A66C2'),
   x: si(siX),
   hashnode: si(siHashnode),
   'frontend mentor': si(siFrontendmentor),
@@ -110,6 +155,10 @@ const ICONS: Record<string, Glyph> = {
 }
 
 export const hasIcon = (name: string) => name.toLowerCase() in ICONS
+
+/** The brand's official colour (hex without '#'), if the name has an icon. */
+export const brandHex = (name: string): string | undefined =>
+  (ICONS[name.toLowerCase()] as Glyph | undefined)?.hex
 
 /** The icon for a name, in a 2.5-cell slot: icon plus a small gap before the word. */
 export function Icon({ name }: { name: string }) {

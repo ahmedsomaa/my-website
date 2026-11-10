@@ -15,7 +15,8 @@
     "deploy": "bun run build && wrangler pages deploy",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "seo": "bun tools/seo.tsx"
+    "seo": "bun tools/seo.tsx",
+    "data": "bun tools/data-md.ts && prettier --write data"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
