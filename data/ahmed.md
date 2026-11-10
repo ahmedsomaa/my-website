@@ -762,5 +762,4 @@ Nodogoro Slack #general, farewell thread, December 2023 (screenshots). Goodbye m
 
 ## Open questions
 
-- Images: drop them in public/shots/ (see `images.where`).
 - JICA essay award: do you have the certificate, a photo from the ceremony or a news clipping? The JICA page is gone.

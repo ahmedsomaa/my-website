@@ -1,17 +1,8 @@
 /* Content pieces shared by the plain page and the workspace reading pane. */
-import {
-  Fragment,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import { Fragment, useContext } from 'react'
 import clsx from 'clsx'
 import type { ReactNode } from 'react'
-import { gray, paint } from '#/lib/dither'
-import type { Gray } from '#/lib/dither'
-import { ThemeContext, ViewContext } from '#/lib/view'
+import { ViewContext } from '#/lib/view'
 import { byName, cycle } from '#/lib/hues'
 import { Icon } from '#/icons'
 
@@ -225,90 +216,6 @@ export function Stats({
   )
 }
 
-export interface Shot {
-  src: string
-  alt: string
-  width: number
-  height: number
-}
-
-export function Shots({
-  kind,
-  shots,
-}: {
-  kind: 'phone' | 'wide'
-  shots: Array<Shot>
-}) {
-  const each = clsx(
-    'block min-w-0 rounded-[3px] border border-line',
-    kind === 'phone' ? 'h-auto max-w-[180px] flex-[1_1_0]' : 'h-auto w-full',
-  )
-  return (
-    <figure
-      className={clsx(
-        'mt-4.5 mb-1 flex max-w-[72ch] gap-2.5',
-        // wide shots stack so each stays readable; phone shots sit side by side
-        kind === 'wide' && 'flex-col',
-      )}
-    >
-      {shots.map((s) => (
-        <DitherImg key={s.src} {...s} className={each} />
-      ))}
-    </figure>
-  )
-}
-
-/** Image that turns into a two-colour dither in the workspace and repaints on theme change. */
-function DitherImg({ className, ...img }: Shot & { className: string }) {
-  const view = useContext(ViewContext)
-  const theme = useContext(ThemeContext)
-  const imgRef = useRef<HTMLImageElement>(null)
-  const cvRef = useRef<HTMLCanvasElement>(null)
-  const [g, setG] = useState<Gray | null>(null)
-
-  const load = (el: HTMLImageElement) => {
-    try {
-      setG(gray(el))
-    } catch {
-      /* keep the plain image */
-    }
-  }
-  useEffect(() => {
-    const el = imgRef.current
-    if (el && el.complete && el.naturalWidth) load(el)
-  }, [])
-  useLayoutEffect(() => {
-    if (g && cvRef.current) paint(cvRef.current, g)
-  }, [g, theme])
-
-  if (view === 'plain')
-    return (
-      <img
-        {...img}
-        loading="lazy"
-        className={clsx(className, 'grayscale contrast-110')}
-      />
-    )
-  if (g)
-    return (
-      <canvas
-        ref={cvRef}
-        role="img"
-        aria-label={img.alt}
-        className={clsx(className, 'w-full [image-rendering:pixelated]')}
-      />
-    )
-  return (
-    <img
-      {...img}
-      ref={imgRef}
-      className={className}
-      onLoad={(e) => load(e.currentTarget)}
-    />
-  )
-}
-
-/** "React · Next.js · Node.js": each tech keeps its own colour across the site. */
 /** Separator that stays at the end of a line, so a wrapped line never starts with "·". */
 const Sep = ({ last }: { last: boolean }) =>
   last ? null : <span className="text-subtle"> ·</span>

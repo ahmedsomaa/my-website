@@ -17,7 +17,6 @@ import {
   Quote,
   Quotes,
   Sec,
-  Shots,
   Small,
   Stack,
   Techs,
@@ -25,7 +24,7 @@ import {
   WhatIDo,
   WorkList,
 } from '#/components/content'
-import type { Service, Shot, WorkRow } from '#/components/content'
+import type { Service, WorkRow } from '#/components/content'
 import { CV, EMAIL } from '#/lib/view'
 import { Icon } from '#/icons'
 import data from '../../data/ahmed.json'
@@ -245,7 +244,6 @@ interface Project {
   stack: Array<string>
   links: Array<{ label: string; url: string | null }>
   noLink?: string
-  images: Array<Shot>
 }
 
 /** Short company name and its experience link, e.g. VOIS (not the long form). */
@@ -257,7 +255,7 @@ function company(id?: string) {
 
 /**
  * One layout for every project page, always the same sections in the same order:
- * name and summary, role/where/stack/highlight, screenshots (when there are any), about, what I did, links.
+ * name and summary, role/where/stack/highlight, about, what I did, links.
  */
 function ProjectPage({ x }: { x: Project }) {
   const links = x.links.filter((l): l is { label: string; url: string } =>
@@ -285,12 +283,6 @@ function ProjectPage({ x }: { x: Project }) {
           ['highlight', x.quickFact],
         ]}
       />
-      {x.images.length > 0 && (
-        <Shots
-          kind={x.images[0].height > x.images[0].width ? 'phone' : 'wide'}
-          shots={x.images}
-        />
-      )}
       <Sec>about</Sec>
       <P>{x.problem}</P>
       <Sec>what I did</Sec>
