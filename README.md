@@ -34,7 +34,7 @@ bun run deploy
 | Fonts                           | list + first paint in the `index.html` boot script, `@font-face` in `src/styles/fonts.css`, files and sources in `public/fonts`                                                                               |
 | Icons                           | `src/icons`: Simple Icons (npm `simple-icons`), plus five Devicon icons copied as path data                                                                                                                   |
 | Changelog                       | `CHANGELOG.md`, shown as the changelog tab (`#/changelog`)                                                                                                                                                    |
-| CV PDF, screenshots             | `public/docs`, `public/shots`                                                                                                                                                                                 |
+| CV PDF, logos                   | `public/docs`, `public/icons`                                                                                                                                                                                 |
 | Design plan                     | `plan.md`                                                                                                                                                                                                     |
 
 The previous TanStack Start site is tagged `v2`.

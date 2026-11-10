@@ -60,7 +60,6 @@ role: design system · interfaces
 where: Cypienta · 2026–
 stack: Svelte · Django
 highlight: company-wide design system, in progress
-
 about
 Security teams are flooded with events, logs and alerts. Cypienta groups and condenses that telemetry, so SIEM, SOAR and AI tools get context instead of noise.
 what I did
@@ -85,7 +84,6 @@ role: team lead · mobile · infra
 where: Eignspaces · 2025–26
 stack: React Native · Expo · EAS · GitHub Actions · GCP · Redis · Celery
 highlight: to the App Store in ~3 months
-
 about
 Guests and hosts in Saudi Arabia needed rental apps that meet local requirements, like national identity, Ministry of Tourism compliance and local payments, on a two-to-three-month release schedule.
 what I did
@@ -111,7 +109,6 @@ role: full-stack
 where: Eignspaces · 2025–26
 stack: React Native · Expo · Node.js · PostgreSQL
 highlight: ★ 5.0 on the App Store
-
 about
 Global booking platforms lacked cultural relevance, trust signals and smooth bilingual flows for Saudi travelers and hosts. Hivo answers with localized discovery, bilingual flows, secure payments and fast booking.
 what I did
@@ -137,7 +134,6 @@ role: frontend lead
 where: Eignspaces · 2024–25
 stack: React · Next.js · Node.js · PostgreSQL · Segment · Mixpanel · Hotjar
 highlight: acquired by LaborEdge
-
 about
 Manual invoice reconciliation across VMS systems caused errors, delays and lost revenue. Reconciled automates invoice matching, flags discrepancies and streamlines the process.
 what I did
@@ -388,7 +384,6 @@ role: solo
 where: side project · 2026
 stack: React · TypeScript · Tailwind CSS · Vite · Vitest · Cloudflare Pages
 highlight: ~90 themes · keyboard-first
-
 about
 A portfolio that shows design-engineering craft as a keyboard-driven, terminal-style workspace, without getting in the way of reading it.
 what I did
@@ -414,7 +409,6 @@ role: solo
 where: side project · 2025
 stack: TanStack Start · React · TypeScript
 highlight: 8 font + theme pairings
-
 about
 Developers spend hours on Reddit, blogs and GitHub looking for a theme and a font that work together. Editor Setup gives 8 pairings, each with a code preview and one-click install links.
 what I did
@@ -436,7 +430,6 @@ role: solo
 where: side project · 2024
 stack: React · Node.js · TypeScript · Sharp
 highlight: configurable image pipelines
-
 about
 Existing image tools are rigid and hard to customize. Sharp Studio is a web tool with configurable pipelines, many formats and precise control over output.
 what I did
@@ -479,7 +472,6 @@ role: solo
 where: side project · 2023
 stack: React · Node.js · Auth0
 highlight: patient tracking
-
 about
 Patient tracking behind a simple, authenticated interface.
 what I did

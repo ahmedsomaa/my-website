@@ -8,7 +8,7 @@ import { parseHash } from '#/lib/route'
 import { store } from '#/lib/store'
 import { DEFAULT_THEME, THEMES } from '#/lib/themes'
 import type { Theme } from '#/lib/theme-types'
-import { CV, EMAIL, ThemeContext } from '#/lib/view'
+import { CV, EMAIL } from '#/lib/view'
 import { cycle } from '#/lib/hues'
 
 type Pane = 'list' | 'det'
@@ -802,7 +802,7 @@ export function Tui() {
     'inline-flex items-center gap-1.5 rounded-[2px] px-1 py-0.5 no-underline hover:bg-hover hover:text-fg active:translate-y-px max-md:min-h-8 max-md:px-1.5 [&_kbd]:text-fg'
 
   return (
-    <ThemeContext value={s.theme}>
+    <>
       <div
         id="app"
         aria-label="Portfolio, workspace view"
@@ -1192,7 +1192,7 @@ export function Tui() {
           </div>
         )}
       </div>
-    </ThemeContext>
+    </>
   )
 }
 

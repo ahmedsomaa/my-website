@@ -3,6 +3,12 @@
 All notable changes to som3aware, the portfolio of Ahmed Abu Qahf.
 Dates are when a version reached `main`. The site shows this file as its changelog page.
 
+## v3.2: no project images (unreleased)
+
+### Removed
+
+- Project screenshots and the halftone effect; work pages are text only, with the same sections for every project
+
 ## v3.1: content rework (2026-11-10)
 
 Every page now reads from one data file, and the content was rewritten around real work.
