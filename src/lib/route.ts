@@ -17,14 +17,14 @@ export interface Route {
 
 /** Old tab names that still resolve: old id -> [new id, anchor to open]. */
 const MOVED: Record<string, [string, string]> = {
-  philosophy: ['principles', ''],
-  work: ['projects', ''],
+  principles: ['philosophy', ''],
+  projects: ['work', ''],
   expertise: ['toolbox', ''],
 }
 
 /** Old in-page sections that became their own tab: "tab/anchor" -> new tab id. */
 const MOVED_SECTIONS: Record<string, string> = {
-  'about/principles': 'principles',
+  'about/principles': 'philosophy',
 }
 
 /**

@@ -87,7 +87,7 @@ const lead = (node: ReactNode) => {
   )
   const m =
     html.match(/<p data-lead[^>]*>([\s\S]*?)<\/p>/) ??
-    html.match(/<dt>role<\/dt><dd>([\s\S]*?)<\/dd>/)
+    html.match(/<dt>roles?<\/dt><dd>([\s\S]*?)<\/dd>/)
   return m ? flatten(m[1]).replace(/\n/g, ' ') : ''
 }
 
@@ -95,6 +95,8 @@ const robots = `User-agent: *
 Allow: /
 
 Sitemap: ${SITE}/sitemap.xml
+
+# Plain-text summary for AI agents: ${SITE}/llms.txt (full text: ${SITE}/llms-full.txt)
 `
 
 /** Every section and item, as /?p=tab/slug (query strings are separate pages to crawlers; #/ links are not). */
@@ -140,7 +142,7 @@ const llms = [
   '',
   `> ${lead(index.body)}`,
   '',
-  `Portfolio of a senior full-stack engineer. The site is a keyboard-driven terminal-style workspace; every section is also readable as one plain page at ${SITE}/?plain. Full text: ${SITE}/llms-full.txt`,
+  `Portfolio of a full-stack engineer with 7+ years building web and mobile apps with React, React Native and Node.js. The site is a keyboard-driven terminal-style workspace; every section is also readable as one plain page at ${SITE}/?plain. Full text: ${SITE}/llms-full.txt`,
   '',
   ...TABS.slice(1)
     .filter((t) => t.id !== 'changelog')

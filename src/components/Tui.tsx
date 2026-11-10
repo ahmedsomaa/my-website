@@ -677,7 +677,7 @@ export function Tui() {
     applyFont(S.current.font, false)
     applyTheme(S.current.theme, false)
     setPane('list', false)
-    // crawlable address from the sitemap: /?p=projects/hivo opens #/projects/hivo
+    // crawlable address from the sitemap: /?p=work/hivo opens #/work/hivo
     const fromQuery = new URLSearchParams(location.search).get('p')
     if (fromQuery && !location.hash && parseHash(`#/${fromQuery}`, ROUTES))
       history.replaceState(null, '', `${location.pathname}#/${fromQuery}`)
@@ -822,7 +822,7 @@ export function Tui() {
           read as a plain page
         </a>
 
-        <header className="col-span-full flex flex-wrap items-center gap-1 max-md:flex-nowrap">
+        <header className="col-span-full flex flex-wrap items-center gap-1 max-md:gap-y-1.5">
           <h1 className="mr-3 font-px font-normal text-fg max-md:hidden">
             <span className="sr-only">Ahmed Abu Qahf, </span>ahmed
             <b className="font-normal text-muted">@</b>som3aware
@@ -831,7 +831,7 @@ export function Tui() {
             ref={tabsRef}
             role="tablist"
             aria-label="Sections"
-            className="flex flex-wrap gap-0.5 max-md:min-w-0 max-md:flex-1 max-md:flex-nowrap max-md:overflow-x-auto max-md:[scrollbar-width:none]"
+            className="flex flex-wrap gap-0.5 max-md:order-2 max-md:basis-full max-md:flex-nowrap max-md:overflow-x-auto max-md:[mask-image:linear-gradient(to_right,black_85%,transparent)] max-md:pr-8 max-md:[scrollbar-width:none]"
           >
             {TABS.map((t, i) => {
               const on = i === s.tab
@@ -866,7 +866,7 @@ export function Tui() {
               )
             })}
           </nav>
-          <span className="ml-auto flex items-center gap-3.5 text-muted">
+          <span className="ml-auto flex items-center gap-3.5 text-muted max-md:w-full max-md:justify-between">
             <a
               className={clsx(btn, 'text-accent')}
               href={CV}
@@ -1293,7 +1293,7 @@ const grpCls =
   'overflow-hidden pt-2.5 pr-3.5 pb-0.5 pl-2.5 text-sm whitespace-nowrap text-accent before:text-line before:content-["──_"]'
 const tableCols =
   // columns are in ch of the 13px row font; rows and header must share that font size or the ch differ
-  'grid-cols-[16px_15ch_8ch_15ch_minmax(0,1fr)] gap-2.5 max-xl:grid-cols-[16px_15ch_8ch_minmax(0,1fr)] max-lg:grid-cols-[16px_minmax(0,1fr)_minmax(0,1.3fr)]'
+  'grid-cols-[16px_18ch_8ch_15ch_minmax(0,1fr)] gap-2.5 max-xl:grid-cols-[16px_18ch_8ch_minmax(0,1fr)] max-lg:grid-cols-[16px_minmax(0,1fr)_minmax(0,1.3fr)]'
 
 function ListRows({
   tab,
@@ -1320,7 +1320,7 @@ function ListRows({
           <span>name</span>
           <span className="max-lg:hidden">year</span>
           <span className="max-xl:hidden">role</span>
-          <span>result</span>
+          <span>quick fact</span>
         </div>
       )}
       {tab.items.map((x, k) => {
@@ -1376,8 +1376,8 @@ function ListRows({
                     aria-hidden="true"
                     className={clsx(
                       'relative text-center',
-                      // one colour per branch, like git log --graph; HEAD stays green
-                      x.now ? 'text-success' : cycle(k),
+                      // each company in its brand colour (matched to the theme); otherwise one colour per branch
+                      x.color ?? (x.now ? 'text-success' : cycle(k)),
                       !last &&
                         "after:absolute after:top-4 after:left-1/2 after:h-[calc(100%+4px)] after:border-l after:border-line after:content-['']",
                     )}

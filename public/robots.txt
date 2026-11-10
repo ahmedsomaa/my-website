@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://som3aware.pages.dev/sitemap.xml
+
+# Plain-text summary for AI agents: https://som3aware.pages.dev/llms.txt (full text: https://som3aware.pages.dev/llms-full.txt)

@@ -244,7 +244,13 @@ export function Shots({
     kind === 'phone' ? 'h-auto max-w-[180px] flex-[1_1_0]' : 'h-auto w-full',
   )
   return (
-    <figure className="mt-4.5 mb-1 flex max-w-[72ch] gap-2.5">
+    <figure
+      className={clsx(
+        'mt-4.5 mb-1 flex max-w-[72ch] gap-2.5',
+        // wide shots stack so each stays readable; phone shots sit side by side
+        kind === 'wide' && 'flex-col',
+      )}
+    >
       {shots.map((s) => (
         <DitherImg key={s.src} {...s} className={each} />
       ))}
@@ -303,40 +309,88 @@ function DitherImg({ className, ...img }: Shot & { className: string }) {
 }
 
 /** "React · Next.js · Node.js": each tech keeps its own colour across the site. */
-export const Stack = ({ list }: { list: string }) => (
-  <>
-    {list.split(' · ').map((t, i) => (
-      <Fragment key={t}>
-        {i > 0 && <span className="text-subtle"> · </span>}
-        <span className={byName(t)}>
-          <Icon name={t} />
-          {t}
-        </span>
-      </Fragment>
-    ))}
-  </>
-)
+/** Separator that stays at the end of a line, so a wrapped line never starts with "·". */
+const Sep = ({ last }: { last: boolean }) =>
+  last ? null : <span className="text-subtle"> ·</span>
 
-/** "Node.js · Express" in a skills list: each tech gets its icon (in its colour), text stays plain. */
-const Techs = ({ list }: { list: string }) => (
-  <>
-    {list.split(' · ').map((t, i) => (
-      <Fragment key={t}>
-        {i > 0 && <span className="text-subtle"> · </span>}
+export const Stack = ({ list }: { list: string }) => {
+  const items = list.split(' · ')
+  return (
+    <>
+      {items.map((t, i) => (
+        <Fragment key={t}>
+          {/* icon, name and its separator never split across lines */}
+          <span className="whitespace-nowrap">
+            <span className={byName(t)}>
+              <Icon name={t} />
+              {t}
+            </span>
+            <Sep last={i === items.length - 1} />
+          </span>{' '}
+        </Fragment>
+      ))}
+    </>
+  )
+}
+
+/** "Node.js · Express" in the toolbox: one chip per tech, icon in its brand colour, name in the text colour. */
+export const Techs = ({ list }: { list: string }) => (
+  <ul className="flex flex-wrap gap-1.5">
+    {list.split(' · ').map((t) => (
+      <li
+        key={t}
+        className="inline-flex items-center rounded-[3px] border border-line-subtle bg-surface px-1.5 py-px whitespace-nowrap text-fg plain:bg-transparent"
+      >
         <span className={byName(t)}>
           <Icon name={t} />
         </span>
         {t}
-      </Fragment>
+      </li>
     ))}
-  </>
+  </ul>
 )
 
 /* ---------- index dashboard ---------- */
 
-/** Testimonials, stacked. */
+/** Testimonials as a grid: one column on small screens, two side by side once there is room. */
 export const Quotes = ({ children }: Kids) => (
-  <div className="grid gap-y-3 [&>blockquote]:mt-0">{children}</div>
+  <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 plain:grid-cols-1 [&>blockquote]:mt-0">
+    {children}
+  </div>
+)
+
+export interface Service {
+  name: string
+  text: string
+  work: Array<{ label: string; href: string }>
+}
+
+/** "What I do": one tile per service, with links to the work that shows it. */
+export const WhatIDo = ({ items }: { items: Array<Service> }) => (
+  <ul className="grid gap-2 md:grid-cols-2 plain:grid-cols-1">
+    {items.map((x, i) => (
+      <li
+        key={x.name}
+        className="grid content-start gap-1 rounded-[3px] border border-line-subtle bg-surface px-4 py-3"
+      >
+        <b className={clsx('font-px text-lg font-normal', cycle(i))}>
+          {x.name}
+        </b>
+        <span className="text-sm/[1.4] text-muted">{x.text}</span>
+        <span className="mt-1 text-sm">
+          <span aria-hidden="true" className="text-subtle">
+            →{' '}
+          </span>
+          {x.work.map((w, k) => (
+            <Fragment key={w.label}>
+              {k > 0 && <span className="text-subtle"> · </span>}
+              <a href={w.href}>{w.label}</a>
+            </Fragment>
+          ))}
+        </span>
+      </li>
+    ))}
+  </ul>
 )
 
 /** Dashboard panels in reading order; each title takes the next colour. */
@@ -346,11 +400,11 @@ export const Dash = ({ children }: Kids) => (
   <div
     className={clsx(
       'grid flex-1 gap-x-3 gap-y-5.5 short:gap-y-3.5',
-      // from lg the grid fills the pane: on tall screens the top two rows split the spare height,
-      // on short ones only the middle row grows (an even split would overflow)
-      'lg:grid-rows-[auto_1fr_auto] lg:tall:grid-rows-[1fr_1fr_auto]',
+      // from lg the grid fills the pane: the top row (hero + what I do) takes the spare height,
+      // so work and testimonials keep their natural height instead of showing empty space
+      'lg:grid-rows-[1fr_auto_auto]',
       // one column below lg; from lg a 12-column grid:
-      // who (7) | stats (5) · projects (6) | testimonials (6) · connect across
+      // who (7) | what I do (5) · selected work (6) | testimonials (6) · connect across
       "grid-cols-1 [grid-template-areas:'who'_'work'_'num'_'kind'_'con']",
       "lg:grid-cols-12 lg:[grid-template-areas:'who_who_who_who_who_who_who_num_num_num_num_num'_'work_work_work_work_work_work_kind_kind_kind_kind_kind_kind'_'con_con_con_con_con_con_con_con_con_con_con_con']",
       "plain:grid-cols-1 plain:[grid-template-areas:'who'_'work'_'num'_'kind'_'con']",
@@ -393,6 +447,8 @@ export interface WorkRow {
   years: string
   what: string
   result: string
+  /** defaults to the item's page in the projects tab */
+  href?: string
 }
 
 export const WorkList = ({ rows }: { rows: Array<WorkRow> }) => (
@@ -400,13 +456,13 @@ export const WorkList = ({ rows }: { rows: Array<WorkRow> }) => (
     {rows.map((r) => (
       <li key={r.slug}>
         <a
-          href={`#/projects/${r.slug}`}
-          className="-mx-2 grid grid-cols-[14ch_8ch_minmax(0,1fr)_auto] items-baseline gap-3 rounded-[2px] px-2 py-1 text-muted no-underline hover:bg-overlay hover:text-fg max-lg:grid-cols-[minmax(0,1fr)_auto] max-lg:gap-x-3 max-lg:gap-y-0 max-md:py-1.5"
+          href={r.href ?? `#/work/${r.slug}`}
+          className="-mx-2 grid grid-cols-[14ch_8ch_minmax(0,1fr)_minmax(0,auto)] items-baseline gap-3 rounded-[2px] px-2 py-1 text-muted no-underline hover:bg-overlay hover:text-fg max-xl:grid-cols-[minmax(0,1fr)_auto] max-xl:gap-x-3 max-xl:gap-y-0 max-xl:py-1.5"
         >
           <b className="font-medium text-fg">{r.name}</b>
           <i className="text-sm text-hue-3 not-italic">{r.years}</i>
-          <span className="truncate max-lg:col-span-full">{r.what}</span>
-          <em className="whitespace-nowrap text-success not-italic max-lg:col-span-full">
+          <span className="truncate max-xl:col-span-full">{r.what}</span>
+          <em className="truncate text-success not-italic max-xl:col-span-full max-xl:whitespace-normal">
             {r.result}
           </em>
         </a>
@@ -417,18 +473,32 @@ export const WorkList = ({ rows }: { rows: Array<WorkRow> }) => (
 
 /* ---------- about ---------- */
 
-export const Principles = ({ items }: { items: Array<[string, string]> }) => (
-  <ol className="mt-4.5 grid max-w-[72ch] gap-4.5">
-    {items.map(([t, d], i) => (
-      <li key={t} className="grid grid-cols-[4ch_minmax(0,1fr)] gap-x-2.5">
-        <span
-          aria-hidden="true"
-          className={clsx('row-span-2 font-px text-num', cycle(i))}
-        >
-          {String(i + 1).padStart(2, '0')}
+/** Principles, one tile each in a single column: number, title, what it means, and the work that shows it. */
+export const Principles = ({
+  items,
+}: {
+  items: Array<[string, string, string]>
+}) => (
+  <ol className="mt-4.5 grid max-w-[72ch] gap-2.5">
+    {items.map(([t, d, proof], i) => (
+      <li
+        key={t}
+        className="grid content-start gap-1.5 rounded-[3px] border border-line-subtle bg-surface px-4 py-3.5 plain:bg-transparent"
+      >
+        <span className="flex items-baseline gap-2.5">
+          <span
+            aria-hidden="true"
+            className={clsx('font-px text-num', cycle(i))}
+          >
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <b className={clsx('font-px text-lg font-normal', cycle(i))}>{t}</b>
         </span>
-        <b className="font-medium text-fg">{t}</b>
-        <p className="mt-0.5 max-w-[64ch] text-pretty text-muted">{d}</p>
+        <p className="text-pretty text-fg">{d}</p>
+        <p className="text-sm text-pretty text-muted">
+          <span className="text-subtle">in practice: </span>
+          {proof}
+        </p>
       </li>
     ))}
   </ol>

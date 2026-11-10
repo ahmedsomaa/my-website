@@ -3,6 +3,25 @@
  * Icons dropped. An icon is decoration beside the word, never instead of it, so it is aria-hidden.
  */
 import {
+  siApple,
+  siBruno,
+  siClaude,
+  siCloudflare,
+  siDatagrip,
+  siDbeaver,
+  siFedora,
+  siFirefox,
+  siGooglechrome,
+  siLinuxmint,
+  siMapbox,
+  siRedux,
+  siSst,
+  siUbuntu,
+  siVite,
+  siWarp,
+  siZorin,
+  siZedindustries,
+  siZenbrowser,
   siAngular,
   siAppstore,
   siAuth0,
@@ -40,19 +59,36 @@ import {
   siSharp,
   siSvelte,
   siTailwindcss,
+  siTanstack,
   siTypescript,
   siVercel,
   siX,
 } from 'simple-icons'
-import { DEVICON } from './devicon'
+import { DEVICON, OPENAI } from './devicon'
 
 interface Glyph {
-  path: string
-  viewBox: string
+  /** vector icon, drawn in the text colour */
+  path?: string
+  viewBox?: string
+  /** or a small multi-colour logo image (public/icons), for brands with no vector icon */
+  img?: string
+  /** official brand colour, hex without '#' */
+  hex: string
 }
-const si = (i: { path: string }): Glyph => ({
+const si = (i: { path: string; hex: string }): Glyph => ({
   path: i.path,
   viewBox: '0 0 24 24',
+  hex: i.hex,
+})
+/** Devicon glyphs carry no colour; these are the brands' official ones. */
+const dev = (g: { path: string; viewBox: string }, hex: string): Glyph => ({
+  ...g,
+  hex,
+})
+/** A logo taken from the product's own site, in public/icons. */
+const logo = (file: string, hex: string): Glyph => ({
+  img: `/icons/${file}`,
+  hex,
 })
 
 /** Lower-case name as written on the site → icon. */
@@ -62,6 +98,7 @@ const ICONS: Record<string, Glyph> = {
   typescript: si(siTypescript),
   javascript: si(siJavascript),
   'next.js': si(siNextdotjs),
+  'tanstack start': si(siTanstack),
   'node.js': si(siNodedotjs),
   express: si(siExpress),
   postgresql: si(siPostgresql),
@@ -95,13 +132,43 @@ const ICONS: Record<string, Glyph> = {
   angular: si(siAngular),
   cursor: si(siCursor),
   figma: si(siFigma),
-  aws: DEVICON.amazonwebservices,
-  azure: DEVICON.azure,
-  dynamodb: DEVICON.dynamodb,
-  'sql server': DEVICON.microsoftsqlserver,
+  aws: dev(DEVICON.amazonwebservices, 'FF9900'),
+  azure: dev(DEVICON.azure, '0078D4'),
+  dynamodb: dev(DEVICON.dynamodb, '4053D6'),
+  'sql server': dev(DEVICON.microsoftsqlserver, 'CC2927'),
+  // tools
+  vite: si(siVite),
+  redux: si(siRedux),
+  'mapbox gl': si(siMapbox),
+  sst: si(siSst),
+  cloudflare: si(siCloudflare),
+  warp: si(siWarp),
+  firefox: si(siFirefox),
+  chrome: si(siGooglechrome),
+  bruno: si(siBruno),
+  datagrip: si(siDatagrip),
+  dbeaver: si(siDbeaver),
+  'claude code': si(siClaude),
+  macbook: si(siApple),
+  fedora: si(siFedora),
+  'linux mint': si(siLinuxmint),
+  'zorin os': si(siZorin),
+  ubuntu: si(siUbuntu),
+  zed: si(siZedindustries),
+  'zen browser': si(siZenbrowser),
+  'vs code': dev(DEVICON.vscode, '007ACC'),
+  openai: dev(OPENAI, '412991'),
+  livecodes: logo('livecodes.png', '5BBAD5'),
+  paper: logo('paper.png', '6A9BE8'),
+  tinycast: logo('tinycast.svg', '863BFF'),
+  bettershot: logo('bettershot.png', '7B4DFF'),
+  macusb: logo('macusb.png', '222222'),
+  'dbstudio.sh': logo('dbstudio.png', '222222'),
+  pinecone: logo('pinecone.png', '000000'),
+  segment: logo('segment.png', '52BD94'),
   // places
   github: si(siGithub),
-  linkedin: DEVICON.linkedin,
+  linkedin: dev(DEVICON.linkedin, '0A66C2'),
   x: si(siX),
   hashnode: si(siHashnode),
   'frontend mentor': si(siFrontendmentor),
@@ -110,6 +177,10 @@ const ICONS: Record<string, Glyph> = {
 }
 
 export const hasIcon = (name: string) => name.toLowerCase() in ICONS
+
+/** The brand's official colour (hex without '#'), if the name has an icon. */
+export const brandHex = (name: string): string | undefined =>
+  (ICONS[name.toLowerCase()] as Glyph | undefined)?.hex
 
 /** The icon for a name, in a 2.5-cell slot: icon plus a small gap before the word. */
 export function Icon({ name }: { name: string }) {
@@ -120,9 +191,13 @@ export function Icon({ name }: { name: string }) {
       aria-hidden="true"
       className="inline-flex w-[2.5ch] shrink-0 indent-0 align-[-0.15em]"
     >
-      <svg viewBox={g.viewBox} className="size-[1em] fill-current">
-        <path d={g.path} />
-      </svg>
+      {g.img ? (
+        <img src={g.img} alt="" className="size-[1em] rounded-[2px]" />
+      ) : (
+        <svg viewBox={g.viewBox} className="size-[1em] fill-current">
+          <path d={g.path} />
+        </svg>
+      )}
     </span>
   )
 }

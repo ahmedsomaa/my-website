@@ -55,6 +55,12 @@
   --color-hue-5: var(--hue-5);
   --color-hue-6: var(--hue-6);
 
+  /* company brand colours on the experience graph (Tailwind palette; the rest of the palette stays off) */
+  --color-indigo-500: oklch(58.5% 0.233 277.117);
+  --color-orange-600: oklch(64.6% 0.222 41.116);
+  --color-blue-500: oklch(62.3% 0.214 259.815);
+  --color-red-600: oklch(57.7% 0.245 27.325);
+
   --font-mono: var(--m);
   --font-px: var(--px);
 
