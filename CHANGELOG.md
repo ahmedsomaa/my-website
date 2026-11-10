@@ -3,7 +3,7 @@
 All notable changes to som3aware, the portfolio of Ahmed Abu Qahf.
 Dates are when a version reached `main`. The site shows this file as its changelog page.
 
-## v3.1: content rework (unreleased)
+## v3.1: content rework (2026-11-10)
 
 Every page now reads from one data file, and the content was rewritten around real work.
 
@@ -33,7 +33,7 @@ Every page now reads from one data file, and the content was rewritten around re
 - `robots.txt` points to `llms.txt`
 - Page description, `llms.txt`, `llms-full.txt` and `sitemap.xml` match the new content
 
-## v3: TUI workspace (unreleased)
+## v3: TUI workspace (2026-11-09)
 
 The site becomes a terminal-style workspace, built in React 19 and Tailwind CSS v4.
 
